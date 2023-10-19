@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "harbor"
+version = "2023.10.17"
+description = "Where data is safe and researchers set sail"
+authors = ["OASCI"]
+readme = "README.md"
+license = "CC BY 4.0"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.website.dependencies]
+sphinx = "^7.2.6"
+sphinx-multiversion = "^0.2.4"
+furo = "^2023.9.10"
+sphinx-design = "^0.5.0"
+sphinxcontrib-mermaid = "^0.9.2"
+sphinxemoji = "^0.2.0"
+sphinx-autoapi = "^3.0.0"
+sphinx-autodoc-typehints = "^1.24.0"
+sphinx-copybutton = "^0.5.2"
+myst-parser = "^2.0.0"
+pydocstyle = "^6.3.0"
+sphinx-togglebutton = "^0.3.2"
+sphinxcontrib-bibtex = "^2.6.1"
+sphinx-inline-tabs = "^2023.4.21"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.0"
+isort = "^5.12.0"
+pylint = "^3.0.1"
+mypy = "^1.6.0"
+mypy-extensions = "^1.0.0"
+safety = "^2.3.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
