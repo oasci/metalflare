@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "harbor"
+name = "metalflare"
 version = "2023.10.17"
 description = "Where data is safe and researchers set sail"
 authors = ["OASCI"]
