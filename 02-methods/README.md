@@ -14,7 +14,7 @@ More can be added (and documented) with numbers `03` to `99`.
 
 TODO: Probably scripts?
 
-### `harbor`
+### `metalflare`
 
 A modularized package that contains all code used in the project.
 This will be installed inside the virtual environment and be callable from scripts throughout the repository.
