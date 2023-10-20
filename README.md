@@ -1,4 +1,4 @@
-<img src="website/source/_static/images/harbor-logo.svg" alt="hamiparm" align="center">
+<h1 align="center">MetalFlare</h1>
 
 <h4 align="center">Where data is safe and researchers set sail</h4>
 

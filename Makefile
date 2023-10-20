@@ -7,14 +7,16 @@ CONDA := conda run -p $(CONDA_PATH)
 
 ###   ENVIRONMENT   ###
 
+# The find command is because of this:
+# https://github.com/python-poetry/poetry/issues/6408#issuecomment-1513131650
+
 .PHONY: conda-setup
 conda-setup:
 	conda create -y -p $(CONDA_PATH) python=$(PYTHON_VERSION)
 	conda install -y conda-lock -p $(CONDA_PATH)
 	conda install -y -c conda-forge poetry pre-commit -p $(CONDA_PATH)
+	find $(CONDA_PATH) -name direct_url.json -delete
 
-# The find command is because of this:
-# https://github.com/python-poetry/poetry/issues/6408#issuecomment-1513131650
 .PHONY: conda-dependencies
 conda-dependencies:
 	$(CONDA) conda config --add channels conda-forge
@@ -33,6 +35,7 @@ from-conda-lock:
 write-conda-lock:
 	$(CONDA) conda env export --from-history | grep -v "^prefix" | grep -v "^name" > environment.yml
 	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64
+	find $(CONDA_PATH) -name direct_url.json -delete
 
 # Reads `pyproject.toml`, solves environment, then writes lock file.
 .PHONY: poetry-lock
