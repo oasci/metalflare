@@ -5,11 +5,10 @@
 
 """Bootstrap-based sphinx theme from the PyData community."""
 
-from typing import Dict
-
 import json
 import os
 from pathlib import Path
+from typing import Dict
 from urllib.parse import urlparse
 
 import requests

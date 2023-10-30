@@ -5,9 +5,8 @@
 
 """General helpers for the management of config parameters."""
 
-from typing import Any, Dict
-
 from collections.abc import Iterator
+from typing import Any, Dict
 
 from docutils.nodes import Node
 from sphinx.application import Sphinx

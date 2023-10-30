@@ -6,10 +6,9 @@
 # pylint: disable=unused-argument
 
 """Launch buttons for Binder / Thebe / Colab / etc."""
-from typing import Any, Dict, Optional
-
 from pathlib import Path
 from shutil import copy2
+from typing import Any, Dict, Optional
 from urllib.parse import quote, urlencode
 
 from docutils.nodes import document
