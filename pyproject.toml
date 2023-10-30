@@ -38,6 +38,7 @@ bump-my-version = "^0.11.0"
 [tool.bumpversion]
 current_version = "2023.10.28"
 tag = true
+commit = true
 
 [tool.poetry-dynamic-versioning]
 enable = true
