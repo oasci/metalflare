@@ -57,3 +57,19 @@ After releasing a new version, you need to push and include all tags.
 ```bash
 git push --follow-tags
 ```
+
+```{toctree}
+:hidden:
+
+website/source/environment
+01-management/README
+02-methods/README
+03-data/README
+04-analysis/README
+05-figures/README
+06-dissemination/README
+07-misc/README
+website/source/sop
+Code license <LICENSE_CODE>
+Info license <LICENSE_INFO>
+```

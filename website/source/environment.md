@@ -19,7 +19,7 @@ We recommend using [`libmamba`](https://conda.github.io/conda-libmamba-solver/ge
 
 ### Conda environment
 
-First, we setup a `conda` environment inside the repository (`.venv`).
+First, we setup a `conda` environment called `metalflare-dev`.
 
 ```bash
 make conda-setup
@@ -33,11 +33,6 @@ make conda-setup
 make from-conda-lock
 ```
 
-```{warning}
-Windows is not supported because `ambertools` is only available for linux and osx.
-If you must use windows, it is recommended that you build from scratch.
-```
-
 :::
 
 :::{tab-item} From scratch
@@ -45,19 +40,19 @@ If you must use windows, it is recommended that you build from scratch.
 Activate the conda environment.
 
 ```bash
-conda activate ./.venv
+conda activate metalflare-dev
 ```
 
 Add all relevant conda channels so they are exported to `environment.yml`.
 
 ```bash
-conda config --add channels conda-forge
+conda config --env --add channels conda-forge
 ```
 
 Install all desired packages; for example,
 
 ```bash
-conda install -c conda-forge openmm ambertools
+conda install -c conda-forge openmm
 ```
 
 If needed, write a new `conda-lock` file.
@@ -66,15 +61,9 @@ If needed, write a new `conda-lock` file.
 make write-conda-lock
 ```
 
-```{note}
-At the time of writing, `AmberTools` does not support `python3.11`.
-```
-
 :::
 
 ::::
-
-<!-- conda list -e -p .venv/ | sed '1,3d ; s/=[a-z][A-Za-z0-9].*$//g ; s/^_[A-Za-z0-9].*$//g ; s/=/==/g' -->
 
 ### Poetry-tracked packages
 
