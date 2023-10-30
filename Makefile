@@ -15,6 +15,7 @@ DOCS_URL := https://metalflare.oasci.org
 
 .PHONY: conda-setup
 conda-setup:
+	- conda deactivate
 	conda remove -y --name $(CONDA_NAME) --all
 	conda create -y -n $(CONDA_NAME) python=$(PYTHON_VERSION)
 	conda install -y conda-lock -n $(CONDA_NAME)
@@ -31,7 +32,7 @@ write-conda-lock:
 
 .PHONY: from-conda-lock
 from-conda-lock:
-	$(CONDA) conda-lock install --prefix $(REPO_PATH)/.venv $(REPO_PATH)/conda-lock.yml
+	$(CONDA) conda-lock install -n $(CONDA_NAME) $(REPO_PATH)/conda-lock.yml
 	$(CONDA) pip install conda_poetry_liaison
 	$(CONDA) cpl-clean $(CONDA_PATH)
 
