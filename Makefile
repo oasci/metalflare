@@ -1,41 +1,42 @@
 SHELL := /usr/bin/env bash
 PYTHON_VERSION := 3.11
 PYTHON_VERSION_CONDENSED := 311
+PACKAGE_NAME := metalflare
 REPO_PATH := $(shell git rev-parse --show-toplevel)
-CONDA_PATH := $(REPO_PATH)/.venv
-CONDA := conda run -p $(CONDA_PATH)
+PACKAGE_PATH := $(REPO_PATH)/02-methods/$(PACKAGE_NAME)
+TESTS_PATH := $(REPO_PATH)/02-methods/99-tests/
+CONDA_NAME := $(PACKAGE_NAME)-dev
+CONDA_BASE_PATH = $(shell conda info --base)
+CONDA_PATH := $(CONDA_BASE_PATH)/envs/$(CONDA_NAME)
+CONDA := conda run -n $(CONDA_NAME)
+DOCS_URL := https://metalflare.oasci.org
 
 ###   ENVIRONMENT   ###
 
-# The find command is because of this:
-# https://github.com/python-poetry/poetry/issues/6408#issuecomment-1513131650
-
 .PHONY: conda-setup
 conda-setup:
-	conda create -y -p $(CONDA_PATH) python=$(PYTHON_VERSION)
-	conda install -y conda-lock -p $(CONDA_PATH)
-	conda install -y -c conda-forge poetry pre-commit -p $(CONDA_PATH)
-	find $(CONDA_PATH) -name direct_url.json -delete
+	conda remove -y --name $(CONDA_NAME) --all
+	conda create -y -n $(CONDA_NAME) python=$(PYTHON_VERSION)
+	conda install -y conda-lock -n $(CONDA_NAME)
+	conda install -y -c conda-forge poetry pre-commit tomli tomli-w -n $(CONDA_NAME)
+	$(CONDA) pip install conda_poetry_liaison
 
-.PHONY: conda-dependencies
-conda-dependencies:
-	$(CONDA) conda config --add channels conda-forge
-	find $(CONDA_PATH) -name direct_url.json -delete
+.PHONY: write-conda-lock
+write-conda-lock:
+	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
+	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64 -p win-64
+	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_path $(CONDA_PATH)
+	$(CONDA) cpl-clean $(CONDA_PATH)
+
+.PHONY: from-conda-lock
+from-conda-lock:
+	$(CONDA) conda-lock install --prefix $(REPO_PATH)/.venv $(REPO_PATH)/conda-lock.yml
+	$(CONDA) pip install conda_poetry_liaison
+	$(CONDA) cpl-clean $(CONDA_PATH)
 
 .PHONY: pre-commit-install
 pre-commit-install:
 	$(CONDA) pre-commit install
-
-.PHONY: from-conda-lock
-from-conda-lock:
-	$(CONDA) conda-lock install -p $(CONDA_PATH) $(REPO_PATH)/conda-lock.yml
-	find $(CONDA_PATH) -name direct_url.json -delete
-
-.PHONY: write-conda-lock
-write-conda-lock:
-	$(CONDA) conda env export --from-history | grep -v "^prefix" | grep -v "^name" > environment.yml
-	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64
-	find $(CONDA_PATH) -name direct_url.json -delete
 
 # Reads `pyproject.toml`, solves environment, then writes lock file.
 .PHONY: poetry-lock
@@ -46,23 +47,22 @@ poetry-lock:
 .PHONY: install
 install:
 	$(CONDA) poetry install --no-interaction
-	-$(CONDA) mypy --install-types --non-interactive ./reptar
+
+.PHONY: refresh
+refresh: conda-setup from-conda-lock pre-commit-install install formatting validate
 
 
 ###   FORMATTING   ###
 
 .PHONY: validate
 validate:
-	$(CONDA) pre-commit run --all-files
-
-.PHONY: codestyle
-codestyle:
-	$(CONDA) pyupgrade --exit-zero-even-if-changed --py$(PYTHON_VERSION_CONDENSED)-plus **/*.py
-	$(CONDA) isort --settings-path pyproject.toml ./
-	$(CONDA) black --config pyproject.toml ./
+	- $(CONDA) pre-commit run --all-files
 
 .PHONY: formatting
-formatting: codestyle validate
+formatting:
+	- $(CONDA) pyupgrade --exit-zero-even-if-changed --py311-plus **/*.py
+	- $(CONDA) isort --settings-path pyproject.toml ./
+	- $(CONDA) black --config pyproject.toml ./
 
 
 
@@ -70,13 +70,13 @@ formatting: codestyle validate
 
 .PHONY: test
 test:
-	$(CONDA) pytest -c pyproject.toml --cov=reptar --cov-report=xml tests/
+	$(CONDA) pytest -c pyproject.toml --cov=$(PACKAGE_PATH) --cov-report=xml $(TESTS_PATH)
 
 .PHONY: check-codestyle
 check-codestyle:
 	$(CONDA) isort --diff --check-only --settings-path pyproject.toml ./
 	$(CONDA) black --diff --check --config pyproject.toml ./
-	-$(CONDA) pylint reptar
+	-$(CONDA) pylint $(PACKAGE_PATH)
 
 .PHONY: mypy
 mypy:
@@ -86,7 +86,7 @@ mypy:
 check-safety:
 	$(CONDA) poetry check
 	$(CONDA) safety check --full-report
-	$(CONDA) bandit -ll --recursive reptar tests
+	$(CONDA) bandit -ll --recursive $(PACKAGE_PATH) $(TESTS_PATH)
 
 .PHONY: lint
 lint: check-codestyle mypy check-safety

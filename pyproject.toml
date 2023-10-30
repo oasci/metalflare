@@ -1,10 +1,9 @@
 [tool.poetry]
 name = "metalflare"
-version = "2023.10.17"
-description = "Where data is safe and researchers set sail"
-authors = ["OASCI"]
+version = "0.0.0"
+description = "Investigating metal-sensing green fluorescent protein"
+authors = ["OASCI <us@oasci.org>"]
 readme = "README.md"
-license = "CC BY 4.0"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -34,6 +33,22 @@ mypy = "^1.6.0"
 mypy-extensions = "^1.0.0"
 safety = "^2.3.5"
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+format-jinja = "{%- if distance == 0 -%}{{ serialize_pep440(base) }}{%- else -%}{{ serialize_pep440(base, post=distance) }}{%- endif -%}"
+
+[tool.poetry-dynamic-versioning.substitution]
+patterns = [
+    "(^__version__\\s*(?::.*?)?=\\s*['\"])[^'\"]*(['\"])",
+]
+folders = [
+    { path = "02-methods/metalflare" },
+]
+
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = [
+    "poetry-core>=1.0.0",
+    "poetry-dynamic-versioning>=1.0.0,<2.0.0",
+]
+build-backend = "poetry_dynamic_versioning.backend"
