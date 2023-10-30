@@ -49,7 +49,7 @@ However, we are using [Calendar Versioning](https://calver.org/) which means we 
 For example, to bump the version to November 8, 2024, you would run the following command after activating the relevant conda environment.
 
 ```bash
-bump-my-version bump --new-version 2024.11.4
+bump-my-version bump --new-version 2024.11.8
 ```
 
 After releasing a new version, you need to push and include all tags.
