@@ -33,7 +33,11 @@ pylint = "^3.0.1"
 mypy = "^1.6.0"
 mypy-extensions = "^1.0.0"
 safety = "^2.3.5"
-bump2version = "^1.0.1"
+bump-my-version = "^0.11.0"
+
+[tool.bumpversion]
+current_version = "2023.10.28"
+tag = true
 
 [tool.poetry-dynamic-versioning]
 enable = true
