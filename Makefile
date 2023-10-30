@@ -23,6 +23,7 @@ conda-setup:
 
 .PHONY: write-conda-lock
 write-conda-lock:
+	- rm $(REPO_PATH)/conda-lock.yml
 	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
 	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64 -p win-64
 	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_path $(CONDA_PATH)
@@ -60,9 +61,8 @@ validate:
 
 .PHONY: formatting
 formatting:
-	- $(CONDA) pyupgrade --exit-zero-even-if-changed --py311-plus **/*.py
-	- $(CONDA) isort --settings-path pyproject.toml ./
-	- $(CONDA) black --config pyproject.toml ./
+	- $(CONDA) isort $(PACKAGE_PATH)
+	- $(CONDA) black --config pyproject.toml $(PACKAGE_PATH)
 
 
 
@@ -74,8 +74,8 @@ test:
 
 .PHONY: check-codestyle
 check-codestyle:
-	$(CONDA) isort --diff --check-only --settings-path pyproject.toml ./
-	$(CONDA) black --diff --check --config pyproject.toml ./
+	$(CONDA) isort --diff --check-only $(PACKAGE_PATH)
+	$(CONDA) black --diff --check --config pyproject.toml $(PACKAGE_PATH)
 	-$(CONDA) pylint $(PACKAGE_PATH)
 
 .PHONY: mypy
