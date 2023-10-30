@@ -28,12 +28,12 @@ These dual, semi-restrictive licenses ensure a balance between protecting our on
 
 ### Open-source release
 
-On **January 1, 2033**, the above licenses and paragraphs are voided, removed, and superseded by the following content.
+On **January 1, 2033**, the above licenses and paragraphs are voided, removed, and superseded by [`LICENSE_CODE_OPEN`](https://github.com/oasci/metalflare/blob/main/LICENSE_CODE_OPEN.md), [`LICENSE_INFO_OPEN`](https://github.com/oasci/metalflare/blob/main/LICENSE_INFO_OPEN.md), and the following content.
 This aforementioned date is subject to change to a time earlier than **January 1, 2033**, but never later.
 
-> Code contained in this project is released under the [MIT License](https://spdx.org/licenses/MIT.html) as specified in [`LICENSE_CODE`](https://github.com/oasci/metalflare/blob/main/LICENSE_CODE.md), which grants you the freedom to use, modify, and distribute it as long as you include the original copyright notice and disclaimer.
+> Code contained in this project is released under the [MIT License](https://spdx.org/licenses/MIT.html) as specified in [`LICENSE_CODE_OPEN`](https://github.com/oasci/metalflare/blob/main/LICENSE_CODE_OPEN.md), which grants you the freedom to use, modify, and distribute it as long as you include the original copyright notice and disclaimer.
 >
-> All other data, information, documentation, and associated content provided within this project are released under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) as specified in [`LICENSE_INFO`](https://github.com/oasci/metalflare/blob/main/LICENSE_INFO.md).
+> All other data, information, documentation, and associated content provided within this project are released under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) as specified in [`LICENSE_INFO_OPEN`](https://github.com/oasci/metalflare/blob/main/LICENSE_INFO_OPEN.md).
 > This means you are free to share and adapt the non-code elements, but you must give appropriate credit to the original source and indicate if changes were made.
 >
 > These dual licenses ensure a balance between open-source software and data accessibility while encouraging collaboration and proper attribution.
