@@ -15,23 +15,24 @@ DOCS_URL := https://metalflare.oasci.org
 conda-create:
 	- conda deactivate
 	conda remove -y -n $(CONDA_NAME) --all
-	conda create -y -n $(CONDA_NAME) python=$(PYTHON_VERSION)
+	conda create -y -n $(CONDA_NAME)
+	$(CONDA) conda install -y python=$(PYTHON_VERSION)
+	$(CONDA) conda install -y conda-lock
 
 # Default packages that we always need.
 .PHONY: conda-setup
 conda-setup:
-	conda install -y -n $(CONDA_NAME) conda-lock
-	conda install -y -n $(CONDA_NAME) -c conda-forge poetry
-	conda install -y -n $(CONDA_NAME) -c conda-forge pre-commit
-	conda install -y -n $(CONDA_NAME) -c conda-forge tomli tomli-w
+	$(CONDA) conda install -y -c conda-forge poetry
+	$(CONDA) conda install -y -c conda-forge pre-commit
+	$(CONDA) conda install -y -c conda-forge tomli tomli-w
 	$(CONDA) pip install conda_poetry_liaison
 
 # Packages specific to this project.
 .PHONY: conda-dependencies
 conda-dependencies:
-	conda install -y -n $(CONDA_NAME) -c conda-forge ambertools
-	conda install -y -n $(CONDA_NAME) -c conda-forge pdb2pqr
-	conda install -y -n $(CONDA_NAME) -c conda-forge mdanalysis
+	$(CONDA) conda install -y -c conda-forge ambertools
+	$(CONDA) conda install -y -c conda-forge pdb2pqr
+	$(CONDA) conda install -y -c conda-forge mdanalysis
 
 .PHONY: write-conda-lock
 write-conda-lock:
@@ -64,7 +65,7 @@ install:
 	- $(CONDA) poetry run mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
 
 .PHONY: refresh
-refresh: conda-create conda-setup from-conda-lock pre-commit-install install
+refresh: conda-create from-conda-lock pre-commit-install install
 
 
 ###   FORMATTING   ###
