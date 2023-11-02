@@ -142,25 +142,25 @@ cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove 
 
 
 
-###   WEBSITE   ###
+###   DOCS   ###
 
-.PHONY: website
-website:
-	rm -rf ./website/html/
-	$(CONDA) sphinx-build -nT ./ ./website/html/
-	touch ./website/html/.nojekyll
+.PHONY: docs
+docs:
+	rm -rf ./docs/html/
+	$(CONDA) sphinx-build -nT ./ ./docs/html/
+	touch ./docs/html/.nojekyll
 
-.PHONY: website-versioned
-website-versioned:
-	rm -rf ./website/html/
-	$(CONDA) sphinx-multiversion -nT ./ ./website/html/
-	touch ./website/html/.nojekyll
+.PHONY: docs-versioned
+docs-versioned:
+	rm -rf ./docs/html/
+	$(CONDA) sphinx-multiversion -nT ./ ./docs/html/
+	touch ./docs/html/.nojekyll
 
 	# Create html redirect to main
-	echo "<head>" > ./website/html/index.html
-	echo "  <meta http-equiv='refresh' content='0; URL=$(DOCS_URL)/main/index.html'>" >> ./website/html/index.html
-	echo "</head>" >> ./website/html/index.html
+	echo "<head>" > ./docs/html/index.html
+	echo "  <meta http-equiv='refresh' content='0; URL=$(DOCS_URL)/main/index.html'>" >> ./docs/html/index.html
+	echo "</head>" >> ./docs/html/index.html
 
-.PHONY: open-website
-open-website:
-	xdg-open ./website/html/index.html 2>/dev/null
+.PHONY: open-docs
+open-docs:
+	xdg-open ./docs/html/index.html 2>/dev/null

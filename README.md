@@ -12,6 +12,26 @@ We use [this repository's issues](https://github.com/oasci/metalflare/issues) as
 Asynchronous conversations about any of the tasks should be included as issue comments.
 Synchronous meetings happening in-person or virtually should have meeting minutes stored in the [appropriate directory](01-management/03-meetings).
 
+## Deploying
+
+A note to maintainers.
+
+We use [bump-my-version](https://github.com/callowayproject/bump-my-version) to release a new version.
+This will create a git tag that is used by [poetry-dynamic-version](https://github.com/mtkennerly/poetry-dynamic-versioning) to generate version strings.
+
+However, we are using [Calendar Versioning](https://calver.org/) which means we need to manually specify new versions.
+For example, to bump the version to November 8, 2024, you would run the following command after activating the relevant conda environment.
+
+```bash
+bump-my-version bump --new-version 2024.11.8
+```
+
+After releasing a new version, you need to push and include all tags.
+
+```bash
+git push --follow-tags
+```
+
 ## License
 
 By accessing or using the source code herein, you agree to the terms and conditions set forth in [`LICENSE_CODE`](https://github.com/oasci/metalflare/blob/main/LICENSE_CODE.md).
@@ -38,22 +58,16 @@ This aforementioned date is subject to change to a time earlier than **January 1
 >
 > These dual licenses ensure a balance between open-source software and data accessibility while encouraging collaboration and proper attribution.
 
-## Deploying
+```{toctree}
+:maxdepth: 2
+:hidden:
+:glob:
 
-A note to maintainers.
-
-We use [bump-my-version](https://github.com/callowayproject/bump-my-version) to release a new version.
-This will create a git tag that is used by [poetry-dynamic-version](https://github.com/mtkennerly/poetry-dynamic-versioning) to generate version strings.
-
-However, we are using [Calendar Versioning](https://calver.org/) which means we need to manually specify new versions.
-For example, to bump the version to November 8, 2024, you would run the following command after activating the relevant conda environment.
-
-```bash
-bump-my-version bump --new-version 2024.11.8
-```
-
-After releasing a new version, you need to push and include all tags.
-
-```bash
-git push --follow-tags
+website/source/environment
+*/README
+website/source/sop
+Code license <LICENSE_CODE>
+Code license open <LICENSE_CODE_OPEN>
+Info license <LICENSE_INFO>
+Info license open <LICENSE_INFO_OPEN>
 ```
