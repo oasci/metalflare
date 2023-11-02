@@ -8,11 +8,15 @@ For instance, reagents shall be best documented at the time of purchase.
 ## Organization
 
 This is not an exhaustive set of directories.
-More can be added (and documented) with numbers `03` to `99`.
+More can be added (and documented) with numbers `02` to `98`.
 
 ### `01-protocols`
 
 TODO: Probably scripts?
+
+### `02-qmmm-protein-metal`
+
+QM/MM molecular dynamic simulation of protein-metal binding in Amber.
 
 ### `metalflare`
 
