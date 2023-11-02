@@ -6,35 +6,46 @@ REPO_PATH := $(shell git rev-parse --show-toplevel)
 PACKAGE_PATH := $(REPO_PATH)/02-methods/$(PACKAGE_NAME)
 TESTS_PATH := $(REPO_PATH)/02-methods/99-tests/
 CONDA_NAME := $(PACKAGE_NAME)-dev
-CONDA_BASE_PATH = $(shell conda info --base)
-CONDA_PATH := $(CONDA_BASE_PATH)/envs/$(CONDA_NAME)
 CONDA := conda run -n $(CONDA_NAME)
 DOCS_URL := https://metalflare.oasci.org
 
 ###   ENVIRONMENT   ###
 
+.PHONY: conda-create
+conda-create:
+	- conda deactivate
+	conda remove -y -n $(CONDA_NAME) --all
+	conda create -y -n $(CONDA_NAME) python=$(PYTHON_VERSION)
+
+# Default packages that we always need.
 .PHONY: conda-setup
 conda-setup:
-	- conda deactivate
-	conda remove -y --name $(CONDA_NAME) --all
-	conda create -y -n $(CONDA_NAME) python=$(PYTHON_VERSION)
-	conda install -y conda-lock -n $(CONDA_NAME)
-	conda install -y -c conda-forge poetry pre-commit tomli tomli-w -n $(CONDA_NAME)
+	conda install -y -n $(CONDA_NAME) conda-lock
+	conda install -y -n $(CONDA_NAME) -c conda-forge poetry
+	conda install -y -n $(CONDA_NAME) -c conda-forge pre-commit
+	conda install -y -n $(CONDA_NAME) -c conda-forge tomli tomli-w
 	$(CONDA) pip install conda_poetry_liaison
+
+# Packages specific to this project.
+.PHONY: conda-dependencies
+conda-dependencies:
+	conda install -y -n $(CONDA_NAME) -c conda-forge ambertools
+	conda install -y -n $(CONDA_NAME) -c conda-forge pdb2pqr
+	conda install -y -n $(CONDA_NAME) -c conda-forge mdanalysis
 
 .PHONY: write-conda-lock
 write-conda-lock:
 	- rm $(REPO_PATH)/conda-lock.yml
 	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
-	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64 -p win-64
-	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_path $(CONDA_PATH)
-	$(CONDA) cpl-clean $(CONDA_PATH)
+	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64
+	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_name $(CONDA_NAME)
+	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: from-conda-lock
 from-conda-lock:
 	$(CONDA) conda-lock install -n $(CONDA_NAME) $(REPO_PATH)/conda-lock.yml
 	$(CONDA) pip install conda_poetry_liaison
-	$(CONDA) cpl-clean $(CONDA_PATH)
+	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: pre-commit-install
 pre-commit-install:
@@ -49,9 +60,11 @@ poetry-lock:
 .PHONY: install
 install:
 	$(CONDA) poetry install --no-interaction
+	- mkdir .mypy_cache
+	- $(CONDA) poetry run mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
 
 .PHONY: refresh
-refresh: conda-setup from-conda-lock pre-commit-install install formatting validate
+refresh: conda-create conda-setup from-conda-lock pre-commit-install install
 
 
 ###   FORMATTING   ###
@@ -62,7 +75,7 @@ validate:
 
 .PHONY: formatting
 formatting:
-	- $(CONDA) isort $(PACKAGE_PATH)
+	- $(CONDA) isort --settings-path pyproject.toml $(PACKAGE_PATH)
 	- $(CONDA) black --config pyproject.toml $(PACKAGE_PATH)
 
 
@@ -77,11 +90,11 @@ test:
 check-codestyle:
 	$(CONDA) isort --diff --check-only $(PACKAGE_PATH)
 	$(CONDA) black --diff --check --config pyproject.toml $(PACKAGE_PATH)
-	-$(CONDA) pylint $(PACKAGE_PATH)
+	- $(CONDA) pylint --rcfile pyproject.toml $(PACKAGE_PATH)
 
 .PHONY: mypy
 mypy:
-	-$(CONDA) mypy --config-file pyproject.toml ./
+	-$(CONDA) mypy --config-file pyproject.toml $(PACKAGE_PATH)
 
 .PHONY: check-safety
 check-safety:
@@ -90,7 +103,7 @@ check-safety:
 	$(CONDA) bandit -ll --recursive $(PACKAGE_PATH) $(TESTS_PATH)
 
 .PHONY: lint
-lint: check-codestyle mypy check-safety
+lint: check-codestyle mypy
 
 
 

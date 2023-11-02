@@ -9,3 +9,6 @@ dependencies:
   - pre-commit
   - tomli
   - tomli-w
+  - ambertools
+  - pdb2pqr
+  - mdanalysis
