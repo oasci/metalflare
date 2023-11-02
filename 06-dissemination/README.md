@@ -5,6 +5,7 @@ This folder contains files meant for scholarly communication and reports. It ran
 ## Contents
 
 ```{toctree}
+:maxdepth: 1
 :glob:
 
 *

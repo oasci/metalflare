@@ -57,17 +57,3 @@ This aforementioned date is subject to change to a time earlier than **January 1
 > This means you are free to share and adapt the non-code elements, but you must give appropriate credit to the original source and indicate if changes were made.
 >
 > These dual licenses ensure a balance between open-source software and data accessibility while encouraging collaboration and proper attribution.
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-:glob:
-
-website/source/environment
-*/README
-website/source/sop
-Code license <LICENSE_CODE>
-Code license open <LICENSE_CODE_OPEN>
-Info license <LICENSE_INFO>
-Info license open <LICENSE_INFO_OPEN>
-```
