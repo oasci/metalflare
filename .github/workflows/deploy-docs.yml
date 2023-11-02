@@ -45,6 +45,9 @@ jobs:
       - name: Initialize conda environment
         run: make conda-create
 
+      - name: Setup conda
+        run: make conda-setup
+
       - name: Install conda dependencies
         run: make from-conda-lock
 
