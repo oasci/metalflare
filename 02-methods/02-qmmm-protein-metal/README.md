@@ -1,8 +1,8 @@
-# QM/MM molecular dynamic simulation of protein-metal binding in Amber
+# 02-qmmm-protein-metal
 
-## Abstract
+## QM/MM molecular dynamics simulation of protein-metal binding in Amber
 
-TODO
+Add abstract here.
 
 ## Prerequisites
 
@@ -52,6 +52,14 @@ conda-lock install -n <CONDA_ENV_NAME> ./conda-lock.yml
 
 ```bash
 wget https://files.rcsb.org/download/<PDB_ID>.pdb
+```
+
+```{toctree}
+:maxdepth: 1
+:glob:
+
+*
+*/README
 ```
 
 [conda]: https://docs.conda.io/en/latest/

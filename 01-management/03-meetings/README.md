@@ -5,5 +5,5 @@ TODO:
 ```{toctree}
 :glob:
 
-*
+*/*
 ```

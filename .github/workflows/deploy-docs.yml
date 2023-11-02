@@ -23,7 +23,7 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    name: website
+    name: docs
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -43,13 +43,16 @@ jobs:
           python-version: "3.11"
 
       - name: Initialize conda environment
-        run: make conda-setup
+        run: make conda-create
+
+      - name: Install conda dependencies
+        run: make from-conda-lock
 
       - name: Poetry install
         run: make install
 
       - name: Build documentation
-        run: make website-versioned
+        run: make docs-versioned
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -58,7 +61,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: './website/html/'
+          path: './docs/html/'
 
       - name: Deploy to GitHub Pages
         id: deployment

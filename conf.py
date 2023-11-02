@@ -13,9 +13,6 @@
 import os
 import sys
 
-# For our custom sphinx extensions
-sys.path.insert(0, os.path.abspath("./website/source/exts"))
-
 
 # -- Project information -----------------------------------------------------
 
@@ -53,10 +50,10 @@ suppress_warnings = ["autosectionlabel.*"]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [".venv", "website/html/"]
+exclude_patterns = [".venv", "docs/html/"]
 
 # Updating master docs
-root_doc = "index"
+root_doc = "README"
 
 # Add mappings
 intersphinx_mapping = {
@@ -76,11 +73,11 @@ html_theme = "furo"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["website/source/_static"]
+html_static_path = ["docs/source/_static"]
 
 # Including sphinx multiversion
 templates_path = [
-    "website/source/_templates",
+    "docs/source/_templates",
 ]
 smv_branch_whitelist = r"main"  # Only include the main branch
 html_sidebars = {
@@ -110,11 +107,11 @@ autoapi_keep_files = False
 autodoc_typehints = "description"
 
 # bibtex
-bibtex_bibfiles = ["website/source/refs.bib"]
+bibtex_bibfiles = ["docs/source/refs.bib"]
 
 # Header buttons
 html_theme_options = {
-    "sidebar_hide_name": True,
+    "sidebar_hide_name": False,  # Set to True if logo
     "source_repository": "https://github.com/oasci/metalflare",
     "source_branch": "main",
     "source_directory": "/",
@@ -122,13 +119,6 @@ html_theme_options = {
     "path_to_docs": "/",
     "repository_url": "https://github.com/oasci/metalflare",
     "repository_branch": "main",
-    "launch_buttons": {
-        "binderhub_url": "https://mybinder.org",
-        "colab_url": "https://colab.research.google.com/",
-        "deepnote_url": "https://deepnote.com/",
-        "notebook_interface": "jupyterlab",
-        "thebe": False,
-    },
     "footer_icons": [
         {
             "name": "GitHub",

@@ -7,8 +7,6 @@ This folder contains files meant for scholarly communication and reports. It ran
 ```{toctree}
 :glob:
 
-01-reports/*
-02-manuscripts/*
-03-other/*
 *
+*/README
 ```

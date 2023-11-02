@@ -8,14 +8,14 @@ All markdown files should follow the following formatting procedures:
 - Indents shall be two spaces;
 - Use [MyST-flavored](https://myst-parser.readthedocs.io/en/latest/) formatting.
 
-Each Markdown file should have a `toctree` at the bottom that allows our website framework to find it.
+Each Markdown file should have a `toctree` at the bottom that allows our docs framework to find it.
 For example, the `index.md` page has
 
 ````markdown
 ```{toctree}
 :hidden:
 
-website/source/environment
+docs/source/environment
 01-management/README
 02-methods/README
 03-data/README
@@ -23,7 +23,7 @@ website/source/environment
 05-figures/README
 06-dissemination/README
 07-misc/README
-website/source/sop
+docs/source/sop
 Code license <LICENSE_CODE>
 Info license <LICENSE_INFO>
 ```
@@ -48,13 +48,13 @@ We recommend the following plugins:
 - [obsidian-table-editor](https://github.com/ganesshkumar/obsidian-table-editor),
 - [tag-wrangler](https://github.com/pjeby/tag-wrangler).
 
-## Website
+## Docs
 
-We use [sphinx](https://www.sphinx-doc.org/en/master/) to automatically generate our website using the [furo](https://github.com/pradyunsg/furo) theme.
+We use [sphinx](https://www.sphinx-doc.org/en/master/) to automatically generate our docs using the [furo](https://github.com/pradyunsg/furo) theme.
 For guidelines of what formatting options you have, please see [MyST](https://myst-parser.readthedocs.io/en/latest/).
 
-To locally view the website (assuming you have [setup the environment](./environment)) run the following command.
+To locally view the docs (assuming you have [setup the environment](./environment)) run the following command.
 
 ```bash
-make website
+make docs
 ```

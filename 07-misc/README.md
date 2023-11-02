@@ -8,4 +8,5 @@ TODO:
 :glob:
 
 *
+*/README
 ```
