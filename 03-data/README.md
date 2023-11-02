@@ -16,6 +16,7 @@ I suggest splitting the data between experiments there, too.
 ## Contents
 
 ```{toctree}
+:maxdepth: 1
 :glob:
 
 *

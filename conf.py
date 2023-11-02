@@ -53,7 +53,7 @@ suppress_warnings = ["autosectionlabel.*"]
 exclude_patterns = [".venv", "docs/html/"]
 
 # Updating master docs
-root_doc = "README"
+root_doc = "index"
 
 # Add mappings
 intersphinx_mapping = {

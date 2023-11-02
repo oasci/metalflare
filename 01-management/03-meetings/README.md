@@ -3,7 +3,9 @@
 TODO:
 
 ```{toctree}
+:maxdepth: 1
 :glob:
 
-*/*
+*
+*/README
 ```

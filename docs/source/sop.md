@@ -13,16 +13,12 @@ For example, the `index.md` page has
 
 ````markdown
 ```{toctree}
+:maxdepth: 1
 :hidden:
+:glob:
 
 docs/source/environment
-01-management/README
-02-methods/README
-03-data/README
-04-analysis/README
-05-figures/README
-06-dissemination/README
-07-misc/README
+*/README
 docs/source/sop
 Code license <LICENSE_CODE>
 Info license <LICENSE_INFO>

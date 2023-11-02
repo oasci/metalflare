@@ -6,6 +6,7 @@ It is advised to use vector figures (e.g.,  `.svg` files) when possible, as thei
 ## Contents
 
 ```{toctree}
+:maxdepth: 1
 :glob:
 
 *
