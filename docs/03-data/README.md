@@ -1,4 +1,4 @@
-# 03-data
+# Data
 
 TODO:
 
@@ -12,13 +12,3 @@ The experiment subfolder starts with a three-digit number.
 
 Derivative data that can be easily recreated (and should not be stored for the long term) should go in a different folder, 990_processed data.
 I suggest splitting the data between experiments there, too.
-
-## Contents
-
-```{toctree}
-:maxdepth: 1
-:glob:
-
-*
-*/README
-```
