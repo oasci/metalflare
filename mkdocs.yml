@@ -1,0 +1,97 @@
+docs_dir: docs
+
+site_name: metalflare
+copyright: Copyright &copy; 2023, OASCI
+site_author: OASCI
+
+# Github
+repo_name: oasci/metalflare
+repo_url: https://github.com/oasci/metalflare
+
+# https://squidfunk.github.io/mkdocs-material/
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  palette:
+    primary: custom
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    epo: fontawesome/brands/github
+    annotation: material/star-four-points-circle
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.path
+    - toc.follow
+    - search.suggest
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
+# Options need to be indented twice for some reason?
+plugins:
+  - search
+  - material-plausible
+  - table-reader
+
+extra:
+  generator: false
+  analytics:
+    provider: plausible
+    domain: metalflare
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
