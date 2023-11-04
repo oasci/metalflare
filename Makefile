@@ -3,13 +3,14 @@ PYTHON_VERSION := 3.11
 PYTHON_VERSION_CONDENSED := 311
 PACKAGE_NAME := metalflare
 REPO_PATH := $(shell git rev-parse --show-toplevel)
-PACKAGE_PATH := $(REPO_PATH)/02-methods/$(PACKAGE_NAME)
-TESTS_PATH := $(REPO_PATH)/02-methods/99-tests/
+PACKAGE_PATH := $(REPO_PATH)/$(PACKAGE_NAME)
+TESTS_PATH := $(REPO_PATH)/tests
 CONDA_NAME := $(PACKAGE_NAME)-dev
 CONDA := conda run -n $(CONDA_NAME)
 DOCS_URL := https://metalflare.oasci.org
 
 ###   ENVIRONMENT   ###
+
 .PHONY: conda-create
 conda-create:
 	- conda deactivate
@@ -26,18 +27,16 @@ conda-setup:
 	$(CONDA) conda install -y -c conda-forge tomli tomli-w
 	$(CONDA) conda install -y -c conda-forge conda-poetry-liaison
 
-# Packages specific to this project.
+# Conda-only packages specific to this project.
 .PHONY: conda-dependencies
 conda-dependencies:
-	$(CONDA) conda install -y -c conda-forge ambertools
-	$(CONDA) conda install -y -c conda-forge pdb2pqr
-	$(CONDA) conda install -y -c conda-forge mdanalysis
+	echo "No conda-only packages are required."
 
 .PHONY: conda-lock
 conda-lock:
 	- rm $(REPO_PATH)/conda-lock.yml
 	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
-	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64
+	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64 -p win-64
 	rm $(REPO_PATH)/environment.yml
 	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_name $(CONDA_NAME)
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
@@ -58,12 +57,11 @@ poetry-lock:
 
 .PHONY: install
 install:
-	$(CONDA) poetry install --no-interaction
-	- mkdir .mypy_cache
-	- $(CONDA) poetry run mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
+	$(CONDA) poetry install --no-interaction --no-root
 
 .PHONY: refresh
 refresh: conda-create from-conda-lock pre-commit-install install
+
 
 
 ###   FORMATTING   ###
@@ -74,29 +72,22 @@ validate:
 
 .PHONY: formatting
 formatting:
-	$(CONDA) isort $(PACKAGE_PATH)
-	$(CONDA) black --config pyproject.toml $(PACKAGE_PATH)
+	- $(CONDA) isort --settings-path pyproject.toml ./
+	- $(CONDA) black --config pyproject.toml ./
+
 
 
 
 ###   LINTING   ###
 
-.PHONY: test
-test:
-	$(CONDA) pytest -c pyproject.toml --cov=$(PACKAGE_PATH) --cov-report=xml $(TESTS_PATH)
-
 .PHONY: check-codestyle
 check-codestyle:
-	$(CONDA) isort --diff --check-only $(PACKAGE_PATH)
-	$(CONDA) black --diff --check --config pyproject.toml $(PACKAGE_PATH)
-	$(CONDA) pylint --rcfile pyproject.toml $(PACKAGE_PATH)
-
-.PHONY: mypy
-mypy:
-	- $(CONDA) mypy --config-file pyproject.toml $(PACKAGE_PATH)
+	$(CONDA) isort --diff --check-only $(REPO_PATH)
+	$(CONDA) black --diff --check --config pyproject.toml $(REPO_PATH)
+	$(CONDA) pylint --recursive=y --rcfile pyproject.toml $(REPO_PATH)
 
 .PHONY: lint
-lint: check-codestyle mypy
+lint: check-codestyle
 
 
 
@@ -122,38 +113,30 @@ ipynbcheckpoints-remove:
 pytestcache-remove:
 	find . | grep -E ".pytest_cache" | xargs rm -rf
 
-.PHONY: coverage-remove
-coverage-remove:
-	find . | grep -E ".coverage" | xargs rm -rf
-
 .PHONY: build-remove
 build-remove:
 	rm -rf build/
 
 .PHONY: cleanup
-cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove psi-remove coverage-remove
+cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove
 
 
 
-###   DOCS   ###
+###   MKDOCS   ###
 
-.PHONY: docs
-docs:
-	rm -rf ./docs/html/
-	$(CONDA) sphinx-build -nT ./ ./docs/html/
-	touch ./docs/html/.nojekyll
+.PHONY: serve
+serve:
+	echo "Served at http://127.0.0.1:8910/"
+	$(CONDA) mkdocs serve -a localhost:8910
 
-.PHONY: docs-versioned
-docs-versioned:
-	rm -rf ./docs/html/
-	$(CONDA) sphinx-multiversion -nT ./ ./docs/html/
-	touch ./docs/html/.nojekyll
+.PHONY: build
+build:
+	$(CONDA) mkdocs build
 
-	# Create html redirect to main
-	echo "<head>" > ./docs/html/index.html
-	echo "  <meta http-equiv='refresh' content='0; URL=$(DOCS_URL)/main/index.html'>" >> ./docs/html/index.html
-	echo "</head>" >> ./docs/html/index.html
+.PHONY: open
+open:
+	xdg-open ./site/index.html 2>/dev/null
 
-.PHONY: open-docs
-open-docs:
-	xdg-open ./docs/html/index.html 2>/dev/null
+.PHONY: deploy
+deploy:
+	$(CONDA) mkdocs gh-deploy --force
