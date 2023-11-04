@@ -10,7 +10,6 @@ CONDA := conda run -n $(CONDA_NAME)
 DOCS_URL := https://metalflare.oasci.org
 
 ###   ENVIRONMENT   ###
-
 .PHONY: conda-create
 conda-create:
 	- conda deactivate
@@ -25,7 +24,7 @@ conda-setup:
 	$(CONDA) conda install -y -c conda-forge poetry
 	$(CONDA) conda install -y -c conda-forge pre-commit
 	$(CONDA) conda install -y -c conda-forge tomli tomli-w
-	$(CONDA) pip install conda_poetry_liaison
+	$(CONDA) conda install -y -c conda-forge conda-poetry-liaison
 
 # Packages specific to this project.
 .PHONY: conda-dependencies
@@ -34,18 +33,18 @@ conda-dependencies:
 	$(CONDA) conda install -y -c conda-forge pdb2pqr
 	$(CONDA) conda install -y -c conda-forge mdanalysis
 
-.PHONY: write-conda-lock
-write-conda-lock:
+.PHONY: conda-lock
+conda-lock:
 	- rm $(REPO_PATH)/conda-lock.yml
 	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
 	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64
+	rm $(REPO_PATH)/environment.yml
 	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_name $(CONDA_NAME)
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: from-conda-lock
 from-conda-lock:
 	$(CONDA) conda-lock install -n $(CONDA_NAME) $(REPO_PATH)/conda-lock.yml
-	$(CONDA) pip install conda_poetry_liaison
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: pre-commit-install
@@ -56,7 +55,6 @@ pre-commit-install:
 .PHONY: poetry-lock
 poetry-lock:
 	$(CONDA) poetry lock --no-interaction
-	$(CONDA) poetry export --without-hashes > requirements.txt
 
 .PHONY: install
 install:
@@ -76,8 +74,8 @@ validate:
 
 .PHONY: formatting
 formatting:
-	- $(CONDA) isort --settings-path pyproject.toml $(PACKAGE_PATH)
-	- $(CONDA) black --config pyproject.toml $(PACKAGE_PATH)
+	$(CONDA) isort $(PACKAGE_PATH)
+	$(CONDA) black --config pyproject.toml $(PACKAGE_PATH)
 
 
 
@@ -91,17 +89,11 @@ test:
 check-codestyle:
 	$(CONDA) isort --diff --check-only $(PACKAGE_PATH)
 	$(CONDA) black --diff --check --config pyproject.toml $(PACKAGE_PATH)
-	- $(CONDA) pylint --rcfile pyproject.toml $(PACKAGE_PATH)
+	$(CONDA) pylint --rcfile pyproject.toml $(PACKAGE_PATH)
 
 .PHONY: mypy
 mypy:
-	-$(CONDA) mypy --config-file pyproject.toml $(PACKAGE_PATH)
-
-.PHONY: check-safety
-check-safety:
-	$(CONDA) poetry check
-	$(CONDA) safety check --full-report
-	$(CONDA) bandit -ll --recursive $(PACKAGE_PATH) $(TESTS_PATH)
+	- $(CONDA) mypy --config-file pyproject.toml $(PACKAGE_PATH)
 
 .PHONY: lint
 lint: check-codestyle mypy
