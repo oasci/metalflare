@@ -33,7 +33,6 @@ theme:
     - navigation.top
     - navigation.indexes
     - navigation.path
-    - navigation.expand
     - toc.follow
     - search.suggest
 
@@ -45,8 +44,19 @@ validation:
 # Options need to be indented twice for some reason?
 plugins:
   - search
+  - autorefs
   - material-plausible
   - table-reader
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["metalflare"]
+          options:
+            annotations_path: brief
+            docstring_style: google
 
 extra:
   generator: false
