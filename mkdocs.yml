@@ -1,7 +1,6 @@
 docs_dir: docs
 
 site_name: metalflare
-copyright: Copyright &copy; 2023, OASCI
 site_author: OASCI
 
 # Github
@@ -30,9 +29,11 @@ theme:
     - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.tracking
     - navigation.top
     - navigation.indexes
     - navigation.path
+    - navigation.prune
     - toc.follow
     - search.suggest
 
@@ -74,6 +75,8 @@ extra_javascript:
 
 markdown_extensions:
   - abbr
+  - toc:
+      permalink: true
   - admonition
   - attr_list
   - def_list
