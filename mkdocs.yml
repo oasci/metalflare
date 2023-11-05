@@ -31,7 +31,6 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.footer
     - navigation.indexes
     - navigation.sections
     - navigation.path
