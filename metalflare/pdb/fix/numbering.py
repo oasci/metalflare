@@ -1,8 +1,9 @@
 """Standardizes residue ID numbering"""
-
+import argparse
 import re
+from collections.abc import Iterable
 
-from ..utils import parse_resid, set_resid
+from ..utils import keep_lines, parse_resid, write_resid
 
 
 def assign_resid(
@@ -10,7 +11,7 @@ def assign_resid(
 ) -> int:
     r"""Determines residue ID based on a consistent numbering scheme.
 
-    Parameters:
+    Args:
         line: Line that we are determining the residue ID to have.
         current_resid: Current residue ID that we are using.
         current_original_resid: Original residue ID from the PDB file that we are grouping together.
@@ -39,9 +40,20 @@ def assign_resid(
     return current_resid + 1
 
 
-def replace_resid(
+def unify_resid(
     line: str, current_resid: int | None, current_original_resid: str
 ) -> str:
+    r"""Unify residue ID in the PDB line based on previous ones.
+
+    Args:
+        line: Line that we are modifying.
+        current_resid: Current residue ID that we are using.
+        current_original_resid: Original residue ID from the PDB file that we are
+            grouping together.
+
+    Returns:
+        Line with new residue ID.
+    """
     resid = assign_resid(line, current_resid, current_original_resid)
-    new_line = set_resid(line, resid)
+    new_line = write_resid(line, resid)
     return new_line
