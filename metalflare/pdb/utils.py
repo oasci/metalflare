@@ -1,13 +1,10 @@
 def coordinate_relevant(line: str) -> bool:
     r"""If a line from a PDB file contains information relevant for coordinates.
 
-    Parameters
-    ----------
-    line
-        String of a PDB file.
+    Parameters:
+        line: Line of a PDB file.
 
-    Returns
-    -------
+    Returns:
         If the line contains atom coordinate information.
     """
     return line.startswith(("ATOM", "HETATM", "END", "TER"))
@@ -16,13 +13,10 @@ def coordinate_relevant(line: str) -> bool:
 def parse_resid(line: str) -> int:
     r"""Gets the residue ID from a line.
 
-    Parameters
-    ----------
-    line
-        Line of a PDB file that starts with ATOM or HETATM.
+    Parameters:
+        line: Line of a PDB file that starts with ATOM or HETATM.
 
-    Returns
-    -------
+    Returns:
         Residue ID.
     """
     return int(line[22:30])

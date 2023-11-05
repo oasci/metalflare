@@ -72,7 +72,7 @@ validate:
 
 .PHONY: formatting
 formatting:
-	- $(CONDA) isort --settings-path pyproject.toml ./
+	- $(CONDA) isort ./
 	- $(CONDA) black --config pyproject.toml ./
 
 
@@ -129,14 +129,14 @@ serve:
 	echo "Served at http://127.0.0.1:8910/"
 	$(CONDA) mkdocs serve -a localhost:8910
 
-.PHONY: build
-build:
+.PHONY: build-docs
+build-docs:
 	$(CONDA) mkdocs build
 
-.PHONY: open
-open:
+.PHONY: open-docs
+open-docs:
 	xdg-open ./site/index.html 2>/dev/null
 
-.PHONY: deploy
-deploy:
+.PHONY: deploy-docs
+deploy-docs:
 	$(CONDA) mkdocs gh-deploy --force

@@ -10,17 +10,12 @@ def assign_resid(
 ) -> int:
     r"""Determines residue ID based on a consistent numbering scheme.
 
-    Parameters
-    ----------
-    line
-        Line that we are determining the residue ID to have.
-    current_resid
-        Current residue ID that we are using.
-    current_original_resid
-        Original residue ID from the PDB file that we are grouping together.
+    Parameters:
+        line: Line that we are determining the residue ID to have.
+        current_resid: Current residue ID that we are using.
+        current_original_resid: Original residue ID from the PDB file that we are grouping together.
 
-    Returns
-    -------
+    Returns:
         Assigned residue ID for this line.
     """
     line_resid = parse_resid(line)
