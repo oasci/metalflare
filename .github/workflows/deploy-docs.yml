@@ -32,8 +32,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install miniconda
         uses: conda-incubator/setup-miniconda@v2
@@ -42,27 +40,14 @@ jobs:
           auto-update-conda: true
           python-version: "3.11"
 
-      - name: Initialize conda environment
-        run: make conda-create
+      - name: Build environment
+        run: make refresh
 
-      - name: Install conda dependencies
-        run: make from-conda-lock
-
-      - name: Install pip dependencies
-        run: make install
-
-      - name: Build documentation
-        run: make docs-versioned
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - uses: actions/cache@v3
         with:
-          # Upload entire repository
-          path: './docs/html/'
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - run: make deploy
