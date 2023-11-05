@@ -2,6 +2,15 @@
 
 <h4 align="center">Investigating metal-sensing green fluorescent protein</h4>
 
+<p align="center">
+    <a href="https://github.com/oasci/metalflare/" target="_blank">
+        <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/oasci/metalflare">
+    </a>
+    <a href="https://github.com/psf/black" target="_blank">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black style">
+    </a>
+</p>
+
 TODO:
 
 ## Communication
