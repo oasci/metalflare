@@ -361,10 +361,10 @@ package:
   dependencies:
     libgcc-ng: '>=12'
     libzlib: '>=1.2.13,<1.3.0a0'
-  url: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-h2797004_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
   hash:
-    md5: 513336054f884f95d9fd925748f41ef3
-    sha256: 679e944eb93fde45d0963a22598fafacbb429bb9e7ee26009ba81c4e0c435055
+    md5: d453b98d9c83e71da0741bb0ff4d76bc
+    sha256: e0569c9caa68bf476bead1bed3d79650bb080b532c64a4af7d8ca286c08dea4e
   category: main
   optional: false
 - name: libglib
@@ -1778,10 +1778,10 @@ package:
   platform: osx-64
   dependencies:
     libzlib: '>=1.2.13,<1.3.0a0'
-  url: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-hef22860_0.conda
+  url: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-h1abcd95_1.conda
   hash:
-    md5: 0c25eedcc888b6d765948ab62a18c03e
-    sha256: 573e5d7dde0a63b06ceef2c574295cbc2ec8668ec08e35d2f2c6220f4aa7fb98
+    md5: bf830ba5afc507c6232d4ef0fb1a882d
+    sha256: 30412b2e9de4ff82d8c2a7e5d06a15f4f4fef1809a72138b6ccb53a33b26faf5
   category: main
   optional: false
 - name: libgfortran
@@ -3170,10 +3170,10 @@ package:
     ucrt: '>=10.0.20348.0'
     vc: '>=14.2,<15'
     vc14_runtime: '>=14.29.30139'
-  url: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-hcfcfb64_0.conda
+  url: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
   hash:
-    md5: 74405f2ccbb40af409fee1a71ce70dc6
-    sha256: 7e42db6b5f1c5ef8d4660e6ce41b52802b6c2fdc270d5e1eccc0048d0a3f03a8
+    md5: fc048363eb8f03cd1737600a5d08aafe
+    sha256: 2c4e914f521ccb2718946645108c9bd3fc3216ba69aea20c2c3cedbd8db32bb1
   category: main
   optional: false
 - name: xz

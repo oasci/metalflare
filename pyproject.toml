@@ -27,6 +27,7 @@ pylint = "^3.0.1"
 mypy = "^1.6.0"
 mypy-extensions = "^1.0.0"
 bump-my-version = "^0.11.0"
+poetry-dynamic-versioning = "^1.1.0"
 
 [tool.poetry.scripts]
 metalflare-filter-pdb = "metalflare.pdb.utils:cli_filter_pdb"
