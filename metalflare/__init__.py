@@ -1,5 +1,6 @@
 __version__ = "0.0.0"
 
+from ast import literal_eval
 import os
 import sys
 
@@ -7,21 +8,30 @@ from loguru import logger
 
 logger.disable("metalflare")
 
-LOG_FORMAT = "<green>{time:HH:mm:ss}</green> | " \
-    "<level>{level: <8}</level> | " \
+LOG_FORMAT = (
+    "<green>{time:HH:mm:ss}</green> | "
+    "<level>{level: <8}</level> | "
     "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+)
 
-def enable_logging(level: int, file_path: str | None = None) -> None:
+
+def enable_logging(
+    level_set: int, stdout_set: bool = True, file_path_set: str | None = None
+) -> None:
     r"""Enable logging.
 
     Args:
         level: Requested log level: `10` is debug, `20` is info.
         file_path: Also write logs to files here.
     """
-    config = {"handlers": [{"sink": sys.stdout, "level": level, "format": LOG_FORMAT}]}
+    config = {"handlers": []}
+    if stdout_set:
+        config["handlers"].append(
+            {"sink": sys.stdout, "level": level_set, "format": LOG_FORMAT}
+        )
     if isinstance(file_path, str):
         config["handlers"].append(
-            {"sink": file_path, "level": level, "serialize": True, "format": LOG_FORMAT}
+            {"sink": file_path_set, "level": level_set, "format": LOG_FORMAT}
         )
     # https://loguru.readthedocs.io/en/stable/api/logger.html#loguru._logger.Logger.configure
     logger.configure(**config)
@@ -29,7 +39,8 @@ def enable_logging(level: int, file_path: str | None = None) -> None:
     logger.enable("metalflare")
 
 
-if os.environ.get("METALFLARE_LOG", 0):
+if literal_eval(os.environ.get("METALFLARE_LOG", "False")):
     level = int(os.environ.get("METALFLARE_LOG_LEVEL", 20))
+    stdout = literal_eval(os.environ.get("METALFLARE_STDOUT", "True"))
     file_path = os.environ.get("METALFLARE_LOG_FILE_PATH", None)
-    enable_logging(level, file_path)
+    enable_logging(level, stdout, file_path)
