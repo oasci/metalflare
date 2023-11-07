@@ -18,8 +18,8 @@ def replace_atom_names(
 
     Args:
         pdb_lines: List of lines in the PDB file.
-        orig_resname: Original atom name to replace.
-        new_resname: New atom name.
+        orig_atom_name: Original atom name to replace.
+        new_atom_name: New atom name.
 
     Returns:
         PDB lines with replace atom names.
