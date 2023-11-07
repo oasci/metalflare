@@ -1,9 +1,7 @@
 """Standardizes residue ID numbering"""
-import argparse
 import re
-from collections.abc import Iterable
 
-from ..utils import keep_lines, parse_resid, write_resid
+from ..utils import parse_resid, write_resid
 
 
 def assign_resid(

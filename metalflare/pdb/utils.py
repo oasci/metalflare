@@ -38,7 +38,7 @@ def keep_lines(
         record_types: Records to keep in the PDB file.
 
     Returns:
-
+        Filtered lines.
     """
     return [line for line in lines if line.startswith(record_types)]
 
@@ -46,7 +46,17 @@ def keep_lines(
 def run_filter_pdb(
     pdb_path: str, output_path: str | None, record_types: Iterable[str] | None
 ) -> Iterable[str]:
-    r""" """
+    r"""Only keep PDB lines that contain specified record types.
+
+    Args:
+        pdb_path: Path to PDB file.
+        output_path: Path to save new PDB file. If `None`, then no file is written.
+        record_types: Records to keep in the PDB file. Defaults to
+            `("ATOM", "HETATM", "TER", "END")`.
+
+    Returns:
+        PDB file lines.
+    """
     with open(pdb_path, "r", encoding="utf-8") as f:
         pdb_lines: Iterable[str] = f.readlines()
 
@@ -63,6 +73,7 @@ def run_filter_pdb(
 
 
 def cli_filter_pdb() -> None:
+    r"""Command-line interface for filtering PDB file lines"""
     parser = argparse.ArgumentParser(description="Filter PDB lines")
     parser.add_argument(
         "pdb_path",
