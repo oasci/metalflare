@@ -20,7 +20,6 @@ def enable_logging(level: int, file_path: str | None = None) -> None:
         config["handlers"].append(
             {"sink": file_path, "level": level, "serialize": True}
         )
-    print(config)
     # https://loguru.readthedocs.io/en/stable/api/logger.html#loguru._logger.Logger.configure
     logger.configure(**config)
 
