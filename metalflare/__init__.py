@@ -1,8 +1,8 @@
 __version__ = "0.0.0"
 
-from ast import literal_eval
 import os
 import sys
+from ast import literal_eval
 
 from loguru import logger
 
