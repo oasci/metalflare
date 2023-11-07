@@ -2,6 +2,21 @@ import argparse
 from collections.abc import Iterable
 
 
+def replace_in_pdb_line(
+    line: str, orig: str, new: str, start: int | None, stop: int | None
+):
+    r"""General function to replace parts of a PDB line.
+
+    Args:
+        line: PDB line.
+        orig: Original value to replace if it exists.
+        new: If ``orig`` is in line, replace it with this value.
+        start: Slice the line starting here to search.
+        stop: Slice the line stopping here to search.
+    """
+    return line[start:stop].replace(orig, new)
+
+
 def parse_resid(line: str) -> int:
     r"""Gets the residue ID from a line.
 
@@ -14,22 +29,21 @@ def parse_resid(line: str) -> int:
     return int(line[22:30])
 
 
-def write_resid(line: str, resid: int) -> str:
-    r"""Write residue ID in PDB line.
+def parse_resname(line: str) -> str:
+    r"""Gets the residue name from a line.
 
     Args:
-        line: Line of PDB file to write the residue ID.
-        resid: Residue ID.
+        line: Line of a PDB file that starts with ATOM or HETATM.
 
     Returns:
-        Line with new residue ID.
+        Residue ID.
     """
-    new_line = line[:22] + str(resid).rjust(4) + " " + line[27:]
-    return new_line.strip()
+    return line[17:21]
 
 
 def keep_lines(
-    lines: Iterable[str], record_types: Iterable[str] = ("ATOM", "HETATM", "TER", "END")
+    lines: Iterable[str],
+    record_types: tuple[str, ...] = ("ATOM", "HETATM", "TER", "END"),
 ) -> Iterable[str]:
     r"""Filter PDB lines to keep in file.
 
@@ -44,7 +58,7 @@ def keep_lines(
 
 
 def run_filter_pdb(
-    pdb_path: str, output_path: str | None, record_types: Iterable[str] | None
+    pdb_path: str, output_path: str | None, record_types: tuple[str, ...] | None
 ) -> Iterable[str]:
     r"""Only keep PDB lines that contain specified record types.
 
