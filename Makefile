@@ -88,8 +88,12 @@ check-codestyle:
 	$(CONDA) black --diff --check --config pyproject.toml $(REPO_PATH)
 	$(CONDA) pylint --recursive=y --rcfile pyproject.toml $(REPO_PATH)
 
+.PHONY: mypy
+mypy:
+	- $(CONDA) mypy --config-file pyproject.toml --explicit-package-bases $(PACKAGE_NAME)
+
 .PHONY: lint
-lint: check-codestyle
+lint: check-codestyle mypy
 
 
 

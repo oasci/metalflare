@@ -1,7 +1,7 @@
 """Standardizes residue ID numbering"""
 import re
 
-from ..utils import parse_resid, write_resid
+from ..utils import parse_resid, replace_in_pdb_line
 
 
 def assign_resid(
@@ -53,5 +53,5 @@ def unify_resid(
         Line with new residue ID.
     """
     resid = assign_resid(line, current_resid, current_original_resid)
-    new_line = write_resid(line, resid)
+    new_line = replace_in_pdb_line(line, current_original_resid, str(resid), 24, 27)
     return new_line
