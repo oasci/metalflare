@@ -1,23 +1,32 @@
 import argparse
+import os
 from collections.abc import Iterable
+
+from loguru import logger
 
 
 def replace_in_pdb_line(
     line: str, orig: str, new: str, start: int | None, stop: int | None
-):
+) -> str:
     r"""General function to replace parts of a PDB line.
 
     Args:
         line: PDB line.
-        orig: Original value to replace if it exists.
-        new: If ``orig`` is in line, replace it with this value.
-        start: Slice the line starting here to search.
-        stop: Slice the line stopping here to search.
+        orig: Original value to check if it exists.
+        new: If ``orig`` is in line, replace it with this value. This must be formatted
+            for all columns, not just the value with no spaces. For example,
+            `"   42"` not `"42"`.
+        start: Slice the line starting here to replace.
+        stop: Slice the line stopping here to replace.
     """
-    return line[start:stop].replace(orig, new)
+    line_slice = line[start:stop]
+    logger.trace("Slice gives us: `{}`", line_slice)
+    if orig in line_slice:
+        line_slice = new
+    return line[:start] + line_slice + line[stop:]
 
 
-def parse_resid(line: str) -> int:
+def parse_resid(line: str) -> str:
     r"""Gets the residue ID from a line.
 
     Args:
@@ -26,7 +35,7 @@ def parse_resid(line: str) -> int:
     Returns:
         Residue ID.
     """
-    return int(line[22:30])
+    return line[23:30]
 
 
 def parse_resname(line: str) -> str:
@@ -54,6 +63,7 @@ def keep_lines(
     Returns:
         Filtered lines.
     """
+    logger.info("Keeping the following record types: {}", ", ".join(record_types))
     return [line for line in lines if line.startswith(record_types)]
 
 
@@ -71,15 +81,16 @@ def run_filter_pdb(
     Returns:
         PDB file lines.
     """
+    logger.info("Filtering PDB lines of {}", os.path.abspath(pdb_path))
     with open(pdb_path, "r", encoding="utf-8") as f:
         pdb_lines: Iterable[str] = f.readlines()
 
     if record_types is None:
         record_types = ("ATOM", "HETATM", "TER", "END")
-
     out_lines = keep_lines(pdb_lines, record_types)
 
     if output_path is not None:
+        logger.info("Writing PDB file to {}", os.path.abspath(output_path))
         with open(output_path, "w+", encoding="utf-8") as f:
             f.writelines(out_lines)
 
