@@ -7,6 +7,9 @@ from loguru import logger
 
 logger.disable("metalflare")
 
+LOG_FORMAT = "<green>{time:HH:mm:ss}</green> | " \
+    "<level>{level: <8}</level> | " \
+    "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
 
 def enable_logging(level: int, file_path: str | None = None) -> None:
     r"""Enable logging.
@@ -15,10 +18,10 @@ def enable_logging(level: int, file_path: str | None = None) -> None:
         level: Requested log level: `10` is debug, `20` is info.
         file_path: Also write logs to files here.
     """
-    config = {"handlers": [{"sink": sys.stdout, "level": level}]}
+    config = {"handlers": [{"sink": sys.stdout, "level": level, "format": LOG_FORMAT}]}
     if isinstance(file_path, str):
         config["handlers"].append(
-            {"sink": file_path, "level": level, "serialize": True}
+            {"sink": file_path, "level": level, "serialize": True, "format": LOG_FORMAT}
         )
     # https://loguru.readthedocs.io/en/stable/api/logger.html#loguru._logger.Logger.configure
     logger.configure(**config)
