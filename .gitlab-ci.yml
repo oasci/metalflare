@@ -1,0 +1,16 @@
+default:
+  image: continuumio/miniconda3
+  before_script:
+    - apt-get update && apt-get install build-essential -y
+    - make refresh
+
+pages:
+  script:
+  - make docs
+  artifacts:
+    paths:
+    - public/
+  rules:
+  - if: "$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH"
+  stage: deploy
+
