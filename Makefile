@@ -137,12 +137,8 @@ serve:
 
 .PHONY: docs
 docs:
-	$(CONDA) mkdocs build
+	$(CONDA) mkdocs build -d public/
 
 .PHONY: open-docs
 open-docs:
 	xdg-open ./site/index.html 2>/dev/null
-
-.PHONY: deploy-docs
-deploy-docs:
-	$(CONDA) mkdocs gh-deploy --force
