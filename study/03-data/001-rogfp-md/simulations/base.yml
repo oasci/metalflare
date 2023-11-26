@@ -1,0 +1,10 @@
+# Base Amber simulation context
+ff_protein: ff19SB
+ff_water: opc3
+cation_identity: Na+
+anion_identity: Cl-
+neutralize_charge: true
+extra_cations: 0
+extra_anions: 0
+solvent_ionic_strength: 0.150
+solvent_padding: 10.0

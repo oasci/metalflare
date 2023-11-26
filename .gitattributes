@@ -9,3 +9,5 @@
 # Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary
+* annex.backend=MD5E
+**/.git* annex.largefiles=nothing

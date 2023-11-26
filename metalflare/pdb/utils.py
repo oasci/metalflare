@@ -2,6 +2,8 @@ import argparse
 import os
 from collections.abc import Iterable
 
+import MDAnalysis as mda
+import numpy as np
 from loguru import logger
 
 
@@ -20,7 +22,7 @@ def replace_in_pdb_line(
         stop: Slice the line stopping here to replace.
     """
     line_slice = line[start:stop]
-    logger.trace("Slice gives us: `{}`", line_slice)
+    logger.trace("Slice gives us: '{}'", line_slice)
     if orig in line_slice:
         line_slice = new
     return line[:start] + line_slice + line[stop:]
@@ -50,6 +52,18 @@ def parse_resname(line: str) -> str:
     return line[17:21]
 
 
+def parse_atomname(line: str) -> str:
+    r"""Gets the atom name from a line.
+
+    Args:
+        line: Line of a PDB file that starts with ATOM or HETATM.
+
+    Returns:
+        Residue ID.
+    """
+    return line[13:17]
+
+
 def keep_lines(
     lines: Iterable[str],
     record_types: tuple[str, ...] = ("ATOM", "HETATM", "TER", "END"),
@@ -68,7 +82,9 @@ def keep_lines(
 
 
 def run_filter_pdb(
-    pdb_path: str, output_path: str | None, record_types: tuple[str, ...] | None
+    pdb_path: str,
+    output_path: str | None = None,
+    record_types: tuple[str, ...] | None = None,
 ) -> Iterable[str]:
     r"""Only keep PDB lines that contain specified record types.
 
@@ -120,3 +136,52 @@ def cli_filter_pdb() -> None:
     )
     args = parser.parse_args()
     run_filter_pdb(args.pdb_path, args.output, args.record_types)
+
+
+def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Universe:
+    r"""Merge PDB files. No atoms are removed, only added."""
+    atoms = [mda.Universe(pdb_path, format="PDB").atoms for pdb_path in pdb_paths]
+    u_merged = mda.core.universe.Merge(*atoms)
+    coordinates = u_merged.atoms.positions
+    _, unique_indices = np.unique(coordinates, axis=0, return_index=True)
+    if len(unique_indices) < len(coordinates):
+        logger.info("Cleaning up duplicate atoms")
+        duplicate_indices = np.setdiff1d(np.arange(len(coordinates)), unique_indices)
+        u_merged.atoms = u_merged.atoms[
+            np.isin(np.arange(len(coordinates)), duplicate_indices, invert=True)
+        ]
+
+    # Group atoms by residue
+    residue_groups = u_merged.atoms.groupby("resids")
+    u_sorted = mda.core.universe.Merge(
+        *[atoms.sort("types") for _, atoms in residue_groups.items()]
+    )
+
+    # Remove some Merge artifacts that messes with pdb4amber
+    u_sorted.del_TopologyAttr("segids")
+
+    if output_path is not None:
+        logger.info("Writing merged PDB at {}", output_path)
+        u_sorted.atoms.write(output_path)
+    return u_sorted.atoms
+
+
+def cli_merge_pdbs() -> None:
+    r"""Command-line interface for merging PDB files"""
+    parser = argparse.ArgumentParser(description="Merge PDB files")
+    parser.add_argument(
+        "pdb_paths",
+        type=str,
+        nargs="+",
+        help="PDB files to merge",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        nargs="?",
+        help="Path to new PDB file",
+    )
+    args = parser.parse_args()
+    if args.output is None:
+        raise RuntimeError("--output must be specified")
+    run_merge_pdbs(*args.pdb_paths, output_path=args.output)

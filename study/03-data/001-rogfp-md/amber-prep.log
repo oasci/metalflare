@@ -1,0 +1,345 @@
+19:17:42 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:185 - Validating context from simulations/base.yml
+19:17:42 | INFO     | metalflare.simulation.contexts:from_yaml:66 - Loading YAML context from simulations/base.yml
+19:17:42 | DEBUG    | metalflare.simulation.contexts:from_yaml:70 - YAML data:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
+19:17:42 | INFO     | metalflare.simulation.contexts:validate:125 - Validating with: AmberContextValidator
+19:17:42 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:133 - Checking ff_protein
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:140 -   Valid: ff19SB
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:133 - Checking ff_water
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:140 -   Valid: opc3
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check ff_dna
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check ff_rna
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check ff_glycam
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check ff_lipid
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check ff_small_molecule
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check cation_identity
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check anion_identity
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check system_net_charge
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check neutralize_charge
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:133 - Checking extra_cations
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:147 -   Valid: 0
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:133 - Checking extra_anions
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:147 -   Valid: 0
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check solvent_ionic_strength
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check solvent_padding
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check verbosity
+19:17:42 | DEBUG    | metalflare.simulation.contexts:validate:131 - Cannot check yaml_path
+19:17:42 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:192 - Context IS valid
+19:17:42 | INFO     | metalflare.simulation.contexts:from_yaml:66 - Loading YAML context from simulations/base.yml
+19:17:42 | DEBUG    | metalflare.simulation.contexts:from_yaml:70 - YAML data:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
+19:17:42 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:42 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
+19:17:42 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:42 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:203 - Setting PDB output to /tmp/tmpnca41yj4.pdb
+19:17:42 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:208 - Writing tleap input to /tmp/tmp4_ykvdqu.in
+19:17:42 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:211 - tleap input:
+source leaprc.protein.ff19SB
+source leaprc.water.opc3
+addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} {"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"}{"ne" "N" "sp2"}{"nf" "N" "sp2"}{"ha" "H" "sp3"}{"oh" "O" "sp3"} }
+xFPparams = loadamberparams ff/cro/frcmod.xFPchromophores.2022
+loadOff ff/cro/xFPchromophores.lib.2022
+mol = loadpdb structures/protein/1JC0-final.pdb
+solvatebox mol OPC3BOX 10.0
+savepdb mol /tmp/tmpnca41yj4.pdb
+charge mol
+quit
+19:17:42 | INFO     | metalflare.simulation.amber.tleap:get_prelim_sim_info:214 - Running tleap
+19:17:42 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:216 - tleap command: ['tleap', '-f', '/tmp/tmp4_ykvdqu.in']
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:223 - tleap errors:
+
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:224 - tleap output:
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
+-f: Source /tmp/tmp4_ykvdqu.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: /tmp/tmp4_ykvdqu.in
+----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
+----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
+Log file: ./leap.log
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/parm19.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA + ff19SB
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.ff19SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff19SB AA-specific backbone CMAPs for protein 07/25/2019
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/amino19.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/aminoct12.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/aminont12.lib
+----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.water.opc3
+----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.water.opc3 done
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/atomic_ions.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/solvents.lib
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.opc3
+Reading force field modification type file (frcmod)
+Reading title:
+OPC3 Water Model (Izadi and Onufriev,  145, 074501, 2016)
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.ionslm_126_opc3
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of atomic ions for the OPC3 water model (12-6 set)
+Loading parameters: ./ff/cro/frcmod.xFPchromophores.2022
+Reading force field modification type file (frcmod)
+Reading title:
+frcmod file for fluorescent protein chromophores. Intended for use with ff14SB, ff19SB and related force fields. Parameters based on parm10.dat, gaff.dat, and frcmod.ff14SB. Publication by Breyfogle, Blood, Rosnik, and Krueger in preparation.
+Loading library: ./ff/cro/xFPchromophores.lib.2022
+Loading PDB file: ./structures/protein/1JC0-final.pdb
+-- residue 23: duplicate [ ND2] atoms (total 2)
+-- residue 23: duplicate [ OD1] atoms (total 2)
+-- residue 92: duplicate [ NE2] atoms (total 2)
+-- residue 92: duplicate [ OE1] atoms (total 2)
+-- residue 119: duplicate [ ND2] atoms (total 2)
+-- residue 119: duplicate [ OD1] atoms (total 2)
+-- residue 160: duplicate [ CD] atoms (total 2)
+-- residue 160: duplicate [ CE] atoms (total 2)
+-- residue 160: duplicate [ CG] atoms (total 2)
+-- residue 160: duplicate [ NZ] atoms (total 2)
+-- residue 164: duplicate [ CG] atoms (total 2)
+-- residue 183: duplicate [ ND2] atoms (total 2)
+-- residue 183: duplicate [ OD1] atoms (total 2)
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+Atom names in each residue should be unique.
+     (Same-name atoms are handled by using the first
+      occurrence and by ignoring the rest.
+      Many instances of duplicate atom names usually come
+      from alternate conformations in the PDB file.)
+
+  total atoms in file: 3569
+  Leap added 14 missing atoms according to residue templates:
+       14 H / lone pairs
+  Solute vdw bounding box:              43.079 47.199 56.831
+  Total bounding box for atom centers:  63.079 67.199 76.831
+  Solvent unit box:                     18.682 18.750 18.542
+  Total vdw box size:                   66.262 69.436 79.756 angstroms.
+  Volume: 366956.734 A^3
+  Total mass 183546.342 amu,  Density 0.831 g/cc
+  Added 8764 residues.
+Writing pdb file: /tmp/tmpnca41yj4.pdb
+   printing CRYST1 record to PDB file with box info
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+ Converting N-terminal residue name to PDB format: NMET -> MET
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CGLY -> GLY
+Total unperturbed charge:  -7.000000
+Total perturbed charge:    -7.000000
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 3; Notes = 0.
+
+19:17:43 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:112 - Parsing tleap log
+19:17:43 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
+19:17:43 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:43 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 252252.25225225225 A^3
+19:17:43 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 23}
+19:17:43 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:43 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
+19:17:43 | DEBUG    | metalflare.simulation.contexts:get:94 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_net_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'yaml_path': 'simulations/base.yml'}
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:298 - Setting PDB output to /tmp/tmpgw3__shn.pdb
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:303 - Writing tleap input to /tmp/tmpmre3iaad.in
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:306 - tleap input:
+source leaprc.protein.ff19SB
+source leaprc.water.opc3
+addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} {"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"}{"ne" "N" "sp2"}{"nf" "N" "sp2"}{"ha" "H" "sp3"}{"oh" "O" "sp3"} }
+xFPparams = loadamberparams ff/cro/frcmod.xFPchromophores.2022
+loadOff ff/cro/xFPchromophores.lib.2022
+mol = loadpdb structures/protein/1JC0-final.pdb
+addIons2 mol Na+ 30
+addIons2 mol Cl- 23
+solvatebox mol OPC3BOX 10.0
+savepdb mol /tmp/tmpgw3__shn.pdb
+saveamberparm mol simulations/prep/mol.prmtop simulations/prep/mol.inpcrd
+charge mol
+quit
+19:17:43 | INFO     | metalflare.simulation.amber.tleap:prepare_amber_files:309 - Running tleap
+19:17:43 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:311 - tleap command: ['tleap', '-f', '/tmp/tmpmre3iaad.in']
+19:17:45 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:318 - tleap errors:
+
+19:17:45 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:319 - tleap output:
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
+-I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
+-f: Source /tmp/tmpmre3iaad.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: /tmp/tmpmre3iaad.in
+----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
+----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
+Log file: ./leap.log
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/parm19.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA + ff19SB
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.ff19SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff19SB AA-specific backbone CMAPs for protein 07/25/2019
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/amino19.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/aminoct12.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/aminont12.lib
+----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.water.opc3
+----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.water.opc3 done
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/atomic_ions.lib
+Loading library: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib/solvents.lib
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.opc3
+Reading force field modification type file (frcmod)
+Reading title:
+OPC3 Water Model (Izadi and Onufriev,  145, 074501, 2016)
+Loading parameters: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm/frcmod.ionslm_126_opc3
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of atomic ions for the OPC3 water model (12-6 set)
+Loading parameters: ./ff/cro/frcmod.xFPchromophores.2022
+Reading force field modification type file (frcmod)
+Reading title:
+frcmod file for fluorescent protein chromophores. Intended for use with ff14SB, ff19SB and related force fields. Parameters based on parm10.dat, gaff.dat, and frcmod.ff14SB. Publication by Breyfogle, Blood, Rosnik, and Krueger in preparation.
+Loading library: ./ff/cro/xFPchromophores.lib.2022
+Loading PDB file: ./structures/protein/1JC0-final.pdb
+-- residue 23: duplicate [ ND2] atoms (total 2)
+-- residue 23: duplicate [ OD1] atoms (total 2)
+-- residue 92: duplicate [ NE2] atoms (total 2)
+-- residue 92: duplicate [ OE1] atoms (total 2)
+-- residue 119: duplicate [ ND2] atoms (total 2)
+-- residue 119: duplicate [ OD1] atoms (total 2)
+-- residue 160: duplicate [ CD] atoms (total 2)
+-- residue 160: duplicate [ CE] atoms (total 2)
+-- residue 160: duplicate [ CG] atoms (total 2)
+-- residue 160: duplicate [ NZ] atoms (total 2)
+-- residue 164: duplicate [ CG] atoms (total 2)
+-- residue 183: duplicate [ ND2] atoms (total 2)
+-- residue 183: duplicate [ OD1] atoms (total 2)
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+Atom names in each residue should be unique.
+     (Same-name atoms are handled by using the first
+      occurrence and by ignoring the rest.
+      Many instances of duplicate atom names usually come
+      from alternate conformations in the PDB file.)
+
+  total atoms in file: 3569
+  Leap added 14 missing atoms according to residue templates:
+       14 H / lone pairs
+Adding 30 counter ions to "mol" using 1A grid
+Grid extends from solute vdw + 1.47  to  7.45
+Resolution:      1.00 Angstrom.
+Calculating grid charges
+Placed Na+ in mol at (3.29, 20.95, -21.82).
+Placed Na+ in mol at (-13.71, -0.05, -10.82).
+Placed Na+ in mol at (7.29, -2.05, 21.18).
+Placed Na+ in mol at (-16.71, 0.95, 14.18).
+Placed Na+ in mol at (10.29, 5.95, -16.82).
+Placed Na+ in mol at (0.29, -20.05, -6.82).
+Placed Na+ in mol at (18.29, 3.95, -13.82).
+Placed Na+ in mol at (-12.71, -7.05, 14.18).
+Placed Na+ in mol at (-3.71, 18.95, -17.82).
+Placed Na+ in mol at (-1.71, -20.05, 14.18).
+Placed Na+ in mol at (-10.71, -16.05, -5.82).
+Placed Na+ in mol at (20.29, 16.95, -11.82).
+Placed Na+ in mol at (-15.71, 4.95, -8.82).
+Placed Na+ in mol at (-3.71, -15.05, -13.82).
+Placed Na+ in mol at (-4.71, 23.95, -3.82).
+Placed Na+ in mol at (-18.71, -2.05, 20.18).
+Placed Na+ in mol at (9.29, 17.95, -8.82).
+Placed Na+ in mol at (3.29, -21.05, 2.18).
+Placed Na+ in mol at (-9.71, -8.05, -11.82).
+Placed Na+ in mol at (1.29, -2.05, 26.18).
+Placed Na+ in mol at (18.29, 7.95, -8.82).
+Placed Na+ in mol at (-8.71, -21.05, -1.82).
+Placed Na+ in mol at (-12.71, 9.95, 7.18).
+Placed Na+ in mol at (4.29, -15.05, -17.82).
+Placed Na+ in mol at (12.29, -4.05, 20.18).
+Placed Na+ in mol at (-2.71, 22.95, -19.82).
+Placed Na+ in mol at (-6.71, -22.05, 11.18).
+Placed Na+ in mol at (-5.71, 6.95, -19.82).
+Placed Na+ in mol at (-19.71, -8.05, 12.18).
+Placed Na+ in mol at (14.29, -3.05, -2.82).
+
+Done adding ions.
+Adding 23 counter ions to "mol" using 1A grid
+Grid extends from solute vdw + 2.31  to  8.29
+Resolution:      1.00 Angstrom.
+Calculating grid charges
+Placed Cl- in mol at (9.00, 2.66, -18.65).
+Placed Cl- in mol at (-1.00, -5.34, 27.35).
+Placed Cl- in mol at (-10.00, -8.34, -15.65).
+Placed Cl- in mol at (-5.00, 22.66, -16.65).
+Placed Cl- in mol at (10.00, 20.66, -11.65).
+Placed Cl- in mol at (1.00, -15.34, -15.65).
+Placed Cl- in mol at (10.00, -4.34, 23.35).
+Placed Cl- in mol at (-10.00, 11.66, 9.35).
+Placed Cl- in mol at (-3.00, -23.34, 12.35).
+Placed Cl- in mol at (-16.00, -2.34, -8.65).
+Placed Cl- in mol at (6.00, -21.34, -0.65).
+Placed Cl- in mol at (-11.00, -12.34, 21.35).
+Placed Cl- in mol at (-12.00, 15.66, -1.65).
+Placed Cl- in mol at (-9.00, -19.34, -6.65).
+Placed Cl- in mol at (-8.00, 8.66, 27.35).
+Placed Cl- in mol at (20.00, 11.66, 4.35).
+Placed Cl- in mol at (-7.00, -6.34, -24.65).
+Placed Cl- in mol at (15.00, -3.34, -6.65).
+Placed Cl- in mol at (-23.00, -8.34, 10.35).
+Placed Cl- in mol at (-7.00, 10.66, -20.65).
+Placed Cl- in mol at (-17.00, -3.34, 23.35).
+Placed Cl- in mol at (13.00, -12.34, 13.35).
+Placed Cl- in mol at (-6.00, 25.66, -0.65).
+
+Done adding ions.
+  Solute vdw bounding box:              47.612 53.612 58.051
+  Total bounding box for atom centers:  67.612 73.612 78.051
+  Solvent unit box:                     18.682 18.750 18.542
+  Total vdw box size:                   70.518 77.123 80.649 angstroms.
+  Volume: 438616.475 A^3
+  Total mass 218344.960 amu,  Density 0.827 g/cc
+  Added 10612 residues.
+Writing pdb file: /tmp/tmpgw3__shn.pdb
+   printing CRYST1 record to PDB file with box info
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+ Converting N-terminal residue name to PDB format: NMET -> MET
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CGLY -> GLY
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 731 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 -
+   these don't have chain types marked:
+
+	res	total affected
+
+	CGLY	1
+	NMET	1
+	WAT	10612
+  )
+ (no restraints)
+Total unperturbed charge:  -0.000000
+Total perturbed charge:    -0.000000
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 3; Notes = 0.
+
+19:17:45 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:112 - Parsing tleap log

@@ -2,28 +2,17 @@
 
 <h4 align="center">Investigating metal-sensing green fluorescent protein</h4>
 
-<p align="center">
-    <a href="https://gitlab.com/oasci/metalflare/" target="_blank">
-        <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/oasci/metalflare">
-    </a>
-    <a href="https://github.com/psf/black" target="_blank">
-        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black style">
-    </a>
-</p>
-
 TODO:
 
 ## Communication
 
 > No research should be done alone.
 
-We use [this repository's issues](https://gitlab.com/oasci/metalflare/issues) as our todo list.
+We use [this repository's issues](https://gitlab.com/oasci/studies/metalflare/issues) as our todo list.
 Asynchronous conversations about any of the tasks should be included as issue comments.
-Synchronous meetings happening in-person or virtually should have meeting minutes stored in the [appropriate directory](docs/01-management/03-meetings).
+Synchronous meetings happening in-person or virtually should have meeting minutes stored in the [appropriate directory](study/01-management/03-meetings).
 
 ## Deploying
-
-A note to maintainers.
 
 We use [bump-my-version](https://github.com/callowayproject/bump-my-version) to release a new version.
 This will create a git tag that is used by [poetry-dynamic-version](https://github.com/mtkennerly/poetry-dynamic-versioning) to generate version strings.
@@ -43,17 +32,19 @@ git push --follow-tags
 
 ## License
 
-Code contained in this project is released under the [MIT License](https://spdx.org/licenses/MIT.html) as specified in [`LICENSE_CODE`](https://gitlab.com/oasci/metalflare/blob/main/LICENSE_CODE.md), which grants you the freedom to use, modify, and distribute it as long as you include the original copyright notice and disclaimer.
+Code contained in this project is released under the [GPLv3 license][gplv3] as specified in `LICENSE.md`.
+All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as specified in `LICENSE_INFO.md`.
 
-> Portions of this code were incorporated and adapted with permission from [metalflare](https://gitlab.com/oasci/metalflare) by OASCI under the [MIT License](https://gitlab.com/oasci/metalflare/blob/main/LICENSE_CODE.md).
+### Permissive release
 
-All other data, information, documentation, and associated content provided within this project are released under the [Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/) as specified in [`LICENSE_INFO`](https://gitlab.com/oasci/metalflare/blob/main/LICENSE_INFO.md).
-You can freely share and use the material for any purpose, including commercial use, as long as you follow the license terms, which require attribution and prohibit distribution of modified material or imposing additional restrictions.
+On **January 1, 2025**, the above [GPLv3][gplv3] and [CC BY-ND 4.0][cc-by-nd-4.0] licenses are voided and superseded by the immediately following paragraph.
 
-### Open-source release
+> Code contained in this project is released under the [MIT license][mit] as specified in `LICENSE.md`.
+> All other data, information, documentation, and associated content provided within this project are released under the [CC BY 4.0 license][cc-by-4.0] as specified in `LICENSE_INFO.md`.
 
-On **January 1, 2033**, the above CC BY-ND 4.0 license is voided, removed, and superseded by [`LICENSE_INFO_OPEN`](https://gitlab.com/oasci/metalflare/blob/main/LICENSE_INFO_OPEN.md), and the following content.
-This aforementioned date is subject to change to a time earlier than **January 1, 2033**, but never later.
+A manual permissive release can be made by the maintainers whenever they see fit by updating the license files and updating this section.
 
-> All other data, information, documentation, and associated content provided within this project are released under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) as specified in [`LICENSE_INFO_OPEN`](https://gitlab.com/oasci/metalflare/blob/main/LICENSE_INFO_OPEN.md).
-> This means you are free to share and adapt the non-code elements, but you must give appropriate credit to the original source and indicate if changes were made.
+[gplv3]: https://spdx.org/licenses/GPL-3.0-only.html
+[cc-by-nd-4.0]: https://creativecommons.org/licenses/by-nd/4.0/
+[mit]: https://spdx.org/licenses/MIT.html
+[cc-by-4.0]: https://creativecommons.org/licenses/by/4.0/
