@@ -8,8 +8,12 @@ authors = [
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "<3.13,>=3.11"
 loguru = "^0.7.2"
+mdanalysis = "^2.6.1"
+datalad = "^0.19.3"
+datalad-osf = "^0.3.0"
+pdb2pqr = "^3.6.1"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
@@ -30,9 +34,21 @@ mypy-extensions = "^1.0.0"
 bump-my-version = "^0.11.0"
 poetry-dynamic-versioning = "^1.1.0"
 
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+coverage = "^7.3.1"
+pytest-html = "^4.0.1"
+colorama = "^0.4.6"
+
 [tool.poetry.scripts]
 metalflare-filter-pdb = "metalflare.pdb.utils:cli_filter_pdb"
-metalflare-unify-resids = "metalflare.pdb.change.numbering:cli_unify_resids"
+metalflare-unify-resids = "metalflare.pdb.modify.numbering:cli_unify_resids"
+metalflare-select-atoms = "metalflare.pdb.select:cli_select_atoms"
+metalflare-center = "metalflare.pdb.modify.positioning:cli_center_structure"
+metalflare-rename-resname = "metalflare.pdb.modify.names:cli_replace_resnames"
+metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
+metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
 
 [tool.bumpversion]
 current_version = "2023.10.29"
@@ -52,6 +68,100 @@ folders = [
     { path = "metalflare" },
 ]
 
+
+[tool.pylint.messages_control]
+good-names = [
+    "i",
+    "j",
+    "e",
+    "ex",
+]
+ignore = [
+    "CVS",
+    "_version.py",
+    "conf.py",
+]
+
+[tool.black]
+target-version = [
+    "py311",
+]
+line-length = 88
+color = true
+exclude = "/(\n    \\.git\n    | \\.hg\n    | \\.mypy_cache\n    | \\.tox\n    | \\.venv\n    | _build\n    | buck-out\n    | build\n    | dist\n    | env\n    | venv\n)/\n"
+
+[tool.isort]
+py_version = 311
+line_length = 88
+known_typing = [
+    "typing",
+    "types",
+    "typing_extensions",
+    "mypy",
+    "mypy_extensions",
+]
+sections = [
+    "FUTURE",
+    "TYPING",
+    "STDLIB",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
+profile = "black"
+include_trailing_comma = true
+multi_line_output = 3
+indent = 4
+color_output = true
+
+[tool.mypy]
+python_version = "3.11"
+pretty = true
+show_traceback = true
+color_output = true
+allow_redefinition = false
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+ignore_missing_imports = true
+implicit_reexport = false
+no_implicit_optional = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+strict_equality = true
+strict_optional = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+norecursedirs = [
+    "hooks",
+    "*.egg",
+    ".eggs",
+    "dist",
+    "build",
+    "docs",
+    ".tox",
+    ".git",
+    "__pycache__",
+]
+doctest_optionflags = [
+    "NUMBER",
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+]
+addopts = [
+    "--strict-markers",
+    "--tb=short",
+    "--doctest-modules",
+    "--doctest-continue-on-failure",
+]
+
 [build-system]
 requires = [
     "poetry-core>=1.0.0",
@@ -60,12 +170,13 @@ requires = [
 build-backend = "poetry_dynamic_versioning.backend"
 
 ["tool.poetry.group.conda.dependencies"]
+annotated-types = "^0.6.0"
 appdirs = "^1.4.4"
 Brotli = "^1.1.0"
 build = "^1.0.3"
 CacheControl = "^0.13.1"
 cachy = "^0.3.0"
-certifi = "^2023.7.22"
+certifi = "^2023.11.17"
 cffi = "^1.16.0"
 cfgv = "^3.3.1"
 charset-normalizer = "^3.3.2"
@@ -76,52 +187,74 @@ clikit = "^0.6.2"
 colorama = "^0.4.6"
 conda_lock = "^2.4.2"
 conda_poetry_liaison = "^0.1.2"
+contourpy = "^1.2.0"
 crashtest = "^0.4.1"
 cryptography = "^41.0.5"
+cycler = "^0.12.1"
 distlib = "^0.3.7"
 dulwich = "^0.21.6"
+edgembar = "^0.2"
 ensureconda = "^1.4.3"
-fastjsonschema = "^2.18.1"
+fastjsonschema = "^2.19.0"
 filelock = "^3.13.1"
+fonttools = "^4.44.3"
 gitdb = "^4.0.11"
 GitPython = "^3.1.40"
 html5lib = "^1.1"
-identify = "^2.5.31"
+identify = "^2.5.32"
 idna = "^3.4"
 importlib-metadata = "^6.8.0"
 installer = "^0.7.0"
 "jaraco.classes" = "^3.3.0"
 jeepney = "^0.8.0"
 Jinja2 = "^3.1.2"
-keyring = "^24.2.0"
+joblib = "^1.3.2"
+keyring = "^24.3.0"
+kiwisolver = "^1.4.5"
 MarkupSafe = "^2.1.3"
+matplotlib = "^3.8.1"
+"MMPBSA.py" = "^16.0"
 more-itertools = "^10.1.0"
 msgpack = "^1.0.6"
+munkres = "^1.1.4"
+ndfes = "^1.8"
 nodeenv = "^1.8.0"
 numpy = "^1.26.0"
 packaging = "^23.2"
+packmol-memgen = "^2023.2.24"
+pandas = "^2.1.3"
+ParmEd = "^4.2.2"
 pastel = "^0.2.1"
+pdb4amber = "^22.0"
 pexpect = "^4.8.0"
+Pillow = "^10.1.0"
 pip = "^23.3.1"
 pkginfo = "^1.9.6"
 platformdirs = "^3.11.0"
-poetry = "^1.7.0"
+poetry = "^1.7.1"
 poetry-core = "^1.8.1"
 poetry-plugin-export = "^1.6.0"
 pre-commit = "^3.5.0"
 ptyprocess = "^0.7.0"
 pycparser = "^2.21"
-pydantic = "^2.4.2"
-pydantic_core = "^2.10.1"
+pydantic = "^2.5.1"
+pydantic_core = "^2.14.3"
 pylev = "^1.4.0"
+pyMSMT = "^22.0"
+pyparsing = "^3.1.1"
 pyproject_hooks = "^1.0.0"
 PySocks = "^1.7.1"
+python-dateutil = "^2.8.2"
+pytraj = "^2.0.6"
+pytz = "^2023.3.post1"
 PyYAML = "^6.0.1"
 rapidfuzz = "^3.5.2"
 requests = "^2.31.0"
 requests-toolbelt = "^1.0.0"
 "ruamel.yaml" = "^0.18.5"
 "ruamel.yaml.clib" = "^0.2.7"
+sander = "^22.0"
+scipy = "^1.11.3"
 SecretStorage = "^3.3.3"
 setuptools = "^68.2.2"
 shellingham = "^1.5.4"
@@ -129,10 +262,11 @@ six = "^1.16.0"
 smmap = "^5.0.0"
 tomli = "^2.0.1"
 tomli_w = "^1.0.0"
-tomlkit = "^0.12.2"
+tomlkit = "^0.12.3"
 toolz = "^0.12.0"
-trove-classifiers = "^2023.10.18"
+trove-classifiers = "^2023.11.14"
 typing_extensions = "^4.8.0"
+tzdata = "^2023.3"
 ukkonen = "^1.0.1"
 urllib3 = "^1.26.18"
 virtualenv = "^20.24.6"

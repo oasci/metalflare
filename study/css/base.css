@@ -3,3 +3,7 @@
 .md-grid {
     max-width: 95%
 }
+
+:root {
+    --md-tooltip-width: 600px;
+}

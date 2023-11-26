@@ -73,7 +73,7 @@ def unify_resid(
     return new_line, assigned_resid, next_original_resid
 
 
-def run_unify_resids(pdb_path: str, output_path: str | None) -> Iterable[str]:
+def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[str]:
     r"""Unify residue ID in the PDB lines.
 
     Args:
