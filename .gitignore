@@ -1,3 +1,7 @@
+# Data settings
+*.pdb
+*.log
+
 # IDE settings
 .vscode/
 .idea/
@@ -56,3 +60,8 @@ psi.*.clean
 .mypy_cache
 site
 public
+
+environment.yml
+report.xml
+
+study/08-api

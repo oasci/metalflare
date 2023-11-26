@@ -1,16 +1,16 @@
-docs_dir: docs
+docs_dir: study
 
 site_name: metalflare
 site_author: OASCI
 
-# Github
-repo_name: oasci/metalflare
-repo_url: https://github.com/oasci/metalflare
+repo_name: oasci/studies/metalflare
+repo_url: https://gitlab.com/oasci/studies/metalflare
+edit_uri: -/edit/main/study
 
 # https://squidfunk.github.io/mkdocs-material/
 theme:
   name: material
-  custom_dir: docs/overrides
+  custom_dir: study/.overrides
   language: en
   palette:
     # Palette toggle for light mode
@@ -28,12 +28,15 @@ theme:
     text: Roboto
     code: Roboto Mono
   icon:
-    epo: fontawesome/brands/github
+    repo: fontawesome/brands/gitlab
     annotation: material/star-four-points-circle
   features:
+    - content.action.edit
+    - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.code.select
+    - content.tooltips
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
@@ -60,12 +63,17 @@ plugins:
   - table-reader
   - gen-files:
       scripts:
-        - docs/gen_ref_pages.py
+        - study/gen_ref_pages.py
   - mkdocstrings:
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+      default_handler: python
       handlers:
         python:
           paths: ["metalflare"]
+          import:
+          - https://docs.python.org/3/objects.inv
           options:
+            show_source: true
             annotations_path: brief
             docstring_style: google
 
