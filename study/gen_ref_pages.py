@@ -6,7 +6,7 @@ from pathlib import Path
 import mkdocs_gen_files
 
 SRC_DIR = "metalflare"
-WRITE_DIR = "08 API reference"
+WRITE_DIR = "08-api"
 
 for path in sorted(Path(SRC_DIR).rglob("*.py")):  #
     module_path = path.relative_to(SRC_DIR).with_suffix("")  #

@@ -2,14 +2,16 @@ SHELL := /usr/bin/env bash
 PYTHON_VERSION := 3.11
 PYTHON_VERSION_CONDENSED := 311
 PACKAGE_NAME := metalflare
-REPO_PATH := $(shell git rev-parse --show-toplevel)
-PACKAGE_PATH := $(REPO_PATH)/$(PACKAGE_NAME)
-TESTS_PATH := $(REPO_PATH)/tests
+PACKAGE_PATH := $(PACKAGE_NAME)/
+TESTS_PATH := tests/
 CONDA_NAME := $(PACKAGE_NAME)-dev
 CONDA := conda run -n $(CONDA_NAME)
-DOCS_URL := https://metalflare.oasci.org
+CONDA_LOCK_OPTIONS := -p linux-64 -p osx-64 --channel conda-forge
 
 ###   ENVIRONMENT   ###
+
+# See https://github.com/pypa/pip/issues/7883#issuecomment-643319919
+export PYTHON_KEYRING_BACKEND := keyring.backends.null.Keyring
 
 .PHONY: conda-create
 conda-create:
@@ -30,20 +32,20 @@ conda-setup:
 # Conda-only packages specific to this project.
 .PHONY: conda-dependencies
 conda-dependencies:
-	echo "No conda-only packages are required."
+	$(CONDA) conda install -c conda-forge ambertools
 
 .PHONY: conda-lock
 conda-lock:
-	- rm $(REPO_PATH)/conda-lock.yml
+	- rm conda-lock.yml
 	$(CONDA) conda env export --from-history | grep -v "^prefix" > environment.yml
-	$(CONDA) conda-lock -f environment.yml -p linux-64 -p osx-64 -p win-64
-	rm $(REPO_PATH)/environment.yml
-	$(CONDA) cpl-deps $(REPO_PATH)/pyproject.toml --env_name $(CONDA_NAME)
+	$(CONDA) conda-lock -f environment.yml $(CONDA_LOCK_OPTIONS)
+	rm environment.yml
+	$(CONDA) cpl-deps pyproject.toml --env_name $(CONDA_NAME)
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: from-conda-lock
 from-conda-lock:
-	$(CONDA) conda-lock install -n $(CONDA_NAME) $(REPO_PATH)/conda-lock.yml
+	$(CONDA) conda-lock install -n $(CONDA_NAME) conda-lock.yml
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
 .PHONY: pre-commit-install
@@ -58,12 +60,14 @@ poetry-lock:
 .PHONY: install
 install:
 	$(CONDA) poetry install --no-interaction
+	- mkdir .mypy_cache
+	- $(CONDA) mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
 
-.PHONY: refresh
-refresh: conda-create from-conda-lock pre-commit-install install
+.PHONY: environment
+environment: conda-create from-conda-lock pre-commit-install install
 
 .PHONY: refresh-locks
-refresh-locks: conda-create conda-setup conda-lock pre-commit-install poetry-lock install
+refresh-locks: conda-create conda-setup conda-dependencies conda-lock pre-commit-install poetry-lock install
 
 
 ###   FORMATTING   ###
@@ -74,19 +78,28 @@ validate:
 
 .PHONY: formatting
 formatting:
-	- $(CONDA) isort ./
+	- $(CONDA) isort --settings-path pyproject.toml ./
 	- $(CONDA) black --config pyproject.toml ./
 
 
+###   TESTING   ###
+
+.PHONY: test
+test:
+	$(CONDA) pytest -c pyproject.toml --cov=$(PACKAGE_NAME) --cov-report=xml --junit-xml=report.xml --color=yes $(TESTS_PATH)
+
+.PHONY: coverage
+coverage:
+	$(CONDA) coverage report
 
 
 ###   LINTING   ###
 
 .PHONY: check-codestyle
 check-codestyle:
-	$(CONDA) isort --diff --check-only $(REPO_PATH)
-	$(CONDA) black --diff --check --config pyproject.toml $(REPO_PATH)
-	$(CONDA) pylint --recursive=y --rcfile pyproject.toml $(REPO_PATH)
+	$(CONDA) isort --diff --check-only $(PACKAGE_PATH)
+	$(CONDA) black --diff --check --config pyproject.toml $(PACKAGE_PATH)
+	- $(CONDA) pylint --rcfile pyproject.toml $(PACKAGE_NAME)
 
 .PHONY: mypy
 mypy:
@@ -119,12 +132,16 @@ ipynbcheckpoints-remove:
 pytestcache-remove:
 	find . | grep -E ".pytest_cache" | xargs rm -rf
 
+.PHONY: pytest-coverage
+pytest-coverage:
+	rm report.xml coverage.xml .coverage
+
 .PHONY: build-remove
 build-remove:
 	rm -rf build/
 
 .PHONY: cleanup
-cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove
+cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove pytest-coverage
 
 
 
@@ -138,7 +155,9 @@ serve:
 .PHONY: docs
 docs:
 	$(CONDA) mkdocs build -d public/
+	- rm -rf 08-api/
+	- rm -f public/gen_ref_pages.py
 
 .PHONY: open-docs
 open-docs:
-	xdg-open ./site/index.html 2>/dev/null
+	xdg-open public/index.html 2>/dev/null
