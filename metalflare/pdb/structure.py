@@ -1,16 +1,20 @@
 import MDAnalysis as mda
 import numpy as np
+import numpy.typing as npt
 from loguru import logger
 
 
-def get_box_lengths(positions: np.ndarray) -> np.ndarray:
+def get_box_lengths(positions: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
+    r"""Compute lengths of box edges"""
     logger.info("Computing box lengths")
-    box_lengths = np.max(positions, axis=0) - np.min(positions, axis=0)
+    box_lengths: npt.NDArray[np.float64] = np.max(positions, axis=0) - np.min(
+        positions, axis=0
+    )
     logger.debug("Box lengths: {}", box_lengths)
     return box_lengths
 
 
-def get_box_vectors(positions: np.ndarray) -> np.ndarray:
+def get_box_vectors(positions: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
     r"""Vectors of box edges.
 
     Args:
@@ -29,14 +33,17 @@ def get_box_vectors(positions: np.ndarray) -> np.ndarray:
     return box_vectors
 
 
-def get_com(universe: mda.Universe) -> np.ndarray:
+def get_com(universe: mda.Universe) -> npt.NDArray[np.float64]:
+    r"""Compute the center of mass"""
     logger.info("Computing center of mass (com)")
-    com = universe.atoms.center_of_mass()
+    com: npt.NDArray[np.float64] = universe.atoms.center_of_mass()
     logger.debug("com: {}", com)
     return com
 
 
-def get_box_volume(positions: np.ndarray) -> float | np.ndarray:
+def get_box_volume(
+    positions: npt.NDArray[np.float64],
+) -> float:
     r"""Volume of box.
 
     Args:
@@ -47,6 +54,6 @@ def get_box_volume(positions: np.ndarray) -> float | np.ndarray:
     """
     box_vectors = get_box_vectors(positions)
     logger.info("Computing box volume")
-    volume = np.linalg.det(box_vectors)
+    volume: float = np.linalg.det(box_vectors)
     logger.debug("Box volume: {}", volume)
     return volume
