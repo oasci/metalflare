@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Unpack
 
 import argparse
 
@@ -26,6 +26,7 @@ class SimulationContextManager:
         self.ff_rna: str | None = None
         r"""Molecular mechanics force fields for RNA."""
         self.ff_glycam: str | None = None
+        r"""Molecular mechanics force fields for sugars"""
         self.ff_lipid: str | None = None
         r"""Molecular mechanics force fields for lipids."""
         self.ff_small_molecule: str | None = None
@@ -49,6 +50,48 @@ class SimulationContextManager:
         r"""Padding between solute and box edge to fill with solvent in Angstroms."""
         self.verbosity: int | str | None = None
         r"""Verbosity level for logging."""
+        self.scratch_dir: str | None = None
+        r"""Specify path for scratch directory if desired. If `None`, we do not use
+        scratch."""
+        self.compute_platform: str = "mpi"
+        r"""Desired platform to run simulations on.
+
+        **Options:**
+
+        -   `mpi`: Message passing interface for central processing units (CPUs).
+        -   `cuda`: Compute Unified Device Architecture (CUDA) for graphics processing
+            units (GPUs).
+        """
+        self.cpu_cores: int = 8
+        r"""Number of CPU cores to use if requested"""
+        self.input_kwargs: dict[str, Any] | None = None
+        r"""Simulation keyword arguments for input files."""
+        self.stage_name: str | None = None
+        r"""Name or label for simulation stage."""
+        self.input_dir: str | None = None
+        r"""Path to input directory for current stage."""
+        self.input_path: str | None = None
+        r"""Path to input file for current stage."""
+        self.output_dir: str | None = None
+        r"""Path to output directory for current stage."""
+        self.output_path: str | None = None
+        r"""Path to output file for current stage."""
+        self.coord_path: str | None = None
+        r"""Path to coordinate file for current stage."""
+        self.topology_path: str | None = None
+        r"""Path to topology file."""
+        self.restart_path: str | None = None
+        r"""Path to restart file for this stage."""
+        self.prev_coordinate_path: str | None = None
+        r"""Path to coordinate file of previous stage"""
+        self.prev_restart_path: str | None = None
+        r"""Path to restart file from previous stage or initial coordinates."""
+        self.ref_coord_path: str | None = None
+        r"""Path to reference coordinate file. This is often used for enforcing
+        restraints."""
+        self.splits: int = 1
+        r"""Split simulation stage into several chunks."""
+
         self.yaml_path = yaml_path
         r"""Path of YAML file that was loaded. Defaults to `None`."""
         self.from_yaml(yaml_path)
@@ -78,6 +121,7 @@ class SimulationContextManager:
             attr_dict: Dictionary containing attribute names and their
             corresponding values.
         """
+        logger.debug("Updating context:\n{}", attr_dict)
         for key, value in attr_dict.items():
             setattr(self, key, value)
 
@@ -111,6 +155,7 @@ class SimulationContextManager:
 # pylint: disable-next=too-few-public-methods
 class ContextValidator:
     r"""Base class for validating simulation contexts."""
+    # pylint: disable=unused-argument
 
     @classmethod
     def validate(cls, context_manager: SimulationContextManager) -> bool:
@@ -124,7 +169,8 @@ class ContextValidator:
         """
         logger.info("Validating with: {}", cls.__name__)
         is_valid = True
-        for key, value in context_manager.get().items():
+        context = context_manager.get()
+        for key, value in context.items():
             try:
                 checker = getattr(cls, key)
             except AttributeError:
@@ -139,7 +185,7 @@ class ContextValidator:
                     else:
                         logger.debug("  Valid: {}", value)
                 if callable(checker):
-                    is_value_valid = checker(value)
+                    is_value_valid = checker(value, context)
                     if not is_value_valid:
                         logger.error("  Invalid: {}", value)
                         is_valid = False
@@ -150,7 +196,7 @@ class ContextValidator:
         return is_valid
 
     @staticmethod
-    def extra_cations(value: Any) -> bool:
+    def extra_cations(value: Any, context: dict[str, Any]) -> bool:
         r"""Validate `extra_cations`"""
         if not isinstance(value, int):
             logger.error("extra_cations must be `int` type")
@@ -161,7 +207,7 @@ class ContextValidator:
         return True
 
     @staticmethod
-    def extra_anions(value: Any) -> bool:
+    def extra_anions(value: Any, context: dict[str, Any]) -> bool:
         r"""Validate `extra_anions`"""
         if not isinstance(value, int):
             logger.error("extra_anions must be `int` type")
@@ -183,9 +229,9 @@ def run_context_yaml_validator(yaml_path: str, validator_obj_string: str) -> boo
         If the YAML context is valid.
     """
     logger.info("Validating context from {}", yaml_path)
-    validator_cls = get_obj_from_string(validator_obj_string)
+    validator_cls = get_obj_from_string(validator_obj_string)  # type: ignore
     context_manager = SimulationContextManager(yaml_path=yaml_path)
-    is_valid = validator_cls.validate(context_manager)
+    is_valid: bool = validator_cls.validate(context_manager)  # type: ignore
     valid_string = "IS"
     if not is_valid:
         valid_string += " NOT"

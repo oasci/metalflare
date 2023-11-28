@@ -85,7 +85,7 @@ def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[
     """
     logger.info("Unify residue IDs from {}", os.path.abspath(pdb_path))
     with open(pdb_path, "r", encoding="utf-8") as f:
-        pdb_lines: Iterable[str] = f.readlines()
+        pdb_lines: list[str] = f.readlines()
 
     parse_structure = False
     for i, line in enumerate(pdb_lines):
