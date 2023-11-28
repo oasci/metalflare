@@ -1,13 +1,19 @@
+from typing import Any
+
 import argparse
 import os
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 
 from loguru import logger
 
 from ..utils import parse_atomname, parse_resname, replace_in_pdb_line
 
 
-def modify_lines(pdb_lines, fn_process, fn_args):
+def modify_lines(
+    pdb_lines: Iterable[str],
+    fn_process: Callable[[str, str, str, int | None, int], str],
+    fn_args: Iterable[Any],
+) -> list[str]:
     modified_lines = [
         fn_process(line, *fn_args) if "ATOM" in line or "HETATM" in line else line
         for line in pdb_lines
@@ -17,7 +23,7 @@ def modify_lines(pdb_lines, fn_process, fn_args):
 
 def replace_atom_names(
     pdb_lines: Iterable[str], orig_atom_name: str, new_atom_name: str
-) -> Iterable[str]:
+) -> list[str]:
     r"""Replace all atom names with another.
 
     Args:
@@ -37,7 +43,7 @@ def replace_atom_names(
 
 def replace_residue_names(
     pdb_lines: Iterable[str], orig_resname: str, new_resname: str
-) -> Iterable[str]:
+) -> list[str]:
     r"""Replace all instances of residue names with another.
 
     Args:
@@ -58,7 +64,7 @@ def replace_residue_names(
 
 def run_replace_resnames(
     pdb_path: str, resname_map: dict[str, str], output_path: str | None = None
-) -> Iterable[str]:
+) -> list[str]:
     r"""Replace residue names.
 
     Args:
@@ -71,7 +77,7 @@ def run_replace_resnames(
     """
     logger.info("Renaming residue names {}", os.path.abspath(pdb_path))
     with open(pdb_path, "r", encoding="utf-8") as f:
-        pdb_lines: Iterable[str] = f.readlines()
+        pdb_lines: list[str] = f.readlines()
 
     for orig_resname, new_resname in resname_map.items():
         pdb_lines = replace_residue_names(pdb_lines, orig_resname, new_resname)
@@ -163,7 +169,7 @@ def run_unify_water_labels(
             original_o_atomname = parse_atomname(line).strip()
             if original_o_atomname in water_atomnames["O"]:
                 pdb_lines[i] = replace_atom_names(
-                    [line], water_atomnames, atom_map["O"]
+                    [line], original_o_atomname, atom_map["O"]
                 )[0]
 
                 pdb_lines[i + 1] = replace_atom_names(

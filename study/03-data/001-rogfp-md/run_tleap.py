@@ -50,5 +50,6 @@ tleap_info_prep = prepare_amber_files(
     inpcrd_path="simulations/prep/mol.inpcrd",
     simulation_context=context_manager,
     add_lines=extra_tleap_lines,
-    **ion_counts,
+    cations=ion_counts["cations"],
+    anions=ion_counts["anions"],
 )

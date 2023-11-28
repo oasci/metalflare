@@ -111,7 +111,7 @@ def parse_tleap_log(log_lines: list[str]) -> dict[str, Any]:
     """
     logger.info("Parsing tleap log")
     # Initializing information that is not always in tleap.log
-    tleap_info = {"duplicate_atoms": [], "unknown_residues": []}
+    tleap_info: dict[str, Any] = {"duplicate_atoms": [], "unknown_residues": []}
     tleap_generator = _string_generator(log_lines)
     for line in tleap_generator:
         # -- residue 23: duplicate [ ND2] atoms (total 2)

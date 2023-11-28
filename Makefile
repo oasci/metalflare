@@ -154,6 +154,7 @@ serve:
 
 .PHONY: docs
 docs:
+	- rm -rf study/08-api/
 	$(CONDA) mkdocs build -d public/
 	- rm -rf 08-api/
 	- rm -f public/gen_ref_pages.py
