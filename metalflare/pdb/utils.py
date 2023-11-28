@@ -67,7 +67,7 @@ def parse_atomname(line: str) -> str:
 def keep_lines(
     lines: Iterable[str],
     record_types: tuple[str, ...] = ("ATOM", "HETATM", "TER", "END"),
-) -> Iterable[str]:
+) -> list[str]:
     r"""Filter PDB lines to keep in file.
 
     Args:
@@ -85,7 +85,7 @@ def run_filter_pdb(
     pdb_path: str,
     output_path: str | None = None,
     record_types: tuple[str, ...] | None = None,
-) -> Iterable[str]:
+) -> list[str]:
     r"""Only keep PDB lines that contain specified record types.
 
     Args:
@@ -99,7 +99,7 @@ def run_filter_pdb(
     """
     logger.info("Filtering PDB lines of {}", os.path.abspath(pdb_path))
     with open(pdb_path, "r", encoding="utf-8") as f:
-        pdb_lines: Iterable[str] = f.readlines()
+        pdb_lines: list[str] = f.readlines()
 
     if record_types is None:
         record_types = ("ATOM", "HETATM", "TER", "END")

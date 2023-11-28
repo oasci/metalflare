@@ -1,4 +1,9 @@
-"""Common simulation contexts for Amber"""
+"""Simulation contexts for Amber"""
+from typing import Any
+
+from collections.abc import Iterable
+
+from loguru import logger
 
 from ..contexts import ContextValidator
 
@@ -29,10 +34,17 @@ descriptions by incorporating the CMAP approach.
 class AmberContextValidator(ContextValidator):
     r"""Validate Amber contexts."""
 
-    ff_protein = ("ff19SB", "ff14SB", "ff99SB", "ff15ipq", "fb15", "ff03ua")
+    ff_protein: Iterable[str] = (
+        "ff19SB",
+        "ff14SB",
+        "ff99SB",
+        "ff15ipq",
+        "fb15",
+        "ff03ua",
+    )
     r"""Options for protein force fields."""
 
-    ff_water = (
+    ff_water: Iterable[str] = (
         "tip4p",
         "tip4pew",
         "tip5p",
@@ -47,3 +59,17 @@ class AmberContextValidator(ContextValidator):
         "tip4pfb",
     )
     r"""Options for water force fields."""
+    compute_platform: Iterable[str] = ("mpi", "cuda")
+    r"""Options for architecture to run simulations on."""
+
+    @staticmethod
+    def splits(value: Any, context: dict[str, Any]) -> bool:
+        r"""Validate `splits`"""
+        if value is not None:
+            if value > 1 and context["scratch_dir"] is None:
+                logger.error("scratch_dir must be set if splits > 1")
+                return False
+            if value >= 1000:
+                logger.error("splits cannot be larger than 999.")
+                return False
+        return True
