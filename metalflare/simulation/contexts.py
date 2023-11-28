@@ -1,4 +1,4 @@
-from typing import Any, Unpack
+from typing import Any
 
 import argparse
 
@@ -11,6 +11,7 @@ from ..utils import get_obj_from_string
 class SimulationContextManager:
     r"""Contexts for setting up molecular simulations."""
 
+    # pylint: disable-next=too-many-statements
     def __init__(self, yaml_path: str | None = None, **kwargs) -> None:
         r"""
         Args:
@@ -31,6 +32,8 @@ class SimulationContextManager:
         r"""Molecular mechanics force fields for lipids."""
         self.ff_small_molecule: str | None = None
         r"""Molecular mechanics force fields for small molecules."""
+        self.ff_ions: str | None = None
+        r"""Molecular mechanics force fields for ions."""
         self.cation_identity: str = "Na+"
         r"""Identity of the cation in the system."""
         self.anion_identity: str = "Cl-"

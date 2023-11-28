@@ -76,6 +76,8 @@ def get_source_ff_lines(simulation_context: SimulationContextManager) -> list[st
         tleap_lines.append(f"source leaprc.{context['ff_lipid']}")
     if isinstance(context["ff_small_molecule"], str):
         tleap_lines.append(f"source leaprc.{context['ff_small_molecule']}")
+    if isinstance(context["ff_ions"], str):
+        tleap_lines.append(f"source leaprc.{context['ff_ions']}")
     return tleap_lines
 
 
