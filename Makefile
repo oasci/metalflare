@@ -109,6 +109,11 @@ mypy:
 lint: check-codestyle mypy
 
 
+###   BUILDING   ###
+
+.PHONY: build
+build:
+	$(CONDA) poetry build
 
 ###   CLEANING   ###
 
