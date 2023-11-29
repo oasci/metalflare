@@ -25,7 +25,17 @@ First, we download [roGFP](https://www.rcsb.org/structure/1JC0) from [RCSB](http
 --8<-- "study/03-data/001-rogfp-md/protein-prep.sh:20:21"
 ```
 
-<div style="height: 400px; width: 100%; position: relative;" class='viewer_3Dmoljs' data-pdb='1JC0' data-backgroundalpha='0.0' data-select1='chain:A' data-style1='cartoon:color=spectrum' data-select2='resn:CRO' data-style2='stick' data-select3='chain:B' data-style3='hidden' data-select4='chain:C' data-style4='hidden'  data-zoomto='chain:A'></div>
+<div
+    style="height: 400px; width: 100%; position: relative;" class='viewer_3Dmoljs'
+    data-pdb='1jc0' data-backgroundalpha='0.0'
+    data-select1='chain:A' data-style1='cartoon:color=spectrum'
+    data-select2='resn:CRO' data-style2='cartoon:color=spectrum;stick'
+    data-select3='resi:147' data-style3='cartoon:color=spectrum;stick'
+    data-select4='resi:204' data-style4='cartoon:color=spectrum;stick'
+    data-select5='chain:B' data-style5=''
+    data-select6='chain:C' data-style6=''
+    data-zoomto='chain:A'>
+</div>
 
 ### Cleaning
 
@@ -53,7 +63,18 @@ First, we download [roGFP](https://www.rcsb.org/structure/1JC0) from [RCSB](http
 --8<-- "study/03-data/001-rogfp-md/protein-prep.sh:42:42"
 ```
 
-<div style="height: 400px; width: 100%; position: relative;" class='viewer_3Dmoljs' data-href='https://gitlab.com/oasci/studies/metalflare/-/raw/main/study/03-data/001-rogfp-md/structures/protein/1JC0-final.pdb' data-backgroundalpha='0.0' data-select1='chain:A' data-style1='cartoon:color=spectrum' data-select2='resn:CRO' data-style2='stick'></div>
+<div
+    style="height: 400px; width: 100%; position: relative;" class='viewer_3Dmoljs'
+    data-href='https://gitlab.com/oasci/studies/metalflare/-/raw/main/study/03-data/001-rogfp-md/structures/protein/1JC0-final.pdb'
+    data-backgroundalpha='0.0'
+    data-select1='chain:A' data-style1='cartoon:color=spectrum'
+    data-select2='resn:CRO' data-style2='cartoon:color=spectrum;stick'
+    data-select3='resi:147' data-style3='cartoon:color=spectrum;stick'
+    data-select4='resi:204' data-style4='cartoon:color=spectrum;stick'
+    data-select5='chain:B' data-style5=''
+    data-select6='chain:C' data-style6=''
+    data-zoomto='chain:A'>
+</div>
 
 [protein-prep]: https://gitlab.com/oasci/studies/metalflare/-/blob/main/study/03-data/001-rogfp-md/protein-prep.sh
 
