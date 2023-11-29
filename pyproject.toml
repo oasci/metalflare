@@ -6,6 +6,9 @@ authors = [
     "OASCI <us@oasci.org>",
 ]
 readme = "README.md"
+include = [
+    "templates/"
+]
 
 [tool.poetry.dependencies]
 python = "<3.13,>=3.11"
@@ -14,6 +17,7 @@ mdanalysis = "^2.6.1"
 datalad = "^0.19.3"
 datalad-osf = "^0.3.0"
 pdb2pqr = "^3.6.1"
+jinja2 = "^3.1.2"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
@@ -49,6 +53,7 @@ metalflare-center = "metalflare.pdb.modify.positioning:cli_center_structure"
 metalflare-rename-resname = "metalflare.pdb.modify.names:cli_replace_resnames"
 metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
 metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
+metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
 
 [tool.bumpversion]
 current_version = "2023.10.29"
