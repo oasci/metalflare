@@ -11,7 +11,7 @@ from loguru import logger
 logger.disable("metalflare")
 
 LOG_FORMAT = (
-    "<green>{time:HH:mm:ss}</green> | "
+    "<green>{time:YYYY-MM-DD HH:mm:ss.SSSZ}</green> | "
     "<level>{level: <8}</level> | "
     "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
 )
