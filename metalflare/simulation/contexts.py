@@ -94,6 +94,10 @@ class SimulationContextManager:
         restraints."""
         self.splits: int = 1
         r"""Split simulation stage into several chunks."""
+        self.sbatch_options: dict[str, Any] | None = None
+        r"""[`sbatch` options](https://slurm.schedmd.com/sbatch.html#SECTION_OPTIONS)
+        for a [slurm](https://slurm.schedmd.com/) submission script.
+        """
 
         self.yaml_path = yaml_path
         r"""Path of YAML file that was loaded. Defaults to `None`."""
