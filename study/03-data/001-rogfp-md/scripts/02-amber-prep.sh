@@ -10,7 +10,7 @@ export METALFLARE_STDOUT=False
 export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="02-amber-prep.log"
 
-METALFLARE_SAVE_DIR="../simulations/prep"
+METALFLARE_SAVE_DIR="../simulations/02-amber-prep"
 YAML_PATH="../simulations/base.yml"
 PDB_PATH="../structures/protein/1JC0-final.pdb"
 
