@@ -38,7 +38,7 @@ class SimulationContextManager:
         r"""Identity of the cation in the system."""
         self.anion_identity: str = "Cl-"
         r"""Identity of the anion in the system."""
-        self.system_net_charge: int = 0
+        self.system_charge: int = 0
         r"""Net charge of the molecular system."""
         self.neutralize_charge: bool = True
         r"""Flag to determine if system charge should be neutralized by placing
