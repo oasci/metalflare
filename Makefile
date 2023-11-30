@@ -33,6 +33,12 @@ conda-setup:
 .PHONY: conda-dependencies
 conda-dependencies:
 	$(CONDA) conda install -c conda-forge ambertools
+	$(CONDA) conda install -c conda-forge datalad
+	$(CONDA) conda install -y -c conda-forge nodejs
+
+.PHONY: nodejs-dependencies
+nodejs-dependencies:
+	$(CONDA) npm install markdownlint-cli2 --global
 
 .PHONY: conda-lock
 conda-lock:
@@ -64,10 +70,10 @@ install:
 	- $(CONDA) mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
 
 .PHONY: environment
-environment: conda-create from-conda-lock pre-commit-install install
+environment: conda-create from-conda-lock pre-commit-install nodejs-dependencies install
 
-.PHONY: refresh-locks
-refresh-locks: conda-create conda-setup conda-dependencies conda-lock pre-commit-install poetry-lock install
+.PHONY: locks
+locks: conda-create conda-setup conda-dependencies conda-lock pre-commit-install poetry-lock nodejs-dependencies install
 
 
 ###   FORMATTING   ###
