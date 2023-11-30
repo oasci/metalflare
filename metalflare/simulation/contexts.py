@@ -97,7 +97,25 @@ class SimulationContextManager:
         self.sbatch_options: dict[str, Any] | None = None
         r"""[`sbatch` options](https://slurm.schedmd.com/sbatch.html#SECTION_OPTIONS)
         for a [slurm](https://slurm.schedmd.com/) submission script.
+        Some common options are:
+        [job-name](https://slurm.schedmd.com/sbatch.html#OPT_job-name),
+        [nodes](https://slurm.schedmd.com/sbatch.html#OPT_nodes),
+        [ntasks-per-node](https://slurm.schedmd.com/sbatch.html#OPT_ntasks-per-node),
+        [cpus-per-task](https://slurm.schedmd.com/sbatch.html#OPT_cpus-per-task),
+        [gpus](https://slurm.schedmd.com/sbatch.html#OPT_gpus),
+        [gres](https://slurm.schedmd.com/sbatch.html#OPT_gres),
+        [cpus-per-gpu](https://slurm.schedmd.com/sbatch.html#OPT_cpus-per-gpu),
+        [chdir](https://slurm.schedmd.com/sbatch.html#OPT_chdir),
+        [output](https://slurm.schedmd.com/sbatch.html#OPT_output),
+        [error](https://slurm.schedmd.com/sbatch.html#OPT_error),
+        [time](https://slurm.schedmd.com/sbatch.html#OPT_time),
+        [clusters](https://slurm.schedmd.com/sbatch.html#OPT_clusters),
+        [partition](https://slurm.schedmd.com/sbatch.html#OPT_partition),
+        [account](https://slurm.schedmd.com/sbatch.html#OPT_account).
         """
+        self.slurm_lines: list[str] | None = None
+        r"""Lines for a slurm submission script."""
+        self.submit: bool = False
 
         self.yaml_path = yaml_path
         r"""Path of YAML file that was loaded. Defaults to `None`."""
