@@ -51,10 +51,10 @@ Introduced as roGFP2 [Hanson et al.][rogfp paper], this forms a reversible forma
     data-zoomto='chain:A;resi:204'>
 </div>
 
-## msGFP
+## mseGFP
 
-Metal-sensing GFP (msGFP) is similar to roGFP, but mutates `S147C` and `S202C` from [eGFP][2y0g].
-Since the protein can no longer make the `147`-`204` disulfide bond, all msGFP simulations will start from the [reduced form](#reduced-form) with `C202S` and `S202C` mutations.
+Metal-sensing GFP (mseGFP) is similar to roGFP, but mutates `S147C` and `S202C` from [eGFP][2y0g].
+Since the protein can no longer make the `147`-`204` disulfide bond, all mseGFP simulations will start from the [reduced form](#reduced-form) with `C202S` and `S202C` mutations.
 
 <!-- LINKS -->
 
