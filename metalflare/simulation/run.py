@@ -34,26 +34,29 @@ class SimulationRunPrep(ABC):
 
     @classmethod
     @abstractmethod
-    def get_input_lines(cls, context: dict[str, Any]) -> Iterable[str]:
-        r"""Prepare input file lines
-
-        Args:
-            context: Specifies options and parameters.
-        """
-
-    @classmethod
-    @abstractmethod
-    def get_stage_run_command(cls, context: dict[str, Any]) -> list[str]:
-        r"""Prepare bash command to run a single stage. This is unique to each
-        simulation package and can be customized based on the context.
+    def get_stage_input_lines(cls, context: dict[str, Any]) -> Iterable[str]:
+        r"""Prepare input file lines for a single stage.
 
         Args:
             context: Specifies options and parameters.
 
         Returns:
-            Bash commands to run one stage of a simulation.
+            Input file lines for a single simulations. The lines do not end in `\n`.
+        """
 
-        **Examples:**
+    @classmethod
+    @abstractmethod
+    def get_stage_run_command(cls, context: dict[str, Any]) -> list[str]:
+        r"""Prepare bash command to run a single simulation.
 
-        TODO:
+        Args:
+            context: Specifies options and parameters.
+
+        Returns:
+            Bash commands in a list to run one stage of a simulation.
+
+        **Notes:**
+
+        [`prepare_context`][simulation.amber.run.AmberRunPrep.prepare_context]
+        should be ran before this.
         """
