@@ -3,6 +3,8 @@ from typing import Any
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
 
+from loguru import logger
+
 from .contexts import SimulationContextManager
 
 
@@ -43,6 +45,32 @@ class SimulationRunPrep(ABC):
         Returns:
             Input file lines for a single simulations. The lines do not end in `\n`.
         """
+
+    @classmethod
+    def prepare_slurm_lines(
+        cls,
+        context: dict[str, Any],
+        write: bool = True,
+    ) -> list[str]:
+        r"""Prepare slurm submission script lines.
+
+        Args:
+            context: Specifies options and parameters.
+
+        """
+        logger.info("Preparing slurm submission script")
+        slurm_lines = ["#!/bin/bash"]
+        for k, v in context["sbatch_options"].items():
+            slurm_lines.append(f"#SBATCH --{k}={v}")
+        slurm_lines.extend(context["slurm_lines"])
+
+        slurm_lines = [l + "\n" for l in slurm_lines if isinstance(l, str)]
+        logger.debug("Slurm script:\n{}", "".join(slurm_lines))
+        if write:
+            logger.info("Writing submissions script at {}", context["slurm_path"])
+            with open(context["slurm_path"], mode="w", encoding="utf-8") as f:
+                f.writelines(slurm_lines)
+        return slurm_lines
 
     @classmethod
     @abstractmethod
