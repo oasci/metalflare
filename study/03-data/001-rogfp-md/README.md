@@ -14,7 +14,7 @@ First, we specify some environmental variables for metalflare.
 This is mostly to enable logging.
 
 ```bash title="01-protein-prep.sh" linenums="7"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:7:13"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:7:13"
 ```
 
 ### Downloading
@@ -22,7 +22,7 @@ This is mostly to enable logging.
 First, we download [roGFP](https://www.rcsb.org/structure/1JC0) from [RCSB](https://www.rcsb.org/).
 
 ```bash title="01-protein-prep.sh" linenums="20"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:20:21"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:20:21"
 ```
 
 <div
@@ -40,32 +40,32 @@ First, we download [roGFP](https://www.rcsb.org/structure/1JC0) from [RCSB](http
 ### Cleaning
 
 ```bash title="01-protein-prep.sh" linenums="23"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:23:28"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:23:28"
 ```
 
 ### pdb2pqr
 
 ```bash title="01-protein-prep.sh" linenums="30"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:30:30"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:30:30"
 ```
 
 ```bash title="01-protein-prep.sh" linenums="33"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:33:39"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:33:39"
 ```
 
 ```bash title="01-protein-prep.sh" linenums="40"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:40:40"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:40:40"
 ```
 
 ### pdb4amber
 
 ```bash title="01-protein-prep.sh" linenums="41"
---8<-- "study/03-data/001-rogfp-md/01-protein-prep.sh:42:42"
+--8<-- "study/03-data/001-rogfp-md/scripts/01-protein-prep.sh:42:42"
 ```
 
 <!-- LINKS -->
 
-[protein-prep]: https://gitlab.com/oasci/studies/metalflare/-/blob/main/study/03-data/001-rogfp-md/01-protein-prep.sh
+[protein-prep]: https://gitlab.com/oasci/studies/metalflare/-/blob/main/study/03-data/001-rogfp-md/scripts/01-protein-prep.sh
 
 <!-- SCRIPTS -->
 

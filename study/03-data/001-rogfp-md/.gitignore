@@ -1,6 +1,6 @@
 !1JC0-final.pdb
-!protein-prep.log
-!amber-prep.log
+!01-protein-prep.log
+!02-amber-prep.log
 
 stdout_nonprot.pdb
 stdout_renum.txt
