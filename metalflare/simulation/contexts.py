@@ -112,10 +112,15 @@ class SimulationContextManager:
         [clusters](https://slurm.schedmd.com/sbatch.html#OPT_clusters),
         [partition](https://slurm.schedmd.com/sbatch.html#OPT_partition),
         [account](https://slurm.schedmd.com/sbatch.html#OPT_account).
+
+        These options are written in the format of `#SBATCH --{key}={value}`.
         """
         self.slurm_lines: list[str] | None = None
         r"""Lines for a slurm submission script."""
+        self.slurm_path: str | None = None
+        r"""Path to slurm submission file."""
         self.submit: bool = False
+        r"""Submit the job."""
 
         self.yaml_path = yaml_path
         r"""Path of YAML file that was loaded. Defaults to `None`."""
