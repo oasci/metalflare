@@ -1,0 +1,107 @@
+# Additional context for minimization
+submit: false
+
+input_dir: "../simulations/03-min"
+output_dir: "$SLURM_SUBMIT_DIR"
+compute_platform: "cuda"
+
+# Specifies the stages of the calculation.
+# Keys must be integers and will run in order of increasing numbers.
+stages:
+
+  - stage_name: 01_min
+    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
+    prev_restart_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    input_kwargs:
+      imin: 1
+      ntx: 1
+      irest: 0
+      ntmin: 1
+      maxcyc: 5000
+      ncyc: 1000
+      ntr: 1
+      restraint_wt: 5.0
+      restraintmask: "!(@H=)"
+      ntb: 1
+      ntf: 1
+      ntc: 1
+      cut: 10.0
+      ntxo: 2
+      ntwr: 200
+      ntpr: 1
+      ntwx: 200
+      ioutfm: 1
+      iwrap: 1
+
+  - stage_name: 02_min
+    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    input_kwargs:
+      imin: 1
+      ntx: 1
+      irest: 0
+      ntmin: 1
+      maxcyc: 5000
+      ncyc: 1000
+      ntr: 1
+      restraint_wt: 5.0
+      restraintmask: "!(:WAT) & !(@H=) & !(:Na+,Cl-)"
+      ntb: 1
+      ntf: 1
+      ntc: 1
+      cut: 10.0
+      ntxo: 2
+      ntwr: 200
+      ntpr: 1
+      ntwx: 200
+      ioutfm: 1
+      iwrap: 1
+
+  - stage_name: 03_min
+    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    input_kwargs:
+      imin: 1
+      ntx: 1
+      irest: 0
+      ntmin: 1
+      maxcyc: 5000
+      ncyc: 1000
+      ntr: 1
+      restraint_wt: 2.0
+      restraintmask: "!(:WAT) & (@C,CA,N,O,O5',P,O3',C3',C4',C5')"
+      ntb: 1
+      ntf: 1
+      ntc: 1
+      cut: 10.0
+      ntxo: 2
+      ntwr: 200
+      ntpr: 1
+      ntwx: 200
+      ioutfm: 1
+      iwrap: 1
+
+  - stage_name: 04_min
+    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    input_kwargs:
+      imin: 1
+      ntx: 1
+      irest: 0
+      ntmin: 1
+      maxcyc: 5000
+      ncyc: 1000
+      ntr: 1
+      restraint_wt: 1.0
+      restraintmask: "!(:WAT) & (@C,CA,N,O,O5',P,O3',C3',C4',C5')"
+      ntb: 1
+      ntf: 1
+      ntc: 1
+      cut: 10.0
+      ntxo: 2
+      ntwr: 200
+      ntpr: 1
+      ntwx: 200
+      ioutfm: 1
+      iwrap: 1

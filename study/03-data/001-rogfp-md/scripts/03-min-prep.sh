@@ -15,7 +15,7 @@ COORD_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.inpcrd"
 TOPO_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.prmtop"
 
 SAVE_DIR="$SIMULATIONS_DIR/03-min"
-SLURM_PATH="$SIMULATIONS_DIR/03-min/run.slurm"
+SLURM_PATH="$SIMULATIONS_DIR/03-min/submit.slurm"
 
 
 # Cleanup files from previous run
@@ -23,7 +23,8 @@ rm -rf $SAVE_DIR
 mkdir -p $SAVE_DIR
 rm -f $METALFLARE_LOG_FILE_PATH
 
-./prep_sim.py $TOPO_PATH $COORD_PATH $SLURM_PATH --yaml $SIMULATIONS_DIR/base.yml $SIMULATIONS_DIR/slurm.yml
+./prep_sim.py $TOPO_PATH $COORD_PATH $SLURM_PATH \
+--yaml $SIMULATIONS_DIR/03-min.yml $SIMULATIONS_DIR/slurm.yml $SIMULATIONS_DIR/base.yml
 
 export METALFLARE_LOG=False
 )
