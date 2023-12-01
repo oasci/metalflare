@@ -1,7 +1,7 @@
 from typing import Any
 
-from abc import ABC, abstractmethod
-from collections.abc import Iterable
+from abc import ABC, abstractclassmethod, abstractmethod
+from collections.abc import Collection
 
 from loguru import logger
 
@@ -33,10 +33,11 @@ class SimulationRunPrep(ABC):
 
         TODO:
         """
+        raise NotImplementedError
 
     @classmethod
     @abstractmethod
-    def get_stage_input_lines(cls, context: dict[str, Any]) -> Iterable[str]:
+    def get_stage_input_lines(cls, context: dict[str, Any]) -> Collection[str]:
         r"""Prepare input file lines for a single stage.
 
         Args:
@@ -45,6 +46,7 @@ class SimulationRunPrep(ABC):
         Returns:
             Input file lines for a single simulations. The lines do not end in `\n`.
         """
+        raise NotImplementedError
 
     @classmethod
     def prepare_slurm_lines(
@@ -74,7 +76,7 @@ class SimulationRunPrep(ABC):
 
     @classmethod
     @abstractmethod
-    def get_stage_run_command(cls, context: dict[str, Any]) -> list[str]:
+    def get_stage_run_command(cls, context: dict[str, Any]) -> Collection[str]:
         r"""Prepare bash command to run a single simulation.
 
         Args:
@@ -88,3 +90,24 @@ class SimulationRunPrep(ABC):
         [`prepare_context`][simulation.amber.run.AmberRunPrep.prepare_context]
         should be ran before this.
         """
+        raise NotImplementedError
+
+    @classmethod
+    @abstractclassmethod
+    def prepare_stage(
+        cls,
+        context: dict[str, Any],
+        run_commands: list[str] | None = None,
+        write: bool = True,
+    ) -> tuple[list[str], list[str]]:
+        raise NotImplementedError
+
+    @classmethod
+    @abstractclassmethod
+    def prepare(cls, simulation_context: SimulationContextManager) -> None:
+        """Run all steps to prepare simulations.
+
+        Args:
+            simulation_context: Context manager for simulations.
+        """
+        raise NotImplementedError

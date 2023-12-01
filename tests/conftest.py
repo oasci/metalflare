@@ -55,7 +55,7 @@ def amber_simulation_standard_context(amber_protein_standard_context):
     context_manager.stage_name = "01_min"
     context_manager.input_dir = TEST_DIR
     context_manager.output_dir = TEST_DIR
-    context_manager.topology_path = os.path.join(TEST_DIR, "mol.prmtop")
+    context_manager.topo_path = os.path.join(TEST_DIR, "mol.prmtop")
     context_manager.input_path = os.path.join(
         TEST_DIR, f"{context_manager.stage_name}.in"
     )
