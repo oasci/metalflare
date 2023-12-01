@@ -1,6 +1,7 @@
 from typing import Any
 
 import argparse
+from collections.abc import Collection
 
 from loguru import logger
 from ruamel.yaml import YAML
@@ -71,6 +72,9 @@ class SimulationContextManager:
         r"""Simulation keyword arguments for input files."""
         self.stage_name: str | None = None
         r"""Name or label for simulation stage."""
+        self.stages: Collection[dict[str, Any]] | None = None
+        """Contexts for successive stages. Stage $i > 0$ is assumed to be restarted from
+        stage $i - 1$."""
         self.input_dir: str | None = None
         r"""Path to input directory for current stage."""
         self.input_path: str | None = None
@@ -81,7 +85,7 @@ class SimulationContextManager:
         r"""Path to output file for current stage."""
         self.coord_path: str | None = None
         r"""Path to coordinate file for current stage."""
-        self.topology_path: str | None = None
+        self.topo_path: str | None = None
         r"""Path to topology file."""
         self.restart_path: str | None = None
         r"""Path to restart file for this stage."""
@@ -119,6 +123,8 @@ class SimulationContextManager:
         r"""Lines for a slurm submission script."""
         self.slurm_path: str | None = None
         r"""Path to slurm submission file."""
+        self.write: bool = True
+        """Write files."""
         self.submit: bool = False
         r"""Submit the job."""
 
@@ -126,7 +132,7 @@ class SimulationContextManager:
         r"""Path of YAML file that was loaded. Defaults to `None`."""
         self.from_yaml(yaml_path)
 
-        self.update_attributes(kwargs)
+        self.update(kwargs)
 
     def from_yaml(self, yaml_path: str | None) -> None:
         r"""Load context information from a YAML file. This will only update data
@@ -141,10 +147,10 @@ class SimulationContextManager:
             with open(yaml_path, "r", encoding="utf-8") as f:
                 yaml_data = yaml.load(f)
             logger.debug("YAML data:\n{}", yaml_data)
-            self.update_attributes(yaml_data)
+            self.update(yaml_data)
         self.yaml_path = yaml_path
 
-    def update_attributes(self, attr_dict: dict[str, Any]) -> None:
+    def update(self, attr_dict: dict[str, Any]) -> None:
         r"""Update attributes with values from the provided dictionary.
 
         Args:

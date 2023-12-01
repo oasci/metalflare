@@ -1,7 +1,6 @@
 from typing import Any
 
 import os
-from collections.abc import Iterable
 
 from loguru import logger
 
@@ -26,7 +25,7 @@ class AmberRunPrep(SimulationRunPrep):
         logger.info("Preparing context for Amber simulation")
         context = simulation_context.get()
 
-        run_dir = context["output_dir"]
+        run_dir = context.get("output_dir")
 
         use_scratch = bool(context["scratch_dir"] is not None)
         if use_scratch:
@@ -34,12 +33,14 @@ class AmberRunPrep(SimulationRunPrep):
         context["run_dir"] = run_dir
 
         # Creates all amber-specific paths we will need.
+        context["input_path"] = os.path.join(run_dir, context["stage_name"] + ".in")
         context["output_path"] = os.path.join(run_dir, context["stage_name"] + ".out")
         context["restart_path"] = os.path.join(run_dir, context["stage_name"] + ".rst")
         context["coord_path"] = os.path.join(run_dir, context["stage_name"] + ".nc")
         context["mdinfo_path"] = os.path.join(
             run_dir, context["stage_name"] + ".mdinfo"
         )
+        context["run_path"] = os.path.join(context["input_dir"], "run.sh")
 
         if use_scratch:
             # We have to use absolute paths with scratch to ensure nothing gets
@@ -49,9 +50,8 @@ class AmberRunPrep(SimulationRunPrep):
                     context[k] = os.path.abspath(v)
 
         os.makedirs(context["input_dir"], exist_ok=True)
-        os.makedirs(context["output_dir"], exist_ok=True)
 
-        simulation_context.update_attributes(context)
+        simulation_context.update(context)
 
         is_valid = AmberContextValidator.validate(simulation_context)
         if not is_valid:
@@ -108,7 +108,7 @@ class AmberRunPrep(SimulationRunPrep):
         amber_command += (
             f"-o {context['output_path']} -c {context['prev_restart_path']} "
         )
-        amber_command += f"-p {context['topology_path']} "
+        amber_command += f"-p {context['topo_path']} "
         amber_command += f"-r {context['restart_path']} -x {context['coord_path']} "
         amber_command += (
             f"-ref {context['ref_coord_path']} -inf {context['mdinfo_path']}"
@@ -216,3 +216,38 @@ class AmberRunPrep(SimulationRunPrep):
             stage_commands = cls.get_stage_run_command(context)
             run_commands.extend(stage_commands)
         return stage_input_lines, run_commands
+
+    @classmethod
+    def prepare(cls, simulation_context: SimulationContextManager) -> None:
+        """Run all steps to prepare simulations.
+
+        Args:
+            simulation_context: Context manager for simulations.
+        """
+        logger.info("Prepare simulations")
+        multiple_stages: bool = bool(simulation_context.stages is not None)
+        if multiple_stages:
+            logger.debug("There are multiple stages")
+            n_stages: int = len(simulation_context.stages)
+            simulation_context.update(simulation_context.stages[0])
+        else:
+            logger.debug("There is one stage.")
+            n_stages = 1
+
+        run_commands = None
+        for i_stage in range(1, n_stages + 1):
+            logger.info("Preparing stage {}", i_stage - 1)
+            simulation_context = cls.prepare_context(simulation_context)
+            context = simulation_context.get()
+            _, run_commands = cls.prepare_stage(context, run_commands, context["write"])
+
+            simulation_context.prev_restart_path = simulation_context.restart_path
+            simulation_context.prev_coord_path = simulation_context.coord_path
+
+            if multiple_stages and i_stage < n_stages:
+                simulation_context.update(simulation_context.stages[i_stage])
+
+        if context["write"]:
+            logger.debug("Writing run script at {}", context["run_path"])
+            with open(context["run_path"], "w", encoding="utf-8") as f:
+                f.writelines([l + "\n" for l in run_commands])
