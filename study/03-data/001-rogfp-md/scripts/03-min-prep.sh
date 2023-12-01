@@ -26,5 +26,8 @@ rm -f $METALFLARE_LOG_FILE_PATH
 ./prep_sim.py $TOPO_PATH $COORD_PATH $SLURM_PATH \
 --yaml $SIMULATIONS_DIR/03-min.yml $SIMULATIONS_DIR/slurm.yml $SIMULATIONS_DIR/base.yml
 
+cp $COORD_PATH $SAVE_DIR/mol.inpcrd
+cp $TOPO_PATH $SAVE_DIR/mol.prmtop
+
 export METALFLARE_LOG=False
 )
