@@ -16,6 +16,6 @@ module load openmpi/4.0.3
 module load amber/22
 
 chmod +x ./run.sh
-./run_prod.sh
+./run.sh
 
 touch CALC_DONE
