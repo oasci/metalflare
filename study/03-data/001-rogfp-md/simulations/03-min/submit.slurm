@@ -15,4 +15,7 @@ module load gcc/8.2.0
 module load openmpi/4.0.3
 module load amber/22
 
-total_n_cores=$(($SLURM_JOB_NUM_NODES * $SLURM_NTASKS_PER_NODE))
+chmod +x ./run.sh
+./run_prod.sh
+
+touch CALC_DONE

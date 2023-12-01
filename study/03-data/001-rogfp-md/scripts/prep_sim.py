@@ -2,8 +2,8 @@
 
 import argparse
 
+from metalflare.simulation.amber.run import AmberRunPrep
 from metalflare.simulation.contexts import SimulationContextManager
-from metalflare.simulation.run import SimulationRunPrep
 
 parser = argparse.ArgumentParser(description="Run tleap")
 parser.add_argument(
@@ -39,4 +39,5 @@ if args.yaml is not None:
 
 context_manager.slurm_path = args.slurm_path
 
-slurm_lines = SimulationRunPrep.prepare_slurm_lines(context_manager.get(), write=True)
+AmberRunPrep.prepare_slurm_lines(context_manager.get(), write=context_manager.write)
+AmberRunPrep.prepare(context_manager)

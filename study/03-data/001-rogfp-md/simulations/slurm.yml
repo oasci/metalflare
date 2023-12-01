@@ -12,6 +12,8 @@ sbatch_options:
   gres: gpu:1
   account: jdurrant
 
+# Bash comments should be contained in double quotes.
+# Empty lines should just be "".
 slurm_lines:
   - ""
   - "# Load environment"
@@ -20,4 +22,7 @@ slurm_lines:
   - module load openmpi/4.0.3
   - module load amber/22
   - ""
-  - total_n_cores=$(($SLURM_JOB_NUM_NODES * $SLURM_NTASKS_PER_NODE))
+  - chmod +x ./run.sh
+  - ./run_prod.sh
+  - ""
+  - touch CALC_DONE
