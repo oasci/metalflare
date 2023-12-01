@@ -13,8 +13,9 @@ export METALFLARE_LOG_FILE_PATH="03-min-prep.log"
 SIMULATIONS_DIR="../simulations"
 COORD_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.inpcrd"
 TOPO_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.prmtop"
-SLURM_PATH="$SIMULATIONS_DIR/02-amber-prep/run.slurm"
+
 SAVE_DIR="$SIMULATIONS_DIR/03-min"
+SLURM_PATH="$SIMULATIONS_DIR/03-min/run.slurm"
 
 
 # Cleanup files from previous run
