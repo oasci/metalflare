@@ -1,4 +1,5 @@
 # Base slurm context
+write: true
 submit: false
 
 sbatch_options:

@@ -121,10 +121,14 @@ class SimulationContextManager:
         """
         self.slurm_lines: list[str] | None = None
         r"""Lines for a slurm submission script."""
+        self.run_path: str | None = None
+        r"""Path to run file."""
         self.slurm_path: str | None = None
         r"""Path to slurm submission file."""
-        self.write: bool = True
+        self.write: bool = False
         """Write files."""
+        self.write_dir: str | None = None
+        """Write directory."""
         self.submit: bool = False
         r"""Submit the job."""
 
@@ -230,6 +234,15 @@ class ContextValidator:
             else:
                 logger.debug("  Skipping: None")
         return is_valid
+
+    @staticmethod
+    def write(value: Any, context: dict[str, Any]) -> bool:
+        r"""Validate `write`"""
+        if value:
+            if context["write_dir"] is None:
+                logger.error("write_dir must be set if write is True")
+                return False
+        return True
 
     @staticmethod
     def extra_cations(value: Any, context: dict[str, Any]) -> bool:

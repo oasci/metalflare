@@ -1,7 +1,11 @@
 !1JC0-final.pdb
 !01-protein-prep.log
 !02-amber-prep.log
+!03-min-prep.log
 
 stdout_nonprot.pdb
 stdout_renum.txt
 stdout_sslink
+
+simulations/03-min/inputs/mol.inpcrd
+simulations/03-min/inputs/mol.prmtop
