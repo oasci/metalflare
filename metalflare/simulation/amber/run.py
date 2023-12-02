@@ -90,7 +90,7 @@ class AmberRunPrep(SimulationRunPrep):
         """
         use_scratch = bool(context["scratch_dir"] is not None)
 
-        stage_commands = [f"echo 'Starting {context['stage_name']}'", "date"]
+        stage_commands = ["", f"echo 'Starting {context['stage_name']}'", "date"]
 
         if use_scratch:
             # Adds commands to check if split was already ran.
@@ -130,8 +130,6 @@ class AmberRunPrep(SimulationRunPrep):
                     "fi",
                 ]
             )
-
-        stage_commands.append("")
 
         return stage_commands
 

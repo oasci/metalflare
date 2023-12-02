@@ -4,6 +4,18 @@ input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "cuda"
 
+sbatch_options:
+  job-name: "metalflare/001/03-min"
+  nodes: 1
+  ntasks-per-node: 2
+  output: slurm-%j.out
+  error: slurm-%j.err
+  time: "3-00:00:00"
+  cluster: gpu
+  partition: a100
+  gres: gpu:1
+  account: jdurrant
+
 # Specifies the stages of the calculation.
 # Keys must be integers and will run in order of increasing numbers.
 stages:

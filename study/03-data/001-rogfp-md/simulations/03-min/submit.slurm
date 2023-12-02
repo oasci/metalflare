@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --job-name=metalflare/001/03-min
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=2
 #SBATCH --output=slurm-%j.out
