@@ -14,6 +14,18 @@ parser.add_argument(
     help="Path to PDB file",
 )
 parser.add_argument(
+    "topo_path",
+    type=str,
+    nargs="?",
+    help="Where to save topology file",
+)
+parser.add_argument(
+    "coord_path",
+    type=str,
+    nargs="?",
+    help="Where to save coordinate file",
+)
+parser.add_argument(
     "--yaml",
     type=str,
     nargs="*",
@@ -46,8 +58,8 @@ ion_counts = get_ion_counts(
 )
 tleap_info_prep = prepare_amber_files(
     args.pdb,
-    prmtop_path="../simulations/prep/mol.prmtop",
-    inpcrd_path="../simulations/prep/mol.inpcrd",
+    prmtop_path=args.topo_path,
+    inpcrd_path=args.coord_path,
     simulation_context=context_manager,
     add_lines=extra_tleap_lines,
     cations=ion_counts["cations"],
