@@ -1,3 +1,4 @@
+
 echo 'Starting 01_min'
 date
 pmemd.cuda -O -i $SLURM_SUBMIT_DIR/inputs/01_min.in -o $SLURM_SUBMIT_DIR/outputs/01_min.out -c $SLURM_SUBMIT_DIR/inputs/mol.inpcrd -p $SLURM_SUBMIT_DIR/inputs/mol.prmtop -r $SLURM_SUBMIT_DIR/outputs/01_min.rst -x $SLURM_SUBMIT_DIR/outputs/01_min.nc -ref $SLURM_SUBMIT_DIR/inputs/mol.inpcrd -inf $SLURM_SUBMIT_DIR/outputs/01_min.mdinfo

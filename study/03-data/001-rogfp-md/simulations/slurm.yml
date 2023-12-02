@@ -2,17 +2,6 @@
 write: true
 submit: false
 
-sbatch_options:
-  nodes: 1
-  ntasks-per-node: 2
-  output: slurm-%j.out
-  error: slurm-%j.err
-  time: "3-00:00:00"
-  cluster: gpu
-  partition: a100
-  gres: gpu:1
-  account: jdurrant
-
 # Bash comments should be contained in double quotes.
 # Empty lines should just be "".
 slurm_lines:
