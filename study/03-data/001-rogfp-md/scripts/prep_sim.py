@@ -19,6 +19,12 @@ parser.add_argument(
     help="Path to .inpcrd file",
 )
 parser.add_argument(
+    "run_path",
+    type=str,
+    nargs="?",
+    help="Path to run file",
+)
+parser.add_argument(
     "slurm_path",
     type=str,
     nargs="?",
@@ -38,6 +44,7 @@ if args.yaml is not None:
         context_manager.from_yaml(yaml_path)
 
 context_manager.slurm_path = args.slurm_path
+context_manager.run_path = args.run_path
 
 AmberRunPrep.prepare_slurm_lines(context_manager.get(), write=context_manager.write)
 AmberRunPrep.prepare(context_manager)

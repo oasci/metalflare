@@ -1,8 +1,7 @@
 # Additional context for minimization
-submit: false
-
-input_dir: "../simulations/03-min"
-output_dir: "$SLURM_SUBMIT_DIR"
+write_dir: "../simulations/03-min/inputs"
+input_dir: "$SLURM_SUBMIT_DIR/inputs"
+output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "cuda"
 
 # Specifies the stages of the calculation.
@@ -10,9 +9,9 @@ compute_platform: "cuda"
 stages:
 
   - stage_name: 01_min
-    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
-    prev_restart_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    prev_restart_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       imin: 1
       ntx: 1
@@ -35,8 +34,8 @@ stages:
       iwrap: 1
 
   - stage_name: 02_min
-    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       imin: 1
       ntx: 1
@@ -59,8 +58,8 @@ stages:
       iwrap: 1
 
   - stage_name: 03_min
-    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       imin: 1
       ntx: 1
@@ -83,8 +82,8 @@ stages:
       iwrap: 1
 
   - stage_name: 04_min
-    topo_path: "$SLURM_SUBMIT_DIR/mol.prmtop"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       imin: 1
       ntx: 1

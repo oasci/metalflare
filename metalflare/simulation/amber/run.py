@@ -33,14 +33,15 @@ class AmberRunPrep(SimulationRunPrep):
         context["run_dir"] = run_dir
 
         # Creates all amber-specific paths we will need.
-        context["input_path"] = os.path.join(run_dir, context["stage_name"] + ".in")
+        context["input_path"] = os.path.join(
+            context["input_dir"], context["stage_name"] + ".in"
+        )
         context["output_path"] = os.path.join(run_dir, context["stage_name"] + ".out")
         context["restart_path"] = os.path.join(run_dir, context["stage_name"] + ".rst")
         context["coord_path"] = os.path.join(run_dir, context["stage_name"] + ".nc")
         context["mdinfo_path"] = os.path.join(
             run_dir, context["stage_name"] + ".mdinfo"
         )
-        context["run_path"] = os.path.join(context["input_dir"], "run.sh")
 
         if use_scratch:
             # We have to use absolute paths with scratch to ensure nothing gets
@@ -200,7 +201,7 @@ class AmberRunPrep(SimulationRunPrep):
             context["stage_name"] = stage_name + stage_name_suffix
             stage_input_lines = cls.get_stage_input_lines(context)
             stage_input_path = os.path.join(
-                context["input_dir"], context["stage_name"] + ".in"
+                context["write_dir"], context["stage_name"] + ".in"
             )
             if write:
                 logger.info("Writing input file at {}", stage_input_path)
