@@ -2,10 +2,13 @@
 !01-protein-prep.log
 !02-amber-prep.log
 !03-min-prep.log
+!04-relax-prep.log
 
 stdout_nonprot.pdb
 stdout_renum.txt
 stdout_sslink
 
-simulations/03-min/inputs/mol.inpcrd
-simulations/03-min/inputs/mol.prmtop
+mol.inpcrd
+mol.prmtop
+!simulations/02-amber-prep/mol.inpcrd
+!simulations/02-amber-prep/mol.prmtop
