@@ -198,10 +198,10 @@ class AmberRunPrep(SimulationRunPrep):
 
             context["stage_name"] = stage_name + stage_name_suffix
             stage_input_lines = cls.get_stage_input_lines(context)
-            stage_input_path = os.path.join(
-                context["write_dir"], context["stage_name"] + ".in"
-            )
             if write:
+                stage_input_path = os.path.join(
+                    context["write_dir"], context["stage_name"] + ".in"
+                )
                 logger.info("Writing input file at {}", stage_input_path)
                 with open(stage_input_path, mode="w", encoding="utf-8") as f:
                     f.writelines([i + "\n" for i in stage_input_lines])

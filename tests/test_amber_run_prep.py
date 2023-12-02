@@ -8,11 +8,11 @@ class TestAmberRunPrep:
         )
         run_command = AmberRunPrep.get_stage_run_command(simulation_context.get())
         assert len(run_command) == 4
-        assert run_command[0] == "echo 'Starting 01_min'"
-        assert run_command[1] == "date"
-        assert run_command[-1] == ""
+        assert run_command[0] == ""
+        assert run_command[1] == "echo 'Starting 01_min'"
+        assert run_command[2] == "date"
 
-        amber_command = run_command[2]
+        amber_command = run_command[3]
         assert "None" not in amber_command
         assert "mpirun -np 12 pmemd.MPI -O" == amber_command[:26]
         amber_command_split = amber_command[26:].split(" -")[1:]
