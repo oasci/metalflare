@@ -1,0 +1,114 @@
+write_dir: "../simulations/04-relax/inputs"
+input_dir: "$SLURM_SUBMIT_DIR/inputs"
+output_dir: "$SLURM_SUBMIT_DIR/outputs"
+compute_platform: "cuda"
+
+sbatch_options:
+  job-name: "metalflare/001/04-relax"
+  nodes: 1
+  ntasks-per-node: 2
+  output: slurm-%j.out
+  error: slurm-%j.err
+  time: "6-00:00:00"
+  cluster: gpu
+  partition: a100
+  gres: gpu:1
+  account: jdurrant
+
+# Specifies the stages of the calculation.
+# Keys must be integers and will run in order of increasing numbers.
+stages:
+
+  - stage_name: 05_relax_nvt_r
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    prev_restart_path: "$SLURM_SUBMIT_DIR/../03-min/outputs/04_min.rst"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    input_kwargs:
+      irest: 0
+      ntx: 1
+      ig: -1
+      dt: 0.002
+      nstlim: 10000
+      nscm: 500
+      ntr: 1
+      restraint_wt: 1.0
+      restraintmask: "!(:WAT) & (@C,CA,N,O,O5',P,O3',C3',C4',C5')"
+      ntb: 1
+      ntf: 2
+      ntc: 2
+      cut: 10.0
+      ntt: 3
+      tempi: 100.0
+      temp0: 300.0
+      gamma_ln: 5.0
+      ntp: 0
+      ntxo: 2
+      ntwr: 500
+      ntpr: 500
+      ntwx: 500
+      ioutfm: 1
+      iwrap: 1
+
+  - stage_name: 06_relax_npt_r
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    input_kwargs:
+      irest: 1
+      ntx: 5
+      ig: -1
+      dt: 0.002
+      nstlim: 500000
+      nscm: 500
+      ntr: 1
+      restraint_wt: 0.5
+      restraintmask: "!(:WAT) & (@C,CA,N,O,O5',P,O3',C3',C4',C5')"
+      ntb: 2
+      ntf: 2
+      ntc: 2
+      cut: 10.0
+      ntt: 3
+      temp0: 300.0
+      gamma_ln: 5.0
+      ntp: 1
+      barostat: 2
+      pres0: 1.01325
+      mcbarint: 100
+      comp: 44.6
+      taup: 1.0
+      ntxo: 2
+      ntwr: 5000
+      ntpr: 500
+      ntwx: 5000
+      ioutfm: 1
+      iwrap: 1
+
+  - stage_name: 07_relax_npt
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    input_kwargs:
+      irest: 1
+      ntx: 5
+      ig: -1
+      dt: 0.002
+      nstlim: 500000
+      nscm: 500
+      ntr: 0
+      ntb: 2
+      ntf: 2
+      ntc: 2
+      cut: 10.0
+      ntt: 3
+      temp0: 300.0
+      gamma_ln: 5.0
+      ntp: 1
+      barostat: 2
+      pres0: 1.01325
+      mcbarint: 100
+      comp: 44.6
+      taup: 1.0
+      ntxo: 2
+      ntwr: 5000
+      ntpr: 500
+      ntwx: 5000
+      ioutfm: 1
+      iwrap: 1
