@@ -24,7 +24,7 @@ repos:
         name: isort
         entry: isort --settings-path pyproject.toml
         types: [python]
-        language: system
+        language: python
 
   - repo: local
     hooks:
@@ -32,4 +32,4 @@ repos:
         name: black
         entry: black --config pyproject.toml
         types: [python]
-        language: system
+        language: python
