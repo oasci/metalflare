@@ -1,74 +1,76 @@
-2023-11-30 15:35:04.449-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:261 - Validating context from ../simulations/base.yml
-2023-11-30 15:35:04.450-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:139 - Loading YAML context from ../simulations/base.yml
-2023-11-30 15:35:04.452-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:143 - YAML data:
+2023-12-01 19:55:11.194-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:267 - Validating context from ../simulations/base.yml
+2023-12-01 19:55:11.194-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:145 - Loading YAML context from ../simulations/base.yml
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:149 - YAML data:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
-2023-11-30 15:35:04.452-05:00 | DEBUG    | metalflare.simulation.contexts:update:154 - Updating context:
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:update:160 - Updating context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:update:154 - Updating context:
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:update:160 - Updating context:
 {}
-2023-11-30 15:35:04.453-05:00 | INFO     | metalflare.simulation.contexts:validate:200 - Validating with: AmberContextValidator
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking ff_protein
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:216 -   Valid: ff19SB
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking ff_water
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:216 -   Valid: opc3
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_dna
-2023-11-30 15:35:04.453-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_rna
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_glycam
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_lipid
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_small_molecule
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ff_ions
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check cation_identity
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check anion_identity
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check system_charge
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check neutralize_charge
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking extra_cations
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:223 -   Valid: 0
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking extra_anions
-2023-11-30 15:35:04.454-05:00 | DEBUG    | metalflare.simulation.contexts:validate:223 -   Valid: 0
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check solvent_ionic_strength
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check solvent_padding
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check verbosity
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check scratch_dir
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking compute_platform
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:216 -   Valid: mpi
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check cpu_cores
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check input_kwargs
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check stage_name
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check input_dir
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check input_path
-2023-11-30 15:35:04.455-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check output_dir
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check output_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check coord_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check topo_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check restart_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check prev_coordinate_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check prev_restart_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check ref_coord_path
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:209 - Checking splits
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:223 -   Valid: 1
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check sbatch_options
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check slurm_lines
-2023-11-30 15:35:04.456-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check slurm_path
-2023-11-30 15:35:04.457-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check submit
-2023-11-30 15:35:04.457-05:00 | DEBUG    | metalflare.simulation.contexts:validate:207 - Cannot check yaml_path
-2023-11-30 15:35:04.457-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:268 - Context IS valid
-2023-11-30 15:35:04.603-05:00 | DEBUG    | metalflare.simulation.contexts:update:154 - Updating context:
+2023-12-01 19:55:11.195-05:00 | INFO     | metalflare.simulation.contexts:validate:206 - Validating with: AmberContextValidator
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking ff_protein
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:validate:222 -   Valid: ff19SB
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking ff_water
+2023-12-01 19:55:11.195-05:00 | DEBUG    | metalflare.simulation.contexts:validate:222 -   Valid: opc3
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_dna
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_rna
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_glycam
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_lipid
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_small_molecule
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ff_ions
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check cation_identity
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check anion_identity
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check system_charge
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check neutralize_charge
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking extra_cations
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:229 -   Valid: 0
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking extra_anions
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:229 -   Valid: 0
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check solvent_ionic_strength
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check solvent_padding
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check verbosity
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check scratch_dir
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking compute_platform
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:222 -   Valid: mpi
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check cpu_cores
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check input_kwargs
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check stage_name
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check stages
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check input_dir
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check input_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check output_dir
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check output_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check coord_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check topo_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check restart_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check prev_coordinate_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check prev_restart_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check ref_coord_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:215 - Checking splits
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:229 -   Valid: 1
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check sbatch_options
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check slurm_lines
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check slurm_path
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check write
+2023-12-01 19:55:11.196-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check submit
+2023-12-01 19:55:11.197-05:00 | DEBUG    | metalflare.simulation.contexts:validate:213 - Cannot check yaml_path
+2023-12-01 19:55:11.197-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:274 - Context IS valid
+2023-12-01 19:55:11.254-05:00 | DEBUG    | metalflare.simulation.contexts:update:160 - Updating context:
 {}
-2023-11-30 15:35:04.603-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:139 - Loading YAML context from ../simulations/base.yml
-2023-11-30 15:35:04.605-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:143 - YAML data:
+2023-12-01 19:55:11.255-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:145 - Loading YAML context from ../simulations/base.yml
+2023-12-01 19:55:11.255-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:149 - YAML data:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
-2023-11-30 15:35:04.605-05:00 | DEBUG    | metalflare.simulation.contexts:update:154 - Updating context:
+2023-12-01 19:55:11.255-05:00 | DEBUG    | metalflare.simulation.contexts:update:160 - Updating context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
-2023-11-30 15:35:04.605-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:04.605-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
-2023-11-30 15:35:04.605-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:04.606-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:205 - Setting PDB output to /tmp/tmpe9qygn29.pdb
-2023-11-30 15:35:04.606-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:210 - Writing tleap input to /tmp/tmptcie0lxd.in
-2023-11-30 15:35:04.606-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:213 - tleap input:
+2023-12-01 19:55:11.255-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.255-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
+2023-12-01 19:55:11.255-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.256-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:205 - Setting PDB output to /tmp/tmp9_h4cspf.pdb
+2023-12-01 19:55:11.256-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:210 - Writing tleap input to /tmp/tmp88ddbstc.in
+2023-12-01 19:55:11.256-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:213 - tleap input:
 source leaprc.protein.ff19SB
 source leaprc.water.opc3
 loadAmberParams frcmod.ionslm_126_opc3
@@ -77,23 +79,23 @@ xFPparams = loadamberparams ../ff/cro/frcmod.xFPchromophores.2022
 loadOff ../ff/cro/xFPchromophores.lib.2022
 mol = loadpdb ../structures/protein/1JC0-final.pdb
 solvatebox mol OPC3BOX 10.0
-savepdb mol /tmp/tmpe9qygn29.pdb
+savepdb mol /tmp/tmp9_h4cspf.pdb
 charge mol
 quit
-2023-11-30 15:35:04.606-05:00 | INFO     | metalflare.simulation.amber.tleap:get_prelim_sim_info:216 - Running tleap
-2023-11-30 15:35:04.607-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:218 - tleap command: ['tleap', '-f', '/tmp/tmptcie0lxd.in']
-2023-11-30 15:35:05.044-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:225 - tleap errors:
+2023-12-01 19:55:11.256-05:00 | INFO     | metalflare.simulation.amber.tleap:get_prelim_sim_info:216 - Running tleap
+2023-12-01 19:55:11.256-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:218 - tleap command: ['tleap', '-f', '/tmp/tmp88ddbstc.in']
+2023-12-01 19:55:11.442-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:225 - tleap errors:
 
-2023-11-30 15:35:05.045-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:226 - tleap output:
+2023-12-01 19:55:11.442-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:226 - tleap output:
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
--f: Source /tmp/tmptcie0lxd.in.
+-f: Source /tmp/tmp88ddbstc.in.
 
 Welcome to LEaP!
 (no leaprc in search path)
-Sourcing: /tmp/tmptcie0lxd.in
+Sourcing: /tmp/tmp88ddbstc.in
 ----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
 ----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
 Log file: ./leap.log
@@ -160,7 +162,7 @@ Atom names in each residue should be unique.
   Volume: 366956.734 A^3
   Total mass 183528.326 amu,  Density 0.831 g/cc
   Added 8763 residues.
-Writing pdb file: /tmp/tmpe9qygn29.pdb
+Writing pdb file: /tmp/tmp9_h4cspf.pdb
    printing CRYST1 record to PDB file with box info
 
 /home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
@@ -174,20 +176,20 @@ Total perturbed charge:    -7.000000
 
 Exiting LEaP: Errors = 0; Warnings = 3; Notes = 0.
 
-2023-11-30 15:35:05.045-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:114 - Parsing tleap log
-2023-11-30 15:35:05.045-05:00 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 252223.46947586563 A^3
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 23}
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:05.046-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.contexts:get:168 - Retrieved context:
-{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': 'run.slurm', 'submit': False, 'yaml_path': '../simulations/base.yml'}
-2023-11-30 15:35:05.046-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:300 - Setting PDB output to /tmp/tmpsm9_1ii9.pdb
-2023-11-30 15:35:05.047-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:305 - Writing tleap input to /tmp/tmpekafl8kq.in
-2023-11-30 15:35:05.047-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:308 - tleap input:
+2023-12-01 19:55:11.442-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:114 - Parsing tleap log
+2023-12-01 19:55:11.446-05:00 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 252223.46947586563 A^3
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 23}
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.446-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.contexts:get:174 - Retrieved context:
+{'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'slurm_path': None, 'write': True, 'submit': False, 'yaml_path': '../simulations/base.yml'}
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:300 - Setting PDB output to /tmp/tmpv9m2_d0z.pdb
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:305 - Writing tleap input to /tmp/tmpxou98r_b.in
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:308 - tleap input:
 source leaprc.protein.ff19SB
 source leaprc.water.opc3
 loadAmberParams frcmod.ionslm_126_opc3
@@ -198,24 +200,24 @@ mol = loadpdb ../structures/protein/1JC0-final.pdb
 addIons2 mol Na+ 30
 addIons2 mol Cl- 23
 solvatebox mol OPC3BOX 10.0
-savepdb mol /tmp/tmpsm9_1ii9.pdb
-saveamberparm mol ../simulations/prep/mol.prmtop ../simulations/prep/mol.inpcrd
+savepdb mol /tmp/tmpv9m2_d0z.pdb
+saveamberparm mol ../simulations/02-amber-prep/mol.prmtop ../simulations/02-amber-prep/mol.inpcrd
 charge mol
 quit
-2023-11-30 15:35:05.047-05:00 | INFO     | metalflare.simulation.amber.tleap:prepare_amber_files:311 - Running tleap
-2023-11-30 15:35:05.047-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:313 - tleap command: ['tleap', '-f', '/tmp/tmpekafl8kq.in']
-2023-11-30 15:35:08.277-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:320 - tleap errors:
+2023-12-01 19:55:11.446-05:00 | INFO     | metalflare.simulation.amber.tleap:prepare_amber_files:311 - Running tleap
+2023-12-01 19:55:11.446-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:313 - tleap command: ['tleap', '-f', '/tmp/tmpxou98r_b.in']
+2023-12-01 19:55:13.533-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:320 - tleap errors:
 
-2023-11-30 15:35:08.277-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:321 - tleap output:
+2023-12-01 19:55:13.533-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:321 - tleap output:
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
--f: Source /tmp/tmpekafl8kq.in.
+-f: Source /tmp/tmpxou98r_b.in.
 
 Welcome to LEaP!
 (no leaprc in search path)
-Sourcing: /tmp/tmpekafl8kq.in
+Sourcing: /tmp/tmpxou98r_b.in
 ----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
 ----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
 Log file: ./leap.log
@@ -347,7 +349,7 @@ Done adding ions.
   Volume: 422328.269 A^3
   Total mass 210201.728 amu,  Density 0.826 g/cc
   Added 10160 residues.
-Writing pdb file: /tmp/tmpsm9_1ii9.pdb
+Writing pdb file: /tmp/tmpv9m2_d0z.pdb
    printing CRYST1 record to PDB file with box info
 
 /home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
@@ -383,4 +385,4 @@ Total perturbed charge:    -0.000000
 
 Exiting LEaP: Errors = 0; Warnings = 3; Notes = 0.
 
-2023-11-30 15:35:08.277-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:114 - Parsing tleap log
+2023-12-01 19:55:13.533-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:114 - Parsing tleap log
