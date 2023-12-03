@@ -1,13 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=metalflare/001/03-min
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=2
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=48
 #SBATCH --output=slurm-%j.out
 #SBATCH --error=slurm-%j.err
-#SBATCH --time=3-00:00:00
-#SBATCH --cluster=gpu
-#SBATCH --partition=a100
-#SBATCH --gres=gpu:1
+#SBATCH --time=1-00:00:00
+#SBATCH --cluster=mpi
+#SBATCH --partition=mpi
 #SBATCH --account=jdurrant
 
 # Load environment

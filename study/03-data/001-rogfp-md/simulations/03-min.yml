@@ -2,18 +2,18 @@
 write_dir: "../simulations/03-min/inputs"
 input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
-compute_platform: "cuda"
+compute_platform: "mpi"
+n_cores: 96
 
 sbatch_options:
   job-name: "metalflare/001/03-min"
-  nodes: 1
-  ntasks-per-node: 2
+  nodes: 2
+  ntasks-per-node: 48
   output: slurm-%j.out
   error: slurm-%j.err
-  time: "3-00:00:00"
-  cluster: gpu
-  partition: a100
-  gres: gpu:1
+  time: "1-00:00:00"
+  cluster: mpi
+  partition: mpi
   account: jdurrant
 
 # Specifies the stages of the calculation.
