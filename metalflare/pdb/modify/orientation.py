@@ -63,14 +63,13 @@ def run_minimize_box(
     Returns:
         Atomic positions rotated to minimum box volume.
     """
-    universe = mda.Universe(pdb_path, topology_format="pdb")
-    positions = universe.coord.positions
-    optimized_rotation_v = minimize_box(positions)
-    optimized_positions = rotate_positions(positions, optimized_rotation_v)
+    u = mda.Universe(pdb_path)
+    optimized_rotation_v = minimize_box(u.atoms.positions)
+    optimized_positions = rotate_positions(u.atoms.positions, optimized_rotation_v)
 
     if isinstance(output_path, str):
-        universe.coord.positions = optimized_positions
-        universe.coord.write(output_path)
+        u.atoms.positions = optimized_positions
+        u.atoms.write(output_path)
     return optimized_positions
 
 
