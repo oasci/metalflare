@@ -176,17 +176,17 @@ def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Unive
 
     # Group atoms by residue
     residue_groups = u.atoms.groupby("resids")
-    u_sorted = mda.core.universe.Merge(
+    u = mda.core.universe.Merge(
         *[atoms.sort("types") for _, atoms in residue_groups.items()]
     )
 
     # Remove some Merge artifacts that messes with pdb4amber
-    u_sorted.del_TopologyAttr("segids")
+    u.del_TopologyAttr("segids")
 
     if output_path is not None:
         logger.info("Writing merged PDB at {}", output_path)
-        u_sorted.atoms.write(output_path)
-    return u_sorted.atoms
+        u.atoms.write(output_path)
+    return u.atoms
 
 
 def cli_merge_pdbs() -> None:

@@ -37,7 +37,7 @@ metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --o
 metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP WAT --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP3 WAT --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb CYX CYS --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-merge-pdbs $METALFLARE_SAVE_DIR/5-$PDB_ID-resnames.pdb $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+metalflare-merge-pdbs $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $METALFLARE_SAVE_DIR/5-$PDB_ID-resnames.pdb --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 
 pdb4amber -i $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb > $METALFLARE_SAVE_DIR/7-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
 cat pdb4amber.err >> $METALFLARE_LOG_FILE_PATH
