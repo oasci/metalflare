@@ -1,7 +1,7 @@
 
 echo 'Starting 05_relax_nvt_r'
 date
-pmemd.cuda -O -i $SLURM_SUBMIT_DIR/inputs/05_relax_nvt_r.in -o $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.out -c $SLURM_SUBMIT_DIR/../03-min/outputs/04_min.rst -p $SLURM_SUBMIT_DIR/inputs/mol.prmtop -r $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.rst -x $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.nc -ref $SLURM_SUBMIT_DIR/inputs/mol.inpcrd -inf $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.mdinfo
+pmemd.cuda -O -i $SLURM_SUBMIT_DIR/inputs/05_relax_nvt_r.in -o $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.out -c $SLURM_SUBMIT_DIR/../../03-min/outputs/04_min.rst -p $SLURM_SUBMIT_DIR/inputs/mol.prmtop -r $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.rst -x $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.nc -ref $SLURM_SUBMIT_DIR/inputs/mol.inpcrd -inf $SLURM_SUBMIT_DIR/outputs/05_relax_nvt_r.mdinfo
 
 echo 'Starting 06_relax_npt_r'
 date

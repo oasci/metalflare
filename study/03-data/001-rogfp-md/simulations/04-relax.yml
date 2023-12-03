@@ -1,10 +1,8 @@
-write_dir: "../simulations/04-relax/inputs"
 input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "cuda"
 
 sbatch_options:
-  job-name: "metalflare/001/04-relax"
   nodes: 1
   ntasks-per-node: 2
   output: slurm-%j.out
@@ -21,7 +19,7 @@ stages:
 
   - stage_name: 05_relax_nvt_r
     topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
-    prev_restart_path: "$SLURM_SUBMIT_DIR/../03-min/outputs/04_min.rst"
+    prev_restart_path: "$SLURM_SUBMIT_DIR/../../03-min/outputs/04_min.rst"
     ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       irest: 0
