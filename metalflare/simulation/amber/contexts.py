@@ -73,3 +73,25 @@ class AmberContextValidator(ContextValidator):
                 logger.error("splits cannot be larger than 999.")
                 return False
         return True
+
+    @staticmethod
+    def input_kwargs(value: Any, context: dict[str, Any]) -> bool:
+        r"""Validate input parameters.
+
+        Enforces the following rules.
+
+        -   Minimizations (e.g., `imin = 1`) cannot use GPUs.
+            Sometimes when fewer bits are being used for float (i.e., `float32` instead
+            of `float64`), floating point errors can accumulate and make the force
+            field calculations crash or very high forces.
+            Thus, we do not allow `compute_platform` to be set to `cuda` during
+            minimizations.
+        """
+        for k, v in value.items():
+            if k == "imin" and v == 1:
+                if context["compute_platform"] == "cuda":
+                    logger.error(
+                        "compute_platform cannot be set to cuda for minimizations"
+                    )
+                    return False
+        return True
