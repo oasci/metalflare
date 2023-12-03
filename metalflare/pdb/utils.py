@@ -3,6 +3,7 @@ import os
 from collections.abc import Iterable
 
 import MDAnalysis as mda
+import numpy as np
 from loguru import logger
 
 
@@ -162,6 +163,16 @@ def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Unive
             logger.debug("Missing atom types: {}", missing_types)
             # missing_types is always the entire residues atoms?
             u = mda.core.universe.Merge(u.atoms, residue.atoms)
+
+    # Get the indices of duplicate atoms
+    coordinates = u.atoms.positions
+    _, unique_indices = np.unique(coordinates, axis=0, return_index=True)
+    if len(unique_indices) < len(coordinates):
+        logger.info("Cleaning up duplicate atoms")
+        duplicate_indices = np.setdiff1d(np.arange(len(coordinates)), unique_indices)
+        u.atoms = u.atoms[
+            np.isin(np.arange(len(coordinates)), duplicate_indices, invert=True)
+        ]
 
     # Group atoms by residue
     residue_groups = u.atoms.groupby("resids")
