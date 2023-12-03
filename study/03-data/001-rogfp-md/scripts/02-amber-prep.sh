@@ -13,9 +13,9 @@ export METALFLARE_LOG_FILE_PATH="02-amber-prep.log"
 PDB_PATH="../structures/protein/1JC0-final.pdb"
 YAML_PATH="../simulations/base.yml"
 
-SAVE_DIR="../simulations/02-amber-prep"
-TOPO_PATH="../simulations/02-amber-prep/mol.prmtop"
-COORD_PATH="../simulations/02-amber-prep/mol.inpcrd"
+SAVE_DIR="../simulations/02-prep"
+TOPO_PATH="$SAVE_DIR/mol.prmtop"
+COORD_PATH="$SAVE_DIR/mol.inpcrd"
 
 
 
