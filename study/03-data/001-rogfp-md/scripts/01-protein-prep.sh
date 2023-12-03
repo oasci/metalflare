@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 export PDB_ID="1JC0"
 export METALFLARE_LOG=True
 export METALFLARE_STDOUT=False
-export METALFLARE_LOG_LEVEL=20
+export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="01-protein-prep.log"
 METALFLARE_SAVE_DIR="../structures/protein"
 

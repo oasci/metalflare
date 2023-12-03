@@ -3,7 +3,6 @@ import os
 from collections.abc import Iterable
 
 import MDAnalysis as mda
-import numpy as np
 from loguru import logger
 
 
@@ -139,20 +138,33 @@ def cli_filter_pdb() -> None:
 
 
 def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Universe:
-    r"""Merge PDB files. No atoms are removed, only added."""
-    atoms = [mda.Universe(pdb_path, format="PDB").atoms for pdb_path in pdb_paths]
-    u_merged = mda.core.universe.Merge(*atoms)
-    coordinates = u_merged.atoms.positions
-    _, unique_indices = np.unique(coordinates, axis=0, return_index=True)
-    if len(unique_indices) < len(coordinates):
-        logger.info("Cleaning up duplicate atoms")
-        duplicate_indices = np.setdiff1d(np.arange(len(coordinates)), unique_indices)
-        u_merged.atoms = u_merged.atoms[
-            np.isin(np.arange(len(coordinates)), duplicate_indices, invert=True)
-        ]
+    r"""Merge PDB files. No atoms are removed, only added.
+
+    Args:
+        *pdb_paths: Paths to PDB files in order of decreasing precedence. We assume
+            the residue indices are consistent across PDB files.
+    """
+    logger.info("Merging PDB files")
+    u = mda.Universe(pdb_paths[0])
+    atoms_to_add = [mda.Universe(pdb_path).atoms for pdb_path in pdb_paths[1:]]
+    u_to_add = mda.core.universe.Merge(*atoms_to_add)
+
+    for residue in u_to_add.residues:
+        logger.debug("Processing residue ID of {}", residue.resid)
+        available_types = {atom.name for atom in residue.atoms}
+        logger.debug("Available atom types: {}", available_types)
+        present_types = {atom.name for atom in u.select_atoms(f"resid {residue.resid}")}
+        logger.debug("Current atom types: {}", present_types)
+        missing_types = {
+            atype for atype in available_types if atype not in present_types
+        }
+        if len(missing_types) > 0:
+            logger.debug("Missing atom types: {}", missing_types)
+            # missing_types is always the entire residues atoms?
+            u = mda.core.universe.Merge(u.atoms, residue.atoms)
 
     # Group atoms by residue
-    residue_groups = u_merged.atoms.groupby("resids")
+    residue_groups = u.atoms.groupby("resids")
     u_sorted = mda.core.universe.Merge(
         *[atoms.sort("types") for _, atoms in residue_groups.items()]
     )
