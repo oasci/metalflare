@@ -76,6 +76,12 @@ plugins:
             show_source: true
             annotations_path: brief
             docstring_style: google
+  - awesome-pages:
+        collapse_single_pages: true
+        strict: false
+        order: asc
+        sort_type: natural
+        order_by: title
 
 extra:
   generator: false
