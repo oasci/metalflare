@@ -1,5 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=metalflare/001/04-relax
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=2
 #SBATCH --output=slurm-%j.out
@@ -9,6 +8,7 @@
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
 #SBATCH --account=jdurrant
+#SBATCH --job-name=metalflare/001/04-relax/run-02
 
 # Load environment
 module purge

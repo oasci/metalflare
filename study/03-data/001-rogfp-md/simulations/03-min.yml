@@ -1,5 +1,4 @@
 # Additional context for minimization
-write_dir: "../simulations/03-min/inputs"
 input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "mpi"
