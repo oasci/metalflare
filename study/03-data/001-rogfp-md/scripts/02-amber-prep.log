@@ -7,7 +7,7 @@
 2023-12-02 23:20:23.361-05:00 | DEBUG    | metalflare.simulation.contexts:update:164 - Updating context:
 {}
 2023-12-02 23:20:23.361-05:00 | INFO     | metalflare.simulation.contexts:validate:210 - Validating with: AmberContextValidator
-2023-12-02 23:20:23.361-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.361-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.361-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Checking ff_protein
 2023-12-02 23:20:23.362-05:00 | DEBUG    | metalflare.simulation.contexts:validate:226 -   Valid: ff19SB
@@ -66,10 +66,10 @@
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
 2023-12-02 23:20:23.482-05:00 | DEBUG    | metalflare.simulation.contexts:update:164 - Updating context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0}
-2023-12-02 23:20:23.482-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.482-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.482-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
-2023-12-02 23:20:23.482-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.482-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.483-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:205 - Setting PDB output to /tmp/tmp1jksqjl5.pdb
 2023-12-02 23:20:23.483-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:210 - Writing tleap input to /tmp/tmp3ia8m0iy.in
@@ -141,7 +141,7 @@ Loading PDB file: ../structures/protein/1JC0-final.pdb
   Total bounding box for atom centers:  63.079 67.199 76.831
   Solvent unit box:                     18.682 18.750 18.542
   Total vdw box size:                   66.262 69.436 79.756 angstroms.
-  Volume: 366956.734 A^3 
+  Volume: 366956.734 A^3
   Total mass 183546.342 amu,  Density 0.831 g/cc
   Added 8764 residues.
 Writing pdb file: /tmp/tmp1jksqjl5.pdb
@@ -160,14 +160,14 @@ Exiting LEaP: Errors = 0; Warnings = 2; Notes = 0.
 
 2023-12-02 23:20:23.703-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:114 - Parsing tleap log
 2023-12-02 23:20:23.707-05:00 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
-2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 252252.25225225225 A^3
 2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 23}
-2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.707-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:62 - Creating tleap commands for loading force fields
-2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context: 
+2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.contexts:get:178 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': 8, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'yaml_path': '../simulations/base.yml'}
 2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:300 - Setting PDB output to /tmp/tmpr4tnkjo3.pdb
 2023-12-02 23:20:23.707-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:305 - Writing tleap input to /tmp/tmp91e49wlv.in
@@ -307,7 +307,7 @@ Done adding ions.
   Total bounding box for atom centers:  67.612 73.612 78.051
   Solvent unit box:                     18.682 18.750 18.542
   Total vdw box size:                   70.518 77.123 80.649 angstroms.
-  Volume: 438616.475 A^3 
+  Volume: 438616.475 A^3
   Total mass 218344.960 amu,  Density 0.827 g/cc
   Added 10612 residues.
 Writing pdb file: /tmp/tmpr4tnkjo3.pdb
@@ -330,7 +330,7 @@ Building H-Bond parameters.
 Incorporating Non-Bonded adjustments.
 Not Marking per-residue atom chain types.
 Marking per-residue atom chain types.
-  (Residues lacking connect0/connect1 - 
+  (Residues lacking connect0/connect1 -
    these don't have chain types marked:
 
 	res	total affected
