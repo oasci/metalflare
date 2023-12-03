@@ -86,9 +86,9 @@ extra:
 extra_css:
   - css/base.css
   - css/colors.css
+  - css/3dmol.css
 
 extra_javascript:
-  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
