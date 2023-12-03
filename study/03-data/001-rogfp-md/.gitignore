@@ -10,5 +10,5 @@ stdout_sslink
 
 mol.inpcrd
 mol.prmtop
-!simulations/02-amber-prep/mol.inpcrd
-!simulations/02-amber-prep/mol.prmtop
+!simulations/02-prep/mol.inpcrd
+!simulations/02-prep/mol.prmtop
