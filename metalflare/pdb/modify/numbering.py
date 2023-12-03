@@ -89,7 +89,7 @@ def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[
 
     parse_structure = False
     for i, line in enumerate(pdb_lines):
-        logger.debug("Processing line number: {}", i)
+        logger.trace("Processing line number: {}", i)
         if line.startswith("TER"):
             logger.debug("Encountered 'TER'. Setting parse_structure to False.")
             parse_structure = False
