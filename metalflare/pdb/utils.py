@@ -161,8 +161,8 @@ def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Unive
         }
         if len(missing_types) > 0:
             logger.debug("Missing atom types: {}", missing_types)
-            # missing_types is always the entire residues atoms?
-            u = mda.core.universe.Merge(u.atoms, residue.atoms)
+            add_atoms = [atom for atom in residue.atoms if atom.name in missing_types]
+            u = mda.core.universe.Merge(u.atoms, mda.AtomGroup(add_atoms))
 
     # Get the indices of duplicate atoms
     coordinates = u.atoms.positions
