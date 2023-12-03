@@ -19,6 +19,17 @@ datalad-osf = "^0.3.0"
 pdb2pqr = "^3.6.1"
 jinja2 = "^3.1.2"
 
+[tool.poetry.scripts]
+metalflare-filter-pdb = "metalflare.pdb.utils:cli_filter_pdb"
+metalflare-unify-resids = "metalflare.pdb.modify.numbering:cli_unify_resids"
+metalflare-select-atoms = "metalflare.pdb.select:cli_select_atoms"
+metalflare-center = "metalflare.pdb.modify.positioning:cli_center_structure"
+metalflare-minimize-box = "metalflare.pdb.modify.orientation:cli_minimize_box"
+metalflare-rename-resname = "metalflare.pdb.modify.names:cli_replace_resnames"
+metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
+metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
+metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
+
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
 mkdocs-material = "^9.4.7"
@@ -45,16 +56,6 @@ pytest-cov = "^4.1.0"
 coverage = "^7.3.1"
 pytest-html = "^4.0.1"
 colorama = "^0.4.6"
-
-[tool.poetry.scripts]
-metalflare-filter-pdb = "metalflare.pdb.utils:cli_filter_pdb"
-metalflare-unify-resids = "metalflare.pdb.modify.numbering:cli_unify_resids"
-metalflare-select-atoms = "metalflare.pdb.select:cli_select_atoms"
-metalflare-center = "metalflare.pdb.modify.positioning:cli_center_structure"
-metalflare-rename-resname = "metalflare.pdb.modify.names:cli_replace_resnames"
-metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
-metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
-metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
 
 [tool.bumpversion]
 current_version = "2023.10.29"

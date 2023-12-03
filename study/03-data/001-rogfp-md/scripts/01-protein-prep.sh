@@ -10,40 +10,41 @@ export METALFLARE_LOG=True
 export METALFLARE_STDOUT=False
 export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="01-protein-prep.log"
-METALFLARE_SAVE_DIR="../structures/protein"
+SAVE_DIR="../structures/protein"
 
 # Cleanup files from previous run
-rm -rf $METALFLARE_SAVE_DIR
-mkdir -p $METALFLARE_SAVE_DIR
+rm -rf $SAVE_DIR
+mkdir -p $SAVE_DIR
 rm -f $METALFLARE_LOG_FILE_PATH
 
 # Get PDB file
-wget https://files.rcsb.org/download/$PDB_ID.pdb -O $METALFLARE_SAVE_DIR/0-$PDB_ID.pdb
+wget https://files.rcsb.org/download/$PDB_ID.pdb -O $SAVE_DIR/0-$PDB_ID.pdb
 
 # Process PDB file
-metalflare-select-atoms $METALFLARE_SAVE_DIR/0-$PDB_ID.pdb $METALFLARE_SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str chainID A and not resname HOH
-metalflare-filter-pdb $METALFLARE_SAVE_DIR/1-$PDB_ID-chain-A.pdb  --output $METALFLARE_SAVE_DIR/2-$PDB_ID-filtered.pdb
-metalflare-unify-resids $METALFLARE_SAVE_DIR/2-$PDB_ID-filtered.pdb --output $METALFLARE_SAVE_DIR/3-$PDB_ID-resid-fixes.pdb
-metalflare-center $METALFLARE_SAVE_DIR/3-$PDB_ID-resid-fixes.pdb --output $METALFLARE_SAVE_DIR/4-$PDB_ID-centered.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/4-$PDB_ID-centered.pdb MSE MET --output $METALFLARE_SAVE_DIR/5-$PDB_ID-resnames.pdb
+metalflare-select-atoms $SAVE_DIR/0-$PDB_ID.pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str chainID A and not resname HOH
+metalflare-filter-pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb  --output $SAVE_DIR/2-$PDB_ID-filtered.pdb
+metalflare-unify-resids $SAVE_DIR/2-$PDB_ID-filtered.pdb --output $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb
+metalflare-center $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb --output $SAVE_DIR/4-$PDB_ID-centered.pdb
+metalflare-rename-resname $SAVE_DIR/4-$PDB_ID-centered.pdb MSE MET --output $SAVE_DIR/5-$PDB_ID-resnames.pdb
+metalflare-minimize-box $SAVE_DIR/5-$PDB_ID-resnames.pdb --output $SAVE_DIR/6-$PDB_ID-rotated.pdb
 
-pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $METALFLARE_SAVE_DIR/5-$PDB_ID-resnames.pdb $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-cat $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.log >> $METALFLARE_LOG_FILE_PATH
-rm $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.log
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HID HIS --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HIE HIS --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HIP HIS --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP WAT --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP3 WAT --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-rename-resname $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb CYX CYS --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
-metalflare-merge-pdbs $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $METALFLARE_SAVE_DIR/5-$PDB_ID-resnames.pdb --output $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/6-$PDB_ID-rotated.pdb $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+cat $SAVE_DIR/7-$PDB_ID-pdb2pqr.log >> $METALFLARE_LOG_FILE_PATH
+rm $SAVE_DIR/7-$PDB_ID-pdb2pqr.log
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb HID HIS --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb HIE HIS --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb HIP HIS --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb CYX CYS --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
+metalflare-merge-pdbs $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/6-$PDB_ID-rotated.pdb  --output $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb
 
-pdb4amber -i $METALFLARE_SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb > $METALFLARE_SAVE_DIR/7-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
+pdb4amber -i $SAVE_DIR/7-$PDB_ID-pdb2pqr.pdb > $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
 cat pdb4amber.err >> $METALFLARE_LOG_FILE_PATH
 rm pdb4amber.err
 
-cp $METALFLARE_SAVE_DIR/7-$PDB_ID-pdb4amber.pdb $METALFLARE_SAVE_DIR/$PDB_ID-final.pdb
+cp $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb $SAVE_DIR/$PDB_ID-final.pdb
 
 export METALFLARE_LOG=False
 )
