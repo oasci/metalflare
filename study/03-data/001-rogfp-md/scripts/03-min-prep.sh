@@ -11,8 +11,8 @@ export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="03-min-prep.log"
 
 SIMULATIONS_DIR="../simulations"
-COORD_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.inpcrd"
-TOPO_PATH="$SIMULATIONS_DIR/02-amber-prep/mol.prmtop"
+COORD_PATH="$SIMULATIONS_DIR/02-prep/mol.inpcrd"
+TOPO_PATH="$SIMULATIONS_DIR/02-prep/mol.prmtop"
 
 SAVE_DIR="$SIMULATIONS_DIR/03-min"
 INPUT_DIR="$SAVE_DIR/inputs"
