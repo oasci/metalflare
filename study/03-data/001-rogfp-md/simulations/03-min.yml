@@ -4,7 +4,6 @@ output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "mpi"
 
 sbatch_options:
-  job-name: "metalflare/001/03-min"
   nodes: 2
   ntasks-per-node: 48
   output: slurm-%j.out
