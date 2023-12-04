@@ -1,0 +1,54 @@
+input_dir: "$SLURM_SUBMIT_DIR/inputs"
+output_dir: "$SLURM_SUBMIT_DIR/outputs"
+compute_platform: "cuda"
+
+# splits: 10
+# scratch_dir: "$SLURM_SCRATCH"
+
+sbatch_options:
+  nodes: 1
+  ntasks-per-node: 2
+  output: slurm-%j.out
+  error: slurm-%j.err
+  time: "6-00:00:00"
+  cluster: gpu
+  partition: a100
+  gres: gpu:1
+  account: jdurrant
+
+
+# Specifies the stages of the calculation.
+# Keys must be integers and will run in order of increasing numbers.
+stages:
+
+  - stage_name: 08_prod_npt
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    prev_restart_path: "$SLURM_SUBMIT_DIR/../../04-relax/{{ RUN_NAME }}/outputs/07_relax_npt.rst"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    input_kwargs:
+      irest: 1
+      ntx: 5
+      ig: -1
+      dt: 0.002
+      nstlim: 50000000
+      nscm: 500
+      ntr: 0
+      ntb: 2
+      ntf: 2
+      ntc: 2
+      cut: 10.0
+      ntt: 3
+      temp0: 300.0
+      gamma_ln: 5.0
+      ntp: 1
+      barostat: 2
+      pres0: 1.01325
+      mcbarint: 100
+      comp: 44.6
+      taup: 1.0
+      ntxo: 2
+      ntwr: 5000
+      ntpr: 500
+      ntwx: 5000
+      ioutfm: 1
+      iwrap: 1
