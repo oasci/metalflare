@@ -66,7 +66,7 @@ class SimulationContextManager:
         -   `cuda`: Compute Unified Device Architecture (CUDA) for graphics processing
             units (GPUs).
         """
-        self.cpu_cores: int = 8
+        self.cpu_cores: int | None = None
         r"""Number of CPU cores to use if requested"""
         self.input_kwargs: dict[str, Any] | None = None
         r"""Simulation keyword arguments for input files."""
