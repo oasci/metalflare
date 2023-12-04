@@ -88,39 +88,6 @@ Keep only `ATOM` and `HETATM` lines.
 metalflare-filter-pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb  --output $SAVE_DIR/2-$PDB_ID-filtered.pdb
 ```
 
-## Unify residue IDs
-
-```text
-ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
-HETATM  474  N1  CRO A  66     173.570   8.493  40.293  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  66     174.025   7.483  41.259  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  66     175.255   6.742  40.591  1.00 31.02      A    C
-```
-
-```bash
-metalflare-unify-resids $SAVE_DIR/2-$PDB_ID-filtered.pdb --output $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb
-```
-
-```text
-ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
-HETATM  474  N1  CRO A  65     173.570   8.493  40.293  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  65     174.025   7.483  41.259  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  65     175.255   6.742  40.591  1.00 31.02      A    C
-```
-
-## Change selenomethionine back to methionine
-
-Methionine (`MET`) is often artificially changed to selenomethionine (`MSE`) to ensure proper crystallization by multi-wavelength anomalous dispersion.
-We almost always want to model with the wild-type `MET`, so we run replace any `MSE` with `MET` residues and `Se` atoms to `S`.
-
-```bash
-metalflare-rename-resname $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb MSE MET --output $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb
-```
-
 ## Centering
 
 ```text
@@ -133,7 +100,7 @@ HETATM  476  CB1 CRO A  65     175.255   6.742  40.591  1.00 31.02      A    C
 ```
 
 ```bash
-metalflare-center $SAVE_DIR/3-$PDB_ID-resid-fixes.pdb --output $SAVE_DIR/4-$PDB_ID-centered.pdb
+metalflare-center $SAVE_DIR/2-$PDB_ID-filtered.pdb --output $SAVE_DIR/3-$PDB_ID-centered.pdb
 ```
 
 ```text
@@ -150,46 +117,77 @@ HETATM  476  CB1 CRO A  65       1.328  -3.138  -2.407  1.00 31.02      A    C
 Will attempt to rotate the structure in order to minimize the number of water molecules we will add later.
 
 ```bash
-metalflare-minimize-box $SAVE_DIR/4-$PDB_ID-centered.pdb --output $SAVE_DIR/5-$PDB_ID-rotated.pdb
+metalflare-minimize-box $SAVE_DIR/3-$PDB_ID-centered.pdb --output $SAVE_DIR/4-$PDB_ID-rotated.pdb
 ```
 
 For our 1JC0 example, the box volume decreased from 88 063 to 71 986 Å<sup>3</sup> after this script, which decreases the number of water molecules by at least 500.
 
-## Add hydrogens and remove steric clashes
+## Unify residue IDs
 
-[pdb2pqr](https://github.com/Electrostatics/pdb2pqr)
-
-```bash
-pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/5-$PDB_ID-rotated.pdb $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+```text
+ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
+ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
+ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
+HETATM  474  N1  CRO A  66     173.570   8.493  40.293  1.00 24.05      A    N
+HETATM  475  CA1 CRO A  66     174.025   7.483  41.259  1.00 25.10      A    C
+HETATM  476  CB1 CRO A  66     175.255   6.742  40.591  1.00 31.02      A    C
 ```
 
-Sometimes PDB2PQR cannot process some atoms, so we need to add them back.
-
 ```bash
-metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-rotated.pdb --output $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+metalflare-unify-resids $SAVE_DIR/4-$PDB_ID-rotated.pdb --output $SAVE_DIR/5-$PDB_ID-residues.pdb
 ```
 
-## Unify water residue name
-
-```bash
-metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
-metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
-metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+```text
+ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
+ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
+ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
+HETATM  474  N1  CRO A  65     173.570   8.493  40.293  1.00 24.05      A    N
+HETATM  475  CA1 CRO A  65     174.025   7.483  41.259  1.00 25.10      A    C
+HETATM  476  CB1 CRO A  65     175.255   6.742  40.591  1.00 31.02      A    C
 ```
 
-## Disulfide bonds
+## Residue states
+
+### Methionine
+
+Methionine (`MET`) residues are often artificially changed to selenomethionine (`MSE`) to ensure proper crystallization by multi-wavelength anomalous dispersion.
+We almost always want to model with the wild-type `MET`, so we replace any `MSE` with `MET` residues and `Se` atoms to `S`.
+
+```bash
+metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb MSE MET --output $SAVE_DIR/5-$PDB_ID-residues.pdb
+```
+
+### Cysteine
 
 <!-- Amber uses `CYX` instead of `CYS` to indicate that cysteine residues are involved in disulfide bonds.
 Often this has to be manually inspected and changed.
 If you want to convert all `CYX` to `CYS` residues to ensure no disulfide bonds are present, you can use the following script. -->
 
 ```bash
-metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb CYX CYS --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb CYS CYM --include 145 202 --output $SAVE_DIR/5-$PDB_ID-residues.pdb
 ```
 
-## Protonation states
+## Protonation and steric clashes
 
-[pdb2pqr](https://github.com/Electrostatics/pdb2pqr) predicts protonation states of histidine (`HIS`), aspartic acid (`ASP`), glutamic acid (`GLU`), lysine (`LYS`).
+[PDB2PQR](https://github.com/Electrostatics/pdb2pqr) predicts protonation states of histidine (`HIS`), aspartic acid (`ASP`), glutamic acid (`GLU`), lysine (`LYS`).
+
+```bash
+pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/5-$PDB_ID-residues.pdb $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+```
+
+Sometimes PDB2PQR cannot process some atoms, so we need to add them back.
+
+```bash
+metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-residues.pdb --output $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+```
+
+## Unify water residues
+
+```bash
+metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+```
 
 ## pdb4amber
 
