@@ -1,16 +1,15 @@
 input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
-compute_platform: "cuda"
+compute_platform: "mpi"
 
 sbatch_options:
-  nodes: 1
-  ntasks-per-node: 2
+  nodes: 3
+  ntasks-per-node: 48
   output: slurm-%j.out
   error: slurm-%j.err
-  time: "6-00:00:00"
-  cluster: gpu
-  partition: a100
-  gres: gpu:1
+  time: "3-00:00:00"
+  cluster: mpi
+  partition: mpi
   account: jdurrant
 
 # Specifies the stages of the calculation.
