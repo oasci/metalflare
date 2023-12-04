@@ -33,6 +33,7 @@ conda-setup:
 .PHONY: conda-dependencies
 conda-dependencies:
 	$(CONDA) conda install -c conda-forge ambertools
+	$(CONDA) conda install -c conda-forge xtb
 	$(CONDA) conda install -c conda-forge datalad
 	$(CONDA) conda install -y -c conda-forge nodejs
 
