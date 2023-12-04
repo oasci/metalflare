@@ -1,0 +1,8 @@
+nav:
+    - README.md
+    - Admin: management/admin
+    - Grants: management/grants
+    - Meetings: management/meetings
+    - Literature: management/literature
+    - Standards: management/standards
+    - Notebook: management/notebook

@@ -1,20 +1,20 @@
-2023-12-03 21:52:14.862-05:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:100 - Filtering PDB lines of /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/1-1JC0-chain-A.pdb
+2023-12-03 21:52:14.862-05:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:100 - Filtering PDB lines of /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/1-1JC0-chain-A.pdb
 2023-12-03 21:52:14.862-05:00 | INFO     | metalflare.pdb.utils:keep_lines:80 - Keeping the following record types: ATOM, HETATM, TER, END
-2023-12-03 21:52:14.862-05:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:109 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/2-1JC0-filtered.pdb
+2023-12-03 21:52:14.862-05:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:109 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/2-1JC0-filtered.pdb
 2023-12-03 21:52:15.132-05:00 | INFO     | metalflare.pdb.structure:get_com:38 - Computing center of mass (com)
 2023-12-03 21:52:15.132-05:00 | DEBUG    | metalflare.pdb.structure:get_com:40 - com: [173.92726227   9.87972576  42.99837343]
 2023-12-03 21:52:15.132-05:00 | INFO     | metalflare.pdb.modify.positioning:center_structure:12 - Centering structure
 2023-12-03 21:52:15.472-05:00 | INFO     | metalflare.pdb.modify.orientation:minimize_box:41 - Minimizing box size
-2023-12-03 21:52:15.834-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/4-1JC0-rotated.pdb
+2023-12-03 21:52:15.834-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/4-1JC0-rotated.pdb
 2023-12-03 21:52:15.834-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
-2023-12-03 21:52:15.836-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
-2023-12-03 21:52:16.117-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
+2023-12-03 21:52:15.836-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
+2023-12-03 21:52:16.117-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
 2023-12-03 21:52:16.117-05:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'MSE ' to 'MET '
-2023-12-03 21:52:16.118-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
-2023-12-03 21:52:16.395-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
+2023-12-03 21:52:16.118-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
+2023-12-03 21:52:16.395-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
 2023-12-03 21:52:16.396-05:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'CYS ' to 'CYM '
 2023-12-03 21:52:16.396-05:00 | DEBUG    | metalflare.pdb.modify.names:modify_lines:22 - Filter function is provided.
-2023-12-03 21:52:16.397-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
+2023-12-03 21:52:16.397-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/5-1JC0-residues.pdb
 2023-12-03 21:52:16,586 INFO:main.py:240:print_splash_screen:PDB2PQR v3.6.1: biomolecular structure conversion software.
 2023-12-03 21:52:16,586 INFO:main.py:242:print_splash_screen:Please cite:  Jurrus E, et al.  Improvements to the APBS biomolecular solvation software suite.  Protein Sci 27 112-128 (2018).
 2023-12-03 21:52:16,586 INFO:main.py:242:print_splash_screen:Please cite:  Dolinsky TJ, et al.  PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations. Nucleic Acids Res 35 W522-W525 (2007).
@@ -456,15 +456,15 @@
 2023-12-03 21:52:17.596-05:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:154 - Processing residue ID of 225
 2023-12-03 21:52:17.596-05:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:154 - Processing residue ID of 226
 2023-12-03 21:52:17.623-05:00 | INFO     | metalflare.pdb.utils:run_merge_pdbs:187 - Writing merged PDB at ../structures/protein/6-1JC0-pdb2pqr.pdb
-2023-12-03 21:52:17.948-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/6-1JC0-pdb2pqr.pdb
+2023-12-03 21:52:17.948-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/6-1JC0-pdb2pqr.pdb
 2023-12-03 21:52:17.949-05:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'HOH ' to 'WAT '
-2023-12-03 21:52:17.950-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
-2023-12-03 21:52:18.249-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
+2023-12-03 21:52:17.950-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
+2023-12-03 21:52:18.249-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
 2023-12-03 21:52:18.249-05:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'TIP ' to 'WAT '
-2023-12-03 21:52:18.251-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
-2023-12-03 21:52:18.519-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
+2023-12-03 21:52:18.251-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
+2023-12-03 21:52:18.519-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
 2023-12-03 21:52:18.519-05:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'TIP3' to 'WAT '
-2023-12-03 21:52:18.520-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/03-data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
+2023-12-03 21:52:18.520-05:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/001-rogfp-md/structures/protein/7-1JC0-resnames.pdb
 
 ==================================================
 Summary of pdb4amber for: ../structures/protein/7-1JC0-resnames.pdb
