@@ -52,10 +52,10 @@ class AmberRunPrep(SimulationRunPrep):
 
         if "sbatch_options" in context.keys():
             if context["compute_platform"] == "mpi":
-                if context["n_cores"] is None:
+                if context["cpu_cores"] is None:
                     n_nodes = context["sbatch_options"]["nodes"]
                     ntasks_per_node = context["sbatch_options"]["ntasks-per-node"]
-                    context["n_cores"] = int(n_nodes * ntasks_per_node)
+                    context["cpu_cores"] = int(n_nodes * ntasks_per_node)
 
         simulation_context.update(context)
 
@@ -91,7 +91,7 @@ class AmberRunPrep(SimulationRunPrep):
         -   `scratch_dir`: Path to scratch directory if desired. Will run the
             calculations here and then copy to `output_dir`.
         -   `compute_platform`: Computational platform to run the simulation on.
-        -   `n_cores`: Number of cores to use for `mpi` simulations if requested.
+        -   `cpu_cores`: Number of cores to use for `mpi` simulations if requested.
         """
         use_scratch = bool(context["scratch_dir"] is not None)
 
@@ -107,7 +107,7 @@ class AmberRunPrep(SimulationRunPrep):
             stage_commands.insert(1, 'if [ ! -f "$FILE" ]; then')
 
         if context["compute_platform"] == "mpi":
-            amber_command = f"mpirun -np {context['n_cores']} pmemd.MPI "
+            amber_command = f"mpirun -np {context['cpu_cores']} pmemd.MPI "
         elif context["compute_platform"] == "cuda":
             amber_command = "pmemd.cuda "
         amber_command += f"-O -i {context['input_path']} "

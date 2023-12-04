@@ -62,7 +62,7 @@ def amber_simulation_standard_context(amber_protein_standard_context):
     context_manager.prev_restart_path = os.path.join(TEST_DIR, "mol.inpcrd")
     context_manager.ref_coord_path = os.path.join(TEST_DIR, "mol.inpcrd")
     context_manager.compute_platform = "mpi"
-    context_manager.n_cores = 12
+    context_manager.cpu_cores = 12
     context_manager.input_kwargs = {
         "irest": 1,
         "ntx": 5,
