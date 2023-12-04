@@ -1,3 +1,0 @@
-# Meetings
-
-TODO:

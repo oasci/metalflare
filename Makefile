@@ -181,9 +181,9 @@ serve:
 
 .PHONY: docs
 docs:
-	- rm -rf study/08-api/
+	- rm -rf study/api/
 	$(CONDA) mkdocs build -d public/
-	- rm -rf 08-api/
+	- rm -rf api/
 	- rm -f public/gen_ref_pages.py
 
 .PHONY: open-docs
