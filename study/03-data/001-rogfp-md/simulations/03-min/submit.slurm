@@ -1,5 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=metalflare/001/03-min
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=48
 #SBATCH --output=slurm-%j.out
@@ -8,6 +7,7 @@
 #SBATCH --cluster=mpi
 #SBATCH --partition=mpi
 #SBATCH --account=jdurrant
+#SBATCH --job-name=metalflare/001/03-min
 
 # Load environment
 module purge
