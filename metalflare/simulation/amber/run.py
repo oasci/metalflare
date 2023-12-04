@@ -52,9 +52,10 @@ class AmberRunPrep(SimulationRunPrep):
 
         if "sbatch_options" in context.keys():
             if context["compute_platform"] == "mpi":
-                n_nodes = context["sbatch_options"]["nodes"]
-                ntasks_per_node = context["sbatch_options"]["ntasks-per-node"]
-                context["n_cores"] = int(n_nodes * ntasks_per_node)
+                if context["n_cores"] is None:
+                    n_nodes = context["sbatch_options"]["nodes"]
+                    ntasks_per_node = context["sbatch_options"]["ntasks-per-node"]
+                    context["n_cores"] = int(n_nodes * ntasks_per_node)
 
         simulation_context.update(context)
 
