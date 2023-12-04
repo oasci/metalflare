@@ -19,6 +19,7 @@ INPUT_DIR="$SAVE_DIR/inputs"
 OUTPUT_DIR="$SAVE_DIR/outputs"
 RUN_PATH="$SAVE_DIR/run.sh"
 SLURM_PATH="$SAVE_DIR/submit.slurm"
+JOB_NAME="metalflare/001/03-min"
 
 
 # Cleanup files from previous run
@@ -30,8 +31,8 @@ rm -rf $OUTPUT_DIR
 mkdir -p $OUTPUT_DIR
 rm -f $METALFLARE_LOG_FILE_PATH
 
-./prep_sim.py $TOPO_PATH $COORD_PATH $RUN_PATH $SLURM_PATH \
---yaml $SIMULATIONS_DIR/03-min.yml $SIMULATIONS_DIR/slurm.yml $SIMULATIONS_DIR/base.yml
+./prep_sim.py $TOPO_PATH $COORD_PATH $INPUT_DIR $RUN_PATH $JOB_NAME $SLURM_PATH \
+--yaml $SIMULATIONS_DIR/base.yml $SIMULATIONS_DIR/03-min.yml $SIMULATIONS_DIR/slurm.yml
 
 cp $COORD_PATH $INPUT_DIR/mol.inpcrd
 cp $TOPO_PATH $INPUT_DIR/mol.prmtop

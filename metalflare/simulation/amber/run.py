@@ -50,7 +50,11 @@ class AmberRunPrep(SimulationRunPrep):
                 if k[-5:] in ("_path", "_dir"):
                     context[k] = os.path.abspath(v)
 
-        os.makedirs(context["input_dir"], exist_ok=True)
+        if "sbatch_options" in context.keys():
+            if context["compute_platform"] == "mpi":
+                n_nodes = context["sbatch_options"]["nodes"]
+                ntasks_per_node = context["sbatch_options"]["ntasks-per-node"]
+                context["n_cores"] = int(n_nodes * ntasks_per_node)
 
         simulation_context.update(context)
 
