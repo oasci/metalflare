@@ -2,7 +2,6 @@
 input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "mpi"
-n_cores: 96
 
 sbatch_options:
   job-name: "metalflare/001/03-min"

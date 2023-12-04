@@ -175,7 +175,7 @@ class SimulationContextManager:
         context = {
             k: v for k, v in vars(self).items() if not callable(v) and "__" not in k
         }
-        logger.debug("Retrieved context: \n{}", context)
+        logger.debug("Retrieved context:\n{}", context)
         return context
 
     def __enter__(self) -> dict[str, Any]:
