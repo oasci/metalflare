@@ -153,14 +153,14 @@ def run_merge_pdbs(*pdb_paths: str, output_path: str | None = None) -> mda.Unive
     for residue in u_to_add.residues:
         logger.debug("Processing residue ID of {}", residue.resid)
         available_types = {atom.name for atom in residue.atoms}
-        logger.debug("Available atom types: {}", available_types)
+        logger.trace("Available atom types: {}", available_types)
         present_types = {atom.name for atom in u.select_atoms(f"resid {residue.resid}")}
-        logger.debug("Current atom types: {}", present_types)
+        logger.trace("Current atom types: {}", present_types)
         missing_types = {
             atype for atype in available_types if atype not in present_types
         }
         if len(missing_types) > 0:
-            logger.debug("Missing atom types: {}", missing_types)
+            logger.trace("Missing atom types: {}", missing_types)
             add_atoms = [atom for atom in residue.atoms if atom.name in missing_types]
             u = mda.core.universe.Merge(u.atoms, mda.AtomGroup(add_atoms))
 
