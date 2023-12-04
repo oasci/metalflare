@@ -449,7 +449,7 @@ mol clipplane normal 5 2 top {0.0 0.0 1.0}
 mol clipplane status 5 2 top {0}
 mol representation Licorice 0.500000 10.000000 10.000000
 mol color Name
-mol selection {name "CHECK DISULFIDE BONDS" or (resname CYS CYX and noh and not name O C N)}
+mol selection {name "CHECK DISULFIDE BONDS" or (resname CYS CYX CYM and noh and not name O C N)}
 mol material Opaque
 mol addrep top
 mol selupdate 3 top 0
