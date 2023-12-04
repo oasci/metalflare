@@ -48,7 +48,9 @@ class AmberRunPrep(SimulationRunPrep):
             # overwritten.
             for k, v in context.items():
                 if k[-5:] in ("_path", "_dir"):
-                    context[k] = os.path.abspath(v)
+                    if v is not None:
+                        if "$slurm" not in v.lower():
+                            context[k] = os.path.abspath(v)
 
         if "sbatch_options" in context.keys():
             if context["compute_platform"] == "mpi":
@@ -99,8 +101,8 @@ class AmberRunPrep(SimulationRunPrep):
 
         if use_scratch:
             # Adds commands to check if split was already ran.
-            check_path = os.path.abspath(
-                os.path.join(context["output_dir"], context["stage_name"] + ".rst")
+            check_path = os.path.join(
+                context["output_dir"], context["stage_name"] + ".rst"
             )
             stage_commands = ["    " + line for line in stage_commands]
             stage_commands.insert(0, f"FILE={check_path}")
