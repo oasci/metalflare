@@ -38,7 +38,7 @@ for ((i=1; i<=$REPLICATES; i++)); do
     rm -f $METALFLARE_LOG_FILE_PATH
 
     ./prep_sim.py $TOPO_PATH $COORD_PATH $INPUT_DIR $RUN_PATH $JOB_NAME $SLURM_PATH \
-    --yaml $SIMULATIONS_DIR/04-relax.yml $SIMULATIONS_DIR/slurm.yml $SIMULATIONS_DIR/base.yml
+    --yaml $SIMULATIONS_DIR/base.yml $SIMULATIONS_DIR/slurm.yml $SIMULATIONS_DIR/04-relax.yml
 
     cp $COORD_PATH $INPUT_DIR/mol.inpcrd
     cp $TOPO_PATH $INPUT_DIR/mol.prmtop
