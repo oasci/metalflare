@@ -34,6 +34,7 @@ conda-setup:
 conda-dependencies:
 	$(CONDA) conda install -c conda-forge ambertools
 	$(CONDA) conda install -c conda-forge xtb
+	$(CONDA) conda install -c conda-forge openbabel
 	$(CONDA) conda install -c conda-forge datalad
 	$(CONDA) conda install -y -c conda-forge nodejs
 
