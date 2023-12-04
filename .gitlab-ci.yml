@@ -34,6 +34,7 @@ pages:
   stage: deploy
   script:
     - make conda-create
+    - make conda-setup
     - make docs-env
     - make docs
   artifacts:
