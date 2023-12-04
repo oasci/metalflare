@@ -159,6 +159,10 @@ cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove 
 
 ###   MKDOCS   ###
 
+.PHONY: docs-env
+docs-env:
+	$(CONDA) poetry install --no-interaction --only docs
+
 mkdocs_port := $(shell \
 	start_port=3000; \
 	max_attempts=100; \
