@@ -1,6 +1,7 @@
 # Data settings
 *.pdb
 *.log
+*.xyz
 
 # IDE settings
 .vscode/
