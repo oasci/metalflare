@@ -4,6 +4,9 @@
 !calculations/01-solvent-opt/xtbopt.log
 !calculations/01-solvent-opt/xtbopt.xyz
 !calculations/01-solvent-opt/opt.log
+!calculations/02-dock-copper/xtbopt.log
+!calculations/02-dock-copper/xtbopt.xyz
+!calculations/02-dock-copper/opt.log
 
 wbo
 xtbrestart
