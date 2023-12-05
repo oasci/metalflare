@@ -1,1 +1,12 @@
 !structures/01-initial/subsystem.xyz
+
+!calculations/01-solvent-opt/xtbopt.log
+!calculations/01-solvent-opt/xtbopt.xyz
+!calculations/01-solvent-opt/opt.log
+
+wbo
+xtbrestart
+xtbtopo.mol
+.xtboptok
+charges
+opt.in
