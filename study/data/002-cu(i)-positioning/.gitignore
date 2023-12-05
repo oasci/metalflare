@@ -1,4 +1,5 @@
 !structures/01-initial/subsystem.xyz
+!structures/01-initial/.CHRG
 
 !calculations/01-solvent-opt/xtbopt.log
 !calculations/01-solvent-opt/xtbopt.xyz
@@ -10,3 +11,4 @@ xtbtopo.mol
 .xtboptok
 charges
 opt.in
+.CHRG
