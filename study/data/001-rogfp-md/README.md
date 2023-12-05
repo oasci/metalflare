@@ -9,38 +9,39 @@ The [final structure][final-pdb] is shown below with labels on the experiment's 
 
 <div id="prepped-pdb-view" class="mol-container"></div>
 <script>
-var viewer1 = $3Dmol.createViewer(
-    document.querySelector('#prepped-pdb-view'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = '../../data/001-rogfp-md/structures/protein/1JC0-final.pdb';
-jQuery.ajax( pdbUri, {
+var uri = '../../data/001-rogfp-md/structures/protein/1JC0-final.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer1.addModel( data, 'pdb' );
-        viewer1.setStyle({}, {cartoon: {color: 'spectrum'}});
-        viewer1.setStyle({resn: 'CRO'}, {stick: {}});
-        viewer1.setStyle({resi: 145}, {stick: {}, cartoon: {color: 'spectrum'}});
-        viewer1.setStyle({resi: 202}, {stick: {}, cartoon: {color: 'spectrum'}});
-        viewer1.addLabel(
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#prepped-pdb-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resn: 'CRO'}, {stick: {}});
+        viewer.setStyle({resi: 145}, {stick: {}, cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resi: 202}, {stick: {}, cartoon: {color: 'spectrum'}});
+        viewer.addLabel(
             "CRO 65",
             {screenOffset: new $3Dmol.Vector2(0, 0), backgroundOpacity: 0.8},
             {resi: 65}, false
         )
-        viewer1.addLabel(
+        viewer.addLabel(
             "CYM 145",
             {screenOffset: new $3Dmol.Vector2(-100, 20), backgroundOpacity: 0.8},
             {resi: 145}, false
         )
-        viewer1.addLabel(
+        viewer.addLabel(
             "CYM 202",
             {screenOffset: new $3Dmol.Vector2(30, 20), backgroundOpacity: 0.8},
             {resi: 202}, false
         )
-        viewer1.setView([ -0.7561101750598701, -0.9271423446320399, 2.965827751298417, 49.265373924881985, 0.37232883239820697, -0.4757222855340383, 0.6628384467092744, 0.4423852858937514 ]);
-        viewer1.render();
+        viewer.setView([ -0.7561101750598701, -0.9271423446320399, 2.965827751298417, 49.265373924881985, 0.37232883239820697, -0.4757222855340383, 0.6628384467092744, 0.4423852858937514 ]);
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>

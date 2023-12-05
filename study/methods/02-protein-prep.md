@@ -27,22 +27,23 @@ We receive the following structure.
 
 <div id="original-pdb" class="mol-container"></div>
 <script>
-var viewer1 = $3Dmol.createViewer(
-    document.querySelector('#original-pdb'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/1JC0.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/1JC0.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer1.addModel( data, 'pdb' );
-        viewer1.setStyle({}, {cartoon: {color: 'spectrum'}});
-        viewer1.setStyle({resn: 'CRO'}, {stick: {}});
-        viewer1.setStyle({resn: 'HOH'}, {sphere: {scale: '0.3', opacity: '0.95'}});
-        viewer1.zoomTo();
-        viewer1.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#original-pdb'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resn: 'CRO'}, {stick: {}});
+        viewer.setStyle({resn: 'HOH'}, {sphere: {scale: '0.3', opacity: '0.95'}});
+        viewer.zoomTo();
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>
@@ -57,25 +58,27 @@ We use the [`metalflare-select-atoms`][pdb.select.cli_select_atoms] script which
 ```bash
 metalflare-select-atoms $SAVE_DIR/0-$PDB_ID.pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str chainID A and not resname HOH
 ```
+
 <div id="select-chain-a" class="mol-container"></div>
 <script>
-var viewer2 = $3Dmol.createViewer(
-    document.querySelector('#select-chain-a'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/1JC0.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/1JC0.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer2.addModel( data, 'pdb' );
-        viewer2.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer2.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer2.setStyle({chain: 'B'}, {});
-        viewer2.setStyle({chain: 'C'}, {});
-        viewer2.zoomTo({chain: 'A'});
-        viewer2.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#select-chain-a'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'B'}, {});
+        viewer.setStyle({chain: 'C'}, {});
+        viewer.zoomTo({chain: 'A'});
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>

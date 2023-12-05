@@ -6,21 +6,22 @@
 
 <div id="egfp-view" class="mol-container"></div>
 <script>
-var viewer1 = $3Dmol.createViewer(
-    document.querySelector('#egfp-view'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/2y0g.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/2y0g.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer1.addModel( data, 'pdb' );
-        viewer1.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer1.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer1.setView([-24.438022254475037, -28.531666182873735, -38.325676826318364, -13.834375761483017, 0.28482918472442975, -0.7868184859871322, 0.21876734309052062, 0.5019261451999166]);
-        viewer1.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#egfp-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setView([-24.438022254475037, -28.531666182873735, -38.325676826318364, -13.834375761483017, 0.28482918472442975, -0.7868184859871322, 0.21876734309052062, 0.5019261451999166]);
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>
@@ -40,25 +41,26 @@ Introduced as roGFP2 [Hanson et al.][rogfp paper], this forms a reversible forma
 
 <div id="rogfp-reduced-view" class="mol-container"></div>
 <script>
-var viewer2 = $3Dmol.createViewer(
-    document.querySelector('#rogfp-reduced-view'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/1jc0.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/1jc0.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer2.addModel( data, 'pdb' );
-        viewer2.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer2.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer2.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer2.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer2.setStyle({chain: 'B'}, {});
-        viewer2.setStyle({chain: 'C'}, {});
-        viewer2.setView([ -185.57030645037585, -7.386171514064613, -43.82421102060345, 88.52221071593, -0.2662199084146719, 0.4273867540214552, -0.7250566897044959, -0.4698513802953507 ]);
-        viewer2.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#rogfp-reduced-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'B'}, {});
+        viewer.setStyle({chain: 'C'}, {});
+        viewer.setView([ -185.57030645037585, -7.386171514064613, -43.82421102060345, 88.52221071593, -0.2662199084146719, 0.4273867540214552, -0.7250566897044959, -0.4698513802953507 ]);
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>
@@ -69,25 +71,26 @@ jQuery.ajax( pdbUri, {
 
 <div id="rogfp-oxidized-view" class="mol-container"></div>
 <script>
-var viewer3 = $3Dmol.createViewer(
-    document.querySelector('#rogfp-oxidized-view'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/1JC1.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/1JC1.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer3.addModel( data, 'pdb' );
-        viewer3.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer3.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer3.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer3.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer3.setStyle({chain: 'B'}, {});
-        viewer3.setStyle({chain: 'C'}, {});
-        viewer3.setView([ -186.81094603794497, -7.433604180840877, -44.03122729199806, 88.61698273769923, -0.28983518838466366, 0.46421243736754847, -0.6828026754229519, -0.4840277709001468 ]);
-        viewer3.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#rogfp-oxidized-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'B'}, {});
+        viewer.setStyle({chain: 'C'}, {});
+        viewer.setView([ -186.81094603794497, -7.433604180840877, -44.03122729199806, 88.61698273769923, -0.28983518838466366, 0.46421243736754847, -0.6828026754229519, -0.4840277709001468 ]);
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
 </script>
@@ -103,30 +106,27 @@ Since roGFP2 can no longer make the `147`-`204` disulfide bond, all mseGFP simul
 
 <div id="msegfp-view" class="mol-container"></div>
 <script>
-var viewer4 = $3Dmol.createViewer(
-    document.querySelector('#msegfp-view'), { backgroundAlpha: '0.0' }
-);
-var pdbUri = 'https://files.rcsb.org/view/8DTA.pdb';
-jQuery.ajax( pdbUri, {
+var uri = 'https://files.rcsb.org/view/8DTA.pdb';
+jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
-        viewer4.addModel( data, 'pdb' );
-        viewer4.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer4.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer4.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer4.setStyle({chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer4.setView([ -60.64682338153259, -20.114962159611807, 0.5702077286702113, 80.5194132281471, -0.15077826938374425, 0.19679882644092048, -0.8102144809849335, -0.5311201654949984 ]);
-        viewer4.render();
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#msegfp-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModel( data, 'pdb' );
+        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setView([ -60.64682338153259, -20.114962159611807, 0.5702077286702113, 80.5194132281471, -0.15077826938374425, 0.19679882644092048, -0.8102144809849335, -0.5311201654949984 ]);
+        viewer.render();
     },
     error: function(hdr, status, err) {
-        console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        console.error( "Failed to load " + uri + ": " + err );
     },
 });
-// function getState() {
-//   console.log(console.log(viewer4.getView()));
-// };
 </script>
-<!-- <button onclick="getState()">Click me to get 3DMol.js state</button> -->
 
 <!-- LINKS -->
 
