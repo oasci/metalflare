@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 
 import MDAnalysis as mda
 
@@ -48,5 +49,10 @@ around_atoms = u.select_atoms(around_select_str)
 
 all_atoms = selection_atoms | around_atoms
 all_atoms = all_atoms.select_atoms("protein or resname CRO")
+net_charge = round(all_atoms.charges.sum())
 all_residues = all_atoms.residues
 all_residues.atoms.write(args.output)
+
+charge_path = os.path.join(os.path.dirname(args.output), ".CHRG")
+with open(charge_path, "w+", encoding="utf-8") as f:
+    f.write(f"{net_charge}\n")
