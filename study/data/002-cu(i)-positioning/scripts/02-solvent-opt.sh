@@ -20,5 +20,8 @@ EOF
 
 cd $SAVE_DIR
 INITIAL_XYZ="../../structures/01-initial/subsystem.xyz"
-xtb $INITIAL_XYZ --opt loose --gfn 2 --alpb water --input opt.in > opt.log
+CHRG_PATH="../../structures/01-initial/.CHRG"
+cp $INITIAL_XYZ initial.xyz
+cp $CHRG_PATH .CHRG
+xtb initial.xyz --opt loose --gfn 2 --alpb water --input opt.in > opt.log
 )
