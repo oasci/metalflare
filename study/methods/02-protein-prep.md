@@ -169,17 +169,22 @@ metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb CYS CYM --include 145
 
 ## Protonation and steric clashes
 
-[PDB2PQR](https://github.com/Electrostatics/pdb2pqr) predicts protonation states of histidine (`HIS`), aspartic acid (`ASP`), glutamic acid (`GLU`), lysine (`LYS`).
+[PDB2PQR][pdb2pqr] predicts protonation states of histidine (`HIS`), aspartic acid (`ASP`), glutamic acid (`GLU`), lysine (`LYS`).
 
 ```bash
 pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/5-$PDB_ID-residues.pdb $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 ```
 
-Sometimes PDB2PQR cannot process some atoms, so we need to add them back.
+Sometimes [PDB2PQR][pdb2pqr] cannot process some atoms, so we need to add them back.
 
 ```bash
 metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-residues.pdb --output $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 ```
+
+!!! warning
+
+    [PDB2PQR][pdb2pqr] cannot process non-standard residues (e.g., the GFP chromophore) and thus cannot add hydrogens to them.
+    These are often added later using a program like tleap.
 
 ## Unify water residues
 
@@ -202,3 +207,5 @@ cp $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb $SAVE_DIR/$PDB_ID-final.pdb
 ```
 
 <!-- LINKS -->
+
+[pdb2pqr]: https://github.com/Electrostatics/pdb2pqr

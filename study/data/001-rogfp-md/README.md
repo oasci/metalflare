@@ -45,7 +45,13 @@ jQuery.ajax( pdbUri, {
 });
 </script>
 
+!!! warning
+
+    Because the chromophore (`CRO 65`) is a non-standard residue, [PDB2PQR][protocol-protein-prep-pdb2pqr] does not place any hydrogens and are missing in [1JC0-final.pdb][final-pdb].
+    Hydrogen atoms are added in the next protocol (tleap).
+
 <!-- LINKS -->
 
-[protocol-protein-prep]: ../../methods/02%20-%20Protein%20preparation%20from%20RCSB.md
+[protocol-protein-prep]: ../../methods/02-protein-prep.md
+[protocol-protein-prep-pdb2pqr]: ../../methods/02-protein-prep.md#protonation-and-steric-clashes
 [final-pdb]: https://gitlab.com/oasci/studies/metalflare/-/blob/main/study/data/001-rogfp-md/structures/protein/1JC0-final.pdb?ref_type=heads
