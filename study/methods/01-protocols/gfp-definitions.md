@@ -32,7 +32,7 @@ Introduced as roGFP2 [Hanson et al.][rogfp paper], this forms a reversible forma
 
 !!! note
 
-    Due to renumbering residues in our [protein preparation pipeline](../02%20-%20Protein%20preparation%20from%20RCSB.md), these residues are `145` and `202` in our simulations.
+    Due to renumbering residues in our [protein preparation pipeline](../02-protein-prep.md), these residues are `145` and `202` in our simulations.
 
 ### Reduced form
 
@@ -101,7 +101,7 @@ Since roGFP2 can no longer make the `147`-`204` disulfide bond, all mseGFP simul
 
 !!! note
 
-    Due to renumbering residues in our [protein preparation pipeline](../02%20-%20Protein%20preparation%20from%20RCSB.md), these residues are `145` and `200` in our simulations.
+    Due to renumbering residues in our [protein preparation pipeline](../02-protein-prep.md), these residues are `145` and `200` in our simulations.
 
 <div id="msegfp-view" class="mol-container"></div>
 <script>
