@@ -36,7 +36,7 @@ jQuery.ajax( pdbUri, {
             {screenOffset: new $3Dmol.Vector2(30, 20), backgroundOpacity: 0.8},
             {resi: 202}, false
         )
-        viewer1.zoomTo();
+        viewer1.setView([ -0.7561101750598701, -0.9271423446320399, 2.965827751298417, 49.265373924881985, 0.37232883239820697, -0.4757222855340383, 0.6628384467092744, 0.4423852858937514 ]);
         viewer1.render();
     },
     error: function(hdr, status, err) {

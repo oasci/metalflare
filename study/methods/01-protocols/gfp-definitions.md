@@ -16,7 +16,7 @@ jQuery.ajax( pdbUri, {
         viewer1.addModel( data, 'pdb' );
         viewer1.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
         viewer1.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer1.zoomTo({chain: 'A'});
+        viewer1.setView([-24.438022254475037, -28.531666182873735, -38.325676826318364, -13.834375761483017, 0.28482918472442975, -0.7868184859871322, 0.21876734309052062, 0.5019261451999166]);
         viewer1.render();
     },
     error: function(hdr, status, err) {
@@ -54,8 +54,7 @@ jQuery.ajax( pdbUri, {
         viewer2.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
         viewer2.setStyle({chain: 'B'}, {});
         viewer2.setStyle({chain: 'C'}, {});
-        viewer2.zoomTo({chain: 'A', resi: '204'});
-        viewer2.zoom(0.6);
+        viewer2.setView([ -185.57030645037585, -7.386171514064613, -43.82421102060345, 88.52221071593, -0.2662199084146719, 0.4273867540214552, -0.7250566897044959, -0.4698513802953507 ]);
         viewer2.render();
     },
     error: function(hdr, status, err) {
@@ -84,8 +83,7 @@ jQuery.ajax( pdbUri, {
         viewer3.setStyle({chain: 'A', resi: '204'}, {stick: {}, cartoon: {color: "spectrum"}});
         viewer3.setStyle({chain: 'B'}, {});
         viewer3.setStyle({chain: 'C'}, {});
-        viewer3.zoomTo({chain: 'A', resi: '204'});
-        viewer3.zoom(0.6);
+        viewer3.setView([ -186.81094603794497, -7.433604180840877, -44.03122729199806, 88.61698273769923, -0.28983518838466366, 0.46421243736754847, -0.6828026754229519, -0.4840277709001468 ]);
         viewer3.render();
     },
     error: function(hdr, status, err) {
@@ -96,8 +94,8 @@ jQuery.ajax( pdbUri, {
 
 ## mseGFP
 
-Metal-sensing GFP (mseGFP) is similar to roGFP2, but mutates `S147C` and `S202C` from [eGFP][2y0g].
-Since roGFP2 can no longer make the `147`-`204` disulfide bond, all mseGFP simulations will start from the [reduced form](#reduced-form) with `C202S` and `S202C` mutations.
+[Metal-sensing GFP (mseGFP)][8dta] is similar to roGFP2, but mutates `S147C` and `S202C` from [eGFP][2y0g].
+Since roGFP2 can no longer make the `147`-`204` disulfide bond, all mseGFP simulations will start from the [reduced form](#reduced-form) with `C204S` and `S202C` mutations.
 
 !!! note
 
@@ -117,15 +115,18 @@ jQuery.ajax( pdbUri, {
         viewer4.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
         viewer4.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
         viewer4.setStyle({chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer4.zoomTo({chain: 'A', resi: '202'});
-        viewer4.zoom(0.6);
+        viewer4.setView([ -60.64682338153259, -20.114962159611807, 0.5702077286702113, 80.5194132281471, -0.15077826938374425, 0.19679882644092048, -0.8102144809849335, -0.5311201654949984 ]);
         viewer4.render();
     },
     error: function(hdr, status, err) {
         console.error( "Failed to load PDB " + pdbUri + ": " + err );
     },
 });
+// function getState() {
+//   console.log(console.log(viewer4.getView()));
+// };
 </script>
+<!-- <button onclick="getState()">Click me to get 3DMol.js state</button> -->
 
 <!-- LINKS -->
 
@@ -134,3 +135,4 @@ jQuery.ajax( pdbUri, {
 [1jc1]: https://www.rcsb.org/structure/1jc1
 [rogfp paper]: https://doi.org/10.1074/jbc.M312846200
 [2y0g]: https://www.rcsb.org/structure/2y0g
+[8dta]: https://www.rcsb.org/structure/8DTA
