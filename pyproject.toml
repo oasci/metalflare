@@ -29,6 +29,7 @@ metalflare-rename-resname = "metalflare.pdb.modify.names:cli_replace_resnames"
 metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
 metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
 metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
+metalflare-tleap = "metalflare.simulation.amber.tleap:cli_run_tleap"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
