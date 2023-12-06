@@ -16,10 +16,20 @@ jQuery.ajax( uri, {
         );
         viewer.addModelsAsFrames(data, "pdb");
         viewer.setStyle({}, {cartoon: {color: 'spectrum'}});
-        viewer.setStyle({resn: 'CRO'}, {stick: {}});
-        viewer.setStyle({chain: 'A', resi: '145'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer.setStyle({chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer.setStyle({resn: 'CU1'}, {sphere: {size: 0.4}});
+        viewer.setStyle({resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle(
+            {chain: 'A', resi: '145'}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.95}}
+        );
+        viewer.setStyle(
+            {chain: 'A', resi: '146'}, {cartoon: {color: "spectrum", opacity: 0.95}}
+        );
+        viewer.setStyle(
+            {chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.95}}
+        );
+        viewer.setStyle(
+            {chain: 'A', resi: '203'}, {cartoon: {color: "spectrum", opacity: 0.95}}
+        );
+        viewer.setStyle({resn: 'CU1'}, {sphere: {size: 0.4, color: "0xa52a2a"}});
         viewer.setView([ -36.9147351738292, -38.79385525105598, -34.28640214794895, 72.28733464747603, 0.2666368765879281, -0.19611494476442937, 0.7836729219496249, 0.5256428976847463 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
