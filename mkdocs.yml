@@ -87,7 +87,7 @@ extra:
   generator: false
   analytics:
     provider: plausible
-    domain: metalflare
+    domain: metalflare.oasci.org
 
 extra_css:
   - css/base.css
