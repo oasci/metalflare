@@ -131,6 +131,8 @@ class SimulationContextManager:
         """Write directory."""
         self.submit: bool = False
         r"""Submit the job."""
+        self.work_dir: str | None = None
+        r"""Working directory for preparing calculations."""
 
         self.yaml_path = yaml_path
         r"""Path of YAML file that was loaded. Defaults to `None`."""

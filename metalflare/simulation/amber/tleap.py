@@ -1,6 +1,7 @@
 r"""Prepare Amber simulations with tleap."""
 from typing import Any
 
+import argparse
 import os
 import subprocess
 import tempfile
@@ -9,6 +10,7 @@ from collections.abc import Iterable
 from loguru import logger
 
 from ..contexts import SimulationContextManager
+from ..environment import get_ion_counts
 
 FF_WATER_SOLVENT_BOX_MAP: dict[str, Any] = {
     "tip3p": "TIP3PBOX",
@@ -312,7 +314,11 @@ def prepare_amber_files(
     tleap_command = [TLEAP_PATH, "-f", tleap_input.name]
     logger.debug("tleap command: {}", tleap_command)
     completed_process = subprocess.run(
-        tleap_command, capture_output=True, text=True, check=False
+        tleap_command,
+        capture_output=True,
+        text=True,
+        check=False,
+        cwd=context["work_dir"],
     )
     os.remove(tleap_input.name)  # Remove temporary input file.
     if completed_process.returncode != 0:
@@ -321,3 +327,92 @@ def prepare_amber_files(
     logger.debug("tleap output:\n{}", completed_process.stdout)
 
     return parse_tleap_log(completed_process.stdout.split("\n"))
+
+
+def run_tleap(
+    pdb_path: str,
+    topo_path: str,
+    coord_path: str,
+    yaml_paths: Iterable[str],
+    work_dir: str | None = None,
+) -> dict[str, Any]:
+    r"""Run tleap preparation of a system.
+
+    Args:
+        pdb_path: Path to PDB file to prepare.
+        topo_path: Path to save topology file.
+        coord_path: Path to save coordinate file.
+        yaml_paths: YAML file paths context.
+
+            You can include a list under `add_lines_tleap` key for adding lines to the
+            tleap preparation in [get_prelim_sim_info]
+            [simulation.amber.tleap.get_prelim_sim_info].
+        work_dir: Working directory to run tleap and specifying relative paths.
+    """
+    context_manager = SimulationContextManager()
+    for yaml_path in yaml_paths:
+        context_manager.from_yaml(yaml_path)
+
+    context_manager.work_dir = work_dir
+    try:
+        add_lines_tleap = context_manager.add_lines_tleap
+    except AttributeError:
+        add_lines_tleap = None
+    tleap_info = get_prelim_sim_info(
+        pdb_path=pdb_path, simulation_context=context_manager, add_lines=add_lines_tleap
+    )
+    ion_counts = get_ion_counts(
+        simulation_context=context_manager,
+        system_charge=tleap_info["system_charge"],
+        n_waters=tleap_info["n_water_molecules"],
+    )
+    tleap_info_prep = prepare_amber_files(
+        pdb_path,
+        prmtop_path=topo_path,
+        inpcrd_path=coord_path,
+        simulation_context=context_manager,
+        add_lines=add_lines_tleap,
+        cations=ion_counts["cations"],
+        anions=ion_counts["anions"],
+    )
+    return tleap_info_prep
+
+
+def cli_run_tleap():
+    r"""Command-line interface to running tleap"""
+    parser = argparse.ArgumentParser(description="Run tleap")
+    parser.add_argument(
+        "pdb_path",
+        type=str,
+        nargs="?",
+        help="Path to PDB file",
+    )
+    parser.add_argument(
+        "topo_path",
+        type=str,
+        nargs="?",
+        help="Where to save topology file",
+    )
+    parser.add_argument(
+        "coord_path",
+        type=str,
+        nargs="?",
+        help="Where to save coordinate file",
+    )
+    parser.add_argument(
+        "--yaml",
+        type=str,
+        nargs="*",
+        help="Paths to YAML files to use in decreasing precedence.",
+    )
+    parser.add_argument(
+        "--work_dir",
+        type=str,
+        nargs="?",
+        help="Work directory for preparing calculations",
+        default=None,
+    )
+    args = parser.parse_args()
+    if args.yaml is None:
+        args.yaml = []
+    run_tleap(args.pdb_path, args.topo_path, args.coord_path, args.yaml, args.work_dir)
