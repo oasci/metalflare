@@ -6,7 +6,7 @@ This experiment performs classical MD simulations of the [reduced form of roGFP2
 
 <div id="cu-placed-view" class="mol-container"></div>
 <script>
-var uri = './structures/protein/1JCO-cu(i).pdb';
+var uri = './structures/protein/1JC0-Cu.pdb';
 jQuery.ajax( uri, {
     success: function(data) {
         // https://3dmol.org/doc/GLViewer.html
