@@ -30,6 +30,7 @@ metalflare-merge-pdbs = "metalflare.pdb.utils:cli_merge_pdbs"
 metalflare-validate-context = "metalflare.simulation.contexts:cli_validate_yaml_context"
 metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
 metalflare-tleap = "metalflare.simulation.amber.tleap:cli_run_tleap"
+metalflare-prep-sims = "metalflare.simulation.run:cli_run_simulation_slurm_prep"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
