@@ -9,11 +9,11 @@ export METALFLARE_LOG=True
 export METALFLARE_STDOUT=False
 export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="02-amber-prep.log"
-METHODS_PATH="../../../methods"
+METHODS_DIR="../../../methods"
 
 
 PDB_PATH="../structures/protein/1JC0-Cu.pdb"
-YAML_PATH="$METHODS_PATH/04-amber-simulations/base.yml"
+YAML_PATH="$METHODS_DIR/04-amber-simulations/base.yml"
 
 SAVE_DIR="../simulations/02-prep"
 TOPO_PATH="$SAVE_DIR/mol.prmtop"
