@@ -756,6 +756,7 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Resname {DRG} cyan}
     {color Resname {Cl-} purple}
     {color Resname {Na+} cyan}
+    {color Resname {CU1} ochre}
     {color Chain {X} blue}
     {color Segname {} blue}
     {color Conformation {all} blue}
