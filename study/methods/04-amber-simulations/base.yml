@@ -1,0 +1,19 @@
+# Base Amber simulation context
+ff_protein: ff19SB
+ff_water: opc3
+ff_ions: ionslm_126_opc3
+cation_identity: Na+
+anion_identity: Cl-
+neutralize_charge: true
+extra_cations: 0
+extra_anions: 0
+solvent_ionic_strength: 0.150
+solvent_padding: 10.0
+
+# Assumes we are in a directory inside of a data directory
+add_lines_tleap:
+  - 'addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} '
+  - '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}'
+  - '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }'
+  - "xFPparams = loadamberparams ../../../methods/03-amber-prep/cro/frcmod.xFPchromophores.2022"
+  - "loadOff ../../../methods/03-amber-prep/cro/xFPchromophores.lib.2022"
