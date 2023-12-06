@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 TOPO_PATH = "../../001-rogfp-md/simulations/02-prep/mol.prmtop"
 COORD_PATH = "../../001-rogfp-md/simulations/02-prep/mol.inpcrd"
 CU_XYZ_PATH = "../../002-cu(i)-positioning/calculations/02-dock-copper/xtbopt.xyz"
-WRITE_PATH = "../structures/protein/1JCO-cu(i).pdb"
+WRITE_PATH = "../structures/protein/1JC0-Cu.pdb"
 
 u = mda.Universe(TOPO_PATH, COORD_PATH)
 protein = u.select_atoms("protein or resname CRO")
@@ -36,7 +36,7 @@ def gen_pdb_line(
     element_symbol,
 ):
     # pylint: disable-next=line-too-long, consider-using-f-string
-    line = "{:6s}{:5d} {:^4s}{:1s}{:3s} {:1s}{:4d}{:1s}   {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2s}          {:>2s}{:2s}\n".format(
+    line = "{:6s}{:5d} {:^4s}{:1s}{:3s} {:1s}{:4d}{:1s}   {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2s}          {:>2s}{:2s}".format(
         str(atom_type),
         atom_id,
         str(atom_name),
@@ -53,7 +53,7 @@ def gen_pdb_line(
         str(element_symbol),
         "",
     )
-    return line
+    return line + "\n"
 
 
 for line in xyz_lines:
@@ -68,8 +68,8 @@ split_line = pdb_lines[i_last_atom].split()
 copper_line = gen_pdb_line(
     "HETATM",
     int(split_line[1]) + 1,
-    "CU1",
-    "CU1",
+    "Cu+",
+    "Cu+",
     "X",
     int(split_line[5]) + 1,
     float(x_coord),
@@ -77,7 +77,8 @@ copper_line = gen_pdb_line(
     float(z_coord),
     "Cu",
 )
-pdb_lines.insert(i_last_atom + 1, copper_line)
+pdb_lines.insert(i_last_atom + 1, "TER\n")
+pdb_lines.insert(i_last_atom + 2, copper_line)
 for i, line in enumerate(pdb_lines):
     if ("ATOM" in line) or ("HETATM" in line):
         line = list(line)
