@@ -208,3 +208,35 @@ def cli_merge_pdbs() -> None:
     if args.output is None:
         raise RuntimeError("--output must be specified")
     run_merge_pdbs(*args.pdb_paths, output_path=args.output)
+
+
+def run_write_pdb(file_paths: Iterable[str], output_path: str) -> None:
+    r"""Write PDB file from file paths.
+
+    Args:
+        file_paths: Paths of files to load into MDAnalysis.
+        output_path: Path to save PDB file.
+    """
+    u = mda.Universe(*file_paths)
+    u.atoms.write(output_path)
+
+
+def cli_write_pdb() -> None:
+    r"""Command-line interface for merging PDB files"""
+    parser = argparse.ArgumentParser(description="Merge PDB files")
+    parser.add_argument(
+        "output_path",
+        type=str,
+        nargs="?",
+        help="PDB file to write",
+    )
+    parser.add_argument(
+        "--files",
+        type=str,
+        nargs="*",
+        help="Files to load into MDAnalysis universe.",
+    )
+    args = parser.parse_args()
+    if args.files is None:
+        raise RuntimeError("--files must be specified")
+    run_write_pdb(args.files, args.output_path)
