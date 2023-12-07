@@ -17,6 +17,7 @@ YAML_PATH="$METHODS_PATH/04-amber-simulations/base.yml"
 SAVE_DIR="../simulations/02-prep"
 TOPO_PATH="$SAVE_DIR/mol.prmtop"
 COORD_PATH="$SAVE_DIR/mol.inpcrd"
+OUTPUT_PDB_PATH="$SAVE_DIR/mol.pdb"
 
 
 
@@ -27,6 +28,7 @@ rm -f $METALFLARE_LOG_FILE_PATH
 
 metalflare-validate-context $YAML_PATH metalflare.simulation.amber.contexts.AmberContextValidator
 metalflare-tleap $PDB_PATH $TOPO_PATH $COORD_PATH --yaml $YAML_PATH --work_dir "$(dirname "$0")"
+metalflare-pdb $OUTPUT_PDB_PATH --files $TOPO_PATH $COORD_PATH
 
 export METALFLARE_LOG=False
 )
