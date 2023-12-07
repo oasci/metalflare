@@ -11,6 +11,9 @@ export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="05-prod-prep.log"
 
 SIMULATIONS_DIR="../simulations"
+METHODS_DIR="../../../methods"
+YAML_DIR="$METHODS_DIR/04-amber-simulations"
+
 COORD_PATH="$SIMULATIONS_DIR/02-prep/mol.inpcrd"
 TOPO_PATH="$SIMULATIONS_DIR/02-prep/mol.prmtop"
 
@@ -19,14 +22,17 @@ REPLICATES=3
 for ((i=1; i<=$REPLICATES; i++)); do
     suffix=$(printf "%02d" "$i")
 
-    export RUN_NAME="run-$suffix"
-    SAVE_DIR="$SIMULATIONS_DIR/05-prod/$RUN_NAME"
-    INPUT_DIR="$SAVE_DIR/inputs"
-    OUTPUT_DIR="$SAVE_DIR/outputs"
-    RUN_PATH="$SAVE_DIR/run.sh"
-    SLURM_PATH="$SAVE_DIR/submit.slurm"
-    JOB_NAME="metalflare/001/05-prod/$RUN_NAME"
+    RUN_NAME="run-$suffix"
 
+    STAGE_DIR="$SIMULATIONS_DIR/05-prod/$RUN_NAME"
+    INPUT_DIR="$STAGE_DIR/inputs"
+    OUTPUT_DIR="$STAGE_DIR/outputs"
+
+    JOB_NAME="metalflare/001/05-prod/$RUN_NAME"
+    WRITE_DIR="$INPUT_DIR"
+    RUN_PATH="$STAGE_DIR/run.sh"
+    SLURM_PATH="$STAGE_DIR/submit.slurm"
+    PREP_CLASS_STRING="metalflare.simulation.amber.run.AmberRunPrep"
 
     # Cleanup files from previous run
     rm -rf $SAVE_DIR
@@ -38,11 +44,11 @@ for ((i=1; i<=$REPLICATES; i++)); do
     rm -f $METALFLARE_LOG_FILE_PATH
 
     temp_yaml="$(mktemp)"
-    cp $SIMULATIONS_DIR/05-prod.yml $temp_yaml
+    cp $YAML_DIR/05-prod.yml $temp_yaml
     sed -i "s/{{ RUN_NAME }}/$RUN_NAME/g" $temp_yaml
 
-    ./prep_sim.py $TOPO_PATH $COORD_PATH $INPUT_DIR $RUN_PATH $JOB_NAME $SLURM_PATH \
-    --yaml $SIMULATIONS_DIR/base.yml $SIMULATIONS_DIR/slurm.yml $temp_yaml
+    metalflare-prep-sims $JOB_NAME $WRITE_DIR $RUN_PATH $SLURM_PATH $PREP_CLASS_STRING \
+    --yaml $temp_yaml $YAML_DIR/slurm.yml $YAML_DIR/base.yml
 
     cp $COORD_PATH $INPUT_DIR/mol.inpcrd
     cp $TOPO_PATH $INPUT_DIR/mol.prmtop
