@@ -222,8 +222,10 @@ def run_write_pdb(file_paths: Iterable[str], output_path: str) -> None:
 
 
 def cli_write_pdb() -> None:
-    r"""Command-line interface for merging PDB files"""
-    parser = argparse.ArgumentParser(description="Merge PDB files")
+    r"""Command-line interface for writing PDB from topology and coordinate files."""
+    parser = argparse.ArgumentParser(
+        description="Write PDB from topology and coordinate files."
+    )
     parser.add_argument(
         "output_path",
         type=str,
