@@ -221,7 +221,7 @@ def run_write_pdb(
         selection_str: Selection string for MDAnalysis universe.
     """
     u = mda.Universe(*file_paths)
-    if selection_str is not None:
+    if isinstance(selection_str, str):
         atoms = u.select_atoms(selection_str)
     else:
         atoms = u.atoms
@@ -245,7 +245,15 @@ def cli_write_pdb() -> None:
         nargs="*",
         help="Files to load into MDAnalysis universe.",
     )
+    parser.add_argument(
+        "--selection_str",
+        type=str,
+        nargs="*",
+        help="Selection string for MDAnalysis universe.",
+    )
     args = parser.parse_args()
     if args.files is None:
         raise RuntimeError("--files must be specified")
-    run_write_pdb(args.files, args.output_path)
+    if args.selection_str is not None:
+        args.selection_str = " ".join(args.selection_str)
+    run_write_pdb(args.files, args.output_path, args.selection_str)
