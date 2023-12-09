@@ -211,7 +211,10 @@ def cli_merge_pdbs() -> None:
 
 
 def run_write_pdb(
-    file_paths: Iterable[str], output_path: str, selection_str: str | None = None
+    file_paths: Iterable[str],
+    output_path: str,
+    selection_str: str | None = None,
+    stride: int = 1,
 ) -> None:
     r"""Write PDB file from file paths.
 
@@ -227,7 +230,8 @@ def run_write_pdb(
         atoms = u.atoms
     with mda.Writer(output_path, multiframe=True) as W:
         for ts in u.trajectory:
-            W.write(atoms)
+            if ts.frame % stride == 0:
+                W.write(atoms)
 
 
 def cli_write_pdb() -> None:
@@ -253,9 +257,16 @@ def cli_write_pdb() -> None:
         nargs="*",
         help="Selection string for MDAnalysis universe.",
     )
+    parser.add_argument(
+        "--stride",
+        type=int,
+        nargs="?",
+        help="Stride of trajectory when writing.",
+        default=1,
+    )
     args = parser.parse_args()
     if args.files is None:
         raise RuntimeError("--files must be specified")
     if args.selection_str is not None:
         args.selection_str = " ".join(args.selection_str)
-    run_write_pdb(args.files, args.output_path, args.selection_str)
+    run_write_pdb(args.files, args.output_path, args.selection_str, args.stride)
