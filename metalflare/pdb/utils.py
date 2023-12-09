@@ -225,7 +225,9 @@ def run_write_pdb(
         atoms = u.select_atoms(selection_str)
     else:
         atoms = u.atoms
-    atoms.write(output_path)
+    with mda.Writer(output_path, multiframe=True) as W:
+        for ts in u.trajectory:
+            W.write(atoms)
 
 
 def cli_write_pdb() -> None:
