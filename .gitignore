@@ -2,6 +2,13 @@
 *.pdb
 *.log
 *.xyz
+*.nc
+*.rst
+CALC_DONE
+logfile
+*.mdinfo
+*.err
+*.out
 
 # IDE settings
 .vscode/
