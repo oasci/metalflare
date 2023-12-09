@@ -210,15 +210,22 @@ def cli_merge_pdbs() -> None:
     run_merge_pdbs(*args.pdb_paths, output_path=args.output)
 
 
-def run_write_pdb(file_paths: Iterable[str], output_path: str) -> None:
+def run_write_pdb(
+    file_paths: Iterable[str], output_path: str, selection_str: str | None = None
+) -> None:
     r"""Write PDB file from file paths.
 
     Args:
         file_paths: Paths of files to load into MDAnalysis.
         output_path: Path to save PDB file.
+        selection_str: Selection string for MDAnalysis universe.
     """
     u = mda.Universe(*file_paths)
-    u.atoms.write(output_path)
+    if selection_str is not None:
+        atoms = u.select_atoms(selection_str)
+    else:
+        atoms = u.atoms
+    atoms.write(output_path)
 
 
 def cli_write_pdb() -> None:
