@@ -41,3 +41,36 @@ jQuery.ajax( uri, {
     },
 });
 </script>
+
+## Production
+
+Each frame represents a stride of 2.5 ns for a total of 100 ns.
+
+<div id="prod-npt-view" class="mol-container"></div>
+<script>
+var uri = './simulations/05-prod/run-01/outputs/08_prod_npt.pdb';
+jQuery.ajax( uri, {
+    success: function(data) {
+        // https://3dmol.org/doc/GLViewer.html
+        let viewer = $3Dmol.createViewer(
+            document.querySelector('#prod-npt-view'),
+            { backgroundAlpha: '0.0' }
+        );
+        viewer.addModelsAsFrames(data, "pdb");
+        viewer.animate({interval: 200, loop: "forward", reps: 0});
+        viewer.setStyle({}, {cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resn: 'CRO'}, {stick: {}});
+        viewer.setStyle({resi: 145}, {stick: {}, cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resi: 202}, {stick: {}, cartoon: {color: 'spectrum'}});
+        viewer.setStyle({resn: 'CU1'}, {sphere: {size: 0.4, color: "0xa52a2a"}});
+        viewer.setView([ -31.023800442233295, -32.70469651741289, -32.66362686567166, 9.517105134040186, -0.5129826573726642, 0.6134893978796151, -0.32219140994260353, -0.5066283127534278 ]);
+        viewer.setClickable({}, true, function(atom,viewer,event,container) {
+            console.log(viewer.getView());
+        });
+        viewer.render();
+    },
+    error: function(hdr, status, err) {
+        console.error( "Failed to load " + uri + ": " + err );
+    },
+});
+</script>
