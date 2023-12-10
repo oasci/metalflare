@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 echo 'Starting 09_prod_npt'
 date

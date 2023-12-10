@@ -187,7 +187,7 @@ class AmberRunPrep(SimulationRunPrep):
         should be ran before this.
         """
         if run_commands is None:
-            run_commands = []
+            run_commands = ["#!/usr/bin/env bash"]
 
         # We do not want to change source context in prepare_context, so we do this
         # here.
