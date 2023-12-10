@@ -29,7 +29,7 @@ jQuery.ajax( uri, {
         viewer.setStyle(
             {chain: 'A', resi: '203'}, {cartoon: {color: "spectrum", opacity: 0.95}}
         );
-        viewer.setStyle({resn: 'CU1'}, {sphere: {size: 0.4, color: "0xa52a2a"}});
+        viewer.setStyle({resn: 'CU1'}, {sphere: {radius: 0.9, color: "0xa52a2a"}});
         viewer.setView([ -36.9147351738292, -38.79385525105598, -34.28640214794895, 72.28733464747603, 0.2666368765879281, -0.19611494476442937, 0.7836729219496249, 0.5256428976847463 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
@@ -62,7 +62,7 @@ jQuery.ajax( uri, {
         viewer.setStyle({resn: 'CRO'}, {stick: {}});
         viewer.setStyle({resi: 145}, {stick: {}, cartoon: {color: 'spectrum'}});
         viewer.setStyle({resi: 202}, {stick: {}, cartoon: {color: 'spectrum'}});
-        viewer.setStyle({resn: 'CU1'}, {sphere: {size: 0.4, color: "0xa52a2a"}});
+        viewer.setStyle({resn: 'CU1'}, {sphere: {radius: 0.9, color: "0xa52a2a"}});
         viewer.setView([ -31.023800442233295, -32.70469651741289, -32.66362686567166, 9.517105134040186, -0.5129826573726642, 0.6134893978796151, -0.32219140994260353, -0.5066283127534278 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
