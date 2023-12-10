@@ -13,3 +13,4 @@ mol.inpcrd
 mol.prmtop
 !simulations/02-prep/mol.inpcrd
 !simulations/02-prep/mol.prmtop
+!08_prod_npt.pdb
