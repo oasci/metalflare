@@ -66,7 +66,7 @@ jQuery.ajax( uri, {
         viewer.addModelsAsFrames(data, "xyz");
         viewer.animate({interval: 150, loop: "forward", reps: 0});
         viewer.setStyle({}, {stick: {}});
-        viewer.setStyle({elem: "Cu"}, {sphere: {scale: 0.5}});
+        viewer.setStyle({elem: "Cu"}, {sphere: {radius: 0.9}});
         viewer.setView([ -47.37641165022477, -34.81989291611326, -34.415538199484196, 107.15776591487352, -0.17350995400483246, 0.18953312050907078, -0.7973543906475701, -0.5460745991221131 ]);
         viewer.render();
     },
