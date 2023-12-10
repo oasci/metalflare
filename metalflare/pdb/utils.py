@@ -224,13 +224,14 @@ def run_write_pdb(
         selection_str: Selection string for MDAnalysis universe.
     """
     u = mda.Universe(*file_paths)
-    if isinstance(selection_str, str):
-        atoms = u.select_atoms(selection_str)
-    else:
-        atoms = u.atoms
+    atoms = u.select_atoms(selection_str)
     with mda.Writer(output_path, multiframe=True) as W:
         for ts in u.trajectory:
             if ts.frame % stride == 0:
+                if isinstance(selection_str, str):
+                    atoms = u.select_atoms(selection_str)
+                else:
+                    atoms = u.atoms
                 W.write(atoms)
 
 
@@ -248,7 +249,7 @@ def cli_write_pdb() -> None:
     parser.add_argument(
         "--files",
         type=str,
-        nargs="*",
+        nargs="+",
         help="Files to load into MDAnalysis universe.",
     )
     parser.add_argument(
@@ -265,8 +266,6 @@ def cli_write_pdb() -> None:
         default=1,
     )
     args = parser.parse_args()
-    if args.files is None:
-        raise RuntimeError("--files must be specified")
     if args.selection_str is not None:
         args.selection_str = " ".join(args.selection_str)
     run_write_pdb(args.files, args.output_path, args.selection_str, args.stride)
