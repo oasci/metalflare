@@ -2,9 +2,6 @@ input_dir: "$SLURM_SUBMIT_DIR/inputs"
 output_dir: "$SLURM_SUBMIT_DIR/outputs"
 compute_platform: "cuda"
 
-# splits: 10
-# scratch_dir: "$SLURM_SCRATCH"
-
 sbatch_options:
   nodes: 1
   ntasks-per-node: 2
