@@ -28,7 +28,7 @@ for ((i=1; i<=$REPLICATES; i++)); do
     INPUT_DIR="$STAGE_DIR/inputs"
     OUTPUT_DIR="$STAGE_DIR/outputs"
 
-    JOB_NAME="metalflare/001/06-prod/$RUN_NAME"
+    JOB_NAME="metalflare/003/06-prod/$RUN_NAME"
     WRITE_DIR="$INPUT_DIR"
     RUN_PATH="$STAGE_DIR/run.sh"
     SLURM_PATH="$STAGE_DIR/submit.slurm"
