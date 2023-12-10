@@ -3,6 +3,7 @@ import os
 from collections.abc import Iterable
 
 import MDAnalysis as mda
+from MDAnalysis import transformations as trans
 import numpy as np
 from loguru import logger
 
@@ -224,7 +225,6 @@ def run_write_pdb(
         selection_str: Selection string for MDAnalysis universe.
     """
     u = mda.Universe(*file_paths)
-    atoms = u.select_atoms(selection_str)
     with mda.Writer(output_path, multiframe=True) as W:
         for ts in u.trajectory:
             if ts.frame % stride == 0:
@@ -253,7 +253,7 @@ def cli_write_pdb() -> None:
         help="Files to load into MDAnalysis universe.",
     )
     parser.add_argument(
-        "--selection_str",
+        "--select",
         type=str,
         nargs="*",
         help="Selection string for MDAnalysis universe.",
@@ -266,6 +266,59 @@ def cli_write_pdb() -> None:
         default=1,
     )
     args = parser.parse_args()
-    if args.selection_str is not None:
-        args.selection_str = " ".join(args.selection_str)
-    run_write_pdb(args.files, args.output_path, args.selection_str, args.stride)
+    if args.select is not None:
+        args.select = " ".join(args.select)
+    run_write_pdb(args.files, args.output_path, args.select, args.stride)
+
+def run_align_pdb(
+    pdb_path: str,
+    out_path: str,
+    selection_str: str | None = None,
+) -> None:
+    r"""Align structure in PDB file.
+
+    Args:
+        pdb_path: Path to PDB file.
+        out_path: Path to write aligned PDB file.
+        selection_str: Selection string for MDAnalysis universe.
+    """
+    u = mda.Universe(pdb_path)
+    ag = u.select_atoms(selection_str)
+    u_ref = u.copy()
+    ag_ref = u_ref.select_atoms(selection_str)
+    workflow = (
+        trans.fit_rot_trans(ag, ag_ref),
+    )
+    u.trajectory.add_transformations(*workflow)
+    with mda.Writer(out_path, multiframe=True) as W:
+        for ts in u.trajectory:
+            W.write(u.atoms)
+
+
+def cli_align_pdb() -> None:
+    r"""Command-line interface for aligning PDB file."""
+    parser = argparse.ArgumentParser(
+        description="Align PDB file to some selection."
+    )
+    parser.add_argument(
+        "pdb_path",
+        type=str,
+        nargs="?",
+        help="PDB file to load",
+    )
+    parser.add_argument(
+        "out_path",
+        type=str,
+        nargs="?",
+        help="PDB file to write",
+    )
+    parser.add_argument(
+        "--selection",
+        type=str,
+        nargs="*",
+        help="Selection string for MDAnalysis universe.",
+    )
+    args = parser.parse_args()
+    if args.selection is not None:
+        args.selection = " ".join(args.selection)
+    run_align_pdb(args.pdb_path, args.out_path, args.selection)

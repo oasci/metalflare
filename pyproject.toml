@@ -32,6 +32,7 @@ metalflare-inspect-vmd = "metalflare.simulation.inspect:cli_vmd_inspect"
 metalflare-tleap = "metalflare.simulation.amber.tleap:cli_run_tleap"
 metalflare-prep-sims = "metalflare.simulation.run:cli_run_simulation_slurm_prep"
 metalflare-pdb = "metalflare.pdb.utils:cli_write_pdb"
+metalflare-pdb-align = "metalflare.pdb.utils:cli_align_pdb"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
