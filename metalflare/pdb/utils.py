@@ -3,9 +3,9 @@ import os
 from collections.abc import Iterable
 
 import MDAnalysis as mda
-from MDAnalysis import transformations as trans
 import numpy as np
 from loguru import logger
+from MDAnalysis import transformations as trans
 
 
 def replace_in_pdb_line(
@@ -270,6 +270,7 @@ def cli_write_pdb() -> None:
         args.select = " ".join(args.select)
     run_write_pdb(args.files, args.output_path, args.select, args.stride)
 
+
 def run_align_pdb(
     pdb_path: str,
     out_path: str,
@@ -286,9 +287,7 @@ def run_align_pdb(
     ag = u.select_atoms(selection_str)
     u_ref = u.copy()
     ag_ref = u_ref.select_atoms(selection_str)
-    workflow = (
-        trans.fit_rot_trans(ag, ag_ref),
-    )
+    workflow = (trans.fit_rot_trans(ag, ag_ref),)
     u.trajectory.add_transformations(*workflow)
     with mda.Writer(out_path, multiframe=True) as W:
         for ts in u.trajectory:
@@ -297,9 +296,7 @@ def run_align_pdb(
 
 def cli_align_pdb() -> None:
     r"""Command-line interface for aligning PDB file."""
-    parser = argparse.ArgumentParser(
-        description="Align PDB file to some selection."
-    )
+    parser = argparse.ArgumentParser(description="Align PDB file to some selection.")
     parser.add_argument(
         "pdb_path",
         type=str,

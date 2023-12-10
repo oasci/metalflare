@@ -4,6 +4,7 @@
 !03-min-prep.log
 !04-relax-prep.log
 !05-prod-prep.log
+!06-prod-prep.log
 
 stdout_nonprot.pdb
 stdout_renum.txt

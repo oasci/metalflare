@@ -5,6 +5,7 @@
 !scripts/03-min-prep.log
 !scripts/04-relax-prep.log
 !scripts/05-prod-prep.log
+!scripts/06-prod-prep.log
 
 mol.prmtop
 mol.inpcrd
