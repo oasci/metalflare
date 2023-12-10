@@ -17,7 +17,7 @@ for ((i=1; i<=$REPLICATES; i++)); do
     COORD_PATH="$OUTPUT_DIR/08_prod_npt.nc"
     TOPO_PATH="$SIMULATIONS_DIR/02-prep/mol.prmtop"
 
-    metalflare-pdb $OUTPUT_DIR/08_prod_npt.pdb --files $TOPO_PATH $COORD_PATH --stride 100 --select not resname WAT and not resname Cl- and not resname Na+
+    metalflare-pdb $OUTPUT_DIR/08_prod_npt.pdb --files $TOPO_PATH $COORD_PATH --stride 250 --select not resname WAT and not resname Cl- and not resname Na+
 done
 
 )
