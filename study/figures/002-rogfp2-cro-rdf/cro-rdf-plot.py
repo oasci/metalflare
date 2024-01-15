@@ -13,23 +13,24 @@ if __name__ == "__main__":
     base_dir = "../../"
 
     for atom_type in ["C", "H", "O", "N", "S"]:
-        bins_path = os.path.join(
-            base_dir,
-            "analysis/001-rogfp-md/data/rdf/",
-            f"cro_{atom_type.lower()}_rdf_bins.npy"
-        )
-        bins = np.load(bins_path)
         density_path = os.path.join(
             base_dir,
             "analysis/001-rogfp-md/data/rdf/",
-            f"cro_{atom_type.lower()}_rdf_density.npy"
+            f"cro_{atom_type.lower()}_rdf_density.npy",
         )
         density = np.load(density_path)
-        
-        kwargs = {"kde": True, "stat": "density", "fill": True, "bins": bins}
+
+        kwargs = {
+            "kde": True,
+            "stat": "density",
+            "fill": True,
+            "binrange": (0, 15),
+            "bins": 150,
+        }
         sns.histplot(density, **kwargs)
 
         plt.xlabel("Distance [Å]")
-        plt.ylabel(f"g(O, {atom_tpye})")
+        plt.ylabel(f"g(O, {atom_type})")
 
-        plt.savefig("cro-cym-hist.png")
+        plt.savefig(f"cro-rdf-{atom_type}.png")
+        plt.clf()
