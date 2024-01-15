@@ -28,7 +28,7 @@ if __name__ == "__main__":
     sns.histplot(rogfp_dist, label="Unbound", color="#1e2e79", **kwargs)
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
-    plt.xlabel("ND1 THR201 - SG CYM202 Distance [Å]")
+    plt.xlabel("O THR201 - SG CYM202 Distance [Å]")
     plt.xlim(right=4.5)
     plt.ylabel("Density")
 
