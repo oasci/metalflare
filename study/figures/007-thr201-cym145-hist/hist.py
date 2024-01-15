@@ -29,7 +29,7 @@ if __name__ == "__main__":
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
     plt.xlabel("ND1 THR201 - SG CYM145 Distance [Å]")
-    plt.xlim(right=6.5)
+    plt.xlim(2.5, 5.0)
     plt.ylabel("Density")
 
     plt.legend()
