@@ -32,8 +32,9 @@ if __name__ == "__main__":
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
     plt.xlabel("OH CRO65 - OH THR143 Distance [Å]")
+    plt.xlim(right=6)
     plt.ylabel("Density")
 
     plt.legend()
 
-    plt.savefig("cro-thr-hist.png")
+    plt.savefig("004-cro-tyr143-oh-hist.png")
