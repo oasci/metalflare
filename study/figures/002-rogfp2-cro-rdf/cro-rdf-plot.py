@@ -46,8 +46,10 @@ if __name__ == "__main__":
         ax.plot(bin_edges_bound, density_bound, label="Bound", color="#f99752")
 
         ax.set_xlabel("Distance [Å]")
+        ax.set_xlim(0, 10)
         ax.set_ylabel("$g_{O" + atom_type + "}$")
+        ax.set_ylim(bottom=0)
 
         plt.legend()
-        plt.savefig(f"cro-rdf-{atom_type}.png")
+        plt.savefig(f"cro-rdf-{atom_type.lower()}.png")
         plt.clf()
