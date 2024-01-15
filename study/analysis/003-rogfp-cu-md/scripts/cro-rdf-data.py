@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     for atom_type in ["H", "O", "N"]:
         print(f"Working on {atom_type}")
-        atoms = u.select_atoms(f"not resname CRO and name {atom_type}")
+        atoms = u.select_atoms(f"not resname CRO and element {atom_type}")
         rdf = InterRDF(cro_oh, atoms, nbins=150, range=(0.0, 15.0), norm="rdf")
         rdf.run(step=1)
 
