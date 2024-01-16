@@ -1,3 +1,6 @@
+order: asc
+sort_type: natural
+order_by: title
 nav:
     - README.md
     - ...

@@ -28,10 +28,10 @@ if __name__ == "__main__":
     sns.histplot(rogfp_dist, label="Unbound", color="#1e2e79", **kwargs)
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
-    plt.xlabel("OH CRO65 - NH1 HID146 Distance [Å]")
+    plt.xlabel("OH CRO65 - ND1 HID146 Distance [Å]")
     plt.xlim(2.5, 7.5)
     plt.ylabel("Density")
 
     plt.legend()
 
-    plt.savefig("009-cro-hid146-nd1-hist.png")
+    plt.savefig("009-cro-hid146_nd1-hist.svg")
