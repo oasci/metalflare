@@ -3,8 +3,8 @@ nav:
     # - Management: management
     - Methods: methods
     - Data: data
-    # - Analysis: analysis
-    # - Figures: figures
+    - Analysis: analysis
+    - Figures: figures
     # - Dissemination: dissemination
     # - Miscellaneous: misc
     - API: api

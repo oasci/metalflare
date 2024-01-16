@@ -82,6 +82,7 @@ plugins:
         order: asc
         sort_type: natural
         order_by: title
+  - glightbox
 
 extra:
   generator: false
