@@ -82,7 +82,11 @@ plugins:
         order: asc
         sort_type: natural
         order_by: title
-  - glightbox
+  - glightbox:
+      zoomable: true
+      draggable: false
+      height: auto
+      width: 100%
 
 extra:
   generator: false
