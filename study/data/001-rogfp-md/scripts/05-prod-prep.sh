@@ -48,7 +48,7 @@ for ((i=1; i<=$REPLICATES; i++)); do
     sed -i "s/{{ RUN_NAME }}/$RUN_NAME/g" $temp_yaml
 
     metalflare-prep-sims $JOB_NAME $WRITE_DIR $RUN_PATH $SLURM_PATH $PREP_CLASS_STRING \
-    --yaml $temp_yaml $YAML_DIR/slurm.yml $YAML_DIR/base.yml
+    --yaml $temp_yaml $YAML_DIR/slurm-runs.yml $YAML_DIR/base.yml
 
     chmod +x $RUN_PATH
 

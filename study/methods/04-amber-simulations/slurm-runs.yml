@@ -1,0 +1,21 @@
+# Base slurm context
+write: true
+submit: false
+
+# Bash comments should be contained in double quotes.
+# Empty lines should just be "".
+slurm_lines:
+  - ""
+  - "# Load environment"
+  - module purge
+  - module load gcc/8.2.0
+  - module load openmpi/4.0.3
+  - module load amber/22
+  - ""
+  - cp ../../02-prep/mol.inpcrd ./inputs
+  - cp ../../02-prep/mol.prmtop ./inputs
+  - ""
+  - mkdir -p outputs/
+  - ./run.sh
+  - ""
+  - touch CALC_DONE
