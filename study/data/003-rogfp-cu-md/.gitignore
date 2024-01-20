@@ -1,3 +1,4 @@
+!scripts/01-struct-prep.log
 !scripts/02-amber-prep.log
 !structures/protein/1JC0-Cu.pdb
 !simulations/02-prep/mol.prmtop

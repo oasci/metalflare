@@ -1,0 +1,56 @@
+2024-01-20 17:11:10.391-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:11:10.657-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:11:10.657-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:11:10.661-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:11:10.661-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:11:10.661-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:14:36.243-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:14:36.501-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:14:36.502-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:14:36.505-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:14:36.506-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:14:36.506-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:02.701-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:19:02.965-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:02.966-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:02.969-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:19:02.969-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:02.969-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:32.741-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:19:33.006-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:33.006-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:33.010-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:19:33.010-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:33.010-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:46.447-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:19:46.708-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:19:46.709-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:46.712-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:19:46.712-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:19:46.712-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:19.209-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:20:19.466-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:19.466-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:19.470-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:20:19.470-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:19.470-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:29.155-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:20:29.430-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:29.431-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:29.435-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:20:29.435-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:29.435-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:47.371-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:20:47.642-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:20:47.642-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:47.646-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:20:47.646-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:20:47.646-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:21:07.627-05:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-01-20 17:21:07.894-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb
+2024-01-20 17:21:07.894-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:21:07.898-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:21:07.898-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:21:07.898-05:00 | DEBUG    | metalflare.pdb.modify.numbering:run_unify_resids:94 - Encountered 'TER'. Setting parse_structure to False.
+2024-01-20 17:21:07.898-05:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-01-20 17:21:07.898-05:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb

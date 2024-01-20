@@ -14,7 +14,9 @@ CU_XYZ_PATH = "../../002-cu(i)-positioning/calculations/02-dock-copper/xtbopt.xy
 WRITE_PATH = "../structures/protein/1JC0-Cu.pdb"
 
 u = mda.Universe(TOPO_PATH, COORD_PATH)
-protein = u.select_atoms("protein or resname CRO")
+protein = u.select_atoms(
+    "(protein) or (resname CRO) or (resname WAT and around 3 (protein or resname CRO)) or (resname WAT and same resid as (resname WAT and around 3 (protein or resname CRO)))"
+)
 protein.write(WRITE_PATH)
 
 with open(WRITE_PATH, "r", encoding="utf-8") as f:
@@ -65,6 +67,16 @@ for i_last_atom in range(len(pdb_lines) - 1, 0, -1):
     if ("ATOM" in pdb_lines[i_last_atom]) or ("HETATM" in pdb_lines[i_last_atom]):
         break
 split_line = pdb_lines[i_last_atom].split()
+
+# If we have a lot of atoms, we would have the chain ID next to int.
+# We check for this, and split if necessary.
+if any(not c.isdigit() for c in split_line[4]):
+    # Find the index of the first non-digit character in the 4th element
+    split_index = next(i for i, c in enumerate(split_line[4]) if not c.isdigit())
+
+    split_line.insert(4, split_line[4][: split_index + 1])
+    split_line[5] = split_line[5][split_index + 1 :]
+
 copper_line = gen_pdb_line(
     "HETATM",
     int(split_line[1]) + 1,
@@ -79,11 +91,21 @@ copper_line = gen_pdb_line(
 )
 pdb_lines.insert(i_last_atom + 1, "TER\n")
 pdb_lines.insert(i_last_atom + 2, copper_line)
+check_water = True
 for i, line in enumerate(pdb_lines):
     if ("ATOM" in line) or ("HETATM" in line):
-        line = list(line)
-        line[21] = "A"
-        pdb_lines[i] = "".join(line)
+        line_list = list(line)
+        line_list[21] = "A"
+        pdb_lines[i] = "".join(line_list)
+
+        # We also need to check if we have waters that do not have a `TER`
+        if ("WAT" in line) and check_water:
+            print(line)
+            if "TER" not in pdb_lines[i - 1]:
+                pdb_lines.insert(i, "TER\n")
+            check_water = False
+
+
 pdb_lines = keep_lines(pdb_lines)
 with open(WRITE_PATH, "w", encoding="utf-8") as f:
     f.writelines(pdb_lines)
