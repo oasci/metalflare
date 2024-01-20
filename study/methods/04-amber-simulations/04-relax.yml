@@ -17,9 +17,9 @@ sbatch_options:
 stages:
 
   - stage_name: 05_relax_nvt_r
-    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
+    topo_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.prmtop"
     prev_restart_path: "$SLURM_SUBMIT_DIR/../../03-min/outputs/04_min.rst"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.inpcrd"
     input_kwargs:
       irest: 0
       ntx: 1
@@ -47,8 +47,8 @@ stages:
       iwrap: 1
 
   - stage_name: 06_relax_npt_r
-    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.inpcrd"
     input_kwargs:
       irest: 1
       ntx: 5
@@ -80,8 +80,8 @@ stages:
       iwrap: 1
 
   - stage_name: 07_relax_npt
-    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
+    topo_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.prmtop"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.inpcrd"
     input_kwargs:
       irest: 1
       ntx: 5

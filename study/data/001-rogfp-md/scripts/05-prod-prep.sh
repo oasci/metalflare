@@ -50,8 +50,8 @@ for ((i=1; i<=$REPLICATES; i++)); do
     metalflare-prep-sims $JOB_NAME $WRITE_DIR $RUN_PATH $SLURM_PATH $PREP_CLASS_STRING \
     --yaml $temp_yaml $YAML_DIR/slurm.yml $YAML_DIR/base.yml
 
-    cp $COORD_PATH $INPUT_DIR/mol.inpcrd
-    cp $TOPO_PATH $INPUT_DIR/mol.prmtop
+    # cp $COORD_PATH $INPUT_DIR/mol.inpcrd
+    # cp $TOPO_PATH $INPUT_DIR/mol.prmtop
 done
 
 export METALFLARE_LOG=False
