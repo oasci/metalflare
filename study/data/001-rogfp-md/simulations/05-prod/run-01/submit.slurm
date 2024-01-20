@@ -16,6 +16,9 @@ module load gcc/8.2.0
 module load openmpi/4.0.3
 module load amber/22
 
+cp ../02-prep/mol.inpcrd ./inputs
+cp ../02-prep/mol.prmtop ./inputs
+
 mkdir -p outputs/
 chmod +x ./run.sh
 ./run.sh
