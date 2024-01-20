@@ -19,7 +19,6 @@ cp ../02-prep/mol.inpcrd ./inputs
 cp ../02-prep/mol.prmtop ./inputs
 
 mkdir -p outputs/
-chmod +x ./run.sh
 ./run.sh
 
 touch CALC_DONE

@@ -46,6 +46,8 @@ for ((i=1; i<=$REPLICATES; i++)); do
     metalflare-prep-sims $JOB_NAME $WRITE_DIR $RUN_PATH $SLURM_PATH $PREP_CLASS_STRING \
     --yaml $YAML_DIR/04-relax.yml $YAML_DIR/slurm.yml $YAML_DIR/base.yml
 
+    chmod +x $RUN_PATH
+
 done
 
 export METALFLARE_LOG=False
