@@ -1,82 +1,82 @@
-2023-12-06 22:54:13.659-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:282 - Validating context from ../../../methods/04-amber-simulations/base.yml
-2023-12-06 22:54:13.660-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:151 - Loading YAML context from ../../../methods/04-amber-simulations/base.yml
-2023-12-06 22:54:13.663-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:155 - YAML data:
+2024-01-18 22:49:40.555-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:282 - Validating context from ../../../methods/04-amber-simulations/base.yml
+2024-01-18 22:49:40.555-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:151 - Loading YAML context from ../../../methods/04-amber-simulations/base.yml
+2024-01-18 22:49:40.557-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:155 - YAML data:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.663-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
+2024-01-18 22:49:40.557-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.664-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
+2024-01-18 22:49:40.557-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
 {}
-2023-12-06 22:54:13.664-05:00 | INFO     | metalflare.simulation.contexts:validate:212 - Validating with: AmberContextValidator
-2023-12-06 22:54:13.664-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.557-05:00 | INFO     | metalflare.simulation.contexts:validate:212 - Validating with: AmberContextValidator
+2024-01-18 22:49:40.557-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': None, 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.664-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking ff_protein
-2023-12-06 22:54:13.664-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: ff19SB
-2023-12-06 22:54:13.665-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking ff_water
-2023-12-06 22:54:13.665-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: opc3
-2023-12-06 22:54:13.665-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_dna
-2023-12-06 22:54:13.665-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_rna
-2023-12-06 22:54:13.666-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_glycam
-2023-12-06 22:54:13.666-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_lipid
-2023-12-06 22:54:13.666-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_small_molecule
-2023-12-06 22:54:13.666-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_ions
-2023-12-06 22:54:13.666-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check cation_identity
-2023-12-06 22:54:13.667-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check anion_identity
-2023-12-06 22:54:13.667-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check system_charge
-2023-12-06 22:54:13.667-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check neutralize_charge
-2023-12-06 22:54:13.667-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking extra_cations
-2023-12-06 22:54:13.667-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 0
-2023-12-06 22:54:13.668-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking extra_anions
-2023-12-06 22:54:13.668-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 0
-2023-12-06 22:54:13.668-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check solvent_ionic_strength
-2023-12-06 22:54:13.668-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check solvent_padding
-2023-12-06 22:54:13.668-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check verbosity
-2023-12-06 22:54:13.669-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check scratch_dir
-2023-12-06 22:54:13.669-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking compute_platform
-2023-12-06 22:54:13.669-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: mpi
-2023-12-06 22:54:13.669-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check cpu_cores
-2023-12-06 22:54:13.669-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking input_kwargs
-2023-12-06 22:54:13.670-05:00 | DEBUG    | metalflare.simulation.contexts:validate:237 -   Skipping: None
-2023-12-06 22:54:13.670-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check stage_name
-2023-12-06 22:54:13.670-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check stages
-2023-12-06 22:54:13.670-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check input_dir
-2023-12-06 22:54:13.670-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check input_path
-2023-12-06 22:54:13.671-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check output_dir
-2023-12-06 22:54:13.671-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check output_path
-2023-12-06 22:54:13.671-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check coord_path
-2023-12-06 22:54:13.671-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check topo_path
-2023-12-06 22:54:13.671-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check restart_path
-2023-12-06 22:54:13.672-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check prev_coordinate_path
-2023-12-06 22:54:13.672-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check prev_restart_path
-2023-12-06 22:54:13.672-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ref_coord_path
-2023-12-06 22:54:13.672-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking splits
-2023-12-06 22:54:13.672-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 1
-2023-12-06 22:54:13.673-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check sbatch_options
-2023-12-06 22:54:13.673-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check slurm_lines
-2023-12-06 22:54:13.673-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check run_path
-2023-12-06 22:54:13.673-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check slurm_path
-2023-12-06 22:54:13.673-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking write
-2023-12-06 22:54:13.674-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: False
-2023-12-06 22:54:13.674-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check write_dir
-2023-12-06 22:54:13.674-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check submit
-2023-12-06 22:54:13.674-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check work_dir
-2023-12-06 22:54:13.674-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check yaml_path
-2023-12-06 22:54:13.675-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check add_lines_tleap
-2023-12-06 22:54:13.675-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:289 - Context IS valid
-2023-12-06 22:54:13.948-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking ff_protein
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: ff19SB
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking ff_water
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: opc3
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_dna
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_rna
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_glycam
+2024-01-18 22:49:40.558-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_lipid
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_small_molecule
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ff_ions
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check cation_identity
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check anion_identity
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check system_charge
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check neutralize_charge
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking extra_cations
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 0
+2024-01-18 22:49:40.559-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking extra_anions
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 0
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check solvent_ionic_strength
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check solvent_padding
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check verbosity
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check scratch_dir
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking compute_platform
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:228 -   Valid: mpi
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check cpu_cores
+2024-01-18 22:49:40.560-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking input_kwargs
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:237 -   Skipping: None
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check stage_name
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check stages
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check input_dir
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check input_path
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check output_dir
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check output_path
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check coord_path
+2024-01-18 22:49:40.561-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check topo_path
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check restart_path
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check prev_coordinate_path
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check prev_restart_path
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check ref_coord_path
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking splits
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: 1
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check sbatch_options
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check slurm_lines
+2024-01-18 22:49:40.562-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check run_path
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check slurm_path
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:221 - Checking write
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:235 -   Valid: False
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check write_dir
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check submit
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check work_dir
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check yaml_path
+2024-01-18 22:49:40.563-05:00 | DEBUG    | metalflare.simulation.contexts:validate:219 - Cannot check add_lines_tleap
+2024-01-18 22:49:40.563-05:00 | INFO     | metalflare.simulation.contexts:run_context_yaml_validator:289 - Context IS valid
+2024-01-18 22:49:40.694-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
 {}
-2023-12-06 22:54:13.948-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:151 - Loading YAML context from ../../../methods/04-amber-simulations/base.yml
-2023-12-06 22:54:13.951-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:155 - YAML data:
+2024-01-18 22:49:40.694-05:00 | INFO     | metalflare.simulation.contexts:from_yaml:151 - Loading YAML context from ../../../methods/04-amber-simulations/base.yml
+2024-01-18 22:49:40.696-05:00 | DEBUG    | metalflare.simulation.contexts:from_yaml:155 - YAML data:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.951-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
+2024-01-18 22:49:40.696-05:00 | DEBUG    | metalflare.simulation.contexts:update:166 - Updating context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.951-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.696-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': '/home/alex/repos/metalflare/study/data/001-rogfp-md/scripts', 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.951-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:64 - Creating tleap commands for loading force fields
-2023-12-06 22:54:13.951-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.696-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:64 - Creating tleap commands for loading force fields
+2024-01-18 22:49:40.696-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': '/home/alex/repos/metalflare/study/data/001-rogfp-md/scripts', 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:13.952-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:207 - Setting PDB output to /tmp/tmpl77hafua.pdb
-2023-12-06 22:54:13.952-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:212 - Writing tleap input to /tmp/tmpqqj3pm1z.in
-2023-12-06 22:54:13.952-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:215 - tleap input:
+2024-01-18 22:49:40.697-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:207 - Setting PDB output to /tmp/tmpqc_y4uok.pdb
+2024-01-18 22:49:40.697-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:212 - Writing tleap input to /tmp/tmp5yfo5_ja.in
+2024-01-18 22:49:40.697-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:215 - tleap input:
 source leaprc.protein.ff19SB
 source leaprc.water.opc3
 loadAmberParams frcmod.ionslm_126_opc3
@@ -87,23 +87,23 @@ xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores
 loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022
 mol = loadpdb ../structures/protein/1JC0-final.pdb
 solvatebox mol OPC3BOX 10.0
-savepdb mol /tmp/tmpl77hafua.pdb
+savepdb mol /tmp/tmpqc_y4uok.pdb
 charge mol
 quit
-2023-12-06 22:54:13.952-05:00 | INFO     | metalflare.simulation.amber.tleap:get_prelim_sim_info:218 - Running tleap
-2023-12-06 22:54:13.952-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:220 - tleap command: ['tleap', '-f', '/tmp/tmpqqj3pm1z.in']
-2023-12-06 22:54:14.341-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:227 - tleap errors:
+2024-01-18 22:49:40.697-05:00 | INFO     | metalflare.simulation.amber.tleap:get_prelim_sim_info:218 - Running tleap
+2024-01-18 22:49:40.697-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:220 - tleap command: ['tleap', '-f', '/tmp/tmp5yfo5_ja.in']
+2024-01-18 22:49:40.966-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:227 - tleap errors:
 
-2023-12-06 22:54:14.341-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:228 - tleap output:
+2024-01-18 22:49:40.966-05:00 | DEBUG    | metalflare.simulation.amber.tleap:get_prelim_sim_info:228 - tleap output:
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
--f: Source /tmp/tmpqqj3pm1z.in.
+-f: Source /tmp/tmp5yfo5_ja.in.
 
 Welcome to LEaP!
 (no leaprc in search path)
-Sourcing: /tmp/tmpqqj3pm1z.in
+Sourcing: /tmp/tmp5yfo5_ja.in
 ----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
 ----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
 Log file: ./leap.log
@@ -139,17 +139,376 @@ Reading title:
 frcmod file for fluorescent protein chromophores. Intended for use with ff14SB, ff19SB and related force fields. Parameters based on parm10.dat, gaff.dat, and frcmod.ff14SB. Publication by Breyfogle, Blood, Rosnik, and Krueger in preparation.
 Loading library: ../../../methods/03-tleap/cro/xFPchromophores.lib.2022
 Loading PDB file: ../structures/protein/1JC0-final.pdb
-  total atoms in file: 3554
-  Leap added 14 missing atoms according to residue templates:
-       14 H / lone pairs
-  Solute vdw bounding box:              39.498 46.751 56.036
-  Total bounding box for atom centers:  59.498 66.751 76.036
+-- residue 256: duplicate [ HW] atoms (total 2)
+-- residue 257: duplicate [ HW] atoms (total 2)
+-- residue 258: duplicate [ HW] atoms (total 2)
+-- residue 259: duplicate [ HW] atoms (total 2)
+-- residue 260: duplicate [ HW] atoms (total 2)
+-- residue 261: duplicate [ HW] atoms (total 2)
+-- residue 262: duplicate [ HW] atoms (total 2)
+-- residue 263: duplicate [ HW] atoms (total 2)
+-- residue 264: duplicate [ HW] atoms (total 2)
+-- residue 265: duplicate [ HW] atoms (total 2)
+-- residue 266: duplicate [ HW] atoms (total 2)
+-- residue 267: duplicate [ HW] atoms (total 2)
+-- residue 268: duplicate [ HW] atoms (total 2)
+-- residue 269: duplicate [ HW] atoms (total 2)
+-- residue 270: duplicate [ HW] atoms (total 2)
+-- residue 271: duplicate [ HW] atoms (total 2)
+-- residue 272: duplicate [ HW] atoms (total 2)
+-- residue 273: duplicate [ HW] atoms (total 2)
+-- residue 274: duplicate [ HW] atoms (total 2)
+-- residue 275: duplicate [ HW] atoms (total 2)
+-- residue 276: duplicate [ HW] atoms (total 2)
+-- residue 277: duplicate [ HW] atoms (total 2)
+-- residue 278: duplicate [ HW] atoms (total 2)
+-- residue 279: duplicate [ HW] atoms (total 2)
+-- residue 280: duplicate [ HW] atoms (total 2)
+-- residue 281: duplicate [ HW] atoms (total 2)
+-- residue 282: duplicate [ HW] atoms (total 2)
+-- residue 283: duplicate [ HW] atoms (total 2)
+-- residue 284: duplicate [ HW] atoms (total 2)
+-- residue 227: duplicate [ HW] atoms (total 2)
+-- residue 228: duplicate [ HW] atoms (total 2)
+-- residue 229: duplicate [ HW] atoms (total 2)
+-- residue 230: duplicate [ HW] atoms (total 2)
+-- residue 231: duplicate [ HW] atoms (total 2)
+-- residue 232: duplicate [ HW] atoms (total 2)
+-- residue 233: duplicate [ HW] atoms (total 2)
+-- residue 234: duplicate [ HW] atoms (total 2)
+-- residue 235: duplicate [ HW] atoms (total 2)
+-- residue 236: duplicate [ HW] atoms (total 2)
+-- residue 237: duplicate [ HW] atoms (total 2)
+-- residue 238: duplicate [ HW] atoms (total 2)
+-- residue 239: duplicate [ HW] atoms (total 2)
+-- residue 240: duplicate [ HW] atoms (total 2)
+-- residue 241: duplicate [ HW] atoms (total 2)
+-- residue 242: duplicate [ HW] atoms (total 2)
+-- residue 243: duplicate [ HW] atoms (total 2)
+-- residue 244: duplicate [ HW] atoms (total 2)
+-- residue 245: duplicate [ HW] atoms (total 2)
+-- residue 246: duplicate [ HW] atoms (total 2)
+-- residue 247: duplicate [ HW] atoms (total 2)
+-- residue 248: duplicate [ HW] atoms (total 2)
+-- residue 249: duplicate [ HW] atoms (total 2)
+-- residue 250: duplicate [ HW] atoms (total 2)
+-- residue 251: duplicate [ HW] atoms (total 2)
+-- residue 252: duplicate [ HW] atoms (total 2)
+-- residue 253: duplicate [ HW] atoms (total 2)
+-- residue 254: duplicate [ HW] atoms (total 2)
+-- residue 255: duplicate [ HW] atoms (total 2)
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+Atom names in each residue should be unique.
+     (Same-name atoms are handled by using the first
+      occurrence and by ignoring the rest.
+      Many instances of duplicate atom names usually come
+      from alternate conformations in the PDB file.)
+
+Created a new atom named: HW within residue: .R<WAT 227>
+Created a new atom named: OW within residue: .R<WAT 227>
+  Added missing heavy atom: .R<WAT 227>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 228>
+Created a new atom named: OW within residue: .R<WAT 228>
+  Added missing heavy atom: .R<WAT 228>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 229>
+Created a new atom named: OW within residue: .R<WAT 229>
+  Added missing heavy atom: .R<WAT 229>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 230>
+Created a new atom named: OW within residue: .R<WAT 230>
+  Added missing heavy atom: .R<WAT 230>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 231>
+Created a new atom named: OW within residue: .R<WAT 231>
+  Added missing heavy atom: .R<WAT 231>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 232>
+Created a new atom named: OW within residue: .R<WAT 232>
+  Added missing heavy atom: .R<WAT 232>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 233>
+Created a new atom named: OW within residue: .R<WAT 233>
+  Added missing heavy atom: .R<WAT 233>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 234>
+Created a new atom named: OW within residue: .R<WAT 234>
+  Added missing heavy atom: .R<WAT 234>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 235>
+Created a new atom named: OW within residue: .R<WAT 235>
+  Added missing heavy atom: .R<WAT 235>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 236>
+Created a new atom named: OW within residue: .R<WAT 236>
+  Added missing heavy atom: .R<WAT 236>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 237>
+Created a new atom named: OW within residue: .R<WAT 237>
+  Added missing heavy atom: .R<WAT 237>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 238>
+Created a new atom named: OW within residue: .R<WAT 238>
+  Added missing heavy atom: .R<WAT 238>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 239>
+Created a new atom named: OW within residue: .R<WAT 239>
+  Added missing heavy atom: .R<WAT 239>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 240>
+Created a new atom named: OW within residue: .R<WAT 240>
+  Added missing heavy atom: .R<WAT 240>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 241>
+Created a new atom named: OW within residue: .R<WAT 241>
+  Added missing heavy atom: .R<WAT 241>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 242>
+Created a new atom named: OW within residue: .R<WAT 242>
+  Added missing heavy atom: .R<WAT 242>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 243>
+Created a new atom named: OW within residue: .R<WAT 243>
+  Added missing heavy atom: .R<WAT 243>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 244>
+Created a new atom named: OW within residue: .R<WAT 244>
+  Added missing heavy atom: .R<WAT 244>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 245>
+Created a new atom named: OW within residue: .R<WAT 245>
+  Added missing heavy atom: .R<WAT 245>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 246>
+Created a new atom named: OW within residue: .R<WAT 246>
+  Added missing heavy atom: .R<WAT 246>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 247>
+Created a new atom named: OW within residue: .R<WAT 247>
+  Added missing heavy atom: .R<WAT 247>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 248>
+Created a new atom named: OW within residue: .R<WAT 248>
+  Added missing heavy atom: .R<WAT 248>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 249>
+Created a new atom named: OW within residue: .R<WAT 249>
+  Added missing heavy atom: .R<WAT 249>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 250>
+Created a new atom named: OW within residue: .R<WAT 250>
+  Added missing heavy atom: .R<WAT 250>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 251>
+Created a new atom named: OW within residue: .R<WAT 251>
+  Added missing heavy atom: .R<WAT 251>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 252>
+Created a new atom named: OW within residue: .R<WAT 252>
+  Added missing heavy atom: .R<WAT 252>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 253>
+Created a new atom named: OW within residue: .R<WAT 253>
+  Added missing heavy atom: .R<WAT 253>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 254>
+Created a new atom named: OW within residue: .R<WAT 254>
+  Added missing heavy atom: .R<WAT 254>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 255>
+Created a new atom named: OW within residue: .R<WAT 255>
+  Added missing heavy atom: .R<WAT 255>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 256>
+Created a new atom named: OW within residue: .R<WAT 256>
+  Added missing heavy atom: .R<WAT 256>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 257>
+Created a new atom named: OW within residue: .R<WAT 257>
+  Added missing heavy atom: .R<WAT 257>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 258>
+Created a new atom named: OW within residue: .R<WAT 258>
+  Added missing heavy atom: .R<WAT 258>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 259>
+Created a new atom named: OW within residue: .R<WAT 259>
+  Added missing heavy atom: .R<WAT 259>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 260>
+Created a new atom named: OW within residue: .R<WAT 260>
+  Added missing heavy atom: .R<WAT 260>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 261>
+Created a new atom named: OW within residue: .R<WAT 261>
+  Added missing heavy atom: .R<WAT 261>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 262>
+Created a new atom named: OW within residue: .R<WAT 262>
+  Added missing heavy atom: .R<WAT 262>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 263>
+Created a new atom named: OW within residue: .R<WAT 263>
+  Added missing heavy atom: .R<WAT 263>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 264>
+Created a new atom named: OW within residue: .R<WAT 264>
+  Added missing heavy atom: .R<WAT 264>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 265>
+Created a new atom named: OW within residue: .R<WAT 265>
+  Added missing heavy atom: .R<WAT 265>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 266>
+Created a new atom named: OW within residue: .R<WAT 266>
+  Added missing heavy atom: .R<WAT 266>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 267>
+Created a new atom named: OW within residue: .R<WAT 267>
+  Added missing heavy atom: .R<WAT 267>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 268>
+Created a new atom named: OW within residue: .R<WAT 268>
+  Added missing heavy atom: .R<WAT 268>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 269>
+Created a new atom named: OW within residue: .R<WAT 269>
+  Added missing heavy atom: .R<WAT 269>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 270>
+Created a new atom named: OW within residue: .R<WAT 270>
+  Added missing heavy atom: .R<WAT 270>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 271>
+Created a new atom named: OW within residue: .R<WAT 271>
+  Added missing heavy atom: .R<WAT 271>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 272>
+Created a new atom named: OW within residue: .R<WAT 272>
+  Added missing heavy atom: .R<WAT 272>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 273>
+Created a new atom named: OW within residue: .R<WAT 273>
+  Added missing heavy atom: .R<WAT 273>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 274>
+Created a new atom named: OW within residue: .R<WAT 274>
+  Added missing heavy atom: .R<WAT 274>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 275>
+Created a new atom named: OW within residue: .R<WAT 275>
+  Added missing heavy atom: .R<WAT 275>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 276>
+Created a new atom named: OW within residue: .R<WAT 276>
+  Added missing heavy atom: .R<WAT 276>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 277>
+Created a new atom named: OW within residue: .R<WAT 277>
+  Added missing heavy atom: .R<WAT 277>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 278>
+Created a new atom named: OW within residue: .R<WAT 278>
+  Added missing heavy atom: .R<WAT 278>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 279>
+Created a new atom named: OW within residue: .R<WAT 279>
+  Added missing heavy atom: .R<WAT 279>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 280>
+Created a new atom named: OW within residue: .R<WAT 280>
+  Added missing heavy atom: .R<WAT 280>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 281>
+Created a new atom named: OW within residue: .R<WAT 281>
+  Added missing heavy atom: .R<WAT 281>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 282>
+Created a new atom named: OW within residue: .R<WAT 282>
+  Added missing heavy atom: .R<WAT 282>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 283>
+Created a new atom named: OW within residue: .R<WAT 283>
+  Added missing heavy atom: .R<WAT 283>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 284>
+Created a new atom named: OW within residue: .R<WAT 284>
+  Added missing heavy atom: .R<WAT 284>.A<O 1>
+  total atoms in file: 3728
+  Leap added 188 missing atoms according to residue templates:
+       58 Heavy
+       130 H / lone pairs
+  The file contained 116 atoms not in residue templates
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+  Solute vdw bounding box:              38.066 49.012 56.867
+  Total bounding box for atom centers:  58.066 69.012 76.867
   Solvent unit box:                     18.682 18.750 18.542
-  Total vdw box size:                   63.012 69.435 79.456 angstroms.
-  Volume: 347640.826 A^3 
-  Total mass 171347.494 amu,  Density 0.818 g/cc
-  Added 8087 residues.
-Writing pdb file: /tmp/tmpl77hafua.pdb
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+  Total vdw box size:                   61.498 72.077 79.756 angstroms.
+  Volume: 353527.707 A^3 
+  Mass > 174644.422 amu,  Density > 0.820 g/cc
+      (type - hence mass - of one or more atoms could not be found)
+  Added 8212 residues.
+Writing pdb file: /tmp/tmpqc_y4uok.pdb
    printing CRYST1 record to PDB file with box info
 
 /home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
@@ -161,22 +520,22 @@ Total unperturbed charge:  -9.000000
 Total perturbed charge:    -9.000000
 	Quit
 
-Exiting LEaP: Errors = 0; Warnings = 2; Notes = 0.
+Exiting LEaP: Errors = 0; Warnings = 3; Notes = 0.
 
-2023-12-06 22:54:14.341-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:116 - Parsing tleap log
-2023-12-06 22:54:14.342-05:00 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
-2023-12-06 22:54:14.342-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.967-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:116 - Parsing tleap log
+2024-01-18 22:49:40.971-05:00 | INFO     | metalflare.simulation.environment:get_ion_counts:26 - Computing number of extra ions
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': '/home/alex/repos/metalflare/study/data/001-rogfp-md/scripts', 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:14.342-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 232766.3126385171 A^3
-2023-12-06 22:54:14.342-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 21}
-2023-12-06 22:54:14.342-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:29 - Volume of water: 236364.1596868434 A^3
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.environment:get_ion_counts:41 - Ions to add {'cations': 30, 'anions': 21}
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': '/home/alex/repos/metalflare/study/data/001-rogfp-md/scripts', 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:14.342-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:64 - Creating tleap commands for loading force fields
-2023-12-06 22:54:14.342-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
+2024-01-18 22:49:40.971-05:00 | INFO     | metalflare.simulation.amber.tleap:get_source_ff_lines:64 - Creating tleap commands for loading force fields
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.contexts:get:180 - Retrieved context:
 {'ff_protein': 'ff19SB', 'ff_water': 'opc3', 'ff_dna': None, 'ff_rna': None, 'ff_glycam': None, 'ff_lipid': None, 'ff_small_molecule': None, 'ff_ions': 'ionslm_126_opc3', 'cation_identity': 'Na+', 'anion_identity': 'Cl-', 'system_charge': 0, 'neutralize_charge': True, 'extra_cations': 0, 'extra_anions': 0, 'solvent_ionic_strength': 0.15, 'solvent_padding': 10.0, 'verbosity': None, 'scratch_dir': None, 'compute_platform': 'mpi', 'cpu_cores': None, 'input_kwargs': None, 'stage_name': None, 'stages': None, 'input_dir': None, 'input_path': None, 'output_dir': None, 'output_path': None, 'coord_path': None, 'topo_path': None, 'restart_path': None, 'prev_coordinate_path': None, 'prev_restart_path': None, 'ref_coord_path': None, 'splits': 1, 'sbatch_options': None, 'slurm_lines': None, 'run_path': None, 'slurm_path': None, 'write': False, 'write_dir': None, 'submit': False, 'work_dir': '/home/alex/repos/metalflare/study/data/001-rogfp-md/scripts', 'yaml_path': '../../../methods/04-amber-simulations/base.yml', 'add_lines_tleap': ['addAtomTypes { {"cc" "C" "sp2"} {"cd" "C" "sp2"} {"cf" "C" "sp2"} ', '{"c" "C" "sp2"} {"nd" "N" "sp2"} {"nc" "N" "sp2"} {"ne" "N" "sp2"}', '{"nf" "N" "sp2"} {"ha" "H" "sp3"} {"oh" "O" "sp3"} }', 'xFPparams = loadamberparams ../../../methods/03-tleap/cro/frcmod.xFPchromophores.2022', 'loadOff ../../../methods/03-tleap/cro/xFPchromophores.lib.2022']}
-2023-12-06 22:54:14.343-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:302 - Setting PDB output to /tmp/tmp2jlzcuby.pdb
-2023-12-06 22:54:14.343-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:307 - Writing tleap input to /tmp/tmprt42fjl3.in
-2023-12-06 22:54:14.343-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:310 - tleap input:
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:302 - Setting PDB output to /tmp/tmpvpuy2hhi.pdb
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:307 - Writing tleap input to /tmp/tmp647hy7jd.in
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:310 - tleap input:
 source leaprc.protein.ff19SB
 source leaprc.water.opc3
 loadAmberParams frcmod.ionslm_126_opc3
@@ -189,24 +548,25 @@ mol = loadpdb ../structures/protein/1JC0-final.pdb
 addIons2 mol Na+ 30
 addIons2 mol Cl- 21
 solvatebox mol OPC3BOX 10.0
-savepdb mol /tmp/tmp2jlzcuby.pdb
+savepdb mol /tmp/tmpvpuy2hhi.pdb
 saveamberparm mol ../simulations/02-prep/mol.prmtop ../simulations/02-prep/mol.inpcrd
 charge mol
 quit
-2023-12-06 22:54:14.343-05:00 | INFO     | metalflare.simulation.amber.tleap:prepare_amber_files:313 - Running tleap
-2023-12-06 22:54:14.343-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:315 - tleap command: ['tleap', '-f', '/tmp/tmprt42fjl3.in']
-2023-12-06 22:54:17.432-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:326 - tleap errors:
+2024-01-18 22:49:40.971-05:00 | INFO     | metalflare.simulation.amber.tleap:prepare_amber_files:313 - Running tleap
+2024-01-18 22:49:40.971-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:315 - tleap command: ['tleap', '-f', '/tmp/tmp647hy7jd.in']
+2024-01-18 22:49:43.713-05:00 | ERROR    | metalflare.simulation.amber.tleap:prepare_amber_files:325 - tleap failed!
+2024-01-18 22:49:43.713-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:326 - tleap errors:
 
-2023-12-06 22:54:17.432-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:327 - tleap output:
+2024-01-18 22:49:43.713-05:00 | DEBUG    | metalflare.simulation.amber.tleap:prepare_amber_files:327 - tleap output:
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/prep to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/lib to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/parm to search path.
 -I: Adding /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd to search path.
--f: Source /tmp/tmprt42fjl3.in.
+-f: Source /tmp/tmp647hy7jd.in.
 
 Welcome to LEaP!
 (no leaprc in search path)
-Sourcing: /tmp/tmprt42fjl3.in
+Sourcing: /tmp/tmp647hy7jd.in
 ----- Source: /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB
 ----- Source of /home/alex/miniconda3/envs/metalflare-dev/dat/leap/cmd/leaprc.protein.ff19SB done
 Log file: ./leap.log
@@ -242,80 +602,441 @@ Reading title:
 frcmod file for fluorescent protein chromophores. Intended for use with ff14SB, ff19SB and related force fields. Parameters based on parm10.dat, gaff.dat, and frcmod.ff14SB. Publication by Breyfogle, Blood, Rosnik, and Krueger in preparation.
 Loading library: ../../../methods/03-tleap/cro/xFPchromophores.lib.2022
 Loading PDB file: ../structures/protein/1JC0-final.pdb
-  total atoms in file: 3554
-  Leap added 14 missing atoms according to residue templates:
-       14 H / lone pairs
+-- residue 256: duplicate [ HW] atoms (total 2)
+-- residue 257: duplicate [ HW] atoms (total 2)
+-- residue 258: duplicate [ HW] atoms (total 2)
+-- residue 259: duplicate [ HW] atoms (total 2)
+-- residue 260: duplicate [ HW] atoms (total 2)
+-- residue 261: duplicate [ HW] atoms (total 2)
+-- residue 262: duplicate [ HW] atoms (total 2)
+-- residue 263: duplicate [ HW] atoms (total 2)
+-- residue 264: duplicate [ HW] atoms (total 2)
+-- residue 265: duplicate [ HW] atoms (total 2)
+-- residue 266: duplicate [ HW] atoms (total 2)
+-- residue 267: duplicate [ HW] atoms (total 2)
+-- residue 268: duplicate [ HW] atoms (total 2)
+-- residue 269: duplicate [ HW] atoms (total 2)
+-- residue 270: duplicate [ HW] atoms (total 2)
+-- residue 271: duplicate [ HW] atoms (total 2)
+-- residue 272: duplicate [ HW] atoms (total 2)
+-- residue 273: duplicate [ HW] atoms (total 2)
+-- residue 274: duplicate [ HW] atoms (total 2)
+-- residue 275: duplicate [ HW] atoms (total 2)
+-- residue 276: duplicate [ HW] atoms (total 2)
+-- residue 277: duplicate [ HW] atoms (total 2)
+-- residue 278: duplicate [ HW] atoms (total 2)
+-- residue 279: duplicate [ HW] atoms (total 2)
+-- residue 280: duplicate [ HW] atoms (total 2)
+-- residue 281: duplicate [ HW] atoms (total 2)
+-- residue 282: duplicate [ HW] atoms (total 2)
+-- residue 283: duplicate [ HW] atoms (total 2)
+-- residue 284: duplicate [ HW] atoms (total 2)
+-- residue 227: duplicate [ HW] atoms (total 2)
+-- residue 228: duplicate [ HW] atoms (total 2)
+-- residue 229: duplicate [ HW] atoms (total 2)
+-- residue 230: duplicate [ HW] atoms (total 2)
+-- residue 231: duplicate [ HW] atoms (total 2)
+-- residue 232: duplicate [ HW] atoms (total 2)
+-- residue 233: duplicate [ HW] atoms (total 2)
+-- residue 234: duplicate [ HW] atoms (total 2)
+-- residue 235: duplicate [ HW] atoms (total 2)
+-- residue 236: duplicate [ HW] atoms (total 2)
+-- residue 237: duplicate [ HW] atoms (total 2)
+-- residue 238: duplicate [ HW] atoms (total 2)
+-- residue 239: duplicate [ HW] atoms (total 2)
+-- residue 240: duplicate [ HW] atoms (total 2)
+-- residue 241: duplicate [ HW] atoms (total 2)
+-- residue 242: duplicate [ HW] atoms (total 2)
+-- residue 243: duplicate [ HW] atoms (total 2)
+-- residue 244: duplicate [ HW] atoms (total 2)
+-- residue 245: duplicate [ HW] atoms (total 2)
+-- residue 246: duplicate [ HW] atoms (total 2)
+-- residue 247: duplicate [ HW] atoms (total 2)
+-- residue 248: duplicate [ HW] atoms (total 2)
+-- residue 249: duplicate [ HW] atoms (total 2)
+-- residue 250: duplicate [ HW] atoms (total 2)
+-- residue 251: duplicate [ HW] atoms (total 2)
+-- residue 252: duplicate [ HW] atoms (total 2)
+-- residue 253: duplicate [ HW] atoms (total 2)
+-- residue 254: duplicate [ HW] atoms (total 2)
+-- residue 255: duplicate [ HW] atoms (total 2)
+
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
+Atom names in each residue should be unique.
+     (Same-name atoms are handled by using the first
+      occurrence and by ignoring the rest.
+      Many instances of duplicate atom names usually come
+      from alternate conformations in the PDB file.)
+
+Created a new atom named: HW within residue: .R<WAT 227>
+Created a new atom named: OW within residue: .R<WAT 227>
+  Added missing heavy atom: .R<WAT 227>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 228>
+Created a new atom named: OW within residue: .R<WAT 228>
+  Added missing heavy atom: .R<WAT 228>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 229>
+Created a new atom named: OW within residue: .R<WAT 229>
+  Added missing heavy atom: .R<WAT 229>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 230>
+Created a new atom named: OW within residue: .R<WAT 230>
+  Added missing heavy atom: .R<WAT 230>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 231>
+Created a new atom named: OW within residue: .R<WAT 231>
+  Added missing heavy atom: .R<WAT 231>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 232>
+Created a new atom named: OW within residue: .R<WAT 232>
+  Added missing heavy atom: .R<WAT 232>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 233>
+Created a new atom named: OW within residue: .R<WAT 233>
+  Added missing heavy atom: .R<WAT 233>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 234>
+Created a new atom named: OW within residue: .R<WAT 234>
+  Added missing heavy atom: .R<WAT 234>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 235>
+Created a new atom named: OW within residue: .R<WAT 235>
+  Added missing heavy atom: .R<WAT 235>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 236>
+Created a new atom named: OW within residue: .R<WAT 236>
+  Added missing heavy atom: .R<WAT 236>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 237>
+Created a new atom named: OW within residue: .R<WAT 237>
+  Added missing heavy atom: .R<WAT 237>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 238>
+Created a new atom named: OW within residue: .R<WAT 238>
+  Added missing heavy atom: .R<WAT 238>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 239>
+Created a new atom named: OW within residue: .R<WAT 239>
+  Added missing heavy atom: .R<WAT 239>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 240>
+Created a new atom named: OW within residue: .R<WAT 240>
+  Added missing heavy atom: .R<WAT 240>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 241>
+Created a new atom named: OW within residue: .R<WAT 241>
+  Added missing heavy atom: .R<WAT 241>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 242>
+Created a new atom named: OW within residue: .R<WAT 242>
+  Added missing heavy atom: .R<WAT 242>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 243>
+Created a new atom named: OW within residue: .R<WAT 243>
+  Added missing heavy atom: .R<WAT 243>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 244>
+Created a new atom named: OW within residue: .R<WAT 244>
+  Added missing heavy atom: .R<WAT 244>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 245>
+Created a new atom named: OW within residue: .R<WAT 245>
+  Added missing heavy atom: .R<WAT 245>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 246>
+Created a new atom named: OW within residue: .R<WAT 246>
+  Added missing heavy atom: .R<WAT 246>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 247>
+Created a new atom named: OW within residue: .R<WAT 247>
+  Added missing heavy atom: .R<WAT 247>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 248>
+Created a new atom named: OW within residue: .R<WAT 248>
+  Added missing heavy atom: .R<WAT 248>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 249>
+Created a new atom named: OW within residue: .R<WAT 249>
+  Added missing heavy atom: .R<WAT 249>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 250>
+Created a new atom named: OW within residue: .R<WAT 250>
+  Added missing heavy atom: .R<WAT 250>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 251>
+Created a new atom named: OW within residue: .R<WAT 251>
+  Added missing heavy atom: .R<WAT 251>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 252>
+Created a new atom named: OW within residue: .R<WAT 252>
+  Added missing heavy atom: .R<WAT 252>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 253>
+Created a new atom named: OW within residue: .R<WAT 253>
+  Added missing heavy atom: .R<WAT 253>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 254>
+Created a new atom named: OW within residue: .R<WAT 254>
+  Added missing heavy atom: .R<WAT 254>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 255>
+Created a new atom named: OW within residue: .R<WAT 255>
+  Added missing heavy atom: .R<WAT 255>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 256>
+Created a new atom named: OW within residue: .R<WAT 256>
+  Added missing heavy atom: .R<WAT 256>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 257>
+Created a new atom named: OW within residue: .R<WAT 257>
+  Added missing heavy atom: .R<WAT 257>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 258>
+Created a new atom named: OW within residue: .R<WAT 258>
+  Added missing heavy atom: .R<WAT 258>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 259>
+Created a new atom named: OW within residue: .R<WAT 259>
+  Added missing heavy atom: .R<WAT 259>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 260>
+Created a new atom named: OW within residue: .R<WAT 260>
+  Added missing heavy atom: .R<WAT 260>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 261>
+Created a new atom named: OW within residue: .R<WAT 261>
+  Added missing heavy atom: .R<WAT 261>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 262>
+Created a new atom named: OW within residue: .R<WAT 262>
+  Added missing heavy atom: .R<WAT 262>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 263>
+Created a new atom named: OW within residue: .R<WAT 263>
+  Added missing heavy atom: .R<WAT 263>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 264>
+Created a new atom named: OW within residue: .R<WAT 264>
+  Added missing heavy atom: .R<WAT 264>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 265>
+Created a new atom named: OW within residue: .R<WAT 265>
+  Added missing heavy atom: .R<WAT 265>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 266>
+Created a new atom named: OW within residue: .R<WAT 266>
+  Added missing heavy atom: .R<WAT 266>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 267>
+Created a new atom named: OW within residue: .R<WAT 267>
+  Added missing heavy atom: .R<WAT 267>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 268>
+Created a new atom named: OW within residue: .R<WAT 268>
+  Added missing heavy atom: .R<WAT 268>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 269>
+Created a new atom named: OW within residue: .R<WAT 269>
+  Added missing heavy atom: .R<WAT 269>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 270>
+Created a new atom named: OW within residue: .R<WAT 270>
+  Added missing heavy atom: .R<WAT 270>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 271>
+Created a new atom named: OW within residue: .R<WAT 271>
+  Added missing heavy atom: .R<WAT 271>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 272>
+Created a new atom named: OW within residue: .R<WAT 272>
+  Added missing heavy atom: .R<WAT 272>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 273>
+Created a new atom named: OW within residue: .R<WAT 273>
+  Added missing heavy atom: .R<WAT 273>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 274>
+Created a new atom named: OW within residue: .R<WAT 274>
+  Added missing heavy atom: .R<WAT 274>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 275>
+Created a new atom named: OW within residue: .R<WAT 275>
+  Added missing heavy atom: .R<WAT 275>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 276>
+Created a new atom named: OW within residue: .R<WAT 276>
+  Added missing heavy atom: .R<WAT 276>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 277>
+Created a new atom named: OW within residue: .R<WAT 277>
+  Added missing heavy atom: .R<WAT 277>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 278>
+Created a new atom named: OW within residue: .R<WAT 278>
+  Added missing heavy atom: .R<WAT 278>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 279>
+Created a new atom named: OW within residue: .R<WAT 279>
+  Added missing heavy atom: .R<WAT 279>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 280>
+Created a new atom named: OW within residue: .R<WAT 280>
+  Added missing heavy atom: .R<WAT 280>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 281>
+Created a new atom named: OW within residue: .R<WAT 281>
+  Added missing heavy atom: .R<WAT 281>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 282>
+Created a new atom named: OW within residue: .R<WAT 282>
+  Added missing heavy atom: .R<WAT 282>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 283>
+Created a new atom named: OW within residue: .R<WAT 283>
+  Added missing heavy atom: .R<WAT 283>.A<O 1>
+Created a new atom named: HW within residue: .R<WAT 284>
+Created a new atom named: OW within residue: .R<WAT 284>
+  Added missing heavy atom: .R<WAT 284>.A<O 1>
+  total atoms in file: 3728
+  Leap added 188 missing atoms according to residue templates:
+       58 Heavy
+       130 H / lone pairs
+  The file contained 116 atoms not in residue templates
 Adding 30 counter ions to "mol" using 1A grid
+Used default radius  1.50 for 116 atoms
 Grid extends from solute vdw + 1.47  to  7.45
 Resolution:      1.00 Angstrom.
 Calculating grid charges
-Placed Na+ in mol at (16.88, -3.42, -1.79).
-Placed Na+ in mol at (-4.12, 22.58, -20.79).
-Placed Na+ in mol at (-15.12, -2.42, -7.79).
-Placed Na+ in mol at (12.88, -0.42, 18.21).
-Placed Na+ in mol at (11.88, 6.58, -19.79).
-Placed Na+ in mol at (-14.12, 0.58, 21.21).
-Placed Na+ in mol at (13.88, -2.42, -6.79).
-Placed Na+ in mol at (0.88, -19.42, -6.79).
-Placed Na+ in mol at (-8.12, -7.42, 17.21).
-Placed Na+ in mol at (-10.12, 17.58, -16.79).
-Placed Na+ in mol at (-17.12, 4.58, -4.79).
-Placed Na+ in mol at (-6.12, -15.42, -11.79).
-Placed Na+ in mol at (3.88, -17.42, 15.21).
-Placed Na+ in mol at (-11.12, -20.42, -1.79).
-Placed Na+ in mol at (-3.12, 16.58, -20.79).
-Placed Na+ in mol at (-8.12, 22.58, -2.79).
-Placed Na+ in mol at (4.88, 6.58, -20.79).
-Placed Na+ in mol at (14.88, 18.58, -15.79).
-Placed Na+ in mol at (-1.12, -22.42, 12.21).
-Placed Na+ in mol at (16.88, -4.42, 16.21).
-Placed Na+ in mol at (-10.12, 8.58, 11.21).
-Placed Na+ in mol at (5.88, -20.42, 2.21).
-Placed Na+ in mol at (14.88, 8.58, -13.79).
-Placed Na+ in mol at (-16.12, -2.42, 17.21).
-Placed Na+ in mol at (-13.12, -8.42, -8.79).
-Placed Na+ in mol at (8.88, -0.42, 25.21).
-Placed Na+ in mol at (5.88, 18.58, -10.79).
-Placed Na+ in mol at (0.88, -15.42, -18.79).
-Placed Na+ in mol at (12.88, -6.42, 1.21).
-Placed Na+ in mol at (-7.12, -20.42, 2.21).
+Placed Na+ in mol at (16.73, -1.20, -2.08).
+Placed Na+ in mol at (-5.27, 21.80, -21.08).
+Placed Na+ in mol at (-15.27, -3.20, 14.92).
+Placed Na+ in mol at (15.73, 9.80, -15.08).
+Placed Na+ in mol at (9.73, -0.20, 18.92).
+Placed Na+ in mol at (-17.27, -0.20, -6.08).
+Placed Na+ in mol at (-5.27, 18.80, -26.08).
+Placed Na+ in mol at (4.73, -20.20, -5.08).
+Placed Na+ in mol at (2.73, 18.80, -10.08).
+Placed Na+ in mol at (-8.27, -9.20, 15.92).
+Placed Na+ in mol at (-8.27, -21.20, -3.08).
+Placed Na+ in mol at (7.73, 8.80, -21.08).
+Placed Na+ in mol at (15.73, -0.20, 2.92).
+Placed Na+ in mol at (17.73, -4.20, 3.92).
+Placed Na+ in mol at (-11.27, 17.80, -17.08).
+Placed Na+ in mol at (-2.27, -16.20, -12.08).
+Placed Na+ in mol at (-14.27, -4.20, -9.08).
+Placed Na+ in mol at (13.73, 20.80, -14.08).
+Placed Na+ in mol at (3.73, -16.20, 16.92).
+Placed Na+ in mol at (-13.27, -5.20, 21.92).
+Placed Na+ in mol at (-11.27, 21.80, -3.08).
+Placed Na+ in mol at (7.73, -19.20, 3.92).
+Placed Na+ in mol at (6.73, 0.80, 25.92).
+Placed Na+ in mol at (-16.27, 11.80, -9.08).
+Placed Na+ in mol at (0.73, -22.20, 10.92).
+Placed Na+ in mol at (4.73, -14.20, -18.08).
+Placed Na+ in mol at (3.73, 13.80, 6.92).
+Placed Na+ in mol at (14.73, -1.20, 18.92).
+Placed Na+ in mol at (-4.27, 10.80, -19.08).
+Placed Na+ in mol at (-13.27, 7.80, 8.92).
 
 Done adding ions.
 Adding 21 counter ions to "mol" using 1A grid
+Used default radius  1.50 for 116 atoms
 Grid extends from solute vdw + 2.31  to  8.29
 Resolution:      1.00 Angstrom.
 Calculating grid charges
-Placed Cl- in mol at (3.05, 3.29, -21.63).
-Placed Cl- in mol at (-11.95, -9.71, -12.63).
-Placed Cl- in mol at (7.05, -3.71, 26.37).
-Placed Cl- in mol at (6.05, 21.29, -13.63).
-Placed Cl- in mol at (-16.95, 1.29, 18.37).
-Placed Cl- in mol at (17.05, -5.71, 1.37).
-Placed Cl- in mol at (-7.95, -22.71, -1.63).
-Placed Cl- in mol at (-6.95, 11.29, 11.37).
-Placed Cl- in mol at (5.05, -19.71, -6.63).
-Placed Cl- in mol at (0.05, -11.71, 24.37).
-Placed Cl- in mol at (-18.95, 6.29, -7.63).
-Placed Cl- in mol at (15.05, -2.71, 20.37).
-Placed Cl- in mol at (-8.95, 20.29, 0.37).
-Placed Cl- in mol at (-1.95, -16.71, -16.63).
-Placed Cl- in mol at (1.05, 8.29, 28.37).
-Placed Cl- in mol at (16.05, 20.29, -12.63).
-Placed Cl- in mol at (-16.95, -5.71, -6.63).
-Placed Cl- in mol at (-1.95, 14.29, -23.63).
-Placed Cl- in mol at (8.05, -23.71, 2.37).
-Placed Cl- in mol at (-12.95, -6.71, -21.63).
-Placed Cl- in mol at (2.05, 14.29, 15.37).
+Placed Cl- in mol at (19.90, -1.04, 3.09).
+Placed Cl- in mol at (-10.10, 9.96, 10.09).
+Placed Cl- in mol at (-4.10, 9.96, -22.91).
+Placed Cl- in mol at (11.90, -1.04, 22.09).
+Placed Cl- in mol at (-18.10, 12.96, -5.91).
+Placed Cl- in mol at (-7.10, 21.96, -24.91).
+Placed Cl- in mol at (-1.10, -12.04, 24.09).
+Placed Cl- in mol at (-17.10, -4.04, -5.91).
+Placed Cl- in mol at (3.90, 21.96, -11.91).
+Placed Cl- in mol at (16.90, -8.04, 6.09).
+Placed Cl- in mol at (1.90, -16.04, -15.91).
+Placed Cl- in mol at (6.90, 13.96, 9.09).
+Placed Cl- in mol at (5.90, 5.96, -22.91).
+Placed Cl- in mol at (-2.10, 0.96, 26.09).
+Placed Cl- in mol at (-8.10, -10.04, -21.91).
+Placed Cl- in mol at (6.90, -23.04, 4.09).
+Placed Cl- in mol at (-6.10, 12.96, 13.09).
+Placed Cl- in mol at (-10.10, -5.04, 24.09).
+Placed Cl- in mol at (-13.10, 22.96, 0.09).
+Placed Cl- in mol at (-2.10, -19.04, 23.09).
+Placed Cl- in mol at (22.90, 0.96, -2.91).
 
 Done adding ions.
-  Solute vdw bounding box:              40.612 50.797 57.070
-  Total bounding box for atom centers:  60.612 70.797 77.070
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+  Solute vdw bounding box:              46.324 50.612 56.867
+  Total bounding box for atom centers:  66.323 70.612 76.867
   Solvent unit box:                     18.682 18.750 18.542
-  Total vdw box size:                   63.568 74.222 80.003 angstroms.
-  Volume: 377467.681 A^3 
-  Total mass 186762.060 amu,  Density 0.822 g/cc
-  Added 8863 residues.
-Writing pdb file: /tmp/tmp2jlzcuby.pdb
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+ (using default radius 1.500000 for OW)
+  Total vdw box size:                   69.157 73.243 79.756 angstroms.
+  Volume: 403987.344 A^3 
+  Mass > 202850.348 amu,  Density > 0.834 g/cc
+      (type - hence mass - of one or more atoms could not be found)
+  Added 9698 residues.
+Writing pdb file: /tmp/tmpvpuy2hhi.pdb
    printing CRYST1 record to PDB file with box info
 
 /home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
@@ -324,31 +1045,126 @@ Writing pdb file: /tmp/tmp2jlzcuby.pdb
 /home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Warning!
  Converting C-terminal residue name to PDB format: CGLY -> GLY
 Checking Unit.
-Building topology.
-Building atom parameters.
-Building bond parameters.
-Building angle parameters.
-Building proper torsion parameters.
-Building improper torsion parameters.
- total 731 improper torsions applied
-Building H-Bond parameters.
-Incorporating Non-Bonded adjustments.
-Not Marking per-residue atom chain types.
-Marking per-residue atom chain types.
-  (Residues lacking connect0/connect1 - 
-   these don't have chain types marked:
+FATAL:  Atom .R<WAT 227>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 227>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 228>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 228>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 229>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 229>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 230>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 230>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 231>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 231>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 232>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 232>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 233>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 233>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 234>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 234>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 235>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 235>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 236>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 236>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 237>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 237>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 238>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 238>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 239>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 239>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 240>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 240>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 241>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 241>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 242>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 242>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 243>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 243>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 244>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 244>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 245>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 245>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 246>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 246>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 247>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 247>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 248>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 248>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 249>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 249>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 250>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 250>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 251>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 251>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 252>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 252>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 253>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 253>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 254>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 254>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 255>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 255>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 256>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 256>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 257>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 257>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 258>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 258>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 259>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 259>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 260>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 260>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 261>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 261>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 262>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 262>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 263>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 263>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 264>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 264>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 265>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 265>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 266>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 266>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 267>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 267>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 268>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 268>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 269>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 269>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 270>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 270>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 271>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 271>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 272>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 272>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 273>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 273>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 274>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 274>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 275>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 275>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 276>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 276>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 277>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 277>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 278>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 278>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 279>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 279>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 280>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 280>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 281>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 281>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 282>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 282>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 283>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 283>.A<OW 5> does not have a type.
+FATAL:  Atom .R<WAT 284>.A<HW 4> does not have a type.
+FATAL:  Atom .R<WAT 284>.A<OW 5> does not have a type.
 
-	res	total affected
+/home/alex/miniconda3/envs/metalflare-dev/bin/teLeap: Fatal Error!
+Failed to generate parameters
 
-	CGLY	1
-	NMET	1
-	WAT	8863
-  )
- (no restraints)
-Total unperturbed charge:  -0.000000
-Total perturbed charge:    -0.000000
-	Quit
+Exiting LEaP: Errors = 1; Warnings = 3; Notes = 0.
 
-Exiting LEaP: Errors = 0; Warnings = 2; Notes = 0.
-
-2023-12-06 22:54:17.432-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:116 - Parsing tleap log
+2024-01-18 22:49:43.713-05:00 | INFO     | metalflare.simulation.amber.tleap:parse_tleap_log:116 - Parsing tleap log

@@ -222,23 +222,36 @@ def run_unify_water_labels(
     with open(pdb_path, "r", encoding="utf-8") as f:
         pdb_lines: list[str] = f.readlines()
 
-    for i, line in enumerate(pdb_lines):
-        if parse_resname(line).strip() == water_resname:
-            original_o_atomname = parse_atomname(line).strip()
-            if original_o_atomname in water_atomnames["O"]:
-                pdb_lines[i] = replace_atom_names(
-                    [line], original_o_atomname, atom_map["O"]
-                )[0]
+    water_h_resids = []
 
-                pdb_lines[i + 1] = replace_atom_names(
-                    pdb_lines[i + 1],
-                    parse_atomname(pdb_lines[i + 1]).strip(),
-                    atom_map["H1"],
+    with open(pdb_path, "r", encoding="utf-8") as f:
+        pdb_lines = f.readlines()
+
+    for i, line in enumerate(pdb_lines):
+        logger.trace("Working on: {}", line.strip())
+        if parse_resname(line).strip() == water_resname:
+            logger.trace("Line is water residue")
+            original_atom_name = parse_atomname(line).strip()
+
+            if original_atom_name in water_atomnames["O"]:
+                logger.trace(
+                    "Atom name, {}, matches an oxygen type", original_atom_name
+                )
+                pdb_lines[i] = replace_atom_names(
+                    [line], original_atom_name, atom_map["O"]
                 )[0]
-                pdb_lines[i + 2] = replace_atom_names(
-                    pdb_lines[i + 2],
-                    parse_atomname(pdb_lines[i + 2]).strip(),
-                    atom_map["H2"],
+            elif original_atom_name.startswith("H"):
+                # Use the original hydrogen atom name as the key in the dictionary
+                resid = parse_resid(line).strip()
+                if resid not in water_h_resids:
+                    water_h_resids.append(resid)
+                    atom_map_name = atom_map["H1"]
+                else:
+                    atom_map_name = atom_map["H2"]
+                pdb_lines[i] = replace_atom_names(
+                    [line],
+                    original_atom_name,
+                    atom_map_name,
                 )[0]
 
     if output_path is not None:
@@ -247,3 +260,22 @@ def run_unify_water_labels(
             f.writelines(pdb_lines)
 
     return pdb_lines
+
+
+def cli_unify_water_labels() -> None:
+    r"""Command-line interface for unifying water residue and atom names."""
+    parser = argparse.ArgumentParser(description="Unify water residue and atom names")
+    parser.add_argument(
+        "pdb_path",
+        type=str,
+        nargs="?",
+        help="Path to PDB file",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        nargs="?",
+        help="Path to new PDB file",
+    )
+    args = parser.parse_args()
+    run_unify_water_labels(args.pdb_path, output_path=args.output)

@@ -60,7 +60,7 @@ def parse_atomname(line: str) -> str:
         line: Line of a PDB file that starts with ATOM or HETATM.
 
     Returns:
-        Residue ID.
+        Atom name.
     """
     return line[13:17]
 

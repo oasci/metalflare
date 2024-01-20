@@ -24,6 +24,7 @@ seaborn = "^0.13.1"
 [tool.poetry.scripts]
 metalflare-filter-pdb = "metalflare.pdb.utils:cli_filter_pdb"
 metalflare-unify-resids = "metalflare.pdb.modify.numbering:cli_unify_resids"
+metalflare-unify-waters = "metalflare.pdb.modify.names:cli_unify_water_labels"
 metalflare-select-atoms = "metalflare.pdb.select:cli_select_atoms"
 metalflare-center = "metalflare.pdb.modify.positioning:cli_center_structure"
 metalflare-minimize-box = "metalflare.pdb.modify.orientation:cli_minimize_box"

@@ -39,6 +39,7 @@ metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-residu
 metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+metalflare-unify-waters $SAVE_DIR/7-$PDB_ID-resnames.pdb --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 
 pdb4amber -i $SAVE_DIR/7-$PDB_ID-resnames.pdb > $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
 cat pdb4amber.err >> $METALFLARE_LOG_FILE_PATH
