@@ -19,9 +19,9 @@ sbatch_options:
 stages:
 
   - stage_name: 08_prod_npt
-    topo_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.prmtop"
+    topo_path: "$SLURM_SUBMIT_DIR/inputs/mol.prmtop"
     prev_restart_path: "$SLURM_SUBMIT_DIR/../../04-relax/{{ RUN_NAME }}/outputs/07_relax_npt.rst"
-    ref_coord_path: "$SLURM_SUBMIT_DIR/../02-prep/inputs/mol.inpcrd"
+    ref_coord_path: "$SLURM_SUBMIT_DIR/inputs/mol.inpcrd"
     input_kwargs:
       irest: 1
       ntx: 5
