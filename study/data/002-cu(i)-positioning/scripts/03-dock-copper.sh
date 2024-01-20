@@ -14,7 +14,7 @@ mkdir -p $SAVE_DIR
 cat > $INPUT_FILE << EOF
 \$constrain
    force constant=0.5
-   elements: C,N,O,S
+   elements: C,N,S
 \$end
 EOF
 
