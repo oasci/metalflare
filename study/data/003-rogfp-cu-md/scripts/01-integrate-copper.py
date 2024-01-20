@@ -70,7 +70,9 @@ split_line = pdb_lines[i_last_atom].split()
 
 # If we have a lot of atoms, we would have the chain ID next to int.
 # We check for this, and split if necessary.
-if any(not c.isdigit() for c in split_line[4]):
+try:
+    int(split_line[5])
+except ValueError:
     # Find the index of the first non-digit character in the 4th element
     split_index = next(i for i, c in enumerate(split_line[4]) if not c.isdigit())
 
@@ -100,7 +102,6 @@ for i, line in enumerate(pdb_lines):
 
         # We also need to check if we have waters that do not have a `TER`
         if ("WAT" in line) and check_water:
-            print(line)
             if "TER" not in pdb_lines[i - 1]:
                 pdb_lines.insert(i, "TER\n")
             check_water = False
