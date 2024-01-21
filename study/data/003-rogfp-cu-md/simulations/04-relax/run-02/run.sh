@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 echo 'Starting 05_relax_nvt_r'
 date

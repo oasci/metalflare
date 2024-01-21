@@ -44,10 +44,10 @@ for ((i=1; i<=$REPLICATES; i++)); do
     rm -f $METALFLARE_LOG_FILE_PATH
 
     metalflare-prep-sims $JOB_NAME $WRITE_DIR $RUN_PATH $SLURM_PATH $PREP_CLASS_STRING \
-    --yaml $YAML_DIR/04-relax.yml $YAML_DIR/slurm.yml $YAML_DIR/base.yml
+    --yaml $YAML_DIR/04-relax.yml $YAML_DIR/slurm-runs.yml $YAML_DIR/base.yml
 
-    cp $COORD_PATH $INPUT_DIR/mol.inpcrd
-    cp $TOPO_PATH $INPUT_DIR/mol.prmtop
+    chmod +x $RUN_PATH
+
 done
 
 export METALFLARE_LOG=False

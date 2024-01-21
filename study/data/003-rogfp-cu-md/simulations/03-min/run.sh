@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 echo 'Starting 01_min'
 date
