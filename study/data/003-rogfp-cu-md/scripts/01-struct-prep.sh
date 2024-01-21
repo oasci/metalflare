@@ -10,6 +10,8 @@ export METALFLARE_STDOUT=False
 export METALFLARE_LOG_LEVEL=10
 export METALFLARE_LOG_FILE_PATH="01-struct-prep.log"
 
+rm $METALFLARE_LOG_FILE_PATH
+rm $PDB_PATH
 
 PDB_PATH="../structures/protein/1JC0-Cu.pdb"
 

@@ -87,19 +87,20 @@ def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[
     with open(pdb_path, "r", encoding="utf-8") as f:
         pdb_lines: list[str] = f.readlines()
 
+    current_resid = None
     parse_structure = False
     for i, line in enumerate(pdb_lines):
         logger.trace("Processing line number: {}", i)
         if line.startswith("TER"):
             logger.debug("Encountered 'TER'. Setting parse_structure to False.")
             parse_structure = False
+            current_resid = str(parse_resid(pdb_lines[i - 1]))
             continue
 
         if line.startswith(("ATOM", "HETATM")):
             # Activate coordinate parsing on first instance of ATOM or HETATM
             if not parse_structure:
                 parse_structure = True
-                current_resid = None
                 current_original_resid = str(parse_resid(line))
 
             pdb_lines[i], current_resid, current_original_resid = unify_resid(
