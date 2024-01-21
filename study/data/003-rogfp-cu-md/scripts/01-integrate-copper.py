@@ -83,7 +83,7 @@ copper_line = gen_pdb_line(
     "HETATM",
     int(split_line[1]) + 1,
     "Cu+",
-    "Cu+",
+    "CU1",
     "A",
     int(split_line[5]) + 1,
     float(x_coord),
