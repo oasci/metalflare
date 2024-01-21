@@ -84,27 +84,31 @@ copper_line = gen_pdb_line(
     int(split_line[1]) + 1,
     "Cu+",
     "Cu+",
-    "X",
+    "A",
     int(split_line[5]) + 1,
     float(x_coord),
     float(y_coord),
     float(z_coord),
     "Cu",
 )
-pdb_lines.insert(i_last_atom + 1, "TER\n")
-pdb_lines.insert(i_last_atom + 2, copper_line)
+# pdb_lines.insert(i_last_atom + 1, "TER\n")
+pdb_lines.insert(i_last_atom + 1, copper_line)
 check_water = True
 for i, line in enumerate(pdb_lines):
     if ("ATOM" in line) or ("HETATM" in line):
         line_list = list(line)
         line_list[21] = "A"
-        pdb_lines[i] = "".join(line_list)
+        line = "".join(line_list)
+        pdb_lines[i] = line
 
         # We also need to check if we have waters that do not have a `TER`
-        if ("WAT" in line) and check_water:
-            if "TER" not in pdb_lines[i - 1]:
-                pdb_lines.insert(i, "TER\n")
-            check_water = False
+        if "WAT" in line:
+            # For some reason, WAT saved as a ATM. Here, we enforce it to be HETATM
+            pdb_lines[i] = "HETATM" + line[6:]
+            if check_water:
+                if "TER" not in pdb_lines[i - 1]:
+                    pdb_lines.insert(i, "TER\n")
+                check_water = False
 
 
 pdb_lines = keep_lines(pdb_lines)
