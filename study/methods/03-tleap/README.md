@@ -87,6 +87,24 @@ extra_anions: 0
 solvent_ionic_strength: 0.150
 ```
 
+To determine the appropriate atom and residue names for ions, you can inspect the `~/miniconda3/envs/metalflare-dev/dat/leap/lib/atomic_ions.lib` file.
+You will find a line starting with `!entry` that then specifies the residue type.
+For example, `!entry.CU1.unit.atoms` specifies information for the residue name `CU1`.
+Note that case matters!
+`Cu1` is not equivalent to `CU1`.
+
+```text
+!entry.CU1.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "CU" "Cu+" 0 1 131072 1 29 1.000000
+```
+
+The following line(s) specify the types of atoms within this `CU1` residue.
+`CU1` only has one atom called `CU`; thus, our PDB files should have a line like this
+
+```text
+HETATM 3944  CU  CU1 A 352    ....
+```
+
 ## Solvent
 
 TODO:
