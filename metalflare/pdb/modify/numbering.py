@@ -88,6 +88,7 @@ def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[
         pdb_lines: list[str] = f.readlines()
 
     current_resid = None
+    current_chain = None
     parse_structure = False
     for i, line in enumerate(pdb_lines):
         logger.trace("Processing line number: {}", i)
@@ -98,6 +99,12 @@ def run_unify_resids(pdb_path: str, output_path: str | None = None) -> Iterable[
             continue
 
         if line.startswith(("ATOM", "HETATM")):
+            chain_id = line[21]
+            if current_chain is None:
+                current_chain = chain_id
+            elif current_chain != chain_id:
+                current_resid = None
+                current_chain = chain_id
             # Activate coordinate parsing on first instance of ATOM or HETATM
             if not parse_structure:
                 parse_structure = True
