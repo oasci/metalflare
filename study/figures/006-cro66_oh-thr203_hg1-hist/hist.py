@@ -13,11 +13,11 @@ if __name__ == "__main__":
     base_dir = "../../"
 
     rogfp_dist_path = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/thr201_o_cym202_sg.npy"
+        base_dir, "analysis/001-rogfp-md/data/cro65_oh-thr201_hg1-dist.npy"
     )
     rogfp_dist = np.load(rogfp_dist_path)
     rogfp_cu_dist_path = os.path.join(
-        base_dir, "analysis/003-rogfp-cu-md/data/thr201_o_cym202_sg.npy"
+        base_dir, "analysis/003-rogfp-cu-md/data/cro65_oh-thr201_hg1-dist.npy"
     )
     rogfp_cu_dist = np.load(rogfp_cu_dist_path)
 
@@ -28,10 +28,11 @@ if __name__ == "__main__":
     sns.histplot(rogfp_dist, label="Unbound", color="#1e2e79", **kwargs)
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
-    plt.xlabel("O THR201 - SG CYM202 Distance [Å]")
-    plt.xlim(right=4.5)
+    plt.xlabel("CRO66 OH - THR203 HG1 Distance [Å]")
+    plt.xlim(right=6.5)
     plt.ylabel("Density")
 
     plt.legend()
+    plt.tight_layout()
 
-    plt.savefig("008-thr201-cym202-hist.png")
+    plt.savefig("006-cro66_oh-thr203_hg1-hist.svg")
