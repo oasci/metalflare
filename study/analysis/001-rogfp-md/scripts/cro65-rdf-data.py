@@ -44,7 +44,7 @@ def main():
         rdf = InterRDF(cro_oh, atoms, nbins=150, range=(0.0, 15.0), norm="rdf")
         rdf.run(step=1)
 
-        data_path = os.path.join(data_dir, f"cro_{atom_type.lower()}_rdf")
+        data_path = os.path.join(data_dir, f"cro65_{atom_type.lower()}_rdf")
         np.save(data_path + "_bins.npy", rdf.results.bins)
         np.save(data_path + "_density.npy", rdf.results.rdf)
 
