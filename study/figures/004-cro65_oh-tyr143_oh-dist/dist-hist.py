@@ -13,7 +13,7 @@ if __name__ == "__main__":
     base_dir = "../../"
 
     rogfp_dist_path = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/cro_tyr143_oh.npy"
+        base_dir, "analysis/001-rogfp-md/data/cro65_oh-tyr143_oh-dist.npy"
     )
     rogfp_dist = np.load(rogfp_dist_path)
     rogfp_cu_dist_path = os.path.join(
@@ -24,14 +24,11 @@ if __name__ == "__main__":
     mean_rogfp_dist = np.nanmean(rogfp_dist)
     mean_rogfp_cu_dist = np.nanmean(rogfp_cu_dist)
 
-    print(f"Mean rogfp dist:    {mean_rogfp_dist:.3f}")  # 7.463
-    print(f"Mean rogfp cu dist: {mean_rogfp_cu_dist:.3f}")  # 6.605
-
     kwargs = {"kde": True, "stat": "density", "fill": True}
     sns.histplot(rogfp_dist, label="Unbound", color="#1e2e79", **kwargs)
     sns.histplot(rogfp_cu_dist, label="Bound", color="#f99752", **kwargs)
 
-    plt.xlabel("OH CRO65 - OH TYR143 Distance [Å]")
+    plt.xlabel("CRO65 OH - TYR143 OH Distance [Å]")
     plt.xlim(right=6)
     plt.ylabel("Density")
 
