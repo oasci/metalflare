@@ -53,8 +53,7 @@ def main():
         dihedral_angle = mda.lib.distances.calc_dihedrals(*coords)
         atoms_dihedral_array[i] = dihedral_angle
 
-        if i % 1000 == 0:
-            np.save(atoms_npy_path, atoms_dihedral_array)
+    np.save(atoms_npy_path, atoms_dihedral_array)
 
     print(atoms_dihedral_array)
 

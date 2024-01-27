@@ -47,8 +47,7 @@ def main():
         dist = np.linalg.norm(atoms_1.positions - atoms_2.positions)
         atoms_dist_array[i] = dist
 
-        if i % 1000 == 0:
-            np.save(atoms_npy_path, atoms_dist_array)
+    np.save(atoms_npy_path, atoms_dist_array)
 
     print(atoms_dist_array)
 
