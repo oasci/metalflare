@@ -13,11 +13,12 @@ if __name__ == "__main__":
     base_dir = "../../"
 
     rogfp_dist_path = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/thr201_o-cym202_sg-dist.npy"
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_o-cym202_sg-dist.npy"
     )
     rogfp_dist = np.load(rogfp_dist_path)
     rogfp_cu_dist_path = os.path.join(
-        base_dir, "analysis/003-rogfp-cu-md/data/thr201_o-cym202_sg-dist.npy"
+        base_dir,
+        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_o-cym202_sg-dist.npy",
     )
     rogfp_cu_dist = np.load(rogfp_cu_dist_path)
 
