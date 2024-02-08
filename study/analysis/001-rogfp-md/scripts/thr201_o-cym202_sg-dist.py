@@ -31,7 +31,7 @@ def main():
     atoms1_str = "resid 201 and name O"
     atoms2_str = "resid 202 and name SG"
 
-    data_dir = os.path.join(base_dir, "analysis/001-rogfp-md/data/")
+    data_dir = os.path.join(base_dir, "analysis/001-rogfp-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
