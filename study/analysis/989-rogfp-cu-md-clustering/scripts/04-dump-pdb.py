@@ -5,6 +5,7 @@ import os
 import MDAnalysis as mda
 import numpy as np
 import pandas as pd
+from MDAnalysis.analysis import align
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -44,8 +45,21 @@ def main():
         base_dir, f"{rogfp2_cu_path}/02-prep/mol.prmtop"
     )
 
-    u_rogfp2 = mda.Universe(topology_rogfp2_path, traj_paths_rogfp2)
-    u_rogfp2_cu = mda.Universe(topology_rogfp2_cu_path, traj_paths_rogfp2_cu)
+    universes = {
+        "rogfp2": mda.Universe(topology_rogfp2_path, traj_paths_rogfp2),
+        "rogfp2_cu": mda.Universe(topology_rogfp2_cu_path, traj_paths_rogfp2_cu),
+    }
+    pdb_dirs = "../pdbs"
+    cluster_i = 0
+    atoms_ref = universes["rogfp2"].atoms.select_atoms("backbone")
+    for sim_label, idx in df.itertuples(index=False):
+        universes[sim_label].trajectory[idx]
+        atoms_idx = universes[sim_label].atoms.select_atoms("protein or resname CRO")
+        results = align.alignto(atoms_idx.atoms.select_atoms("backbone"), atoms_ref)
+
+        with mda.Writer(os.path.join(pdb_dirs, f"{cluster_i}-{sim_label}.pdb")) as w:
+            w.write(atoms_idx)
+        cluster_i += 1
 
 
 if __name__ == "__main__":
