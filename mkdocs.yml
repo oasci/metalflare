@@ -37,9 +37,9 @@ theme:
     - content.code.copy
     - content.code.select
     - content.tooltips
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
@@ -100,6 +100,7 @@ extra_css:
   - css/3dmol.css
 
 extra_javascript:
+  - js/mathjax-config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 

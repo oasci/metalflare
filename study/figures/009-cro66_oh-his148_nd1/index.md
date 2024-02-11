@@ -28,7 +28,7 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -182.846002868459, -11.360836858450071, -44.309189914886645, 111.40397984824831, -0.6066648911438127, 0.27532366621754684, -0.6413719126788533, 0.3805215608880305 ]);
+        viewer.setView([ -181.0018696486404, -10.678567715297143, -44.066028050560234, 102.76713049548152, -0.5034132834867263, -0.1701788118367738, 0.10320183487406523, -0.8408112863714202 ]);
         let atom1 = viewer.getModel().selectedAtoms(
             {chain: 'A', resi: resi1, atom: atom1Name}
         )[0];
