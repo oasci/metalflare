@@ -11,6 +11,8 @@ It is advised to use vector figures (e.g.,  `.svg` files) when possible, as thei
 -   [014-ser205_og_cb_ca_n](./014-ser205_og_cb_ca_n/)
 -   [011-ser205_hg_og_cb_ca](./011-ser205_hg_og_cb_ca/)
 -   [010-cro66_og1_cb1_ca1_c1](./010-cro66_og1_cb1_ca1_c1/)
+-   [016-cys204_c-ser205_n_ca_cb](./016-cys204_c-ser205_n_ca_cb/)
+-   [017-ser205_h-asn146_o](./017-ser205_h-asn146_o/)
 
 ## Residue indices
 
