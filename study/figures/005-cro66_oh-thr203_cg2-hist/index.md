@@ -18,8 +18,14 @@ jQuery.ajax( uri, {
         let atom2Name = "CG2";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi1}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi2}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 145}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 147}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 148}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 203}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
         viewer.setView([ -180.84474369236614, -9.862820259819934, -44.52367303897905, 117.92173828078165, -0.8782535391867106, -0.15317998038565794, -0.09935772022784894, 0.4419668063850365 ]);

@@ -18,9 +18,14 @@ jQuery.ajax( uri, {
         let atom2Name = "SG";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi1}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi2}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 145}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 147}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 148}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 203}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
         viewer.setView([ -184.61102183107758, -8.34093072551185, -44.58233590225014, 102.98523157925786, -0.13877352357998113, 0.0962597776047595, -0.8733923455001541, -0.45679511292308694 ]);
@@ -49,6 +54,14 @@ jQuery.ajax( uri, {
     },
 });
 </script>
+
+## Potential of mean force
+
+TODO:
+
+<figure markdown>
+![](./007-thr203_o-cys147_sg-pmf.svg)
+</figure>
 
 <figure markdown>
 ![](./007-thr203_o-cys147_sg-hist.svg)

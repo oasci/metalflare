@@ -42,6 +42,14 @@ jQuery.ajax( uri, {
 });
 </script>
 
+## Potential of mean force
+
+TODO:
+
 <figure markdown>
-![](./cro66_og1_cb1_ca1_c1-pdf.svg)
+![](./010-cro66_og1_cb1_ca1_c1-pmf.svg)
+</figure>
+
+<figure markdown>
+![](./010-cro66_og1_cb1_ca1_c1-pdf.svg)
 </figure>

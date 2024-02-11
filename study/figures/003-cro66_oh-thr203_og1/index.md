@@ -1,6 +1,8 @@
-# 003-cro66_oh-thr203_og1-hist
+# 003-cro66_oh-thr203_og1
 
-TODO:
+Looking at threonine (THR) 203 will investigate if the chemical environment around the chromophore changes.
+
+## Visualization
 
 <div id="rogfp-view" class="mol-container"></div>
 <script>
@@ -18,8 +20,14 @@ jQuery.ajax( uri, {
         let atom2Name = "OG1";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi1}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: resi2}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 145}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 147}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 148}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 203}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
         viewer.setView([ -180.4790230573923, -10.026709053507197, -44.853784685637685, 111.40397984824831, 0.172578344214806, 0.12220639697970266, 0.9718380201347501, -0.10398641385240419 ]);
@@ -49,6 +57,35 @@ jQuery.ajax( uri, {
 });
 </script>
 
+## Potential of mean force
+
+TODO:
+
+<figure markdown>
+![](./003-cro66_oh-thr203_og1-pmf.svg)
+</figure>
+
+## Probability density function
+
+The figure below shows the distance PDF of CRO66 OH to THR203 OG1.
+
+<figure markdown>
+![](./003-cro66_oh-thr203_og1-pdf.svg)
+</figure>
+
+
+rogfp2
+y-axis local maxima: [6.64229914e-01 3.36391256e-01 4.07651219e-05]
+x-values: [4.03603604 2.73873874 7.85585586]
+
+rogfp2-cu
+y-axis local maxima: [1.02555169e+00 5.97934439e-01 9.44273947e-05]
+x-values: [2.76576577 3.64864865 5.63963964]
+
+### Bandwidth validation
+
+The figure below shows the histogram and the PDF to validate the bandwidth parameter.
+A value of `0.1` was used for both figures.
 
 <figure markdown>
 ![](./003-cro66_oh-thr203_og1-hist.svg)

@@ -1,6 +1,9 @@
-# 004-cro66_oh-tyr145_oh-hist
+# 001-cro66_oh-cys147_ca
 
-TODO:
+Our first check was to see if there was any structural change in the beta-sheet around the phenolic oxygen atom in the chromophore.
+Distances between CRO66 OH and CYS147 CA are a simple proxy for bending the beta sheet.
+
+## Visualization
 
 <div id="rogfp-view" class="mol-container"></div>
 <script>
@@ -14,8 +17,8 @@ jQuery.ajax( uri, {
         );
         let resi1 = 66;
         let atom1Name = "OH";
-        let resi2 = 145;
-        let atom2Name = "OH";
+        let resi2 = 147;
+        let atom2Name = "CA";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
@@ -28,7 +31,7 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -180.80195220112807, -11.996286507402932, -42.25333186006453, 103.1300725159228, -0.49112260785727674, -0.02573287618654052, -0.8610386932533872, 0.1294170462309098 ]);
+        viewer.setView([ -184.47333957331193, -10.067926666942217, -44.53875969510262, 103.91875825735853, 0.9311870129599452, 0.33020463035200476, 0.03182696674634526, 0.15113799382206267 ]);
         let atom1 = viewer.getModel().selectedAtoms(
             {chain: 'A', resi: resi1, atom: atom1Name}
         )[0];
@@ -55,6 +58,45 @@ jQuery.ajax( uri, {
 });
 </script>
 
+## Probability density function
+
+We can gain some statistical insights by plotting the kernel-density estimate approximation of the probability density function (PDF).
+
 <figure markdown>
-![](./004-cro66_oh-tyr145_oh-hist.svg)
+![](./001-cro66_oh-cys147_ca-pdf.svg)
 </figure>
+
+In the **unbound** state, we see a broad peak with a maximum at 6.65 Å.
+This large variability suggests that the CYS residues can access a variety of conformational states (i.e., flexible).
+
+In contrast, the **bound** state exhibits a sharper peak at 6.13 Å ($\Delta =$ &ndash;0.52 Å), implying that the binding of Cu(I) leads to a more specific, consistent interaction.
+There is also substantial overlap between the two distributions.
+
+### Bandwidth validation
+
+The figure below shows the histogram and the PDF to validate the bandwidth parameter.
+A value of `0.1` was used for both figures.
+
+<figure markdown>
+![](./001-cro66_oh-cys147_ca-hist.svg)
+</figure>
+
+## Potential of mean force
+
+<figure markdown>
+![](./001-cro66_oh-cys147_ca-pmf.svg)
+</figure>
+
+## Relevant scripts
+
+```python title="roGFP2 distances"
+--8<-- "study/analysis/001-rogfp-md/scripts/cro65_oh-cym145_ca-dist.py"
+```
+
+```python title="roGFP2 and Cu(I) distances"
+--8<-- "study/analysis/003-rogfp-cu-md/scripts/cro65_oh-cym145_ca-dist.py"
+```
+
+```python title="PDF figure"
+--8<-- "study/figures/001-cro66_oh-cys147_ca/pdf.py"
+```
