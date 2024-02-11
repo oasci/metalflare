@@ -41,7 +41,7 @@ def main():
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
 
-    atoms = u.select_atoms("(resid 202 and name CA C) or (resid 203 and name N CA)")
+    atoms = u.select_atoms("(resid 202 and name CA) or (resid 203 and name N CA CB)")
 
     atoms_npy_path = os.path.join(data_dir, "cym202_c-ser203_n_ca_cb-dihedral.npy")
     atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
