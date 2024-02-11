@@ -1,8 +1,6 @@
-# 003-cro66_oh-thr203_og1
+# 013-thr203_o_c_ca_cb
 
-Looking at threonine (THR) 203 will investigate if the chemical environment around the chromophore changes.
-
-## Visualization
+TODO:
 
 <div id="rogfp-view" class="mol-container"></div>
 <script>
@@ -14,38 +12,24 @@ jQuery.ajax( uri, {
             document.querySelector('#rogfp-view'),
             { backgroundAlpha: '0.0' }
         );
-        let resi1 = 66;
-        let atom1Name = "OH";
-        let resi2 = 203;
-        let atom2Name = "OG1";
+        let resi1 = 203;
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 145}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 147}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 148}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.setStyle({chain: 'A', resi: 203}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.setStyle({chain: 'A', resi: 203}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
+        viewer.addLabel("O", {}, {chain: "A", resi: resi1, atom: "O"})
+        viewer.addLabel("C", {}, {chain: "A", resi: resi1, atom: "C"})
+        viewer.addLabel("CA", {}, {chain: "A", resi: resi1, atom: "CA"})
+        viewer.addLabel("CB", {}, {chain: "A", resi: resi1, atom: "CB"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -180.4790230573923, -10.026709053507197, -44.853784685637685, 111.40397984824831, 0.172578344214806, 0.12220639697970266, 0.9718380201347501, -0.10398641385240419 ]);
-        let atom1 = viewer.getModel().selectedAtoms(
-            {chain: 'A', resi: resi1, atom: atom1Name}
-        )[0];
-        let atom2 = viewer.getModel().selectedAtoms(
-            {chain: 'A', resi: resi2, atom: atom2Name}
-        )[0];
-        viewer.addCylinder(
-            {
-                dashed: true,
-                start: {x: atom1.x, y: atom1.y, z: atom1.z},
-                end: {x: atom2.x, y: atom2.y, z: atom2.z},
-                radius: 0.1,
-                color: "#00b4d8"
-            }
-        );
+        viewer.setView([ -185.70717595348242, -9.400820059425605, -43.48492795815956, 113.90069785674157, 0.1345710483371672, -0.07152813837129907, 0.8996454582295998, 0.4091606137660668 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
         });
@@ -59,32 +43,22 @@ jQuery.ajax( uri, {
 
 ## Probability density function
 
-The figure below shows the distance PDF of CRO66 OH to THR203 OG1.
-
 <figure markdown>
-![](./003-cro66_oh-thr203_og1-pdf.svg)
+![](./013-thr203_o_c_ca_cb-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/003-cro66_oh-thr203_og1/pdf-info.md"
-
-
-### Bandwidth validation
-
-The figure below shows the histogram and the PDF to validate the bandwidth parameter.
-A value of `0.1` was used for both figures.
-
-<figure markdown>
-![](./003-cro66_oh-thr203_og1-hist.svg)
-</figure>
+--8<-- "study/figures/013-thr203_o_c_ca_cb/pdf-info.md"
 
 ## Potential of mean force
 
+TODO:
+
 <figure markdown>
-![](./003-cro66_oh-thr203_og1-pmf.svg)
+![](./013-thr203_o_c_ca_cb-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/003-cro66_oh-thr203_og1/pmf-info.md"
+--8<-- "study/figures/013-thr203_o_c_ca_cb/pmf-info.md"

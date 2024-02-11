@@ -20,18 +20,18 @@ if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../"
 
-    rogfp_dist_path = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/cro65_oh-thr201_og1-dist.npy"
+    rogfp_data_path = os.path.join(
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/cro65_oh-tyr143_oh-dist.npy"
     )
-    rogfp_data = np.load(rogfp_dist_path)
-    rogfp_cu_dist_path = os.path.join(
+    rogfp_data = np.load(rogfp_data_path)
+    rogfp_cu_data_path = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/cro65_oh-thr201_og1-dist.npy",
+        "analysis/003-rogfp-cu-md/data/struct-desc/cro65_oh-tyr143_oh-dist.npy",
     )
-    rogfp_cu_data = np.load(rogfp_cu_dist_path)
+    rogfp_cu_data = np.load(rogfp_cu_data_path)
 
     # Compute all pdfs
-    x_bounds = (1, 10)
+    x_bounds = (1, 6)
     x_values = np.linspace(*x_bounds, 1000)
     bw_method = 0.1
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
@@ -54,10 +54,10 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "003-cro66_oh-thr203_og1"
+    fig_title = "004-cro66_oh-tyr145_oh"
     pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
-    x_label = "CRO66 OH - THR203 OG1 Distance [Å]"
-    plot_x_bounds = (2.0, 6)
+    x_label = "CRO66 OH - TYR145 OH Distance [Å]"
+    plot_x_bounds = (2.0, 4.0)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (0, 3)
+    plot_y_bounds = (0, 4)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

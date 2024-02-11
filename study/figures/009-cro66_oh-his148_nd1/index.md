@@ -1,8 +1,6 @@
-# 003-cro66_oh-thr203_og1
+# 009-cro66_oh-his148_nd1
 
-Looking at threonine (THR) 203 will investigate if the chemical environment around the chromophore changes.
-
-## Visualization
+TODO:
 
 <div id="rogfp-view" class="mol-container"></div>
 <script>
@@ -16,8 +14,8 @@ jQuery.ajax( uri, {
         );
         let resi1 = 66;
         let atom1Name = "OH";
-        let resi2 = 203;
-        let atom2Name = "OG1";
+        let resi2 = 148;
+        let atom2Name = "ND1";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
@@ -30,7 +28,7 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -180.4790230573923, -10.026709053507197, -44.853784685637685, 111.40397984824831, 0.172578344214806, 0.12220639697970266, 0.9718380201347501, -0.10398641385240419 ]);
+        viewer.setView([ -182.846002868459, -11.360836858450071, -44.309189914886645, 111.40397984824831, -0.6066648911438127, 0.27532366621754684, -0.6413719126788533, 0.3805215608880305 ]);
         let atom1 = viewer.getModel().selectedAtoms(
             {chain: 'A', resi: resi1, atom: atom1Name}
         )[0];
@@ -59,32 +57,26 @@ jQuery.ajax( uri, {
 
 ## Probability density function
 
-The figure below shows the distance PDF of CRO66 OH to THR203 OG1.
-
 <figure markdown>
-![](./003-cro66_oh-thr203_og1-pdf.svg)
+![](./009-cro66_oh-his148_nd1-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/003-cro66_oh-thr203_og1/pdf-info.md"
-
+--8<-- "study/figures/009-cro66_oh-his148_nd1/pdf-info.md"
 
 ### Bandwidth validation
 
-The figure below shows the histogram and the PDF to validate the bandwidth parameter.
-A value of `0.1` was used for both figures.
-
 <figure markdown>
-![](./003-cro66_oh-thr203_og1-hist.svg)
+![](./009-cro66_oh-his148_nd1-hist.svg)
 </figure>
 
 ## Potential of mean force
 
 <figure markdown>
-![](./003-cro66_oh-thr203_og1-pmf.svg)
+![](./009-cro66_oh-his148_nd1-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/003-cro66_oh-thr203_og1/pmf-info.md"
+--8<-- "study/figures/009-cro66_oh-his148_nd1/pmf-info.md"

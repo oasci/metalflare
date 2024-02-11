@@ -2,6 +2,7 @@ import importlib
 
 import numpy as np
 import numpy.typing as npt
+from scipy.signal import argrelextrema, savgol_filter
 
 
 def get_obj_from_string(import_string: str) -> object:
@@ -47,3 +48,31 @@ def exists_in_array(
     # At the very end, we will have a 1D array. If any are True, then a_slice
     # exists in array
     return bool(exists.any())
+
+
+def get_extrema(x, y):
+    window_length = 60
+    polyorder = 3
+    order = 5
+    local_maxima_idxs = argrelextrema(
+        savgol_filter(y, window_length=window_length, polyorder=polyorder),
+        np.greater,
+        order=order,
+    )[0]
+    local_maxima = y[local_maxima_idxs]
+    local_maxima_x = x[local_maxima_idxs]
+    local_minima_idxs = argrelextrema(
+        savgol_filter(y, window_length=window_length, polyorder=polyorder),
+        np.less,
+        order=order,
+    )[0]
+    local_minima = y[local_minima_idxs]
+    local_minima_x = x[local_minima_idxs]
+    local_extrema = np.concatenate([local_maxima, local_minima])
+    local_extrema_x = np.concatenate([local_maxima_x, local_minima_x])
+
+    sort_idx = np.argsort(local_extrema_x)
+    local_extrema = local_extrema[sort_idx]
+    local_extrema_x = local_extrema_x[sort_idx]
+
+    return local_extrema_x, local_extrema
