@@ -1,4 +1,5 @@
 # Data settings
+*.parquet
 *.pdb
 *.log
 *.xyz

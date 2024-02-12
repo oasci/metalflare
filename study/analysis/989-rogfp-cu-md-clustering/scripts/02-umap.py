@@ -3,6 +3,7 @@
 import os
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import umap
 
@@ -11,9 +12,8 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 sim_features = "../data/sim-features.parquet"
 
 
-RANDOM_STATE = 3728921
-
-STRIDE = 50
+STRIDE = 1
+USE_TMP = False
 
 
 def main():
@@ -22,10 +22,9 @@ def main():
     features = df_features.drop(columns=["system_label"]).values[::STRIDE]
 
     kwargs = {
-        "n_neighbors": 20,
+        "n_neighbors": 15,
         "n_components": 2,
         "min_dist": 0.0,
-        "random_state": RANDOM_STATE,
         "densmap": False,
         "dens_lambda": 2.0,
     }
@@ -42,9 +41,22 @@ def main():
         elif label == "rogfp_cu":
             colors.append("#f99752")
 
-    plt.scatter(embedding[:, 0], embedding[:, 1], c=colors, s=3, alpha=0.5)
-    plt.savefig("../umap-tmp/umap.svg")
+    plt.scatter(
+        embedding[:, 0], embedding[:, 1], c=colors, s=50, alpha=0.4, edgecolors="none"
+    )
+
+    if USE_TMP:
+        save_dir = "../tmp"
+    else:
+        save_dir = "../data"
+    umap_name = f"umap-neigh{kwargs['n_neighbors']}-dist{kwargs['min_dist']}"
+    if reducer.densmap:
+        umap_name += "-dens"
+    plt.tight_layout()
+    plt.savefig(f"{save_dir}/{umap_name}.png", dpi=1000)
     plt.close()
+
+    np.save(f"{save_dir}/{umap_name}-embeddings.npy", embedding)
 
 
 if __name__ == "__main__":

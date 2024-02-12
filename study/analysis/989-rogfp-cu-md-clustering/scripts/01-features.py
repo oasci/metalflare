@@ -76,7 +76,7 @@ def main():
     df_scaled.to_parquet("../data/sim-scaled-features.parquet", index=False)
 
     # Store columns
-    feat_cols = df_comb.columns.tolist()
+    feat_cols = sorted(df_comb.columns.tolist())
     lines = [f"-   {col}\n" for col in feat_cols]
     with open("../sim-features.md", "w", encoding="utf-8") as f:
         f.writelines(lines)
