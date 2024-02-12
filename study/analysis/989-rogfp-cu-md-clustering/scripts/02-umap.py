@@ -2,9 +2,7 @@
 
 import os
 
-import joblib
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import umap
 
@@ -21,17 +19,18 @@ STRIDE = 50
 def main():
     df_features = pd.read_parquet(sim_features)
     labels = df_features["system_label"].values[::STRIDE]
-    features = df_features.drop(columns=["system_label"]).values[
-        ::STRIDE
-    ]  # Removed axis=0
+    features = df_features.drop(columns=["system_label"]).values[::STRIDE]
 
-    reducer = umap.UMAP(
-        n_neighbors=20,
-        min_dist=0.1,
-        n_components=2,
-        random_state=RANDOM_STATE,
-        metric="euclidean",
-    )
+    kwargs = {
+        "n_neighbors": 20,
+        "n_components": 2,
+        "min_dist": 0.0,
+        "random_state": RANDOM_STATE,
+        "densmap": False,
+        "dens_lambda": 2.0,
+    }
+
+    reducer = umap.UMAP(**kwargs)
 
     embedding = reducer.fit_transform(features)
 
@@ -44,8 +43,8 @@ def main():
             colors.append("#f99752")
 
     plt.scatter(embedding[:, 0], embedding[:, 1], c=colors, s=3, alpha=0.5)
-    plt.savefig("umap.svg")
-    print(embedding)
+    plt.savefig("../umap-tmp/umap.svg")
+    plt.close()
 
 
 if __name__ == "__main__":
