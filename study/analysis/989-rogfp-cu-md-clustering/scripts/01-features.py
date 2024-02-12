@@ -34,7 +34,7 @@ def feat_angles(df):
             df[f"{col}_cos"] = np.cos(updated_values)
 
             # Optional: Remove the original 'dihedral' column if not needed
-            df.drop(col, axis=1, inplace=True)
+            # df.drop(col, axis=1, inplace=True)
 
     return df
 
@@ -53,11 +53,11 @@ def featurization(df_data):
 def main():
     df_rogfp2 = pd.read_parquet(rogfp2_file_path)
     df_rogfp2 = feat_angles(df_rogfp2)
-    df_rogfp2["system_label"] = "rogfp2"  # Add system label after processing
+    df_rogfp2["system_label"] = "rogfp"  # Add system label after processing
 
     df_rogfp2_cu = pd.read_parquet(rogfp2_cu_file_path)
     df_rogfp2_cu = feat_angles(df_rogfp2_cu)
-    df_rogfp2_cu["system_label"] = "rogfp2_cu"  # Add system label after processing
+    df_rogfp2_cu["system_label"] = "rogfp_cu"  # Add system label after processing
 
     # Combine the dataframes
     df_comb = pd.concat([df_rogfp2, df_rogfp2_cu], axis=0)
@@ -74,6 +74,12 @@ def main():
         "system_label"
     ].values  # Ensure correct alignment
     df_scaled.to_parquet("../data/sim-scaled-features.parquet", index=False)
+
+    # Store columns
+    feat_cols = df_comb.columns.tolist()
+    lines = [f"-   {col}\n" for col in feat_cols]
+    with open("../sim-features.md", "w", encoding="utf-8") as f:
+        f.writelines(lines)
 
 
 if __name__ == "__main__":
