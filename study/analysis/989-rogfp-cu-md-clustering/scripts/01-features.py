@@ -53,18 +53,27 @@ def featurization(df_data):
 def main():
     df_rogfp2 = pd.read_parquet(rogfp2_file_path)
     df_rogfp2 = feat_angles(df_rogfp2)
+    df_rogfp2["system_label"] = "rogfp2"  # Add system label after processing
 
     df_rogfp2_cu = pd.read_parquet(rogfp2_cu_file_path)
     df_rogfp2_cu = feat_angles(df_rogfp2_cu)
+    df_rogfp2_cu["system_label"] = "rogfp2_cu"  # Add system label after processing
 
-    # Scale all features
+    # Combine the dataframes
+    df_comb = pd.concat([df_rogfp2, df_rogfp2_cu], axis=0)
+    df_comb.to_parquet("../data/sim-features.parquet", index=False)
+
+    # Scale all features (excluding the system_label column)
+    features = df_comb.drop(columns=["system_label"])
     scaler = MinMaxScaler()
-    scaler.fit(np.vstack((df_rogfp2.values, df_rogfp2_cu.values)))
+    scaled_features = scaler.fit_transform(features)
 
-    rogfp2_arr = scaler.transform(df_rogfp2.values)
-    np.save("../data/rogfp2-features.npy", rogfp2_arr)
-    rogfp2_cu_arr = scaler.transform(df_rogfp2_cu.values)
-    np.save("../data/rogfp2-cu-features.npy", rogfp2_cu_arr)
+    # Create a new DataFrame for the scaled data
+    df_scaled = pd.DataFrame(scaled_features, columns=features.columns)
+    df_scaled["system_label"] = df_comb[
+        "system_label"
+    ].values  # Ensure correct alignment
+    df_scaled.to_parquet("../data/sim-scaled-features.parquet", index=False)
 
 
 if __name__ == "__main__":
