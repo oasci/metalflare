@@ -1,4 +1,4 @@
-# 010-cro66_og1_cb1_ca1_c1
+# 018-cro66_oh-asn146_o
 
 TODO:
 
@@ -13,6 +13,9 @@ jQuery.ajax( uri, {
             { backgroundAlpha: '0.0' }
         );
         let resi1 = 66;
+        let atom1Name = "OH";
+        let resi2 = 146;
+        let atom2Name = "O";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
@@ -24,14 +27,24 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.addLabel("OG1", {}, {chain: "A", resi: resi1, atom: "OG1"})
-        viewer.addLabel("CB1", {}, {chain: "A", resi: resi1, atom: "CB1"})
-        viewer.addLabel("CA1", {}, {chain: "A", resi: resi1, atom: "CA1"})
-        viewer.addLabel("C1", {}, {chain: "A", resi: resi1, atom: "C1"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -178.54845283019642, -8.287854743737649, -41.32961916913211, 96.76437948169743, 0.12322892294046181, -0.986881068950569, 0.04557929448433187, 0.0938238573723442 ]);
-        //viewer.zoomTo({chain: "A"})
+        viewer.setView([ -180.33196291381824, -12.112329257963113, -46.47604478199624, 97.49843708210796, 0.17474428971354652, -0.9161577310617698, 0.2631075810734197, 0.2467667842517564 ]);
+        let atom1 = viewer.getModel().selectedAtoms(
+            {chain: 'A', resi: resi1, atom: atom1Name}
+        )[0];
+        let atom2 = viewer.getModel().selectedAtoms(
+            {chain: 'A', resi: resi2, atom: atom2Name}
+        )[0];
+        viewer.addCylinder(
+            {
+                dashed: true,
+                start: {x: atom1.x, y: atom1.y, z: atom1.z},
+                end: {x: atom2.x, y: atom2.y, z: atom2.z},
+                radius: 0.1,
+                color: "#00b4d8"
+            }
+        );
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
         });
@@ -46,21 +59,19 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./010-cro66_og1_cb1_ca1_c1-pdf.svg)
+![](./018-cro66_oh-asn146_o-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/010-cro66_og1_cb1_ca1_c1/pdf-info.md"
+--8<-- "study/figures/018-cro66_oh-asn146_o/pdf-info.md"
 
 ## Potential of mean force
 
-TODO:
-
 <figure markdown>
-![](./010-cro66_og1_cb1_ca1_c1-pmf.svg)
+![](./018-cro66_oh-asn146_o-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/010-cro66_og1_cb1_ca1_c1/pmf-info.md"
+--8<-- "study/figures/018-cro66_oh-asn146_o/pmf-info.md"

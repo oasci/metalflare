@@ -24,6 +24,7 @@ Frontend communications (e.g., figures) will use the following mapping.
 | ------- | -------- |
 | CRO 65 | CRO 66 |
 | TYR 143 | TYR 145 |
+| ASN 144 | ASN 146 |
 | CYM 145 | CYS 147 |
 | HID 146 | HIS 148 |
 | THR 201 | THR 203 |
