@@ -10,6 +10,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 features_path = "../../989-rogfp-cu-md-clustering/data/sim-features.parquet"
 
+# Degrees
 target_features = {
     "thr201_o-cym202_sg-dist": [3.15, 3.56, None],
     "thr201_hg1_og1_cb_cg2-dihedral": [-124.86, 44.50, 116.58, None],
@@ -20,11 +21,8 @@ target_features = {
     "ser203_h-asn144_o-dist": [2.07, 5.24, 6.16, None],
 }
 
-def feat_angles(df):
-    for col in df.columns:
-        if "dihedral" in col:
-            df[col] = np.degrees(df[col])
-    return df
+for k,v in target_features.items():
+    target_features[k] = [np.deg2rad(f) if f is not None else f for f in v]
 
 
 def find_representatives(features, target_features):
@@ -47,7 +45,6 @@ def find_representatives(features, target_features):
 
 def main():
     df = pd.read_parquet(features_path)
-    df = feat_angles(df)
     df_rogfp = df[df["system_label"] == "rogfp"]
     df_rogfp_cu = df[df["system_label"] == "rogfp_cu"]
     feat_rogfp = df_rogfp[target_features.keys()].to_numpy()
