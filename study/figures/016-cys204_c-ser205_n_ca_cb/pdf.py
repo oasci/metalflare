@@ -111,7 +111,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (None, 3)
+    plot_y_bounds = (-1, 3)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

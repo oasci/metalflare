@@ -75,7 +75,9 @@ if __name__ == "__main__":
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(pdf_rogfp, pdf_rogfp_cu, T=300.0)
+    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(
+        pdf_rogfp, pdf_rogfp_cu, x_values, 5.33, T=300.0
+    )
 
     # save pmf information
     pmf_info_lines = ["roGFP2\n"]
@@ -96,7 +98,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (0, 3)
+    plot_x_bounds = (4, 6)
+    plot_y_bounds = (-0.2, 0.5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

@@ -95,17 +95,3 @@ A value of `0.1` was used for both figures.
 ### Quantitative
 
 --8<-- "study/figures/001-cro66_oh-cys147_ca/pmf-info.md"
-
-## Relevant scripts
-
-```python title="PDF figure"
---8<-- "study/figures/001-cro66_oh-cys147_ca/pdf.py"
-```
-
-```python title="roGFP2 distances"
---8<-- "study/analysis/001-rogfp-md/scripts/cro65_oh-cym145_ca-dist.py"
-```
-
-```python title="roGFP2 and Cu(I) distances"
---8<-- "study/analysis/003-rogfp-cu-md/scripts/cro65_oh-cym145_ca-dist.py"
-```
