@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import os
 import itertools
+import os
 
 import numpy as np
 import pandas as pd
@@ -21,8 +21,9 @@ target_features = {
     "ser203_h-asn144_o-dist": [2.07, 5.24, 6.16, None],
 }
 
-for k,v in target_features.items():
-    target_features[k] = [np.deg2rad(f) if f is not None else f for f in v]
+for k, v in target_features.items():
+    if "-dihedral" in k:
+        target_features[k] = [np.deg2rad(f) if f is not None else f for f in v]
 
 
 def find_representatives(features, target_features):
@@ -40,7 +41,6 @@ def find_representatives(features, target_features):
     distances = distances[ranked_idxs]
 
     return ranked_idxs, distances
-
 
 
 def main():
@@ -61,15 +61,23 @@ def main():
         if len(set(combination)) == 1:
             continue
         target_feature = np.array(combination)
-        rogfp_rep_idxs, rogfp_rep_dist = find_representatives(feat_rogfp, target_feature)
+        rogfp_rep_idxs, rogfp_rep_dist = find_representatives(
+            feat_rogfp, target_feature
+        )
         for key, value in zip(target_features.keys(), combination):
+            if "-dihedral" in key and value is not None:
+                value = np.rad2deg(value)
             structure_info[key].append(value)
         structure_info["system_label"].append("rogfp")
         structure_info["traj_idx"].append(rogfp_rep_idxs[0])
         structure_info["distance"].append(rogfp_rep_dist[0])
 
-        rogfp_cu_rep_idxs, rogfp_cu_rep_dist = find_representatives(feat_rogfp_cu, target_feature)
+        rogfp_cu_rep_idxs, rogfp_cu_rep_dist = find_representatives(
+            feat_rogfp_cu, target_feature
+        )
         for key, value in zip(target_features.keys(), combination):
+            if "-dihedral" in key and value is not None:
+                value = np.rad2deg(value)
             structure_info[key].append(value)
         structure_info["system_label"].append("rogfp_cu")
         structure_info["traj_idx"].append(rogfp_cu_rep_idxs[0])
