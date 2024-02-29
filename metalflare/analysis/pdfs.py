@@ -15,12 +15,11 @@ def compute_pdf(arr1, x_values, bw_method=None):
     return pdf
 
 
-def compute_pmfs(pdf1, pdf2, T=300.0):
-    pmf1 = -KB * T * np.log(np.where(pdf1 > 0, pdf1, 1e-15))
-    pmf2 = -KB * T * np.log(np.where(pdf2 > 0, pdf2, 1e-15))
-    shift_by = min(np.min(pmf1), np.min(pmf2))
-    pmf1 -= shift_by
-    pmf2 -= shift_by
+def compute_pmfs(pdf1, pdf2, x, zero_at, T=300.0):
+    pmf1 = -KB * T * np.log(np.where(pdf1 > 0, pdf1, 1e-50))
+    pmf2 = -KB * T * np.log(np.where(pdf2 > 0, pdf2, 1e-50))
+    pmf1 -= np.interp(zero_at, x, pmf1)
+    pmf2 -= np.interp(zero_at, x, pmf2)
     return pmf1, pmf2
 
 
@@ -64,6 +63,7 @@ def make_pmf_fig(
 ):
     plt.plot(x_values, pmf_rogfp, color="#1e2e79", label="Unbound", linewidth=2.5)
     plt.plot(x_values, pmf_rogfp_cu, color="#f99752", label="Bound", linewidth=2.5)
+    plt.axhline(y=0, linewidth=1.75, color="#C0C0C0", linestyle="dotted", zorder=-1)
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
     plt.ylim(*y_bounds)

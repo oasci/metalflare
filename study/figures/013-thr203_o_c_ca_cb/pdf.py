@@ -67,54 +67,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "013-thr203_o_c_ca_cb"
     pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
-    x_label = "THR203 HG1-O-CA-CB Dihedral [°]"
+    x_label = "THR203 O-C-CA-CB Dihedral [°]"
     plot_x_bounds = (-180, 0)
-    y_label = "Density"
-    plot_y_bounds = (0, None)
-
-    pdf_fig = make_pdf_fig(
-        x_values,
-        pdf_rogfp,
-        pdf_rogfp_cu,
-        pdf_plt_kwargs,
-        x_label=x_label,
-        x_bounds=plot_x_bounds,
-        y_label=y_label,
-        y_bounds=plot_y_bounds,
-    )
-    x_bounds = (-180, 180)
-    x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.03
-
-    kde = gaussian_kde(rogfp_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(-180, 180)
-    pdf_rogfp = kde(x_values) / scaling_factor
-
-    kde = gaussian_kde(rogfp2_cu_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(-180, 180)
-    pdf_rogfp_cu = kde(x_values) / scaling_factor
-
-    # save pdf information
-    pdf_info_lines = ["roGFP2\n"]
-    pdf_info_lines.extend(
-        extrema_table(x_values, "Dihedral [°]", pdf_rogfp, "Density", sci_notation=True)
-    )
-    pdf_info_lines.append("\nroGFP2 and Cu(I)\n")
-    pdf_info_lines.extend(
-        extrema_table(
-            x_values, "Dihedral [°]", pdf_rogfp_cu, "Density", sci_notation=True
-        )
-    )
-    pdf_info_lines = [line + "\n" for line in pdf_info_lines]
-    pdf_info_path = "./pdf-info.md"
-    with open(pdf_info_path, "w", encoding="utf-8") as f:
-        f.writelines(pdf_info_lines)
-
-    # Make pdf plot
-    fig_title = "010-cro66_og1_cb1_ca1_c1"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
-    x_label = "CRO66 OG1-CB1-CA1-C1 Dihedral [°]"
-    plot_x_bounds = (-180, 180)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -133,7 +87,9 @@ if __name__ == "__main__":
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(pdf_rogfp, pdf_rogfp_cu, T=300.0)
+    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(
+        pdf_rogfp, pdf_rogfp_cu, x_values, -107.57, T=300.0
+    )
 
     # save pmf information
     pmf_info_lines = ["roGFP2\n"]
@@ -154,7 +110,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (0, 7)
+    plot_y_bounds = (-0.5, 2)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -165,43 +121,5 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
     )
 
-    pmf_fig.savefig(f"{fig_title}-pmf.svg")
-    plt.close()
-
-    pdf_fig.savefig(f"{fig_title}-pdf.svg")
-    plt.close()
-
-    # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(pdf_rogfp, pdf_rogfp_cu, T=300.0)
-
-    # save pmf information
-    pmf_info_lines = ["roGFP2\n"]
-    pmf_info_lines.extend(
-        extrema_table(
-            x_values, "Dihedral [°]", pmf_rogfp, "PMF [kcal/mol]", sci_notation=False
-        )
-    )
-    pmf_info_lines.append("\nroGFP2 and Cu(I)\n")
-    pmf_info_lines.extend(
-        extrema_table(
-            x_values, "Dihedral [°]", pmf_rogfp_cu, "PMF [kcal/mol]", sci_notation=False
-        )
-    )
-    pmf_info_lines = [line + "\n" for line in pmf_info_lines]
-    pmf_info_path = "./pmf-info.md"
-    with open(pmf_info_path, "w", encoding="utf-8") as f:
-        f.writelines(pmf_info_lines)
-
-    y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (0, 7)
-    pmf_fig = make_pmf_fig(
-        x_values,
-        pmf_rogfp,
-        pmf_rogfp_cu,
-        x_label=x_label,
-        x_bounds=plot_x_bounds,
-        y_label=y_label,
-        y_bounds=plot_y_bounds,
-    )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()
