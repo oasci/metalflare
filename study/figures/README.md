@@ -6,6 +6,7 @@ It is advised to use vector figures (e.g.,  `.svg` files) when possible, as thei
 ## Key figures
 
 -   [008-thr203_o-cys204_sg](./008-thr203_o-cys204_sg/)
+-   [019-cys204_cb_ca_c_o](./019-cys204_cb_ca_c_o)
 -   [012-thr203_hg1_og1_cb_cg2](./012-thr203_hg1_og1_cb_cg2/)
 -   [014-ser205_og_cb_ca_n](./014-ser205_og_cb_ca_n/)
 -   [011-ser205_hg_og_cb_ca](./011-ser205_hg_og_cb_ca/)
