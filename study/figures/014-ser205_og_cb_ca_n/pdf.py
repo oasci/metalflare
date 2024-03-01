@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_cu = compute_pmfs(
-        pdf_rogfp, pdf_rogfp_cu, x_values, -120.54, T=300.0
+        pdf_rogfp, pdf_rogfp_cu, x_values, -163.78, T=300.0
     )
 
     # save pmf information

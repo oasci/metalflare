@@ -33,7 +33,7 @@ if __name__ == "__main__":
     # Compute all pdfs
     x_bounds = (2, 6)
     x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.1
+    bw_method = 0.3
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
 
