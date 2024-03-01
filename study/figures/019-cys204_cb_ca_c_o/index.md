@@ -30,7 +30,7 @@ jQuery.ajax( uri, {
         viewer.addLabel("O", {}, {chain: "A", resi: resi1, atom: "O"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -182.16736190247866, -8.725446987364373, -41.92004156302197, 105.89065560538575, -0.06423629657411058, 0.9860966550345494, 0.13307084576184847, 0.0760212808386044 ]);
+        viewer.setView([ -182.8261212782311, -8.751531661769146, -42.23809486582471, 113.33945603224701, 0.08484769992275454, 0.5292947875609151, -0.7668343126578551, -0.35300571186486296 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
         });

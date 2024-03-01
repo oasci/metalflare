@@ -24,13 +24,13 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.addLabel("CB", {}, {chain: "A", resi: resi1, atom: "CB"})
-        viewer.addLabel("CA", {}, {chain: "A", resi: resi1, atom: "CA"})
-        viewer.addLabel("C", {}, {chain: "A", resi: resi1, atom: "C"})
-        viewer.addLabel("O", {}, {chain: "A", resi: resi1, atom: "O"})
+        viewer.addLabel("O", {}, {chain: "A", resi: 203, atom: "O"})
+        viewer.addLabel("C", {}, {chain: "A", resi: 203, atom: "C"})
+        viewer.addLabel("N", {}, {chain: "A", resi: 204, atom: "N"})
+        viewer.addLabel("CA", {}, {chain: "A", resi: 204, atom: "CA"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -182.16736190247866, -8.725446987364373, -41.92004156302197, 105.89065560538575, -0.06423629657411058, 0.9860966550345494, 0.13307084576184847, 0.0760212808386044 ]);
+        viewer.setView([ -183.67039134673692, -8.790563885920129, -42.01344809829062, 111.72365444332763, 0.0934415604548533, -0.24428734671013674, 0.8726447904804752, 0.41241173196742426 ]);
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
         });
