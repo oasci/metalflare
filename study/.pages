@@ -6,6 +6,6 @@ nav:
     - Analysis: analysis
     - Figures: figures
     # - Dissemination: dissemination
-    # - Miscellaneous: misc
+    - Miscellaneous: misc
     - API: api
     - OASCI: https://www.oasci.org/
