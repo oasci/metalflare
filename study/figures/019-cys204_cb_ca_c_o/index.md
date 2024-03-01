@@ -24,10 +24,10 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.addLabel("OG", {}, {chain: "A", resi: resi1, atom: "OG"})
         viewer.addLabel("CB", {}, {chain: "A", resi: resi1, atom: "CB"})
         viewer.addLabel("CA", {}, {chain: "A", resi: resi1, atom: "CA"})
-        viewer.addLabel("N", {}, {chain: "A", resi: resi1, atom: "N"})
+        viewer.addLabel("C", {}, {chain: "A", resi: resi1, atom: "C"})
+        viewer.addLabel("O", {}, {chain: "A", resi: resi1, atom: "O"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
         viewer.setView([ -182.16736190247866, -8.725446987364373, -41.92004156302197, 105.89065560538575, -0.06423629657411058, 0.9860966550345494, 0.13307084576184847, 0.0760212808386044 ]);
@@ -45,21 +45,21 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./014-ser205_og_cb_ca_n-pdf.svg)
+![](./019-cys204_cb_ca_c_o-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/014-ser205_og_cb_ca_n/pdf-info.md"
+--8<-- "study/figures/019-cys204_cb_ca_c_o/pdf-info.md"
 
 ## Potential of mean force
 
 TODO:
 
 <figure markdown>
-![](./014-ser205_og_cb_ca_n-pmf.svg)
+![](./019-cys204_cb_ca_c_o-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/014-ser205_og_cb_ca_n/pmf-info.md"
+--8<-- "study/figures/019-cys204_cb_ca_c_o/pmf-info.md"
