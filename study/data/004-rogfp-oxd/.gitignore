@@ -1,0 +1,17 @@
+!1JC1-final.pdb
+!01-protein-prep.log
+!02-amber-prep.log
+!03-min-prep.log
+!04-relax-prep.log
+!05-prod-prep.log
+!06-prod-prep.log
+
+stdout_nonprot.pdb
+stdout_renum.txt
+stdout_sslink
+
+mol.inpcrd
+mol.prmtop
+!simulations/02-prep/mol.inpcrd
+!simulations/02-prep/mol.prmtop
+!08_prod_npt.pdb

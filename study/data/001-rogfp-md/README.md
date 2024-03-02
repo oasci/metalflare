@@ -48,7 +48,7 @@ jQuery.ajax( uri, {
 
 !!! warning
 
-    Because the chromophore (`CRO 65`) is a non-standard residue, [PDB2PQR][protocol-protein-prep-pdb2pqr] does not place any hydrogens and are missing in [1JC0-final.pdb][final-pdb].
+    Because the chromophore (`CRO 65`) is a non-standard residue, PDB2PQR does not place any hydrogens and are missing in [1JC0-final.pdb][final-pdb].
     Hydrogen atoms are added in the next protocol (tleap).
 
 ## Production
