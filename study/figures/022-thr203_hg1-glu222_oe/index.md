@@ -13,7 +13,7 @@ jQuery.ajax( uri, {
             { backgroundAlpha: '0.0' }
         );
         let resi1 = 203;
-        let atom1Name = "OG";
+        let atom1Name = "OG1";
         let resi2 = 222;
         let atom2Name = "OE1";
         viewer.addModel( data, 'pdb' );
