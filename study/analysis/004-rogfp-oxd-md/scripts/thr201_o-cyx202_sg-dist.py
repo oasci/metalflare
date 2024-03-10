@@ -40,7 +40,7 @@ def main():
     atoms_1 = u.select_atoms(atoms1_str)
     atoms_2 = u.select_atoms(atoms2_str)
 
-    atoms_npy_path = os.path.join(data_dir, "thr201_o-cym202_sg-dist.npy")
+    atoms_npy_path = os.path.join(data_dir, "thr201_o-cyx202_sg-dist.npy")
     atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):

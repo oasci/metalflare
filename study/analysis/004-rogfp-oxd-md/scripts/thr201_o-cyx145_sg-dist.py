@@ -21,12 +21,6 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     return trajectory_paths
 
 
-def compute_dihedralal_angle(coords):
-    # Given a set of coordinates, compute the dihedralal angle
-    # For example, you can use the dihedral function from MDAnalysis
-    return mda.lib.distances.calc_dihedrals(coords)
-
-
 def main():
     base_dir = "/ihome/jdurrant/amm503/bgfs/oasci/metalflare/study"
     trajectory_paths = generate_trajectory_paths(base_dir)
@@ -34,6 +28,8 @@ def main():
     topology_path = os.path.join(
         base_dir, "data/004-rogfp-oxd-md/simulations/02-prep/mol.prmtop"
     )
+    atoms1_str = "resid 201 and name O"
+    atoms2_str = "resid 145 and name SG"
 
     data_dir = os.path.join(base_dir, "analysis/004-rogfp-oxd-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
@@ -41,19 +37,19 @@ def main():
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
 
-    atoms = u.select_atoms("(resid 202 and name CA C ) or (resid 203 and name N CA)")
+    atoms_1 = u.select_atoms(atoms1_str)
+    atoms_2 = u.select_atoms(atoms2_str)
 
-    atoms_npy_path = os.path.join(data_dir, "cym202_ca_c-ser203_n_ca-dihedral.npy")
-    atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
+    atoms_npy_path = os.path.join(data_dir, "thr201_o-cyx145_sg-dist.npy")
+    atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):
-        coords = atoms.positions
-        dihedral_angle = mda.lib.distances.calc_dihedrals(*coords)
-        atoms_dihedral_array[i] = dihedral_angle
+        dist = np.linalg.norm(atoms_1.positions - atoms_2.positions)
+        atoms_dist_array[i] = dist
 
-    np.save(atoms_npy_path, atoms_dihedral_array)
+    np.save(atoms_npy_path, atoms_dist_array)
 
-    print(atoms_dihedral_array)
+    print(atoms_dist_array)
 
 
 if __name__ == "__main__":

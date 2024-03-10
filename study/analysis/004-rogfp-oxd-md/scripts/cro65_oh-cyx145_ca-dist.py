@@ -28,8 +28,8 @@ def main():
     topology_path = os.path.join(
         base_dir, "data/004-rogfp-oxd-md/simulations/02-prep/mol.prmtop"
     )
-    atoms1_str = "resid 201 and name O"
-    atoms2_str = "resid 145 and name SG"
+    atoms1_str = "resname CRO and name OH"
+    atoms2_str = "resname CYX and resid 145 and name CA"
 
     data_dir = os.path.join(base_dir, "analysis/004-rogfp-oxd-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
@@ -40,7 +40,7 @@ def main():
     atoms_1 = u.select_atoms(atoms1_str)
     atoms_2 = u.select_atoms(atoms2_str)
 
-    atoms_npy_path = os.path.join(data_dir, "thr201_o-cym145_sg-dist.npy")
+    atoms_npy_path = os.path.join(data_dir, "cro65_oh-cyx145_ca-dist.npy")
     atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):

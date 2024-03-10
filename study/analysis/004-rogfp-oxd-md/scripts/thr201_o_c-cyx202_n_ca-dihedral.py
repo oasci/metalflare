@@ -34,8 +34,6 @@ def main():
     topology_path = os.path.join(
         base_dir, "data/004-rogfp-oxd-md/simulations/02-prep/mol.prmtop"
     )
-    residue_str = "resname CYM and resid 202"
-    atom_names = ["CB", "CA", "C", "O"]  # Specify the four atoms on the same residue
 
     data_dir = os.path.join(base_dir, "analysis/004-rogfp-oxd-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
@@ -43,9 +41,9 @@ def main():
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
 
-    atoms = u.select_atoms(f"{residue_str} and name {' '.join(atom_names)}")
+    atoms = u.select_atoms("(resid 201 and name O C) or (resid 202 and name N CA)")
 
-    atoms_npy_path = os.path.join(data_dir, "cym202_cb_ca_c_o-dihedral.npy")
+    atoms_npy_path = os.path.join(data_dir, "thr201_o_c-cyx202_n_ca-dihedral.npy")
     atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):
