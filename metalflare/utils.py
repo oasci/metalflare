@@ -50,21 +50,18 @@ def exists_in_array(
     return bool(exists.any())
 
 
-def get_extrema(x, y):
-    window_length = 60
-    polyorder = 3
-    order = 5
+def get_extrema(x, y, extrema_order=5, polyorder=3, window_length=60):
     local_maxima_idxs = argrelextrema(
         savgol_filter(y, window_length=window_length, polyorder=polyorder),
         np.greater,
-        order=order,
+        order=extrema_order,
     )[0]
     local_maxima = y[local_maxima_idxs]
     local_maxima_x = x[local_maxima_idxs]
     local_minima_idxs = argrelextrema(
         savgol_filter(y, window_length=window_length, polyorder=polyorder),
         np.less,
-        order=order,
+        order=extrema_order,
     )[0]
     local_minima = y[local_minima_idxs]
     local_minima_x = x[local_minima_idxs]

@@ -24,8 +24,23 @@ def compute_pmfs(x, zero_at, pdfs, T=300.0):
     return pmfs
 
 
-def extrema_table(x, x_label, y, y_label, sci_notation=False):
-    local_extrema_x, local_extrema = get_extrema(x, y)
+def extrema_table(
+    x,
+    x_label,
+    y,
+    y_label,
+    sci_notation=False,
+    extrema_order=5,
+    polyorder=3,
+    window_length=60,
+):
+    local_extrema_x, local_extrema = get_extrema(
+        x,
+        y,
+        extrema_order=extrema_order,
+        polyorder=polyorder,
+        window_length=window_length,
+    )
     lines = []
     # Start of the Markdown table
     lines.append(f"| {x_label} | {y_label} |")
