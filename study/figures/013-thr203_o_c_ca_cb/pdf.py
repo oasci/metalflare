@@ -26,6 +26,17 @@ if __name__ == "__main__":
     rogfp_data = np.degrees(rogfp_data)
     rogfp_data = np.concatenate([rogfp_data, rogfp_data + 360, rogfp_data - 360])
 
+    # Oxidized
+    rogfp_oxd_data_path = os.path.join(
+        base_dir,
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_o_c_ca_cb-dihedral.npy",
+    )
+    rogfp_oxd_data = np.load(rogfp_oxd_data_path)
+    rogfp_oxd_data = np.degrees(rogfp_oxd_data)
+    rogfp_oxd_data = np.concatenate(
+        [rogfp_oxd_data, rogfp_oxd_data + 360, rogfp_oxd_data - 360]
+    )
+
     rogfp2_cu_path = os.path.join(
         base_dir,
         "analysis/003-rogfp-cu-md/data/struct-desc/thr201_o_c_ca_cb-dihedral.npy",
@@ -44,14 +55,24 @@ if __name__ == "__main__":
     scaling_factor = kde.integrate_box_1d(-180, 180)
     pdf_rogfp = kde(x_values) / scaling_factor
 
+    kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
+    scaling_factor = kde.integrate_box_1d(-180, 180)
+    pdf_rogfp_oxd = kde(x_values) / scaling_factor
+
     kde = gaussian_kde(rogfp2_cu_data, bw_method=bw_method)
     scaling_factor = kde.integrate_box_1d(-180, 180)
     pdf_rogfp_cu = kde(x_values) / scaling_factor
 
     # save pdf information
-    pdf_info_lines = ["roGFP2\n"]
+    pdf_info_lines = ["Reduced roGFP2\n"]
     pdf_info_lines.extend(
         extrema_table(x_values, "Dihedral [°]", pdf_rogfp, "Density", sci_notation=True)
+    )
+    pdf_info_lines.append("\nOxidized roGFP2\n")
+    pdf_info_lines.extend(
+        extrema_table(
+            x_values, "Dihedral [°]", pdf_rogfp_oxd, "Density", sci_notation=True
+        )
     )
     pdf_info_lines.append("\nroGFP2 and Cu(I)\n")
     pdf_info_lines.extend(
@@ -81,21 +102,32 @@ if __name__ == "__main__":
         x_bounds=plot_x_bounds,
         y_label=y_label,
         y_bounds=plot_y_bounds,
+        pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
     plt.xticks(np.arange(-180, 181, 60))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(
-        pdf_rogfp, pdf_rogfp_cu, x_values, -107.57, T=300.0
+    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
+        x_values, -107.57, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
-    pmf_info_lines = ["roGFP2\n"]
+    pmf_info_lines = ["Reduced roGFP2\n"]
     pmf_info_lines.extend(
         extrema_table(
             x_values, "Dihedral [°]", pmf_rogfp, "PMF [kcal/mol]", sci_notation=False
+        )
+    )
+    pmf_info_lines.append("\nOxidized roGFP2\n")
+    pmf_info_lines.extend(
+        extrema_table(
+            x_values,
+            "Dihedral [°]",
+            pmf_rogfp_oxd,
+            "PMF [kcal/mol]",
+            sci_notation=False,
         )
     )
     pmf_info_lines.append("\nroGFP2 and Cu(I)\n")
@@ -119,6 +151,7 @@ if __name__ == "__main__":
         x_bounds=plot_x_bounds,
         y_label=y_label,
         y_bounds=plot_y_bounds,
+        pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
 
     pmf_fig.savefig(f"{fig_title}-pmf.svg")

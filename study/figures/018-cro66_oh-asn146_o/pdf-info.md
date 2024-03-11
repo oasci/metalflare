@@ -1,4 +1,4 @@
-roGFP2
+Reduced roGFP2
 
 | Distance (Å) | Density |
 |-----------|-----------|
@@ -6,6 +6,14 @@ roGFP2
 | 5.33 | $7.212 \times 10^{-01}$ |
 | 8.07 | $3.612 \times 10^{-11}$ |
 | 9.88 | $0.000 \times 10^{+00}$ |
+
+Oxidized roGFP2
+
+| Distance (Å) | Density |
+|-----------|-----------|
+| 3.64 | $2.090 \times 10^{-04}$ |
+| 4.86 | $7.354 \times 10^{-01}$ |
+| 7.53 | $1.009 \times 10^{-10}$ |
 
 roGFP2 and Cu(I)
 

@@ -15,12 +15,13 @@ def compute_pdf(arr1, x_values, bw_method=None):
     return pdf
 
 
-def compute_pmfs(pdf1, pdf2, x, zero_at, T=300.0):
-    pmf1 = -KB * T * np.log(np.where(pdf1 > 0, pdf1, 1e-50))
-    pmf2 = -KB * T * np.log(np.where(pdf2 > 0, pdf2, 1e-50))
-    pmf1 -= np.interp(zero_at, x, pmf1)
-    pmf2 -= np.interp(zero_at, x, pmf2)
-    return pmf1, pmf2
+def compute_pmfs(x, zero_at, pdfs, T=300.0):
+    pmfs = []
+    for pdf in pdfs:
+        pmf = -KB * T * np.log(np.where(pdf > 0, pdf, 1e-50))
+        pmf -= np.interp(zero_at, x, pmf)
+        pmfs.append(pmf)
+    return pmfs
 
 
 def extrema_table(x, x_label, y, y_label, sci_notation=False):
@@ -41,13 +42,35 @@ def extrema_table(x, x_label, y, y_label, sci_notation=False):
 
 
 def make_pdf_fig(
-    x_values, pdf_rogfp, pdf_rogfp_cu, plt_kwargs, x_label, x_bounds, y_label, y_bounds
+    x_values,
+    pdf_rogfp,
+    pdf_rogfp_cu,
+    plt_kwargs,
+    x_label,
+    x_bounds,
+    y_label,
+    y_bounds,
+    pdf_rogfp_oxd=None,
 ):
     plt.fill_between(
-        x_values, pdf_rogfp, color="#1e2e79", label="Unbound", **plt_kwargs
+        x_values, pdf_rogfp, color="#1e2e79", label="Reduced", zorder=0, **plt_kwargs
     )
+    if pdf_rogfp_oxd is not None:
+        plt.fill_between(
+            x_values,
+            pdf_rogfp_oxd,
+            color="#EC4067",
+            label="Oxidized",
+            zorder=1,
+            **plt_kwargs,
+        )
     plt.fill_between(
-        x_values, pdf_rogfp_cu, color="#f99752", label="Bound", **plt_kwargs
+        x_values,
+        pdf_rogfp_cu,
+        color="#f99752",
+        label="Cu$^{+}$",
+        zorder=2,
+        **plt_kwargs,
     )
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
@@ -59,10 +82,35 @@ def make_pdf_fig(
 
 
 def make_pmf_fig(
-    x_values, pmf_rogfp, pmf_rogfp_cu, x_label, x_bounds, y_label, y_bounds
+    x_values,
+    pmf_rogfp,
+    pmf_rogfp_cu,
+    x_label,
+    x_bounds,
+    y_label,
+    y_bounds,
+    pmf_rogfp_oxd=None,
 ):
-    plt.plot(x_values, pmf_rogfp, color="#1e2e79", label="Unbound", linewidth=2.5)
-    plt.plot(x_values, pmf_rogfp_cu, color="#f99752", label="Bound", linewidth=2.5)
+    plt.plot(
+        x_values, pmf_rogfp, color="#1e2e79", label="Reduced", zorder=0, linewidth=2.5
+    )
+    if pmf_rogfp_oxd is not None:
+        plt.plot(
+            x_values,
+            pmf_rogfp_oxd,
+            color="#EC4067",
+            label="Oxidized",
+            zorder=1,
+            linewidth=2.5,
+        )
+    plt.plot(
+        x_values,
+        pmf_rogfp_cu,
+        color="#f99752",
+        label="Cu$^{+}$",
+        zorder=2,
+        linewidth=2.5,
+    )
     plt.axhline(y=0, linewidth=1.75, color="#C0C0C0", linestyle="dotted", zorder=-1)
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)

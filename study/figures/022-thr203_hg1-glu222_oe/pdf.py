@@ -20,6 +20,7 @@ if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../"
 
+    # Reduced
     rogfp_data_path_1 = os.path.join(
         base_dir,
         "analysis/001-rogfp-md/data/struct-desc/thr201_hg1-glu220_oe1-dist.npy",
@@ -28,6 +29,21 @@ if __name__ == "__main__":
         base_dir,
         "analysis/001-rogfp-md/data/struct-desc/thr201_hg1-glu220_oe2-dist.npy",
     )
+
+    # Oxidized
+    rogfp_oxd_data_path_1 = os.path.join(
+        base_dir,
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_hg1-glu220_oe1-dist.npy",
+    )
+    rogfp_oxd_data_path_2 = os.path.join(
+        base_dir,
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_hg1-glu220_oe1-dist.npy",
+    )
+    rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
+    rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
+    rogfp_oxd_data = np.minimum(rogfp_oxd_data_1, rogfp_oxd_data_2)
+
+    # Copper
     rogfp_data_1 = np.load(rogfp_data_path_1)
     rogfp_data_2 = np.load(rogfp_data_path_2)
     rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
@@ -48,12 +64,19 @@ if __name__ == "__main__":
     x_values = np.linspace(*x_bounds, 1000)
     bw_method = 0.1
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
+    pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
 
     # save pdf information
-    pdf_info_lines = ["roGFP2\n"]
+    pdf_info_lines = ["Reduced roGFP2\n"]
     pdf_info_lines.extend(
         extrema_table(x_values, "Distance (Å)", pdf_rogfp, "Density", sci_notation=True)
+    )
+    pdf_info_lines.append("\nOxidized roGFP2\n")
+    pdf_info_lines.extend(
+        extrema_table(
+            x_values, "Distance (Å)", pdf_rogfp_oxd, "Density", sci_notation=True
+        )
     )
     pdf_info_lines.append("\nroGFP2 and Cu(I)\n")
     pdf_info_lines.extend(
@@ -83,20 +106,31 @@ if __name__ == "__main__":
         x_bounds=plot_x_bounds,
         y_label=y_label,
         y_bounds=plot_y_bounds,
+        pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_cu = compute_pmfs(
-        pdf_rogfp, pdf_rogfp_cu, x_values, 1.73, T=300.0
+    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
+        x_values, 4.60, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
-    pmf_info_lines = ["roGFP2\n"]
+    pmf_info_lines = ["Reduced roGFP2\n"]
     pmf_info_lines.extend(
         extrema_table(
             x_values, "Distance (Å)", pmf_rogfp, "PMF [kcal/mol]", sci_notation=False
+        )
+    )
+    pmf_info_lines.append("\nOxidized roGFP2\n")
+    pmf_info_lines.extend(
+        extrema_table(
+            x_values,
+            "Distance (Å)",
+            pmf_rogfp_oxd,
+            "PMF [kcal/mol]",
+            sci_notation=False,
         )
     )
     pmf_info_lines.append("\nroGFP2 and Cu(I)\n")
@@ -112,7 +146,7 @@ if __name__ == "__main__":
 
     y_label = "PMF [kcal/mol]"
     plot_x_bounds = (1, 7)
-    plot_y_bounds = (-1, 6)
+    plot_y_bounds = (-1.5, 6)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -121,6 +155,7 @@ if __name__ == "__main__":
         x_bounds=plot_x_bounds,
         y_label=y_label,
         y_bounds=plot_y_bounds,
+        pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

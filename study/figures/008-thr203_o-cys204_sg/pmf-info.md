@@ -1,10 +1,16 @@
-roGFP2
+Reduced roGFP2
 
 | Distance (Å) | PMF [kcal/mol] |
 |-----------|-----------|
 | 3.56 | 0.000 |
 | 4.81 | 4.075 |
 | 4.87 | 4.067 |
+
+Oxidized roGFP2
+
+| Distance (Å) | PMF [kcal/mol] |
+|-----------|-----------|
+| 3.25 | -0.398 |
 
 roGFP2 and Cu(I)
 

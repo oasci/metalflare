@@ -16,6 +16,7 @@ RANDOM_STATE = 3728921
 
 STRIDE = 50
 
+
 def to_yaml(data, filename):
     """
     Dumps a dictionary `data` into a YAML file named `filename`.
@@ -24,7 +25,7 @@ def to_yaml(data, filename):
     - data (dict): The dictionary to be dumped into a YAML file.
     - filename (str): The name of the file to which the dictionary will be dumped.
     """
-    with open(filename, 'w', encoding="utf-8") as file:
+    with open(filename, "w", encoding="utf-8") as file:
         yaml.dump(data, file, allow_unicode=True)
 
 
@@ -44,7 +45,7 @@ def main():
             f"n_clusters = {n_clusters} average silhouette_score is : {silhouette_avg}"
         )
 
-    to_yaml(results, '../data/kmeans-scan.yaml')
+    to_yaml(results, "../data/kmeans-scan.yaml")
 
 
 if __name__ == "__main__":
