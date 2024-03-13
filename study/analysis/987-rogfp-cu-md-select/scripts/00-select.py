@@ -12,13 +12,16 @@ features_path = "../../989-rogfp-cu-md-clustering/data/sim-features.parquet"
 
 # Degrees
 target_features = {
-    "thr201_o-cym202_sg-dist": [3.15, 3.56, None],
-    "thr201_hg1_og1_cb_cg2-dihedral": [-124.86, 44.50, 116.58, None],
+    "thr201_o-cym202_sg-dist": [3.15, 3.25, 3.56, None],
+    "thr201_hg1_og1_cb_cg2-dihedral": [-124.86, -12.79, 44.50, 116.58, None],
     "ser203_og_cb_ca_n-dihedral": [-169.55, -73.33, -5.95, 69.73, None],
-    "ser203_hg_og_cb_ca-dihedral": [-132.79, -82.7, -66.13, 58.20, 135.32, None],
+    "ser203_hg_og_cb_ca-dihedral": [-132.79, -82.7, -66.13, 58.20, 75.86, 135.32, None],
     "cro65_og1_cb1_ca1_c1-dihedral": [-174.95, -68.29, 48.11, None],
     "cym202_c-ser203_n_ca_cb-dihedral": [-178.56, -79.82, -71.89, 126.31, None],
-    "ser203_h-asn144_o-dist": [2.07, 5.24, 6.16, None],
+    "ser203_h-asn144_o-dist": [2.07, 4.18, 5.24, 6.16, None],
+    "ser203_hg-glu220_oe-dist": [1.76, 3.77, None],
+    "thr202_hg1-glu220_oe-dist": [1.67, 3.73, 4.60, 6.05, None],
+    "cys145_ca-cys202_ca-dist": [3.95, 4.18, 4.36, 5.38, None],
 }
 
 for k, v in target_features.items():
