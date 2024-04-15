@@ -1,6 +1,6 @@
 nav:
     - Home: README.md
-    # - Management: management
+    - Management: management
     - Methods: methods
     - Data: data
     - Analysis: analysis

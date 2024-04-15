@@ -87,6 +87,18 @@ plugins:
       draggable: false
       height: auto
       width: 100%
+  - blog:
+      blog_dir: management/literature/
+      post_dir: "{blog}/articles"
+      post_date_format: medium
+      post_url_date_format: yyyy
+      blog_toc: true
+      post_excerpt_separator: <!-- more -->
+      archive: true
+      archive_name: Articles
+      archive_url_format: "articles/{date}"
+  - glightbox
+  - macros
 
 extra:
   generator: false
