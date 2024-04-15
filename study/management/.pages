@@ -4,5 +4,6 @@ nav:
     # - Grants: management/grants
     # - Meetings: management/meetings
     - Literature: management/literature
+    - BibTeX file: management/literature/bibtex
     # - Standards: management/standards
     - Notebook: management/notebook

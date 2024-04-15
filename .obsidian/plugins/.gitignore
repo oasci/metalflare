@@ -1,0 +1,14 @@
+*.js
+*.css
+*.json
+!*data.json
+
+*css
+*dist
+*plugin
+*template
+*icons
+
+!obsidian-bibtex-adder/main.js
+!obsidian-bibtex-adder/manifest.json
+recent-files-obsidian/data.json

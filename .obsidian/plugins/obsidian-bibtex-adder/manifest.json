@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-bibtex-adder",
+	"name": "BibTeX Adder",
+	"version": "0.0.1",
+	"minAppVersion": "0.12.0",
+	"description": "Add BibTeX entries from DOIs using the Crossref REST API.",
+	"author": "Alex Maldonado",
+	"authorUrl": "https://aalexmmaldonado.com",
+	"isDesktopOnly": false
+}

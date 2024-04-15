@@ -1,0 +1,12 @@
+themes
+workspace
+workspace.json
+
+!.gitignore
+!app.json
+!appearance.json
+!backlink.json
+!community-plugins.json
+!core-plugins.json
+!graph.json
+!hotkeys.json

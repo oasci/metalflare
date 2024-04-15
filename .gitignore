@@ -65,7 +65,6 @@ psi.*.clean
 
 .venv
 
-.obsidian/*
 .mypy_cache
 site
 public
