@@ -36,8 +36,10 @@ def main():
     # Create a colormap
     colors = []
     for label in labels:
-        if label == "rogfp":
+        if label == "rogfp_red":
             colors.append("#1e2e79")
+        elif label == "rogfp_oxd":
+            colors.append("#ec4067")
         elif label == "rogfp_cu":
             colors.append("#f99752")
 
