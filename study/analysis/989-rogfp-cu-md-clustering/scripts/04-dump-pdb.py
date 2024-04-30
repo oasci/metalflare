@@ -34,7 +34,7 @@ def main():
     rogfp2_path = "data/001-rogfp-md/simulations"
     rogfp2_cu_path = "data/003-rogfp-cu-md/simulations"
 
-    base_dir = "/ihome/jdurrant/amm503/bgfs/oasci/metalflare/study"
+    base_dir = "/ihome/jdurrant/amm503/ix/oasci/metalflare/study"
     traj_paths_rogfp2 = generate_trajectory_paths(base_dir, f"{rogfp2_path}/05-prod")
     traj_paths_rogfp2_cu = generate_trajectory_paths(
         base_dir, f"{rogfp2_cu_path}/05-prod"

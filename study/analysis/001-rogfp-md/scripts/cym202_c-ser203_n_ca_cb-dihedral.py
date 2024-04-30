@@ -28,7 +28,7 @@ def compute_dihedralal_angle(coords):
 
 
 def main():
-    base_dir = "/ihome/jdurrant/amm503/bgfs/oasci/metalflare/study"
+    base_dir = "/ihome/jdurrant/amm503/ix/oasci/metalflare/study"
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(

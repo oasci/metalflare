@@ -25,7 +25,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
 
 
 def main():
-    base_dir = "/ihome/jdurrant/amm503/bgfs/oasci/metalflare/study"
+    base_dir = "/ihome/jdurrant/amm503/ix/oasci/metalflare/study"
     trajectory_paths = generate_trajectory_paths(base_dir)
     topology_path = os.path.join(
         base_dir, "data/001-rogfp-md/simulations/02-prep/mol.prmtop"
