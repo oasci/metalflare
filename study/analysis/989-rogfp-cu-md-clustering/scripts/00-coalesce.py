@@ -9,6 +9,7 @@ import pandas as pd
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 rogfp2_dset_path = "../../001-rogfp-md/data/struct-desc"
+rogfp2_oxd_dset_path = "../../004-rogfp-oxd-md/data/struct-desc"
 rogfp2_cu_dset_path = "../../003-rogfp-cu-md/data/struct-desc"
 
 
@@ -50,6 +51,10 @@ def main():
     rogfp2_file_paths = glob.glob(os.path.join(rogfp2_dset_path, "*.npy"))
     file_path = "../data/rogfp2-desc.parquet"
     npy_to_parquet(rogfp2_file_paths, file_path)
+
+    rogfp2_oxd_file_paths = glob.glob(os.path.join(rogfp2_oxd_dset_path, "*.npy"))
+    file_path = "../data/rogfp2-oxd-desc.parquet"
+    npy_to_parquet(rogfp2_oxd_file_paths, file_path)
 
     rogfp2_cu_file_paths = glob.glob(os.path.join(rogfp2_cu_dset_path, "*.npy"))
     file_path = "../data/rogfp2-cu-desc.parquet"

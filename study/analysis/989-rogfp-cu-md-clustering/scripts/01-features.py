@@ -9,6 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 rogfp2_file_path = "../data/rogfp2-desc.parquet"
+rogfp2_oxd_file_path = "../data/rogfp2-oxd-desc.parquet"
 rogfp2_cu_file_path = "../data/rogfp2-cu-desc.parquet"
 
 
@@ -53,14 +54,18 @@ def featurization(df_data):
 def main():
     df_rogfp2 = pd.read_parquet(rogfp2_file_path)
     df_rogfp2 = feat_angles(df_rogfp2)
-    df_rogfp2["system_label"] = "rogfp"  # Add system label after processing
+    df_rogfp2["system_label"] = "rogfp_red"  # Add system label after processing
+
+    df_oxd_rogfp2 = pd.read_parquet(rogfp2_oxd_file_path)
+    df_oxd_rogfp2 = feat_angles(df_oxd_rogfp2)
+    df_oxd_rogfp2["system_label"] = "rogfp_oxd"  # Add system label after processing
 
     df_rogfp2_cu = pd.read_parquet(rogfp2_cu_file_path)
     df_rogfp2_cu = feat_angles(df_rogfp2_cu)
     df_rogfp2_cu["system_label"] = "rogfp_cu"  # Add system label after processing
 
     # Combine the dataframes
-    df_comb = pd.concat([df_rogfp2, df_rogfp2_cu], axis=0)
+    df_comb = pd.concat([df_rogfp2, df_oxd_rogfp2, df_rogfp2_cu], axis=0)
     df_comb.to_parquet("../data/sim-features.parquet", index=False)
 
     # Scale all features (excluding the system_label column)
