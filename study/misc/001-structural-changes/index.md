@@ -68,7 +68,7 @@ jQuery.ajax( uri, {
 !!! quote "**Figure 1**"
 
     <figure markdown>
-    ![](../../figures/008-thr203_o-cys204_sg/008-thr203_o-cys204_sg-pmf.svg){ alight=left width=600 }
+    ![](../../figures/f002-thr203_o-cys204_sg/f002-thr203_o-cys204_sg-pmf.svg){ alight=left width=600 }
     </figure>
 
     Binding of Cu<sup>+</sup> shifts the distance minima by -0.41 Å and reduces the energy by -1.92 kcal/mol.

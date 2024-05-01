@@ -5,14 +5,14 @@ It is advised to use vector figures (e.g.,  `.svg` files) when possible, as thei
 
 ## Key figures
 
--   [008-thr203_o-cys204_sg](./008-thr203_o-cys204_sg/)
--   [019-cys204_cb_ca_c_o](./019-cys204_cb_ca_c_o)
--   [012-thr203_hg1_og1_cb_cg2](./012-thr203_hg1_og1_cb_cg2/)
--   [014-ser205_og_cb_ca_n](./014-ser205_og_cb_ca_n/)
--   [011-ser205_hg_og_cb_ca](./011-ser205_hg_og_cb_ca/)
--   [010-cro66_og1_cb1_ca1_c1](./010-cro66_og1_cb1_ca1_c1/)
--   [016-cys204_c-ser205_n_ca_cb](./016-cys204_c-ser205_n_ca_cb/)
--   [017-ser205_h-asn146_o](./017-ser205_h-asn146_o/)
+-   [f002-thr203_o-cys204_sg](./f-cys-beta/f002-thr203_o-cys204_sg/)
+-   [f006-cys204_cb_ca_c_o](./f-cys-beta/f006-cys204_cb_ca_c_o)
+-   [d001-thr203_hg1_og1_cb_cg2](./d-thr203/d001-thr203_hg1_og1_cb_cg2/)
+-   [c002-ser205_og_cb_ca_n](./c-ser205/c002-ser205_og_cb_ca_n/)
+-   [c001-ser205_hg_og_cb_ca](./c-ser205/c001-ser205_hg_og_cb_ca/)
+-   [a001-cro66_og1_cb1_ca1_c1](./a-cro/a001-cro66_og1_cb1_ca1_c1/)
+-   [f004-cys204_c-ser205_n_ca_cb](./f-cys-beta/f004-cys204_c-ser205_n_ca_cb/)
+-   [f005-ser205_h-asn146_o](./f-cys-beta/f005-ser205_h-asn146_o/)
 
 ## Residue indices
 
