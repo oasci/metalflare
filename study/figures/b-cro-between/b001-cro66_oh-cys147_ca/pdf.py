@@ -18,7 +18,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
-    base_dir = "../../"
+    base_dir = "../../../"
 
     # Load in data
     rogfp_data_path = os.path.join(
