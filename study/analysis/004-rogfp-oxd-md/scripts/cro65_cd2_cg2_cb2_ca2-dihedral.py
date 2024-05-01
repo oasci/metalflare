@@ -50,7 +50,7 @@ def main():
 
     atoms = u.select_atoms(f"{residue_str} and name {' '.join(atom_names)}")
 
-    atoms_npy_path = os.path.join(data_dir, "cro65_cd2-cg2-cb2-ca2-dihedral.npy")
+    atoms_npy_path = os.path.join(data_dir, "cro65_cd2_cg2_cb2_ca2-dihedral.npy")
     atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):
