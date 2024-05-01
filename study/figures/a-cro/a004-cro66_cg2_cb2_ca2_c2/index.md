@@ -24,13 +24,13 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 204}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 205}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
-        viewer.addLabel("OG1", {}, {chain: "A", resi: resi1, atom: "OG1"})
-        viewer.addLabel("CB1", {}, {chain: "A", resi: resi1, atom: "CB1"})
-        viewer.addLabel("CA1", {}, {chain: "A", resi: resi1, atom: "CA1"})
-        viewer.addLabel("C1", {}, {chain: "A", resi: resi1, atom: "C1"})
+        viewer.addLabel("CG2", {}, {chain: "A", resi: resi1, atom: "CG2"})
+        viewer.addLabel("CB2", {}, {chain: "A", resi: resi1, atom: "CB2"})
+        viewer.addLabel("CA2", {}, {chain: "A", resi: resi1, atom: "CA2"})
+        viewer.addLabel("C2", {}, {chain: "A", resi: resi1, atom: "C2"})
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -178.54845283019642, -8.287854743737649, -41.32961916913211, 96.76437948169743, 0.12322892294046181, -0.986881068950569, 0.04557929448433187, 0.0938238573723442 ]);
+        viewer.setView([ -176.32819422335245, -11.5435395679008, -43.70052957148548, 113.677239617803, 0.1981859208096388, -0.8621311737597761, -0.46627736602015957, 0.0061317176816809565 ]);
         //viewer.zoomTo({chain: "A"})
         viewer.setClickable({}, true, function(atom,viewer,event,container) {
             console.log(viewer.getView());
@@ -46,21 +46,21 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./a001-cro66_og1_cb1_ca1_c1-pdf.svg)
+![](./a004-cro66_cg2_cb2_ca2_c2-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/a-cro/a001-cro66_og1_cb1_ca1_c1/pdf-info.md"
+--8<-- "study/figures/a-cro/a004-cro66_cg2_cb2_ca2_c2/pdf-info.md"
 
 ## Potential of mean force
 
 TODO:
 
 <figure markdown>
-![](./a001-cro66_og1_cb1_ca1_c1-pmf.svg)
+![](./a004-cro66_cg2_cb2_ca2_c2-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/a-cro/a001-cro66_og1_cb1_ca1_c1/pmf-info.md"
+--8<-- "study/figures/a-cro/a004-cro66_cg2_cb2_ca2_c2/pmf-info.md"
