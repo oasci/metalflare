@@ -33,7 +33,6 @@ def main():
             data_path = os.path.join(
                 data_dir, f"resid65_oh-resid{resid}_{element_type.lower()}"
             )
-            D.results.density.grid /= D.results.density.grid.sum()
             D.results.density.export(data_path + ".dx")
 
 
