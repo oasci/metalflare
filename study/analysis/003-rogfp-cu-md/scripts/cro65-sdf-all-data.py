@@ -30,6 +30,8 @@ def main():
         D = DensityAnalysis(atoms_1, delta=0.5)
         D.run(step=1)
 
+        D.results.density.grid /= D.results.density.grid.sum()
+
         data_path = os.path.join(data_dir, f"resid65_oh-{element_type.lower()}")
         D.results.density.export(data_path + ".dx")
 
