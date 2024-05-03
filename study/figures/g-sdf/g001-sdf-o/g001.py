@@ -2,7 +2,7 @@ from collections.abc import Mapping
 
 import numpy as np
 import pymol
-from pymol import cmd, stored
+from pymol import cmd, util
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
@@ -111,14 +111,29 @@ cmd.color("grey70", "element C")
 cmd.set_view(
     """
 (\
-     0.358774662,   -0.843655109,   -0.399399638,\
-     0.614526272,    0.535558581,   -0.579239249,\
-     0.702582955,   -0.037629638,    0.710597932,\
-    -0.000824383,   -0.000165720,  -23.923332214,\
-    39.504554749,   33.532035828,   37.958637238,\
-  -154.725601196,  202.289382935,  -20.000000000 )
+     0.115785033,   -0.774704337,   -0.621626854,\
+     0.524430394,    0.579164386,   -0.624106050,\
+     0.843521476,   -0.253746152,    0.473351479,\
+    -0.002147511,   -0.000185485,  -27.974308014,\
+    38.576263428,   35.590415955,   39.145816803,\
+  -150.627853394,  206.387130737,  -20.000000000 )
 """
 )
 
-# Ensure PyMOL updates the display
+cmd.refresh()
+
+# Figure settings
+cmd.set("ray_trace_fog", 0)
+cmd.set("depth_cue", 0)
+util.performance(0)
+cmd.set("antialias", 4)
+cmd.set("hash_max", 300)
+cmd.set("ray_trace_mode", 1)
+
+cmd.enable("oxd_iso")
+cmd.disable("cu_iso")
+cmd.png("red_oxd-sdf-o.png", dpi=1000)
+cmd.disable("oxd_iso")
+cmd.enable("cu_iso")
+cmd.png("red_cu-sdf-o.png", dpi=1000)
 cmd.refresh()
