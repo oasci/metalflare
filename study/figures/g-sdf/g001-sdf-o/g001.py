@@ -99,6 +99,13 @@ cmd.disable("oxd_protein")
 cmd.disable("cu_protein")
 # cmd.disable("oxd_iso")
 
+# Labels
+# cmd.label(selection="model red_protein and resi 220 and name CD", expression="resn")
+# cmd.label(selection="model red_protein and resi 201 and name OG1", expression="resn")
+# cmd.label(selection="model red_protein and resi 203 and name OG", expression="resn")
+cmd.set("label_font_id", 7)
+cmd.set("label_size", 22)
+
 # Set view
 cmd.color("grey70", "element C")
 cmd.set_view(
