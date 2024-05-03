@@ -20,7 +20,7 @@ def main():
     os.makedirs(data_dir, exist_ok=True)
 
     element_types = ["O", "N"]
-    resids = ["143", "146", "201", "220"]
+    resids = ["143", "146", "201", "203", "220"]
     for element_type in element_types:
         print(f"Working on element {element_type}")
         resid_string = "resid " + " or resid ".join([resid for resid in resids])
