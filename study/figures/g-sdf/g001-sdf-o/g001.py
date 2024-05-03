@@ -1,57 +1,38 @@
+from collections.abc import Mapping
+
+import numpy as np
 import pymol
 from pymol import cmd, stored
-from scipy.optimize import minimize
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
 ISO_VALUE = 0.0018
 
-# Start PyMOL session
-pymol.finish_launching()
 
+def move_object(mobile_object: str, x: Mapping[float]) -> None:
+    """Move PyMOL object's display matrix. Transformations are made in PyMOLs internal
+    space and are not physical changes.
 
-def calculate_rmsd(x, mobile_object, ref_object):
-    cmd.copy("trans-move", mobile_object)
-    move_object("trans-move", x)
-    rmsd = cmd.rms_cur(f"trans-move and resn CRO", f"{ref_object} and resn CRO")
-    cmd.delete("trans-move")
-    return rmsd
-
-
-def move_object(mobile_object, x):
+    Args:
+        mobile_object: PyMOL object name to be transformed.
+        x: Custom transformation vector of
+            `[tran_x, trans_y, trans_z, rot_x, rot_y, rot_z]`.
+    """
     translate = x[:3]
     angles = x[3:]
-    cmd.translate(translate.tolist(), object=mobile_object, camera=0)
+    if isinstance(translate, np.ndarray):
+        translate = translate.tolist()
+    cmd.translate(translate, object=mobile_object, camera=0)
     cmd.rotate("x", angles[0], object=mobile_object, camera=0)
     cmd.rotate("y", angles[1], object=mobile_object, camera=0)
     cmd.rotate("z", angles[2], object=mobile_object, camera=0)
 
 
-def calc_object_matrix(mobile_object, ref_object):
-    # Performs minimization of object translation and rotation
-    initial_guess = [0, 0, 0, 0, 0, 0]
-    result = minimize(
-        calculate_rmsd,
-        initial_guess,
-        args=(mobile_object, ref_object),
-        method="Nelder-Mead",
-        bounds=(
-            (-50, 50),
-            (-50, 50),
-            (-50, 50),
-            (-360, 360),
-            (-360, 360),
-            (-360, 360),
-        ),
-        tol=1e-12,
-    )
-    move_object(mobile_object, result.x)
-    return result.x
-
+# Start PyMOL session
+pymol.finish_launching()
 
 # Setup colors
 cmd.bg_color("white")
-cmd.color("grey70", "element C")
 cmd.set_color("red_color", [30, 46, 121])
 cmd.set_color("oxd_color", [236, 64, 103])
 cmd.set_color("cu_color", [249, 151, 82])
@@ -69,28 +50,23 @@ cmd.load(
     "cu_protein",
 )
 
-cmd.select("red_cro", "red_protein and resn CRO")
-cmd.select("oxd_cro", "oxd_protein and resn CRO")
-cmd.select("cu_cro", "cu_protein and resn CRO")
-
 # Display specific residues as sticks
-cmd.select("proton_wire", "(resi 143 or resi 146 or resi 201 or resi 220)")
+cmd.select("proton_wire", "(resi 201 or resi 220)")
 cmd.show("sticks", "proton_wire")
+cmd.select("close_residues", "(resi 143 or resi 146)")
+cmd.show("sticks", "close_residues")
+cmd.set("sphere_transparency", 0.9, "close_residues")
+cmd.set("stick_transparency", 0.9, "close_residues")
 cmd.select("cys", "(resi 145 or resi 202)")
-cmd.show("sticks", "cys")
+# cmd.show("sticks", "cys")
 cmd.hide("cartoon", "(not proton_wire and not cys)")
-
-# Select CRO residues
-cmd.select("cro_red", "(resn CRO and model red_protein)")
-cmd.select("cro_oxd", "(resn CRO and model oxd_protein)")
-cmd.select("cro_cu", "(resn CRO and model cu_protein)")
 
 # Load density maps
 cmd.load("../../../analysis/001-rogfp-md/data/sdf/resid65_oh-o.dx", "red")
 cmd.load("../../../analysis/004-rogfp-oxd-md/data/sdf/resid65_oh-o.dx", "oxd")
 cmd.load("../../../analysis/003-rogfp-cu-md/data/sdf/resid65_oh-o.dx", "cu")
 
-# Generate and adjust surfaces
+# Generate and adjust iso surfaces
 cmd.isomesh("red_iso", "red", 1.0)
 cmd.isomesh("oxd_iso", "oxd", 1.0)
 cmd.isomesh("cu_iso", "cu", 1.0)
@@ -104,24 +80,33 @@ cmd.color("red_color", "red_iso")
 cmd.color("oxd_color", "oxd_iso")
 cmd.color("cu_color", "cu_iso")
 
-# Perform the alignment using the align command which returns the RMSD and the transformation matrix
-oxd_transform = calc_object_matrix(
-    mobile_object="oxd_protein", ref_object="red_protein"
-)
-cu_transform = calc_object_matrix(mobile_object="cu_protein", ref_object="red_protein")
+# Load and perform alignment transformations
+oxd_transform = np.load("transform_oxd.npy").tolist()
+cu_transform = np.load("transform_cu.npy").tolist()
+
+move_object("oxd_protein", oxd_transform)
+move_object("cu_protein", cu_transform)
 move_object("oxd_iso", oxd_transform)
 move_object("cu_iso", cu_transform)
 
-oxd_transform = calc_object_matrix(
-    mobile_object="oxd_protein", ref_object="red_protein"
-)
-cu_transform = calc_object_matrix(mobile_object="cu_protein", ref_object="red_protein")
-move_object("oxd_iso", oxd_transform)
-move_object("cu_iso", cu_transform)
+# Disable other objects
+cmd.disable("oxd_protein")
+cmd.disable("cu_protein")
+cmd.disable("oxd_iso")
 
-# Disable other proteins
-# cmd.disable("oxd_protein")
-# cmd.disable("cu_protein")
+# Set view
+cmd.color("grey70", "element C")
+cmd.set_view(
+    """
+(\
+    -0.001795823,   -0.816295385,    0.577630520,\
+    -0.324717790,    0.546803534,    0.771722138,\
+    -0.945807695,   -0.186181307,   -0.266049117,\
+     0.000210151,   -0.000097310,  -24.184480667,\
+    38.278465271,   36.482650757,   37.790683746,\
+  -154.361633301,  202.653350830,  -20.000000000 )
+"""
+)
 
 # Ensure PyMOL updates the display
 cmd.refresh()
