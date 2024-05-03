@@ -6,7 +6,7 @@ from pymol import cmd, stored
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
-ISO_VALUE = 0.0017
+ISO_VALUE = 0.0014
 
 
 def move_object(mobile_object: str, x: Mapping[float]) -> None:
@@ -81,9 +81,9 @@ cmd.color("red_color", "red_iso")
 cmd.color("oxd_color", "oxd_iso")
 cmd.color("cu_color", "cu_iso")
 
-cmd.set("transparency", 0.1, "red_iso")
+cmd.set("transparency", 0.2, "red_iso")
 cmd.set("transparency", 0.4, "oxd_iso")
-cmd.set("transparency", 0.2, "cu_iso")
+cmd.set("transparency", 0.3, "cu_iso")
 
 # Load and perform alignment transformations
 oxd_transform = np.load("transform_oxd.npy").tolist()
