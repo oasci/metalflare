@@ -26,6 +26,8 @@ def main():
         resid_string = "resid " + " or resid ".join([resid for resid in resids])
         u = mda.Universe(topology_path, trajectory_path)
         atoms_1_str = f"(resname CRO and name OH) or (element {element_type} and ({resid_string}))"
+        if element_type == "O":
+            atoms_1_str += "or (resname WAT and (around 5.0 (resname CRO and name OH)) and (around 5.0 (resid 143 and name OH)) and (around 6.0 (resid 203 and name CB)))"
         atoms_1 = u.select_atoms(atoms_1_str)
         D = DensityAnalysis(atoms_1, delta=0.5)
         D.run(step=1)
