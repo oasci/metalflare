@@ -6,7 +6,7 @@ from pymol import cmd, stored
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
-ISO_VALUE = 0.0018
+ISO_VALUE = 0.0017
 
 
 def move_object(mobile_object: str, x: Mapping[float]) -> None:
@@ -51,15 +51,17 @@ cmd.load(
 )
 
 # Display specific residues as sticks
-cmd.select("proton_wire", "(resi 201 or resi 220)")
+cmd.select("proton_wire", "(resi 201 or resi 203 or resi 220)")
 cmd.show("sticks", "proton_wire")
 cmd.select("close_residues", "(resi 143 or resi 146)")
 cmd.show("sticks", "close_residues")
 cmd.set("sphere_transparency", 0.9, "close_residues")
 cmd.set("stick_transparency", 0.9, "close_residues")
 cmd.select("cys", "(resi 145 or resi 202)")
-# cmd.show("sticks", "cys")
 cmd.hide("cartoon", "(not proton_wire and not cys)")
+cmd.select("cro", "(resn CRO)")
+cmd.set("sphere_transparency", 0.3, "cro")
+cmd.set("stick_transparency", 0.3, "cro")
 
 # Load density maps
 cmd.load("../../../analysis/001-rogfp-md/data/sdf/resid65_oh-o.dx", "red")
@@ -67,18 +69,21 @@ cmd.load("../../../analysis/004-rogfp-oxd-md/data/sdf/resid65_oh-o.dx", "oxd")
 cmd.load("../../../analysis/003-rogfp-cu-md/data/sdf/resid65_oh-o.dx", "cu")
 
 # Generate and adjust iso surfaces
-cmd.isomesh("red_iso", "red", 1.0)
-cmd.isomesh("oxd_iso", "oxd", 1.0)
-cmd.isomesh("cu_iso", "cu", 1.0)
+cmd.isosurface("red_iso", "red", 1.0)
+cmd.isosurface("oxd_iso", "oxd", 1.0)
+cmd.isosurface("cu_iso", "cu", 1.0)
 
 cmd.isolevel("red_iso", ISO_VALUE)
 cmd.isolevel("oxd_iso", ISO_VALUE)
 cmd.isolevel("cu_iso", ISO_VALUE)
 
-# Change colors of isosurfaces
 cmd.color("red_color", "red_iso")
 cmd.color("oxd_color", "oxd_iso")
 cmd.color("cu_color", "cu_iso")
+
+cmd.set("transparency", 0.1, "red_iso")
+cmd.set("transparency", 0.4, "oxd_iso")
+cmd.set("transparency", 0.2, "cu_iso")
 
 # Load and perform alignment transformations
 oxd_transform = np.load("transform_oxd.npy").tolist()
@@ -92,19 +97,19 @@ move_object("cu_iso", cu_transform)
 # Disable other objects
 cmd.disable("oxd_protein")
 cmd.disable("cu_protein")
-cmd.disable("oxd_iso")
+# cmd.disable("oxd_iso")
 
 # Set view
 cmd.color("grey70", "element C")
 cmd.set_view(
     """
 (\
-    -0.001795823,   -0.816295385,    0.577630520,\
-    -0.324717790,    0.546803534,    0.771722138,\
-    -0.945807695,   -0.186181307,   -0.266049117,\
-     0.000210151,   -0.000097310,  -24.184480667,\
-    38.278465271,   36.482650757,   37.790683746,\
-  -154.361633301,  202.653350830,  -20.000000000 )
+     0.358774662,   -0.843655109,   -0.399399638,\
+     0.614526272,    0.535558581,   -0.579239249,\
+     0.702582955,   -0.037629638,    0.710597932,\
+    -0.000824383,   -0.000165720,  -23.923332214,\
+    39.504554749,   33.532035828,   37.958637238,\
+  -154.725601196,  202.289382935,  -20.000000000 )
 """
 )
 
