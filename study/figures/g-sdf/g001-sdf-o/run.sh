@@ -4,6 +4,6 @@
 # Ensure we are in the directory of this script.
 cd "$(dirname "$0")"
 
-pymol g001.pml
+pymol g001.py
 
 )
