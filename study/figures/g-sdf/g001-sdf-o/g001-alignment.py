@@ -1,8 +1,6 @@
-import os
 from collections.abc import Mapping
 
 import numpy as np
-import numpy.typing as npt
 import pymol
 from pymol import cmd
 from scipy.optimize import minimize
@@ -24,7 +22,9 @@ def move_object(mobile_object: str, x: Mapping[float]) -> None:
     """
     translate = x[:3]
     angles = x[3:]
-    cmd.translate(translate.tolist(), object=mobile_object, camera=0)
+    if isinstance(translate, np.ndarray):
+        translate = translate.tolist()
+    cmd.translate(translate, object=mobile_object, camera=0)
     cmd.rotate("x", angles[0], object=mobile_object, camera=0)
     cmd.rotate("y", angles[1], object=mobile_object, camera=0)
     cmd.rotate("z", angles[2], object=mobile_object, camera=0)
@@ -70,8 +70,8 @@ def calculate_rmsd(
 
 
 def opt_object_alignment(
-    mobile_object: str, ref_object: str
-) -> npt.NDArray[np.floating]:
+    mobile_object: str, ref_object: str, initial_guess: Mapping[float] | None = None
+) -> Mapping[float]:
     """Computes the optimal translation and rotation vector to minimize the RMSD between
     two PyMOL objects.
 
@@ -84,7 +84,8 @@ def opt_object_alignment(
         `[tran_x, trans_y, trans_z, rot_x, rot_y, rot_z]`.
     """
     # Performs minimization of object translation and rotation
-    initial_guess = [0, 0, 0, 0, 0, 0]
+    if initial_guess is None:
+        initial_guess = [0, 0, 0, 0, 0, 0]
     result = minimize(
         calculate_rmsd,
         initial_guess,
@@ -100,8 +101,7 @@ def opt_object_alignment(
         ),
         tol=1e-12,
     )
-    move_object(mobile_object, result.x)
-    return result.x
+    return result.x.tolist()
 
 
 # Load files
@@ -124,16 +124,21 @@ oxd_transform = opt_object_alignment(
     mobile_object="oxd_protein", ref_object="red_protein"
 )
 oxd_transform = opt_object_alignment(
-    mobile_object="oxd_protein", ref_object="red_protein"
+    mobile_object="oxd_protein", ref_object="red_protein", initial_guess=oxd_transform
 )
-np.save("transform_oxd.npy", oxd_transform)
+np.save("transform_oxd.npy", np.array(oxd_transform))
 
 cu_transform = opt_object_alignment(
     mobile_object="cu_protein", ref_object="red_protein"
 )
 cu_transform = opt_object_alignment(
-    mobile_object="cu_protein", ref_object="red_protein"
+    mobile_object="cu_protein", ref_object="red_protein", initial_guess=cu_transform
 )
-np.save("transform_cu.npy", cu_transform)
+np.save("transform_cu.npy", np.array(cu_transform))
 
-cmd.quit()
+move_object("oxd_protein", oxd_transform)
+move_object("cu_protein", cu_transform)
+
+cmd.refresh()
+
+# cmd.quit()
