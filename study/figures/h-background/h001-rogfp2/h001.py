@@ -36,11 +36,15 @@ cmd.bg_color("white")
 cmd.load("https://files.rcsb.org/download/2Y0G.pdb", "egfp")
 cmd.load("https://files.rcsb.org/download/1JC0.pdb", "rogfp2-reduced")
 cmd.load("https://files.rcsb.org/download/1JC1.pdb", "rogfp2-oxidized")
+cmd.load("../../../data/003-rogfp-cu-md/structures/protein/1JC0-Cu.pdb", "rogfp2-cu")
 
 # Make selections
-cmd.remove("not chain A")
+cmd.remove("not chain A and not chain X")
 cmd.select("cro", "resname cro")
-cmd.select("cys-sensor", "(resi 147 or resi 204)")
+cmd.select(
+    "cys-sensor",
+    "((resi 147 or resi 204) and not model rogfp2-cu) or ((resi 145 or resi 202) and model rogfp2-cu)",
+)
 cmd.select(
     "cro-water",
     "(model rogfp2-reduced and resi 266) or (model rogfp2-oxidized and resi 241) or (model egfp and resi 2084)",
@@ -48,13 +52,15 @@ cmd.select(
 cmd.deselect()
 
 # Remove unnecessary waters
-cmd.remove("resname HOH and not cro-water")
+cmd.remove("(resname HOH or resname WAT) and not cro-water")
 
 # Prep protein
-cmd.h_add()
+cmd.h_add("not model rogfp2-cu")
 cmd.remove("resname CRO and name H15")
+cmd.remove("element H and model rogfp2-cu and cys-sensor")
 cmd.align("rogfp2-oxidized", "rogfp2-reduced")
 cmd.align("egfp", "rogfp2-reduced")
+cmd.align("rogfp2-cu", "rogfp2-reduced")
 
 # Set view
 cmd.center("cys-sensor")
@@ -85,6 +91,7 @@ cmd.set("ambient", 0)
 # Styling
 cmd.show("sticks", "cys")
 cmd.show("sticks", "resname HOH")
+cmd.show("spheres", "element Cu")
 
 cmd.set("cartoon_transparency", 0.8)
 
@@ -110,17 +117,27 @@ cmd.refresh()
 cmd.enable("egfp")
 cmd.disable("rogfp2-reduced")
 cmd.disable("rogfp2-oxidized")
+cmd.disable("rogfp2-cu")
 cmd.png("egfp.png", dpi=1000)
 cmd.disable("egfp")
 cmd.enable("rogfp2-reduced")
 cmd.disable("rogfp2-oxidized")
+cmd.disable("rogfp2-cu")
 cmd.png("rogfp2-reduced.png", dpi=1000)
 cmd.disable("egfp")
 cmd.disable("rogfp2-reduced")
 cmd.enable("rogfp2-oxidized")
+cmd.disable("rogfp2-cu")
 cmd.png("rogfp2-oxidized.png", dpi=1000)
+
+cmd.disable("egfp")
+cmd.disable("rogfp2-reduced")
+cmd.disable("rogfp2-oxidized")
+cmd.enable("rogfp2-cu")
+cmd.png("rogfp2-cu.png", dpi=1000)
 
 cmd.enable("rogfp2-reduced")
 cmd.enable("rogfp2-oxidized")
+cmd.disable("rogfp2-cu")
 
 cmd.refresh()
