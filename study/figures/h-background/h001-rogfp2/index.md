@@ -3,6 +3,10 @@
 TODO:
 
 <figure markdown>
+![](./egfp.png)
+</figure>
+
+<figure markdown>
 ![](./rogfp2-reduced.png)
 </figure>
 

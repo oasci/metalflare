@@ -33,6 +33,7 @@ pymol.finish_launching()
 cmd.bg_color("white")
 
 # Load files
+cmd.load("https://files.rcsb.org/download/2Y0G.pdb", "egfp")
 cmd.load("https://files.rcsb.org/download/1JC0.pdb", "rogfp2-reduced")
 cmd.load("https://files.rcsb.org/download/1JC1.pdb", "rogfp2-oxidized")
 
@@ -42,7 +43,7 @@ cmd.select("cro", "resname cro")
 cmd.select("cys-sensor", "(resi 147 or resi 204)")
 cmd.select(
     "cro-water",
-    "(model rogfp2-reduced and resi 266) or (model rogfp2-oxidized and resi 241)",
+    "(model rogfp2-reduced and resi 266) or (model rogfp2-oxidized and resi 241) or (model egfp and resi 2084)",
 )
 cmd.deselect()
 
@@ -53,6 +54,7 @@ cmd.remove("resname HOH and not cro-water")
 cmd.h_add()
 cmd.remove("resname CRO and name H15")
 cmd.align("rogfp2-oxidized", "rogfp2-reduced")
+cmd.align("egfp", "rogfp2-reduced")
 
 # Set view
 cmd.center("cys-sensor")
@@ -105,9 +107,15 @@ cmd.rebuild()
 cmd.refresh()
 
 # Pictures
+cmd.enable("egfp")
+cmd.disable("rogfp2-reduced")
+cmd.disable("rogfp2-oxidized")
+cmd.png("egfp.png", dpi=1000)
+cmd.disable("egfp")
 cmd.enable("rogfp2-reduced")
 cmd.disable("rogfp2-oxidized")
 cmd.png("rogfp2-reduced.png", dpi=1000)
+cmd.disable("egfp")
 cmd.disable("rogfp2-reduced")
 cmd.enable("rogfp2-oxidized")
 cmd.png("rogfp2-oxidized.png", dpi=1000)
