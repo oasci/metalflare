@@ -29,6 +29,9 @@ if __name__ == "__main__":
         base_dir,
         "analysis/001-rogfp-md/data/struct-desc/thr201_hg1-glu220_oe2-dist.npy",
     )
+    rogfp_data_1 = np.load(rogfp_data_path_1)
+    rogfp_data_2 = np.load(rogfp_data_path_2)
+    rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
 
     # Oxidized
     rogfp_oxd_data_path_1 = os.path.join(
@@ -44,9 +47,6 @@ if __name__ == "__main__":
     rogfp_oxd_data = np.minimum(rogfp_oxd_data_1, rogfp_oxd_data_2)
 
     # Copper
-    rogfp_data_1 = np.load(rogfp_data_path_1)
-    rogfp_data_2 = np.load(rogfp_data_path_2)
-    rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
     rogfp_cu_data_path_1 = os.path.join(
         base_dir,
         "analysis/003-rogfp-cu-md/data/struct-desc/thr201_hg1-glu220_oe1-dist.npy",

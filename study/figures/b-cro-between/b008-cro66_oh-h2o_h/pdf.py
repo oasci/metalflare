@@ -20,6 +20,9 @@ if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
 
+    # A distance of 0.0 means no water was found.
+    # Need to replace 0.0 with higher number.
+
     # Reduced
     rogfp_data_path_1 = os.path.join(
         base_dir,
@@ -29,6 +32,11 @@ if __name__ == "__main__":
         base_dir,
         "analysis/001-rogfp-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
+    rogfp_data_1 = np.load(rogfp_data_path_1)
+    rogfp_data_1[rogfp_data_1 == 0.0] = 20.0
+    rogfp_data_2 = np.load(rogfp_data_path_2)
+    rogfp_data_2[rogfp_data_2 == 0.0] = 20.0
+    rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
 
     # Oxidized
     rogfp_oxd_data_path_1 = os.path.join(
@@ -40,13 +48,12 @@ if __name__ == "__main__":
         "analysis/004-rogfp-oxd-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
+    rogfp_oxd_data_1[rogfp_oxd_data_1 == 0.0] = 20.0
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
+    rogfp_oxd_data_2[rogfp_oxd_data_2 == 0.0] = 20.0
     rogfp_oxd_data = np.minimum(rogfp_oxd_data_1, rogfp_oxd_data_2)
 
     # Copper
-    rogfp_data_1 = np.load(rogfp_data_path_1)
-    rogfp_data_2 = np.load(rogfp_data_path_2)
-    rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
     rogfp_cu_data_path_1 = os.path.join(
         base_dir,
         "analysis/003-rogfp-cu-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy",
@@ -56,13 +63,15 @@ if __name__ == "__main__":
         "analysis/003-rogfp-cu-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
     rogfp_cu_data_1 = np.load(rogfp_cu_data_path_1)
+    rogfp_cu_data_1[rogfp_cu_data_1 == 0.0] = 20.0
     rogfp_cu_data_2 = np.load(rogfp_cu_data_path_2)
+    rogfp_cu_data_2[rogfp_cu_data_2 == 0.0] = 20.0
     rogfp_cu_data = np.minimum(rogfp_cu_data_1, rogfp_cu_data_2)
 
     # Compute all pdfs
     x_bounds = (1, 6)
     x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.1
+    bw_method = 0.01
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
@@ -113,7 +122,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.60, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 3.07, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -145,8 +154,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 7)
-    plot_y_bounds = (-1.5, 6)
+    plot_x_bounds = (1, 6)
+    plot_y_bounds = (None, 4)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
