@@ -37,7 +37,7 @@ if __name__ == "__main__":
     )
     rogfp_oxd_data_path_2 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_hg1-glu220_oe1-dist.npy",
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_hg1-glu220_oe2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
