@@ -22,10 +22,10 @@ if __name__ == "__main__":
 
     # Reduced
     rogfp_data_path_1 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/ser203_hg-glu220_oe1-dist.npy"
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/ser203_og-h2o_h1-dist.npy"
     )
     rogfp_data_path_2 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/ser203_hg-glu220_oe2-dist.npy"
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/ser203_og-h2o_h2-dist.npy"
     )
     rogfp_data_1 = np.load(rogfp_data_path_1)
     rogfp_data_2 = np.load(rogfp_data_path_2)
@@ -34,11 +34,11 @@ if __name__ == "__main__":
     # Oxidized
     rogfp_oxd_data_path_1 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/ser203_hg-glu220_oe1-dist.npy",
+        "analysis/004-rogfp-oxd-md/data/struct-desc/ser203_og-h2o_h1-dist.npy",
     )
     rogfp_oxd_data_path_2 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/ser203_hg-glu220_oe2-dist.npy",
+        "analysis/004-rogfp-oxd-md/data/struct-desc/ser203_og-h2o_h2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
@@ -47,11 +47,11 @@ if __name__ == "__main__":
     # Copper
     rogfp_cu_data_path_1 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/ser203_hg-glu220_oe1-dist.npy",
+        "analysis/003-rogfp-cu-md/data/struct-desc/ser203_og-h2o_h1-dist.npy",
     )
     rogfp_cu_data_path_2 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/ser203_hg-glu220_oe2-dist.npy",
+        "analysis/003-rogfp-cu-md/data/struct-desc/ser203_og-h2o_h2-dist.npy",
     )
     rogfp_cu_data_1 = np.load(rogfp_cu_data_path_1)
     rogfp_cu_data_2 = np.load(rogfp_cu_data_path_2)
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     fig_title = "e003-ser205_og-h2o_h"
     pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
     x_label = "SER205 OG - H2O H Distance [Å]"
-    plot_x_bounds = (1, 6)
+    plot_x_bounds = (1, 8)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 3.77, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 4.61, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -143,8 +143,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 6)
-    plot_y_bounds = (-2, 3)
+    plot_x_bounds = (1, 8)
+    plot_y_bounds = (-0.5, 5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
