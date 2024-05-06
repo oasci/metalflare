@@ -37,7 +37,7 @@ def main():
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
 
-    atoms_npy_path = os.path.join(data_dir, "cro65_oh-h2o_h2-dist.npy")
+    atoms_npy_path = os.path.join(data_dir, "ser203_og-h2o_h2-dist.npy")
     atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):
