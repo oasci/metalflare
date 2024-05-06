@@ -5,7 +5,13 @@ TODO:
 !!! quote "Chromophore"
 
     <figure markdown>
-    ![](./cro-o.png)
+    ![](./cro-oh.png)
+    </figure>
+
+!!! quote "Chromophore"
+
+    <figure markdown>
+    ![](./cro-og1.png)
     </figure>
 
 !!! quote "Water"
