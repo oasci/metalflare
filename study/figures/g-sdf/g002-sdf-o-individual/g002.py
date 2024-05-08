@@ -347,21 +347,83 @@ cmd.set_view(
 )
 cmd.png("glu222-o.png", dpi=1000)
 
+cmd.disable("cro_iso")
+cmd.set("stick_transparency", 0.0, "resn CRO")
+cmd.disable("wat_iso")
+cmd.disable("tyr143_iso")
+cmd.set("stick_transparency", 0.0, "resi 143")
+cmd.disable("his146_iso")
+cmd.set("stick_transparency", 0.0, "resi 146")
+cmd.disable("thr201_iso")
+cmd.set("stick_transparency", 0.0, "resi 201")
+cmd.disable("ser203_iso")
+cmd.set("stick_transparency", 0.0, "resi 203")
+cmd.disable("glu220_iso")
+cmd.set("stick_transparency", 0.0, "resi 220")
 
+cmd.show("sticks", "proton_wire")
+cmd.show("sticks", "close_residues")
+cmd.show("sticks", "(cys-group)")
+cmd.hide("everything", "resid 143")
+cmd.hide("everything", "resid 146")
+
+cmd.enable("oxd_protein")
+cmd.enable("cu_protein")
+cmd.color("red_color", "element C and model red_protein")
+cmd.color("oxd_color", "element C and model oxd_protein")
+cmd.color("cu_color", "element C and model cu_protein")
+
+cmd.set_view(
+    """
+(\
+    -0.237019867,   -0.965132415,   -0.111051299,\
+    -0.566384196,    0.044414036,    0.822916925,\
+    -0.789295018,    0.257957458,   -0.557179928,\
+     0.002774691,    0.000394768,  -33.642478943,\
+    41.015743256,   34.717380524,   38.253166199,\
+  -162.773742676,  229.942749023,  -20.000000000 )
+"""
+)
+cmd.png("average-structure-1.png", dpi=1000)
+
+cmd.set_view(
+    """
+(\
+    -0.343023479,    0.937887609,   -0.051891036,\
+    -0.878891885,   -0.339962512,   -0.334559858,\
+    -0.331411451,   -0.069160067,    0.940935075,\
+     0.002803007,    0.000051940,  -29.117589951,\
+    41.189090729,   34.983734131,   36.019760132,\
+  -167.343307495,  225.373184204,  -20.000000000 )
+"""
+)
+cmd.png("average-structure-2.png", dpi=1000)
+
+cmd.set_view(
+    """
+(\
+     0.471674442,   -0.871892631,   -0.131598726,\
+     0.851037979,    0.489189595,   -0.190751433,\
+     0.230680749,   -0.022021724,    0.972767234,\
+    -0.002760898,   -0.000259947,  -30.171401978,\
+    40.974964142,   36.077739716,   36.091293335,\
+  -129.360671997,  188.739700317,  -20.000000000 )
+"""
+)
+cmd.png("average-structure-3.png", dpi=1000)
+
+
+cmd.color("grey70", "element C")
+cmd.show("sticks", "resid 143")
+cmd.show("sticks", "resid 146")
 cmd.space("rgb")
 cmd.enable("cro_iso")
-cmd.set("stick_transparency", 0.0, "resn CRO")
 cmd.enable("wat_iso")
 cmd.enable("tyr143_iso")
-cmd.set("stick_transparency", 0.0, "resi 143")
 cmd.enable("his146_iso")
-cmd.set("stick_transparency", 0.0, "resi 146")
 cmd.enable("thr201_iso")
-cmd.set("stick_transparency", 0.0, "resi 201")
 cmd.enable("ser203_iso")
-cmd.set("stick_transparency", 0.0, "resi 203")
 cmd.enable("glu220_iso")
-cmd.set("stick_transparency", 0.0, "resi 220")
 cmd.set_view(
     """
 (\
