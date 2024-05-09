@@ -51,13 +51,13 @@ jQuery.ajax( uri, {
 ## Select protein
 
 We will only be working with one protein and need to select chain `A`.
-All water molecules (residue name `HOH`) are also removed.
-
 We use the [`metalflare-select-atoms`][pdb.select.cli_select_atoms] script which just drives [`pdb.select.run_select_atoms()`][pdb.select.run_select_atoms].
 
 ```bash
-metalflare-select-atoms $SAVE_DIR/0-$PDB_ID.pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str chainID A and not resname HOH
+metalflare-select-atoms $SAVE_DIR/0-$PDB_ID.pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str "chainID A"
 ```
+
+We keep all crystallographic waters so the CRO-coordinating water's position is maintained.
 
 <div id="select-chain-a" class="mol-container"></div>
 <script>
@@ -72,6 +72,7 @@ jQuery.ajax( uri, {
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
         viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
+        viewer.setStyle({resn: 'HOH'}, {sphere: {scale: '0.3', opacity: '0.95'}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
         viewer.zoomTo({chain: 'A'});
@@ -195,18 +196,13 @@ metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-residu
 metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+metalflare-unify-waters $SAVE_DIR/7-$PDB_ID-resnames.pdb --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
 ```
 
 ## pdb4amber
 
 ```bash
-pdb4amber -i $SAVE_DIR/7-$PDB_ID-resnames.pdb > $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb
-```
-
-## Final
-
-```bash
-cp $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb $SAVE_DIR/$PDB_ID-final.pdb
+pdb4amber -i $SAVE_DIR/7-$PDB_ID-resnames.pdb > $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
 ```
 
 <!-- LINKS -->
