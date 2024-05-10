@@ -28,8 +28,8 @@ def main():
     topology_path = os.path.join(
         base_dir, "data/004-rogfp-oxd-md/simulations/02-prep/mol.prmtop"
     )
-    atoms1_str = "resname CYX and resid 145 and name SG"
-    atoms2_str = "resname CYX and resid 202 and name SG"
+    atoms1_str = "resid 145 and name SG"
+    atoms2_str = "resid 202 and name SG"
 
     data_dir = os.path.join(base_dir, "analysis/004-rogfp-oxd-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
