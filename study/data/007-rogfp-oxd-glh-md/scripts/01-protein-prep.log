@@ -1,0 +1,558 @@
+2024-05-21 10:29:48.228-04:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:101 - Filtering PDB lines of /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/1-1JC1-chain-A.pdb
+2024-05-21 10:29:48.229-04:00 | INFO     | metalflare.pdb.utils:keep_lines:81 - Keeping the following record types: ATOM, HETATM, TER, END
+2024-05-21 10:29:48.229-04:00 | INFO     | metalflare.pdb.utils:run_filter_pdb:110 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/2-1JC1-filtered.pdb
+2024-05-21 10:29:48.688-04:00 | INFO     | metalflare.pdb.structure:get_com:38 - Computing center of mass (com)
+2024-05-21 10:29:48.688-04:00 | DEBUG    | metalflare.pdb.structure:get_com:40 - com: [175.04875588   9.87870911  43.6527117 ]
+2024-05-21 10:29:48.689-04:00 | INFO     | metalflare.pdb.modify.positioning:center_structure:12 - Centering structure
+2024-05-21 10:29:49.221-04:00 | INFO     | metalflare.pdb.modify.orientation:minimize_box:41 - Minimizing box size
+2024-05-21 10:29:49.761-04:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:86 - Unify residue IDs from /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/4-1JC1-rotated.pdb
+2024-05-21 10:29:49.761-04:00 | DEBUG    | metalflare.pdb.modify.numbering:assign_resid:33 - Current residue ID is None; must be our first atom.
+2024-05-21 10:29:49.764-04:00 | INFO     | metalflare.pdb.modify.numbering:run_unify_resids:118 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:50.193-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:50.193-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'MSE ' to 'MET '
+2024-05-21 10:29:50.194-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:50.626-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:50.626-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'GLU ' to 'GLH '
+2024-05-21 10:29:50.626-04:00 | DEBUG    | metalflare.pdb.modify.names:modify_lines:22 - Filter function is provided.
+2024-05-21 10:29:50.627-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:51.053-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:51.054-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'CYS ' to 'CYX '
+2024-05-21 10:29:51.054-04:00 | DEBUG    | metalflare.pdb.modify.names:modify_lines:22 - Filter function is provided.
+2024-05-21 10:29:51.054-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:51,260 INFO:main.py:240:print_splash_screen:PDB2PQR v3.6.2: biomolecular structure conversion software.
+2024-05-21 10:29:51,260 INFO:main.py:242:print_splash_screen:Please cite:  Jurrus E, et al.  Improvements to the APBS biomolecular solvation software suite.  Protein Sci 27 112-128 (2018).
+2024-05-21 10:29:51,260 INFO:main.py:242:print_splash_screen:Please cite:  Dolinsky TJ, et al.  PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations. Nucleic Acids Res 35 W522-W525 (2007).
+2024-05-21 10:29:51,260 INFO:main.py:768:main_driver:Checking and transforming input arguments.
+2024-05-21 10:29:51,260 INFO:main.py:772:main_driver:Loading topology files.
+2024-05-21 10:29:51,284 INFO:main.py:774:main_driver:Loading molecule: ../structures/protein/5-1JC1-residues.pdb
+2024-05-21 10:29:51,288 INFO:main.py:779:main_driver:Setting up molecule.
+2024-05-21 10:29:51,289 WARNING:biomolecule.py:992:create_residue:Unable to find amino or nucleic acid definition for CRO.  Parsing as new residue.
+2024-05-21 10:29:51,292 INFO:main.py:417:setup_molecule:Created biomolecule object with 320 residues and 1875 atoms.
+2024-05-21 10:29:51,292 INFO:main.py:783:main_driver:Setting termini states for biomolecule chains.
+2024-05-21 10:29:51,295 INFO:main.py:613:non_trivial:Loading forcefield.
+2024-05-21 10:29:51,298 INFO:main.py:617:non_trivial:Loading hydrogen topology definitions.
+2024-05-21 10:29:51,298 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 26
+2024-05-21 10:29:51,298 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 26
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 52
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 52
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 52
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 111
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 111
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 129
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 129
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue ASP A 131
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue ASP A 131
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD1 in residue ASP A 131
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD2 in residue ASP A 131
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 154
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 154
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 154
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 154
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue GLN A 155
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue GLN A 155
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue GLN A 155
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OE1 in residue GLN A 155
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NE2 in residue GLN A 155
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue LYS A 156
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 156
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 156
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 156
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 156
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 164
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 164
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 164
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 212
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 212
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 212
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 212
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ILE A 227
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 26
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 26
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 52
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 52
+2024-05-21 10:29:51,299 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 52
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 111
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 111
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 129
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 129
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue ASP A 131
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue ASP A 131
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD1 in residue ASP A 131
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD2 in residue ASP A 131
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 154
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 154
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 154
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 154
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue GLN A 155
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue GLN A 155
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue GLN A 155
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OE1 in residue GLN A 155
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NE2 in residue GLN A 155
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue LYS A 156
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 156
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 156
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 156
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 156
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 164
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 164
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 164
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 212
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 212
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 212
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 212
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ILE A 227
+2024-05-21 10:29:51,300 INFO:main.py:627:non_trivial:Attempting to repair 35 missing atoms in biomolecule.
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 26
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 26
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 52
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 52
+2024-05-21 10:29:51,300 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 52
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 111
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 111
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 129
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 129
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue ASP A 131
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue ASP A 131
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD1 in residue ASP A 131
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OD2 in residue ASP A 131
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 154
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 154
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 154
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 154
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue GLN A 155
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue GLN A 155
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue GLN A 155
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OE1 in residue GLN A 155
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NE2 in residue GLN A 155
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CB in residue LYS A 156
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 156
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 156
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 156
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 156
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 164
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 164
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 164
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CG in residue LYS A 212
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CD in residue LYS A 212
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom CE in residue LYS A 212
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom NZ in residue LYS A 212
+2024-05-21 10:29:51,301 WARNING:biomolecule.py:157:num_missing_heavy:Missing atom OXT in residue ILE A 227
+2024-05-21 10:29:51,301 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 26 at coordinates -16.693, 11.239, -9.564
+2024-05-21 10:29:51,301 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 26 at coordinates -18.129, 11.587, -9.428
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue LYS A 52 at coordinates -5.594, 6.080, -22.136
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 52 at coordinates -4.861, 7.400, -22.127
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 52 at coordinates -4.420, 7.803, -23.486
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 111 at coordinates -14.525, -5.153, 6.013
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 111 at coordinates -15.456, -4.074, 6.418
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 129 at coordinates 1.929, 21.955, -9.654
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 129 at coordinates 3.270, 22.578, -9.495
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CB to residue ASP A 131 at coordinates 0.443, 19.592, -19.179
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom CG to residue ASP A 131 at coordinates -0.710, 19.908, -20.118
+2024-05-21 10:29:51,302 INFO:biomolecule.py:1077:repair_heavy:Added atom OD1 to residue ASP A 131 at coordinates -1.805, 19.326, -19.986
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom OD2 to residue ASP A 131 at coordinates -0.497, 20.770, -20.987
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CG to residue LYS A 154 at coordinates 0.406, 4.839, 23.139
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue LYS A 154 at coordinates 1.092, 5.011, 24.490
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 154 at coordinates 2.405, 4.271, 24.566
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 154 at coordinates 3.037, 4.467, 25.896
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CB to residue GLN A 155 at coordinates -4.288, 9.507, 21.375
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CG to residue GLN A 155 at coordinates -3.546, 10.075, 22.567
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue GLN A 155 at coordinates -3.415, 11.577, 22.495
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom OE1 to residue GLN A 155 at coordinates -3.869, 12.241, 21.563
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom NE2 to residue GLN A 155 at coordinates -2.750, 12.140, 23.513
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CB to residue LYS A 156 at coordinates -4.862, 6.891, 16.733
+2024-05-21 10:29:51,303 INFO:biomolecule.py:1077:repair_heavy:Added atom CG to residue LYS A 156 at coordinates -4.555, 8.347, 16.395
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue LYS A 156 at coordinates -3.920, 8.478, 15.019
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 156 at coordinates -3.606, 9.912, 14.661
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 156 at coordinates -2.988, 9.991, 13.312
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue LYS A 164 at coordinates 10.278, 12.998, 1.255
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 164 at coordinates 9.849, 14.439, 1.098
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 164 at coordinates 10.986, 15.363, 1.339
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CG to residue LYS A 212 at coordinates -7.198, -8.155, -24.743
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CD to residue LYS A 212 at coordinates -8.369, -8.477, -25.665
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom CE to residue LYS A 212 at coordinates -8.028, -9.564, -26.666
+2024-05-21 10:29:51,304 INFO:biomolecule.py:1077:repair_heavy:Added atom NZ to residue LYS A 212 at coordinates -9.194, -9.846, -27.541
+2024-05-21 10:29:51,305 INFO:biomolecule.py:1077:repair_heavy:Added atom OXT to residue ILE A 227 at coordinates 15.953, -3.807, 17.730
+2024-05-21 10:29:51,305 INFO:main.py:632:non_trivial:Updating disulfide bridges.
+2024-05-21 10:29:51,305 INFO:main.py:635:non_trivial:Debumping biomolecule.
+2024-05-21 10:29:51,338 INFO:main.py:658:non_trivial:Adding hydrogens to biomolecule.
+2024-05-21 10:29:51,439 INFO:main.py:661:non_trivial:Debumping biomolecule (again).
+2024-05-21 10:29:51,503 WARNING:debump.py:172:debump_biomolecule:WARNING: Unable to debump THR A 9
+2024-05-21 10:29:51,506 WARNING:debump.py:172:debump_biomolecule:WARNING: Unable to debump LEU A 15
+2024-05-21 10:29:51,667 WARNING:debump.py:172:debump_biomolecule:WARNING: Unable to debump ILE A 227
+2024-05-21 10:29:51,667 INFO:main.py:663:non_trivial:Optimizing hydrogen bonds
+2024-05-21 10:29:51,821 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,822 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,822 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,823 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,823 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,824 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 273 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,824 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 295 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,825 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 295 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,825 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 295 skipped when optimizing H2 in HOH A 285
+2024-05-21 10:29:51,826 WARNING:io.py:40:filter:Suppressing further "Skipped atom during water optimization" messages
+2024-05-21 10:29:52,572 INFO:main.py:675:non_trivial:Applying force field to biomolecule states.
+2024-05-21 10:29:52,574 INFO:main.py:716:non_trivial:Applying custom naming scheme (amber).
+2024-05-21 10:29:52,575 INFO:main.py:722:non_trivial:Regenerating headers.
+2024-05-21 10:29:52,575 INFO:main.py:747:non_trivial:Regenerating PDB lines.
+2024-05-21 10:29:52,584 WARNING:main.py:320:print_pqr:Ignoring 1527 header lines in output.
+2024-05-21 10:29:52,584 WARNING:main.py:324:print_pqr:Ignoring 22 missing lines in output.
+2024-05-21 10:29:52.976-04:00 | INFO     | metalflare.pdb.utils:run_merge_pdbs:149 - Merging PDB files
+2024-05-21 10:29:53.064-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 1
+2024-05-21 10:29:53.065-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 2
+2024-05-21 10:29:53.065-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 3
+2024-05-21 10:29:53.066-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 4
+2024-05-21 10:29:53.066-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 5
+2024-05-21 10:29:53.066-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 6
+2024-05-21 10:29:53.066-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 7
+2024-05-21 10:29:53.067-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 8
+2024-05-21 10:29:53.067-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 9
+2024-05-21 10:29:53.067-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 10
+2024-05-21 10:29:53.067-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 11
+2024-05-21 10:29:53.067-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 12
+2024-05-21 10:29:53.068-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 13
+2024-05-21 10:29:53.068-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 14
+2024-05-21 10:29:53.068-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 15
+2024-05-21 10:29:53.068-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 16
+2024-05-21 10:29:53.068-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 17
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 18
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 19
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 20
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 21
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 22
+2024-05-21 10:29:53.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 23
+2024-05-21 10:29:53.070-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 24
+2024-05-21 10:29:53.070-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 25
+2024-05-21 10:29:53.070-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 26
+2024-05-21 10:29:53.070-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 27
+2024-05-21 10:29:53.070-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 28
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 29
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 30
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 31
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 32
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 33
+2024-05-21 10:29:53.071-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 34
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 35
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 36
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 37
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 38
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 39
+2024-05-21 10:29:53.072-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 40
+2024-05-21 10:29:53.073-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 41
+2024-05-21 10:29:53.073-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 42
+2024-05-21 10:29:53.073-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 43
+2024-05-21 10:29:53.073-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 44
+2024-05-21 10:29:53.073-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 45
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 46
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 47
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 48
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 49
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 50
+2024-05-21 10:29:53.074-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 51
+2024-05-21 10:29:53.075-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 52
+2024-05-21 10:29:53.075-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 53
+2024-05-21 10:29:53.075-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 54
+2024-05-21 10:29:53.075-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 55
+2024-05-21 10:29:53.075-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 56
+2024-05-21 10:29:53.076-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 57
+2024-05-21 10:29:53.076-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 58
+2024-05-21 10:29:53.076-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 59
+2024-05-21 10:29:53.076-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 60
+2024-05-21 10:29:53.076-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 61
+2024-05-21 10:29:53.077-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 62
+2024-05-21 10:29:53.077-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 63
+2024-05-21 10:29:53.077-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 64
+2024-05-21 10:29:53.077-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 65
+2024-05-21 10:29:53.089-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 66
+2024-05-21 10:29:53.090-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 67
+2024-05-21 10:29:53.090-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 68
+2024-05-21 10:29:53.090-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 69
+2024-05-21 10:29:53.090-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 70
+2024-05-21 10:29:53.091-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 71
+2024-05-21 10:29:53.091-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 72
+2024-05-21 10:29:53.091-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 73
+2024-05-21 10:29:53.091-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 74
+2024-05-21 10:29:53.091-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 75
+2024-05-21 10:29:53.092-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 76
+2024-05-21 10:29:53.092-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 77
+2024-05-21 10:29:53.092-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 78
+2024-05-21 10:29:53.092-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 79
+2024-05-21 10:29:53.092-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 80
+2024-05-21 10:29:53.093-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 81
+2024-05-21 10:29:53.093-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 82
+2024-05-21 10:29:53.093-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 83
+2024-05-21 10:29:53.093-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 84
+2024-05-21 10:29:53.093-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 85
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 86
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 87
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 88
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 89
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 90
+2024-05-21 10:29:53.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 91
+2024-05-21 10:29:53.095-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 92
+2024-05-21 10:29:53.095-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 93
+2024-05-21 10:29:53.095-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 94
+2024-05-21 10:29:53.095-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 95
+2024-05-21 10:29:53.095-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 96
+2024-05-21 10:29:53.096-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 97
+2024-05-21 10:29:53.096-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 98
+2024-05-21 10:29:53.096-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 99
+2024-05-21 10:29:53.096-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 100
+2024-05-21 10:29:53.096-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 101
+2024-05-21 10:29:53.097-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 102
+2024-05-21 10:29:53.097-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 103
+2024-05-21 10:29:53.097-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 104
+2024-05-21 10:29:53.097-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 105
+2024-05-21 10:29:53.097-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 106
+2024-05-21 10:29:53.098-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 107
+2024-05-21 10:29:53.098-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 108
+2024-05-21 10:29:53.098-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 109
+2024-05-21 10:29:53.098-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 110
+2024-05-21 10:29:53.098-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 111
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 112
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 113
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 114
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 115
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 116
+2024-05-21 10:29:53.099-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 117
+2024-05-21 10:29:53.100-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 118
+2024-05-21 10:29:53.100-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 119
+2024-05-21 10:29:53.100-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 120
+2024-05-21 10:29:53.100-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 121
+2024-05-21 10:29:53.100-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 122
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 123
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 124
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 125
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 126
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 127
+2024-05-21 10:29:53.101-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 128
+2024-05-21 10:29:53.102-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 129
+2024-05-21 10:29:53.102-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 130
+2024-05-21 10:29:53.102-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 131
+2024-05-21 10:29:53.102-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 132
+2024-05-21 10:29:53.103-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 133
+2024-05-21 10:29:53.103-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 134
+2024-05-21 10:29:53.103-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 135
+2024-05-21 10:29:53.103-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 136
+2024-05-21 10:29:53.103-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 137
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 138
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 139
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 140
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 141
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 142
+2024-05-21 10:29:53.104-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 143
+2024-05-21 10:29:53.105-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 144
+2024-05-21 10:29:53.105-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 145
+2024-05-21 10:29:53.105-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 146
+2024-05-21 10:29:53.105-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 147
+2024-05-21 10:29:53.105-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 148
+2024-05-21 10:29:53.106-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 149
+2024-05-21 10:29:53.106-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 150
+2024-05-21 10:29:53.106-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 151
+2024-05-21 10:29:53.106-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 152
+2024-05-21 10:29:53.106-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 153
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 154
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 155
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 156
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 157
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 158
+2024-05-21 10:29:53.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 159
+2024-05-21 10:29:53.108-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 160
+2024-05-21 10:29:53.108-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 161
+2024-05-21 10:29:53.108-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 162
+2024-05-21 10:29:53.108-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 163
+2024-05-21 10:29:53.108-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 164
+2024-05-21 10:29:53.109-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 165
+2024-05-21 10:29:53.109-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 166
+2024-05-21 10:29:53.109-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 167
+2024-05-21 10:29:53.109-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 168
+2024-05-21 10:29:53.109-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 169
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 170
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 171
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 172
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 173
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 174
+2024-05-21 10:29:53.110-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 175
+2024-05-21 10:29:53.111-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 176
+2024-05-21 10:29:53.111-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 177
+2024-05-21 10:29:53.111-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 178
+2024-05-21 10:29:53.111-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 179
+2024-05-21 10:29:53.111-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 180
+2024-05-21 10:29:53.112-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 181
+2024-05-21 10:29:53.112-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 182
+2024-05-21 10:29:53.112-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 183
+2024-05-21 10:29:53.112-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 184
+2024-05-21 10:29:53.112-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 185
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 186
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 187
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 188
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 189
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 190
+2024-05-21 10:29:53.113-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 191
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 192
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 193
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 194
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 195
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 196
+2024-05-21 10:29:53.114-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 197
+2024-05-21 10:29:53.115-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 198
+2024-05-21 10:29:53.115-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 199
+2024-05-21 10:29:53.115-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 200
+2024-05-21 10:29:53.115-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 201
+2024-05-21 10:29:53.115-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 202
+2024-05-21 10:29:53.116-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 203
+2024-05-21 10:29:53.116-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 204
+2024-05-21 10:29:53.116-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 205
+2024-05-21 10:29:53.116-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 206
+2024-05-21 10:29:53.116-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 207
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 208
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 209
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 210
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 211
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 212
+2024-05-21 10:29:53.117-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 213
+2024-05-21 10:29:53.118-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 214
+2024-05-21 10:29:53.118-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 215
+2024-05-21 10:29:53.118-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 216
+2024-05-21 10:29:53.118-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 217
+2024-05-21 10:29:53.118-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 218
+2024-05-21 10:29:53.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 219
+2024-05-21 10:29:53.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 220
+2024-05-21 10:29:53.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 221
+2024-05-21 10:29:53.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 222
+2024-05-21 10:29:53.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 223
+2024-05-21 10:29:53.120-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 224
+2024-05-21 10:29:53.120-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 225
+2024-05-21 10:29:53.120-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 226
+2024-05-21 10:29:53.120-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 227
+2024-05-21 10:29:53.120-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 228
+2024-05-21 10:29:53.133-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 229
+2024-05-21 10:29:53.145-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 230
+2024-05-21 10:29:53.158-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 231
+2024-05-21 10:29:53.170-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 232
+2024-05-21 10:29:53.182-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 233
+2024-05-21 10:29:53.194-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 234
+2024-05-21 10:29:53.206-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 235
+2024-05-21 10:29:53.219-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 236
+2024-05-21 10:29:53.231-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 237
+2024-05-21 10:29:53.243-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 238
+2024-05-21 10:29:53.255-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 239
+2024-05-21 10:29:53.267-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 240
+2024-05-21 10:29:53.280-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 241
+2024-05-21 10:29:53.292-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 242
+2024-05-21 10:29:53.304-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 243
+2024-05-21 10:29:53.317-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 244
+2024-05-21 10:29:53.329-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 245
+2024-05-21 10:29:53.342-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 246
+2024-05-21 10:29:53.355-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 247
+2024-05-21 10:29:53.367-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 248
+2024-05-21 10:29:53.379-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 249
+2024-05-21 10:29:53.392-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 250
+2024-05-21 10:29:53.404-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 251
+2024-05-21 10:29:53.416-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 252
+2024-05-21 10:29:53.428-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 253
+2024-05-21 10:29:53.440-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 254
+2024-05-21 10:29:53.452-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 255
+2024-05-21 10:29:53.464-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 256
+2024-05-21 10:29:53.477-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 257
+2024-05-21 10:29:53.489-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 258
+2024-05-21 10:29:53.501-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 259
+2024-05-21 10:29:53.513-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 260
+2024-05-21 10:29:53.527-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 261
+2024-05-21 10:29:53.539-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 262
+2024-05-21 10:29:53.552-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 263
+2024-05-21 10:29:53.564-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 264
+2024-05-21 10:29:53.576-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 265
+2024-05-21 10:29:53.588-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 266
+2024-05-21 10:29:53.600-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 267
+2024-05-21 10:29:53.612-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 268
+2024-05-21 10:29:53.625-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 269
+2024-05-21 10:29:53.637-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 270
+2024-05-21 10:29:53.649-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 271
+2024-05-21 10:29:53.661-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 272
+2024-05-21 10:29:53.673-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 273
+2024-05-21 10:29:53.685-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 274
+2024-05-21 10:29:53.697-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 275
+2024-05-21 10:29:53.709-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 276
+2024-05-21 10:29:53.722-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 277
+2024-05-21 10:29:53.736-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 278
+2024-05-21 10:29:53.748-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 279
+2024-05-21 10:29:53.760-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 280
+2024-05-21 10:29:53.772-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 281
+2024-05-21 10:29:53.784-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 282
+2024-05-21 10:29:53.796-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 283
+2024-05-21 10:29:53.808-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 284
+2024-05-21 10:29:53.820-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 285
+2024-05-21 10:29:53.833-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 286
+2024-05-21 10:29:53.845-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 287
+2024-05-21 10:29:53.857-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 288
+2024-05-21 10:29:53.869-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 289
+2024-05-21 10:29:53.882-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 290
+2024-05-21 10:29:53.894-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 291
+2024-05-21 10:29:53.906-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 292
+2024-05-21 10:29:53.919-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 293
+2024-05-21 10:29:53.933-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 294
+2024-05-21 10:29:53.946-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 295
+2024-05-21 10:29:53.958-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 296
+2024-05-21 10:29:53.970-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 297
+2024-05-21 10:29:53.982-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 298
+2024-05-21 10:29:53.995-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 299
+2024-05-21 10:29:54.007-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 300
+2024-05-21 10:29:54.019-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 301
+2024-05-21 10:29:54.032-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 302
+2024-05-21 10:29:54.045-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 303
+2024-05-21 10:29:54.057-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 304
+2024-05-21 10:29:54.069-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 305
+2024-05-21 10:29:54.082-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 306
+2024-05-21 10:29:54.094-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 307
+2024-05-21 10:29:54.107-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 308
+2024-05-21 10:29:54.119-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 309
+2024-05-21 10:29:54.132-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 310
+2024-05-21 10:29:54.146-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 311
+2024-05-21 10:29:54.158-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 312
+2024-05-21 10:29:54.171-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 313
+2024-05-21 10:29:54.183-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 314
+2024-05-21 10:29:54.195-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 315
+2024-05-21 10:29:54.208-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 316
+2024-05-21 10:29:54.220-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 317
+2024-05-21 10:29:54.233-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 318
+2024-05-21 10:29:54.245-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 319
+2024-05-21 10:29:54.258-04:00 | DEBUG    | metalflare.pdb.utils:run_merge_pdbs:155 - Processing residue ID of 320
+2024-05-21 10:29:54.271-04:00 | INFO     | metalflare.pdb.utils:run_merge_pdbs:172 - Cleaning up duplicate atoms
+2024-05-21 10:29:54.318-04:00 | INFO     | metalflare.pdb.utils:run_merge_pdbs:188 - Writing merged PDB at ../structures/protein/6-1JC1-pdb2pqr.pdb
+2024-05-21 10:29:54.792-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/6-1JC1-pdb2pqr.pdb
+2024-05-21 10:29:54.793-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'HOH ' to 'WAT '
+2024-05-21 10:29:54.795-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:55.232-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:55.232-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'TIP ' to 'WAT '
+2024-05-21 10:29:55.234-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:55.683-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:118 - Renaming residue names /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:55.683-04:00 | INFO     | metalflare.pdb.modify.names:replace_residue_names:85 - Renaming 'TIP3' to 'WAT '
+2024-05-21 10:29:55.685-04:00 | INFO     | metalflare.pdb.modify.names:run_replace_resnames:128 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:56.114-04:00 | INFO     | metalflare.pdb.modify.names:run_unify_water_labels:211 - Renaming water atom names in /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+2024-05-21 10:29:56.114-04:00 | DEBUG    | metalflare.pdb.modify.names:run_unify_water_labels:213 - Water residue name: WAT
+2024-05-21 10:29:56.114-04:00 | DEBUG    | metalflare.pdb.modify.names:run_unify_water_labels:216 - O atom name: O
+2024-05-21 10:29:56.114-04:00 | DEBUG    | metalflare.pdb.modify.names:run_unify_water_labels:217 - H1 atom name: H1
+2024-05-21 10:29:56.114-04:00 | DEBUG    | metalflare.pdb.modify.names:run_unify_water_labels:218 - H2 atom name: H2
+2024-05-21 10:29:56.117-04:00 | INFO     | metalflare.pdb.modify.names:run_unify_water_labels:258 - Writing PDB file to /home/alex/repos/metalflare/study/data/007-rogfp-oxd-glh-md/structures/protein/7-1JC1-resnames.pdb
+
+==================================================
+Summary of pdb4amber for: ../structures/protein/7-1JC1-resnames.pdb
+===================================================
+
+----------Chains
+The following (original) chains have been found:
+A
+
+---------- Alternate Locations (Original Residues!))
+
+The following residues had alternate locations:
+None
+-----------Non-standard-resnames
+CRO
+
+---------- Gaps (Renumbered Residues!)
+gap of 5.173738 A between LEU 64 and VAL 66
+
+---------- Missing heavy atom(s)
+
+None

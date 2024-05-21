@@ -1,0 +1,13 @@
+!scripts/01-struct-prep.log
+!scripts/02-amber-prep.log
+!structures/protein/1JC0-Cu.pdb
+!simulations/02-prep/mol.prmtop
+!simulations/02-prep/mol.inpcrd
+!scripts/03-min-prep.log
+!scripts/04-relax-prep.log
+!scripts/05-prod-prep.log
+!scripts/06-prod-prep.log
+
+mol.prmtop
+mol.inpcrd
+!08_prod_npt.pdb
