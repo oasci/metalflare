@@ -66,12 +66,17 @@ def make_pdf_fig(
     y_label,
     y_bounds,
     pdf_rogfp_oxd=None,
+    fill_between=False,
 ):
-    plt.fill_between(
+    if fill_between:
+        plot_function = plt.fill_between
+    else:
+        plot_function = plt.plot
+    plot_function(
         x_values, pdf_rogfp, color="#1e2e79", label="Reduced", zorder=0, **plt_kwargs
     )
     if pdf_rogfp_oxd is not None:
-        plt.fill_between(
+        plot_function(
             x_values,
             pdf_rogfp_oxd,
             color="#EC4067",
@@ -79,7 +84,7 @@ def make_pdf_fig(
             zorder=1,
             **plt_kwargs,
         )
-    plt.fill_between(
+    plot_function(
         x_values,
         pdf_rogfp_cu,
         color="#f99752",
