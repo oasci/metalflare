@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "a001-cro66_og1_cb1_ca1_c1"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CRO66 OG1-CB1-CA1-C1 Dihedral [°]"
     plot_x_bounds = (-180, 180)
     y_label = "Density"

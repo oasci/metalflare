@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "b006-cro66_oh-asn146_o"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CRO66 OH - ASN146 O Distance [Å]"
     plot_x_bounds = (1, 9)
     y_label = "Density"

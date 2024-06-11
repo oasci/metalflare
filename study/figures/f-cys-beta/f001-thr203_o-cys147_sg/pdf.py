@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "f001-thr203_o-cys147_sg"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "THR203 O - CYS147 SG Distance [Å]"
     plot_x_bounds = (2.5, 5.5)
     y_label = "Density"

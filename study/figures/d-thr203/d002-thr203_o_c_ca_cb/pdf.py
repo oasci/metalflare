@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "d002-thr203_o_c_ca_cb"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "THR203 O-C-CA-CB Dihedral [°]"
     plot_x_bounds = (-180, 0)
     y_label = "Density"

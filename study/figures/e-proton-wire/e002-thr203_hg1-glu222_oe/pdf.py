@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "e002-thr203_hg1-glu222_oe"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "THR203 HG1 - GLU222 OE Distance [Å]"
     plot_x_bounds = (1, 7)
     y_label = "Density"

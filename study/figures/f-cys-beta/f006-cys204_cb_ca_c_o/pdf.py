@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "f006-cys204_cb_ca_c_o"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CYS204 CB-CA-C-O Dihedral [°]"
     plot_x_bounds = (-180, 180)
     y_label = "Density"

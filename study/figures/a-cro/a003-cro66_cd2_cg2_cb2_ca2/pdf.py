@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "a003-cro66_cd2_cg2_cb2_ca2"
-    pdf_plt_kwargs = {"alpha": 0.5, "linewidth": 1.0}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CRO66 CD2-CG2-CB2-CA2 Dihedral [°]"
     plot_x_bounds = (120, 240)
     y_label = "Density"
