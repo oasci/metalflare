@@ -29,7 +29,7 @@ def main():
         base_dir, "data/005-rogfp-glh-md/simulations/02-prep/mol.prmtop"
     )
     atoms1_str = "resid 203 and name OG"
-    atoms2_str = "resname WAT and (around 5.0 (resname CRO and name OH)) and (around 5.0 (resid 143 and name OH)) and (around 6.0 (resid 203 and name CB)) and name H1"
+    atoms2_str = "resname WAT and (around 6.0 (resname CRO and name OH)) and (around 6.5 (resid 143 and name OH)) and (around 6.0 (resid 201 and name CA)) and name H1"
 
     data_dir = os.path.join(base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)

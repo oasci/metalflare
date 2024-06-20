@@ -29,7 +29,7 @@ def main():
         base_dir, "data/004-rogfp-oxd-md/simulations/02-prep/mol.prmtop"
     )
     atoms1_str = "resid 201 and name OG1"
-    atoms2_str = "resname WAT and (around 5.0 (resname CRO and name OH)) and (around 5.0 (resid 143 and name OH)) and (around 6.0 (resid 203 and name CB)) and name H2"
+    atoms2_str = "resname WAT and (around 6.0 (resname CRO and name OH)) and (around 6.5 (resid 143 and name OH)) and (around 6.0 (resid 201 and name CA)) and name H2"
 
     data_dir = os.path.join(base_dir, "analysis/004-rogfp-oxd-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
@@ -37,7 +37,7 @@ def main():
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
 
-    atoms_npy_path = os.path.join(data_dir, "thr201_og1-wat_h2-dist.npy")
+    atoms_npy_path = os.path.join(data_dir, "thr201_og1-h2o_h2-dist.npy")
     atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):

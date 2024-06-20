@@ -22,10 +22,10 @@ if __name__ == "__main__":
 
     # Reduced
     rogfp_data_path_1 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-wat_h1-dist.npy"
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy"
     )
     rogfp_data_path_2 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-wat_h2-dist.npy"
+        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
     )
     rogfp_data_1 = np.load(rogfp_data_path_1)
     rogfp_data_2 = np.load(rogfp_data_path_2)
@@ -34,11 +34,11 @@ if __name__ == "__main__":
     # Oxidized
     rogfp_oxd_data_path_1 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-wat_h1-dist.npy",
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
     )
     rogfp_oxd_data_path_2 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-wat_h2-dist.npy",
+        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
@@ -47,11 +47,11 @@ if __name__ == "__main__":
     # Copper
     rogfp_cu_data_path_1 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-wat_h1-dist.npy",
+        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
     )
     rogfp_cu_data_path_2 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-wat_h2-dist.npy",
+        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     rogfp_cu_data_1 = np.load(rogfp_cu_data_path_1)
     rogfp_cu_data_2 = np.load(rogfp_cu_data_path_2)
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "e004-thr203_og1-wat_h"
+    fig_title = "e004-thr203_og1-h2o_h"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "THR203 OG1 - H2O H Distance [Å]"
     plot_x_bounds = (1, 6)

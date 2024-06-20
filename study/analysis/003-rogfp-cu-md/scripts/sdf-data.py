@@ -27,7 +27,7 @@ def main():
         "resid 201",
         "resid 203",
         "resid 220",
-        "resname WAT and (around 5.0 (resname CRO and name OH)) and (around 5.0 (resid 143 and name OH)) and (around 6.0 (resid 203 and name CB))",
+        "resname WAT and (around 6.0 (resname CRO and name OH)) and (around 6.5 (resid 143 and name OH)) and (around 6.0 (resid 201 and name CA))",
     ]
     for element_type in element_types:
         for selection in selections:
