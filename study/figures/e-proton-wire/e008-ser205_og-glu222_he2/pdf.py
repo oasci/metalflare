@@ -20,26 +20,31 @@ if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
 
+    # Reduced
     rogfp_data_path = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/cro65_oh-thr201_hg1-dist.npy"
+        base_dir,
+        "analysis/005-rogfp-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
     )
     rogfp_data = np.load(rogfp_data_path)
+
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/cro65_oh-thr201_hg1-dist.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
     )
     rogfp_oxd_data = np.load(rogfp_oxd_data_path)
+
+    # Copper
     rogfp_cu_data_path = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/cro65_oh-thr201_hg1-dist.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
     )
     rogfp_cu_data = np.load(rogfp_cu_data_path)
 
     # Compute all pdfs
-    x_bounds = (1, 8)
+    x_bounds = (1, 10)
     x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.1
+    bw_method = 0.05
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
@@ -67,10 +72,10 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "bb007-cro66_oh-thr203_hg1"
+    fig_title = "e008-ser205_og-glu222_he2"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "CRO66 OH - THR203 HG1 Distance [Å]"
-    plot_x_bounds = (1, 7)
+    x_label = "SER205 OG - GLH222 HE2 Distance [Å]"
+    plot_x_bounds = (1, 8)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -90,7 +95,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 3.10, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 4.62, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -122,7 +127,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (-1, 3)
+    plot_x_bounds = (1, 8)
+    plot_y_bounds = (-1, 4)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

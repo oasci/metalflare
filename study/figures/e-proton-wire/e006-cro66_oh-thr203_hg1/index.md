@@ -1,4 +1,4 @@
-# b004-cro66_oh-thr203_hg1
+# e006-cro66_oh-thr203_hg1
 
 TODO:
 
@@ -44,17 +44,17 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./b004-cro66_oh-thr203_hg1-pdf.svg)
+![](./e006-cro66_oh-thr203_hg1-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b004-cro66_oh-thr203_hg1/pdf-info.md"
+--8<-- "study/figures/b-cro-between/b-cro-between/e006-cro66_oh-thr203_hg1/pdf-info.md"
 
 ### Bandwidth validation
 
 <figure markdown>
-![](./b004-cro66_oh-thr203_hg1-hist.svg)
+![](./e006-cro66_oh-thr203_hg1-hist.svg)
 </figure>
 
 ## Potential of mean force
@@ -62,9 +62,9 @@ jQuery.ajax( uri, {
 TODO:
 
 <figure markdown>
-![](./b004-cro66_oh-thr203_hg1-pmf.svg)
+![](./e006-cro66_oh-thr203_hg1-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b004-cro66_oh-thr203_hg1/pmf-info.md"
+--8<-- "study/figures/b-cro-between/b-cro-between/e006-cro66_oh-thr203_hg1/pmf-info.md"

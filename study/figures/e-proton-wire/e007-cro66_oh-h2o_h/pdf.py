@@ -69,7 +69,7 @@ if __name__ == "__main__":
     rogfp_cu_data = np.minimum(rogfp_cu_data_1, rogfp_cu_data_2)
 
     # Compute all pdfs
-    x_bounds = (1, 6)
+    x_bounds = (0, 10)
     x_values = np.linspace(*x_bounds, 1000)
     bw_method = 0.01
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
@@ -99,10 +99,10 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "b008-cro66_oh-h2o_h"
+    fig_title = "e007-cro66_oh-h2o_h"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CRO66 OH - H2O H Distance [Å]"
-    plot_x_bounds = (1, 6)
+    plot_x_bounds = (1, 7)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 3.07, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 3.20, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -154,8 +154,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 6)
-    plot_y_bounds = (None, 4)
+    plot_x_bounds = (1, 7)
+    plot_y_bounds = (-1, 4)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

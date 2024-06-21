@@ -33,4 +33,4 @@ if __name__ == "__main__":
     plt.legend()
     plt.tight_layout()
 
-    plt.savefig("bb007-cro66_oh-thr203_hg1-hist.svg")
+    plt.savefig("e006-cro66_oh-thr203_hg1-hist.svg")
