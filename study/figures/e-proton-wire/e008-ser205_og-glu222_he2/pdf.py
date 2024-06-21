@@ -72,7 +72,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "e008-ser205_og-glu222_he2"
+    fig_title = "e008-ser205_og-glh222_he2"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "SER205 OG - GLH222 HE2 Distance [Å]"
     plot_x_bounds = (1, 8)

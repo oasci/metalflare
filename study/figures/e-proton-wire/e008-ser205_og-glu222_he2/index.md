@@ -1,4 +1,4 @@
-# e008-ser205_og-glu222_he2
+# e008-ser205_og-glh222_he2
 
 TODO:
 
@@ -9,19 +9,19 @@ TODO:
 ## Probability density function
 
 <figure markdown>
-![](./e008-ser205_og-glu222_he2-pdf.svg)
+![](./e008-ser205_og-glh222_he2-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/e008-ser205_og-glu222_he2/pdf-info.md"
+--8<-- "study/figures/e-proton-wire/e008-ser205_og-glh222_he2/pdf-info.md"
 
 ## Potential of mean force
 
 <figure markdown>
-![](./e008-ser205_og-glu222_he2-pmf.svg)
+![](./e008-ser205_og-glh222_he2-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/e008-ser205_og-glu222_he2/pmf-info.md"
+--8<-- "study/figures/e-proton-wire/e008-ser205_og-glh222_he2/pmf-info.md"
