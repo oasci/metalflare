@@ -1,47 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 527.99998 288.00002"
+   viewBox="0 0 2016 1056.0001"
    version="1.1"
    id="svg202"
-   sodipodi:docname="cro-a.svg"
+   sodipodi:docname="cro.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   width="5.5in"
-   height="3in"
+   width="21in"
+   height="11in"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs206">
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend-5"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend"
-       inkscape:isstock="true">
-      <path
-         transform="scale(-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
-         id="path6687-6" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend"
-       inkscape:isstock="true">
-      <path
-         transform="scale(-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
-         id="path6687" />
-    </marker>
-  </defs>
+     id="defs206" />
   <sodipodi:namedview
      id="namedview204"
      pagecolor="#ffffff"
@@ -51,24 +22,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="525.02677"
-     inkscape:cy="156.9777"
+     inkscape:zoom="0.298"
+     inkscape:cx="1800.3356"
+     inkscape:cy="684.56376"
      inkscape:window-width="1868"
      inkscape:window-height="1016"
      inkscape:window-x="1972"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg202"
+     inkscape:current-layer="g1454"
      units="in"
-     inkscape:document-units="in"
-     showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:document-units="in" />
   <!-- Created by OpenEye Scientific Software -->
   <!-- Creation Date Fri Jun 21 19:42:58 2024 -->
   <g
-     id="g1454"
-     transform="matrix(0.20347158,0,0,0.20347158,108.46887,36.287789)">
+     id="g1454">
     <line
        x1="413.05563"
        y1="1038.1161"
@@ -786,7 +754,7 @@
        id="text190"
        transform="scale(1,-1)"><tspan
          style="font-weight:bold"
-         id="tspan2194">O</tspan></text>
+         id="tspan917">O</tspan></text>
     <text
        x="1962.2648"
        y="-491.30493"
@@ -799,7 +767,7 @@
        id="text192"
        transform="scale(1,-1)"><tspan
          style="font-weight:bold"
-         id="tspan3456">H</tspan></text>
+         id="tspan1351">H</tspan></text>
     <text
        x="-112.58708"
        y="265.71521"
@@ -822,61 +790,5 @@
        text-anchor="middle"
        id="text198"
        transform="scale(-1,1)">H</text>
-  </g>
-  <text
-     xml:space="preserve"
-     style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
-     x="106.18284"
-     y="208.43004"
-     id="text10030-6"><tspan
-       sodipodi:role="line"
-       id="tspan10028-7"
-       x="106.18284"
-       y="208.43004"
-       style="font-size:16px">π</tspan></text>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:2.88;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 9.4413338,204.72782 H 86.397629"
-     id="path1339" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:2.88;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 8.5549138,130.05882 H 85.511209"
-     id="path1339-3" />
-  <text
-     xml:space="preserve"
-     style="font-weight:bold;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
-     x="105.43934"
-     y="134.20845"
-     id="text10030-6-5"><tspan
-       sodipodi:role="line"
-       id="tspan10028-7-3"
-       x="105.43934"
-       y="134.20845"
-       style="font-size:16px">π*</tspan></text>
-  <g
-     id="g1349"
-     transform="translate(10.604116,34.537379)"
-     style="stroke:#1a1a1a">
-    <path
-       style="fill:none;stroke:#1a1a1a;stroke-width:2.21588;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 29.940624,163.66004 V 120.45309"
-       id="path6658" />
-    <path
-       style="fill:none;stroke:#1a1a1a;stroke-width:2.208;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 22.616748,133.13841 7.323876,-12.68532"
-       id="path1309" />
-  </g>
-  <g
-     id="g1527"
-     transform="rotate(180,40.847539,159.32526)"
-     style="stroke:#1a1a1a">
-    <path
-       style="fill:none;stroke:#1a1a1a;stroke-width:2.21588;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 29.940624,163.66004 V 120.45309"
-       id="path1523" />
-    <path
-       style="fill:none;stroke:#1a1a1a;stroke-width:2.208;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 22.616748,133.13841 7.323876,-12.68532"
-       id="path1525" />
   </g>
 </svg>
