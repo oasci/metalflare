@@ -7,7 +7,7 @@ We will examine how the protein environment modulates the fluorescent properties
 !!! note
     From this point forward, we will refer to eGFP as "GFP" and eGFP chromophore [^cormack1996facs] as "chromophore" that is the result of the Ser65, Tyr66, and Gly67 mutations from the  *Aequorea victoria* wild type GFP [^prasher1992primary].
 
-## The Chromophore Structure and Excitation Process
+## Chromophore
 
 The fluorescence cycle in GFP begins with the absorption of a photon by the chromophore, typically in the blue region of the visible spectrum (around 488 nm).
 This absorption process is intimately linked to the unique molecular structure of the chromophore.
@@ -21,6 +21,8 @@ The resulting structure consists of a hydroxybenzylidene imidazolinone moiety, w
 
     Depicts the chemical structure of the GFP chromophore.
 
+### Excitation
+
 This π-conjugated system is crucial for the chromophore's light-absorbing properties.
 The delocalized electrons in the conjugated bonds can be excited by photons of specific energies, corresponding to the energy gap between the ground state ($S_0$) and the first excited state ($S_1$) of the chromophore.
 The exact absorption wavelength is fine-tuned by several factors (discussed later): planarity, protonation state, and protein environment.
@@ -28,7 +30,8 @@ The exact absorption wavelength is fine-tuned by several factors (discussed late
 When a blue photon is absorbed, it promotes an electron from the highest occupied molecular orbital (HOMO) to the lowest unoccupied molecular orbital (LUMO) of the chromophore.
 This electronic transition is predominantly π → π* in nature, reflecting the excitation within the π-conjugated system.
 
-Following absorption, the excited chromophore undergoes rapid vibrational relaxation within the $S_1$ state, typically on a femtosecond to picosecond timescale. This relaxation involves small structural adjustments in the chromophore and its immediate protein environment, preparing the system for the subsequent fluorescence emission.
+Following absorption, the excited chromophore undergoes rapid vibrational relaxation within the $S_1$ state, typically on a femtosecond to picosecond timescale.
+This relaxation involves small structural adjustments in the chromophore and its immediate protein environment, preparing the system for the subsequent fluorescence emission.
 
 !!! quote "Figure"
     <figure markdown>
@@ -37,7 +40,37 @@ Following absorption, the excited chromophore undergoes rapid vibrational relaxa
 
     TODO:
 
-## Chromophore Planarity and Its Implications
+### Protonation states
+
+The protonation state of the GFP chromophore is a critical determinant of its photophysical properties, playing a crucial role in the protein's spectral characteristics and fluorescence behavior.
+The chromophore can exist in two primary forms: a neutral (protonated) state and an anionic (deprotonated) state, each exhibiting distinct spectroscopic signatures.
+
+In its neutral form, the chromophore's phenolic oxygen is protonated, resulting in an absorption maximum typically around 395-400 nm.
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h005-cro/cro-a.svg){ width=300 }
+    </figure>
+
+This state is often referred to as the A state.
+The neutral chromophore generally exhibits weaker fluorescence compared to its anionic counterpart, with emission maxima around 460 nm.
+The reduced fluorescence efficiency of the neutral form is attributed to excited-state dynamics that favor non-radiative decay pathways.
+
+The anionic form of the chromophore, where the phenolic oxygen is deprotonated, is primarily responsible for the characteristic green fluorescence of GFP.
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h005-cro/cro-b.svg){ width=300 }
+    </figure>
+
+This state, often called the B state, has an absorption maximum at approximately 475-490 nm and emits strongly at around 510 nm.
+The anionic chromophore demonstrates a higher fluorescence quantum yield, making it the predominant contributor to GFP's bright fluorescence.
+
+The relative population of these two states is influenced by several factors, including the local pH, specific interactions within the protein environment, and mutations in the protein sequence.
+In wild-type GFP, the chromophore exists in an equilibrium between these two states, with the population distribution heavily dependent on pH.
+Under physiological conditions, the anionic form is typically favored.
+
+### Planarity
 
 The planarity of the eGFP chromophore plays a pivotal role in determining its fluorescent properties, particularly through enhanced conjugation and increased quantum yield.
 These factors contribute significantly to the chromophore's spectroscopic characteristics and efficiency.
