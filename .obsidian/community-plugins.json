@@ -1,8 +1,8 @@
 [
   "obsidian-bibtex-adder",
   "obsidian-citation-plugin",
-  "cmenu-plugin",
   "tag-wrangler",
   "obsidian-frontmatter-tag-suggest",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "editing-toolbar"
 ]

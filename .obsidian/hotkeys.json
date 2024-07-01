@@ -15,7 +15,7 @@
     }
   ],
   "editor:toggle-checklist-status": [],
-  "editor:toggle-source": [
+  "markdown:toggle-preview": [
     {
       "modifiers": [
         "Mod"
