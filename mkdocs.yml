@@ -37,9 +37,6 @@ theme:
     - content.code.copy
     - content.code.select
     - content.tooltips
-    # - navigation.instant
-    # - navigation.instant.prefetch
-    # - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.tracking
@@ -97,7 +94,6 @@ plugins:
       archive: true
       archive_name: Articles
       archive_url_format: "articles/{date}"
-  - glightbox
   - macros
 
 extra:
