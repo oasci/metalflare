@@ -1,0 +1,10 @@
+{
+	"id": "citater",
+	"name": "Citater",
+	"version": "0.0.4",
+	"minAppVersion": "0.15.9",
+	"description": "Automatically search and insert citations from a BibTeX file.",
+	"author": "OASCI",
+	"authorUrl": "https://gitlab.com/oasci",
+	"isDesktopOnly": true
+}

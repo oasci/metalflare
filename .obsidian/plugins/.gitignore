@@ -9,6 +9,9 @@
 *template
 *icons
 
-!obsidian-bibtex-adder/main.js
-!obsidian-bibtex-adder/manifest.json
-recent-files-obsidian/data.json
+# Don't ignore
+!citater
+!citater/main.js
+!citater/manifest.json
+!citater/data.json
+!citater/styles.css
