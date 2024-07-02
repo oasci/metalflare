@@ -5,8 +5,8 @@ Many prefer using a citation manager like [Zotero](https://www.zotero.org/), [En
 This decision is entirely up to personal taste, but we provide another option within Obsidian.
 Because why not.
 
-In this repository, we have included a custom [BibTex file adder](https://github.com/oasci/obsidian-bibtex-adder) that will automatically add references to a BibTex from just the DOI of the article.
-After activating the `BibTeX Adder` community plugin, you can use the `BibTeX Adder: Add BibTeX entry from DOI` command.
+In this repository, we have included a custom [citation manager](https://github.com/oasci/citater) that will automatically add references to a BibTex from just the DOI of the article.
+After [manually installing](https://github.com/oasci/citater?tab=readme-ov-file#installation) and activating the `citater` community plugin, you can use the `BibTeX Adder: Add BibTeX entry from DOI` command.
 Alternatively, you can click on the paper airplane icon on the left ribbon.
 By entering the DOI (without any url information), it will query Crossref and add the BibTeX entry to [`refs.bib`](refs.bib).
 

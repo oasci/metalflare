@@ -1,0 +1,12 @@
+{
+  "citationExportFormat": "biblatex",
+  "literatureNoteTitleTemplate": "{{title}} (@{{citekey}})",
+  "literatureNoteFolder": "Reading notes",
+  "literatureNoteContentTemplate": "---\ntags:\n  - lit\ndate: {{year}}-01-01\n---\n\n# {{title}}\n\n**Authors:** {{authorString}}\n\n**DOI:** [{{DOI}}](https://doi.org/{{DOI}})\n\n<!-- more -->\n\nTakeaways:\n\n- \n\n## Abstract\n\n> {{abstract}}\n\n## Main\n\n\n\n\n\n",
+  "markdownCitationTemplate": "[@{{citekey}}]",
+  "alternativeMarkdownCitationTemplate": "@{{citekey}}",
+  "bibtexLocation": "study/management/literature/refs.bib",
+  "indentBibtex": true,
+  "addRibbonAction": true,
+  "citationExportPath": "study/management/literature/refs.bib"
+}
