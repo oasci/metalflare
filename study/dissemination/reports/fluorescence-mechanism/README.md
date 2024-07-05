@@ -93,6 +93,14 @@ Furthermore, the planar structure reduces coupling between electronic and vibrat
 The minimized structural changes between ground and excited states in a planar chromophore also contribute to reduced internal conversion rates.
 Consequently, with fewer available non-radiative pathways, the excited chromophore is more likely to return to the ground state via fluorescence emission, directly increasing the fluorescence quantum yield.
 
+## Emissions
+
+### Protonated only
+
+### Deprotonated only
+
+### Photocycle
+
 <!-- REFERENCES -->
 
 [^cormack1996facs]: Cormack, B. P., Valdivia, R. H., & Falkow, S. (1996). FACS-optimized mutants of the green fluorescent protein (GFP). Gene, 173(1), 33-38. DOI: [10.1016/0378-1119(95)00685-0](https://doi.org/10.1016/0378-1119(95)00685-0)
