@@ -61,8 +61,10 @@ if __name__ == "__main__":
 
     # Compute all pdfs
     x_bounds = (1, 10)
-    x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.1
+    bin_width = 0.1  # Angstrom
+    n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
+    x_values = np.linspace(*x_bounds, n_bins)
+    bw_method = 0.005
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)

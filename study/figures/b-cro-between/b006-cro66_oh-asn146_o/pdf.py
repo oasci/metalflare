@@ -40,8 +40,10 @@ if __name__ == "__main__":
 
     # Compute all pdfs
     x_bounds = (1, 10)
-    x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.1
+    bin_width = 0.1  # Angstrom
+    n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
+    x_values = np.linspace(*x_bounds, n_bins)
+    bw_method = 0.02
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
@@ -72,7 +74,7 @@ if __name__ == "__main__":
     fig_title = "b006-cro66_oh-asn146_o"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CRO66 OH - ASN146 O Distance [Å]"
-    plot_x_bounds = (1, 9)
+    plot_x_bounds = (3, 8)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
