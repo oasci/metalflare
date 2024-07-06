@@ -82,8 +82,8 @@ plugins:
   - glightbox:
       zoomable: true
       draggable: false
-      height: auto
-      width: 100%
+      height: 80vh
+      width: auto
   - blog:
       blog_dir: management/literature/
       post_dir: "{blog}/articles"

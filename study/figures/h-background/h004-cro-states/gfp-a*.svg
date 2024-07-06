@@ -8,7 +8,7 @@
    height="2.75in"
    viewBox="0 0 264 264.00002"
    sodipodi:docname="gfp-a*.svg"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -613,13 +613,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="4.5825808"
-     inkscape:cx="201.30578"
-     inkscape:cy="88.159929"
-     inkscape:window-width="1874"
-     inkscape:window-height="1016"
-     inkscape:window-x="46"
-     inkscape:window-y="907"
+     inkscape:zoom="1.5117034"
+     inkscape:cx="209.69721"
+     inkscape:cy="145.53119"
+     inkscape:window-width="1868"
+     inkscape:window-height="1136"
+     inkscape:window-x="52"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2"
      showguides="true"
@@ -631,7 +631,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="bonds">
+     inkscape:label="A*">
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
@@ -679,7 +679,7 @@
     <g
        id="g21010"
        transform="matrix(-0.90864071,0.83049045,0.83049045,0.90864071,298.9976,-232.56588)"
-       style="stroke-width:1.0138162;stroke-dasharray:none">
+       style="stroke-width:1.01382;stroke-dasharray:none">
       <line
          x1="287.47815"
          y1="224.7157"
@@ -690,7 +690,7 @@
          stroke-linejoin="round"
          stroke-linecap="round"
          id="line28-7"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       <line
          x1="287.4783"
          y1="211.90793"
@@ -701,7 +701,7 @@
          stroke-linejoin="round"
          stroke-linecap="round"
          id="line42-2"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       <line
          x1="305.62253"
          y1="201.43236"
@@ -712,11 +712,11 @@
          stroke-linejoin="round"
          stroke-linecap="round"
          id="line44-6"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       <g
          id="g3215"
          transform="translate(0.36953025,3.4993471)"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none">
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none">
         <line
            x1="296.181"
            y1="171.74492"
@@ -727,7 +727,7 @@
            stroke-linejoin="round"
            stroke-linecap="round"
            id="line46-1"
-           style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+           style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
         <line
            x1="296.181"
            y1="171.74492"
@@ -738,7 +738,7 @@
            stroke-linejoin="round"
            stroke-linecap="round"
            id="line48-8"
-           style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+           style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       </g>
       <line
          x1="314.69431"
@@ -750,7 +750,7 @@
          stroke-linejoin="round"
          stroke-linecap="round"
          id="line54-2"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       <line
          x1="314.69431"
          y1="175.244"
@@ -761,7 +761,7 @@
          stroke-linejoin="round"
          stroke-linecap="round"
          id="line56-0"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none" />
       <text
          x="94.711693"
          y="323.26111"
@@ -772,7 +772,7 @@
          font-weight="normal"
          text-anchor="middle"
          id="text80"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none"
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none"
          transform="rotate(-42.932337)">O</text>
       <text
          x="122.70776"
@@ -784,30 +784,30 @@
          font-weight="normal"
          text-anchor="middle"
          id="text84"
-         style="stroke-width:1.0138162;stroke-miterlimit:4;stroke-dasharray:none"
+         style="stroke-width:1.01382;stroke-miterlimit:4;stroke-dasharray:none"
          transform="rotate(-42.676018)">O</text>
       <path
-         style="fill:none;stroke:#000000;stroke-width:1.0138162;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1.01382;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 277.29863,224.71571 c 0,1.66244 2.50584,1.66244 2.50584,0 0,-1.8952 2.62272,-1.8952 2.62272,0 0,1.66244 2.42078,1.66244 2.42078,0 0,-1.8952 2.64272,-1.8952 2.64272,0 0,1.66244 2.43622,1.66244 2.43622,0 0,-1.8952 2.67543,-1.8952 2.67543,0 0,1.66244 2.32319,1.66244 2.32319,0 0,-1.8952 2.69988,-1.90331 2.68376,0"
          id="path5251"
          sodipodi:nodetypes="ccccccccc" />
       <g
          id="g1481"
          transform="matrix(0.31333903,-0.28939416,0.28939416,0.31333903,108.67659,278.81734)"
-         style="stroke-width:2.37687681;stroke-dasharray:none">
+         style="stroke-width:2.37688;stroke-dasharray:none">
         <circle
-           style="opacity:1;fill:none;stroke:#000000;stroke-width:2.37687681;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:2.37688;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            id="path294"
            cx="510.77884"
            cy="127.49454"
            r="5.4366407" />
         <path
-           style="fill:none;stroke:#000000;stroke-width:2.37687681;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+           style="fill:none;stroke:#000000;stroke-width:2.37688;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
            d="m 507.01338,127.79947 h 7.31897"
            id="path1397" />
       </g>
       <path
-         style="fill:none;stroke:#000000;stroke-width:1.0138162;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1.01382;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="m 317.83485,170.49335 c -9.85772,5.37416 -10.29243,6.47488 -12.20243,6.47488 -3.09642,0 -2.36563,-1.10072 -13.20259,-6.4785"
          id="path3250"
          sodipodi:nodetypes="ccc" />
@@ -2292,12 +2292,4 @@
          sodipodi:nodetypes="ccccccccc" />
     </g>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="atoms" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="state" />
 </svg>

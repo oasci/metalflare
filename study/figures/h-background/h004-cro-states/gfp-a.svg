@@ -67,9 +67,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1.4271245"
-     inkscape:cx="237.19024"
-     inkscape:cy="137.33911"
+     inkscape:zoom="2.8480731"
+     inkscape:cx="120.08119"
+     inkscape:cy="170.9928"
      inkscape:window-width="1868"
      inkscape:window-height="1136"
      inkscape:window-x="52"
@@ -83,7 +83,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="bonds">
+     inkscape:label="main">
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
@@ -117,20 +117,10 @@
          x="17.971943"
          y="77.871704"
          style="font-size:13.3333px;stroke-width:1.21627">THR203</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
-       x="99.0289"
-       y="49.813427"
-       id="text10030-7"><tspan
-         sodipodi:role="line"
-         id="tspan10028-6"
-         x="99.0289"
-         y="49.813427"
-         style="font-weight:bold;font-size:13.3333px;stroke-width:1.57638">CRO66</tspan></text>
     <g
        id="g21010"
-       transform="matrix(-0.90864071,0.83049045,0.83049045,0.90864071,298.9976,-232.56588)">
+       transform="matrix(-0.90864071,0.83049045,0.83049045,0.90864071,298.9976,-232.56588)"
+       inkscape:label="glu222">
       <line
          x1="287.47815"
          y1="224.7157"
@@ -263,7 +253,8 @@
     </g>
     <g
        id="g33121"
-       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)">
+       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)"
+       inkscape:label="thr203">
       <line
          x1="320.86646"
          y1="106.71401"
@@ -430,7 +421,8 @@
     </g>
     <g
        id="g39975"
-       transform="rotate(-43.939923,69.86958,156.24531)">
+       transform="rotate(-43.939923,69.86958,156.24531)"
+       inkscape:label="wat">
       <line
          x1="54.960747"
          y1="187.21921"
@@ -518,7 +510,8 @@
     </g>
     <g
        id="g40359"
-       transform="translate(29.246274,-12.417683)">
+       transform="translate(29.246274,-12.417683)"
+       inkscape:label="ser205">
       <line
          x1="98.105499"
          y1="255.70662"
@@ -612,7 +605,19 @@
     </g>
     <g
        id="g40884"
-       transform="translate(-5.164421,-9.2995879)">
+       transform="translate(-5.164421,-9.2995879)"
+       inkscape:label="cro66">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
+         x="99.0289"
+         y="49.813427"
+         id="text10030-7"><tspan
+           sodipodi:role="line"
+           id="tspan10028-6"
+           x="99.0289"
+           y="49.813427"
+           style="font-weight:bold;font-size:13.3333px;stroke-width:1.57638">CRO66</tspan></text>
       <g
          id="g40250"
          transform="translate(17.389986,16.0072)">
@@ -1244,12 +1249,4 @@
            id="tspan27192">H</tspan></text>
     </g>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="atoms" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="state" />
 </svg>

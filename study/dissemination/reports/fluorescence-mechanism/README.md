@@ -95,11 +95,41 @@ Consequently, with fewer available non-radiative pathways, the excited chromopho
 
 ## Emissions
 
+TODO:
+
 ### Protonated only
+
+TODO:
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h006-cro-excitation/gfp-a-emission.svg){ width=300 }
+    </figure>
 
 ### Deprotonated only
 
+TODO:
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h006-cro-excitation/gfp-b-emission.svg){ width=300 }
+    </figure>
+
+TODO:
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h004-cro-states/gfp-b.svg){ width=300 }
+    </figure>
+
 ### Photocycle
+
+TODO:
+
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h004-cro-states/gfp-photocycle.svg){ width=500 }
+    </figure>
 
 <!-- REFERENCES -->
 
