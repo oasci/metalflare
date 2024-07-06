@@ -1,4 +1,4 @@
-# Fluorescence mechanism
+# R001 - Fluorescence mechanism
 
 The fluorescence mechanism in enhanced Green Fluorescent Protein (eGFP) is a complex interplay of photophysical and photochemical processes that occur at the molecular level.
 This section delves into the current understanding of fluorescence in eGFP, exploring the fundamental principles of excitation and de-excitation, as well as the various factors that influence these processes.

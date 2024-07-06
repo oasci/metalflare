@@ -8,6 +8,9 @@ TODO:
 
 ## Probability density function
 
+**Bandwidth**: `0.001`.
+Anything higher than this starts distorting the relative heights of the peaks.
+
 <figure markdown>
 ![](./e010-ser205_og-h2o_h-pdf.svg)
 </figure>
