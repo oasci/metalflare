@@ -1,11 +1,11 @@
-# R001 - Fluorescence mechanism
+# R001 - Fluorescence mechanisms
 
-The fluorescence mechanism in enhanced Green Fluorescent Protein (eGFP) is a complex interplay of photophysical and photochemical processes that occur at the molecular level.
-This section delves into the current understanding of fluorescence in eGFP, exploring the fundamental principles of excitation and de-excitation, as well as the various factors that influence these processes.
+The fluorescence mechanism in Green Fluorescent Protein (GFP) is a complex interplay of photophysical and photochemical processes that occur at the molecular level.
+This section delves into the current understanding of fluorescence in GFP, exploring the fundamental principles of excitation and de-excitation, as well as the various factors that influence these processes.
 We will examine how the protein environment modulates the fluorescent properties, the critical role of chromophore protonation states, and the intricate dynamics of excited-state phenomena such as non-adiabatic crossings and proton transfer.
 
 !!! note
-    From this point forward, we will refer to eGFP as "GFP" and eGFP chromophore [^cormack1996facs] as "chromophore" that is the result of the Ser65, Tyr66, and Gly67 mutations from the  *Aequorea victoria* wild type GFP [^prasher1992primary].
+    From this point forward, we will refer to eGFP as "GFP" and eGFP chromophore [^cormack1996facs] as "chromophore" that is the result of the F64L and S65T mutations from the  *Aequorea victoria* wild type GFP [^prasher1992primary].
 
 ## Chromophore
 
@@ -93,45 +93,88 @@ Furthermore, the planar structure reduces coupling between electronic and vibrat
 The minimized structural changes between ground and excited states in a planar chromophore also contribute to reduced internal conversion rates.
 Consequently, with fewer available non-radiative pathways, the excited chromophore is more likely to return to the ground state via fluorescence emission, directly increasing the fluorescence quantum yield.
 
-## Emissions
+## Possible mechanisms
 
-TODO:
+With the above background, we will discuss possible fluorescence mechanisms.
 
-### Protonated only
+### Neutral state
 
-TODO:
+Excitation and subsequent emission of the neutral state of the chromophore without any structural changes is one&mdash;infrequent&mdash;possibility.
+
+Excitation of the neutral state occurs at approximately 395 nm, corresponding to the absorption of violet-blue light.
+This excitation promotes the chromophore to its first excited singlet state ($S_1$) without immediate proton transfer.
+The subsequent emission from this excited neutral state results in weak blue fluorescence with a peak around 460 nm.
 
 !!! quote "Figure"
     <figure markdown>
     ![](../../../figures/h-background/h006-cro-excitation/gfp-a-emission.svg){ width=300 }
     </figure>
 
-### Deprotonated only
+This protonated chromophore can be further stabilized by hydrogen bonding with a water molecule, Thr203, or Ser205.
+The presence or absence of these interactions contribute to the distinct excitation and emission.
 
-TODO:
+!!! quote "Figure"
+    <figure markdown>
+    ![](../../../figures/h-background/h004-cro-states/gfp-a2.svg){ width=300 }
+    </figure>
+
+Although, this emission is relatively weak compared to the anionic state discussed next.
+
+### Anionic state
+
+The anionic state of the chromophore represents a key configuration responsible for the protein's characteristic green fluorescence.
+In this state, the chromophore exists in its deprotonated form, with the phenolic oxygen carrying a negative charge.
+
+Excitation of the anionic chromophore occurs at approximately 475 nm, corresponding to the absorption of blue light.
+This excitation promotes the chromophore to its first excited singlet state ($S_1$).
+The subsequent relaxation and emission result in the bright green fluorescence typically associated with GFP, with a peak around 508 nm.
 
 !!! quote "Figure"
     <figure markdown>
     ![](../../../figures/h-background/h006-cro-excitation/gfp-b-emission.svg){ width=300 }
     </figure>
 
-TODO:
+The anionic state is stabilized by specific interactions within the protein barrel.
+Notably, Thr203 plays a crucial role in stabilizing the anionic form through hydrogen bonding with the deprotonated phenolic oxygen.
+Additionally, a protonated Glu222 could form a hydrogen bond with the anionic chromophore, further contributing to its stabilization.
 
 !!! quote "Figure"
     <figure markdown>
     ![](../../../figures/h-background/h004-cro-states/gfp-b.svg){ width=300 }
     </figure>
 
-### Photocycle
+The protein environment around the chromophore is critical in maintaining this anionic configuration.
+The β-barrel structure of eGFP provides a hydrophobic pocket that shields the chromophore from bulk solvent, contributing to the high quantum yield of fluorescence in this state.
 
-TODO:
+### Excited-state proton transfer
+
+The excited-state proton transfer (ESPT) mechanism represents a fundamental process in GFP, contributing significantly to its unique spectroscopic properties.
+This process involves the initial excitation of the neutral (protonated) chromophore, followed by rapid, successive proton transfer events in the excited state, ultimately resulting in emission from an anionic species.
+An overview of the process is shown below.
 
 !!! quote "Figure"
     <figure markdown>
     ![](../../../figures/h-background/h004-cro-states/gfp-photocycle.svg){ width=500 }
     </figure>
 
+1.  Upon absorption of a photon at approximately 395 nm, the neutral chromophore is promoted to its first excited singlet state ($S_1$).
+
+2.  In this excited state, the chromophore exhibits markedly different acid-base properties compared to its ground state, becoming a much stronger acid.
+    This enhanced acidity facilitates the transfer of a proton from the chromophore to a proximal acceptor within the protein matrix.
+
+    The proton transfer pathway involves a sophisticated hydrogen-bonding network.
+    A critical component of this network is a strategically positioned water molecule, which acts as the initial proton acceptor.
+    This water molecule is part of a proton wire that includes Ser205 and terminates at Glu222. The transfer occurs on an ultrafast timescale, typically in the order of picoseconds.
+
+3.  Following the ESPT, the system exists transiently in an intermediate state (I\*), characterized by an anionic chromophore and a protonated Glu222.
+    I\* subsequently relaxes and emits fluorescence at approximately 508 nm, closely resembling the emission profile of the intrinsically anionic chromophore.
+
+4.  The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
+
+Little consensus has been made on the ESPT mechanism in GFP.
+
 <!-- REFERENCES -->
 
 [^cormack1996facs]: Cormack, B. P., Valdivia, R. H., & Falkow, S. (1996). FACS-optimized mutants of the green fluorescent protein (GFP). Gene, 173(1), 33-38. DOI: [10.1016/0378-1119(95)00685-0](https://doi.org/10.1016/0378-1119(95)00685-0)
 [^prasher1992primary]: Prasher, D. C., Eckenrode, V. K., Ward, W. W., Prendergast, F. G., & Cormier, M. J. (1992). Primary structure of the Aequorea victoria green-fluorescent protein. Gene, 111(2), 229-233. DOI: [10.1016/0378-1119(92)90691-H](https://doi.org/10.1016/0378-1119(92)90691-H)
+[^worster2024quantum]: Bourne-Worster, S., & Worth, G. A. (2024). Quantum dynamics of excited state proton transfer in green fluorescent protein. *Journal of Chemical Physics*, 160(6). DOI: [10.1063/5.0188834](https://doi.org/10.1063/5.0188834)
