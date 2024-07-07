@@ -68,14 +68,14 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="3.6021177"
-     inkscape:cx="109.93533"
+     inkscape:cx="109.65772"
      inkscape:cy="161.29401"
      inkscape:window-width="1868"
      inkscape:window-height="1136"
      inkscape:window-x="52"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showguides="true"
      inkscape:guide-bbox="true"
      units="in"
@@ -88,7 +88,7 @@
      inkscape:label="structures">
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
+       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638;opacity:0.25"
        x="179.39606"
        y="188.8658"
        id="text10030"><tspan
@@ -99,7 +99,7 @@
          style="font-size:13.3333px;stroke-width:1.57638">GLU222</tspan></text>
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
+       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638;opacity:0.25"
        x="131.381"
        y="252.21075"
        id="text10030-5"><tspan
@@ -110,7 +110,7 @@
          style="font-size:13.3333px;stroke-width:1.57638">SER205</tspan></text>
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.21627"
+       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.21627;opacity:0.25"
        x="17.971943"
        y="77.871704"
        id="text10030-5-3"><tspan
@@ -121,7 +121,8 @@
          style="font-size:13.3333px;stroke-width:1.21627">THR203</tspan></text>
     <g
        id="g33121"
-       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)">
+       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)"
+       style="opacity:0.25">
       <line
          x1="320.86646"
          y1="106.71401"
@@ -375,7 +376,8 @@
          style="stroke-width:1.1039;stroke-miterlimit:4;stroke-dasharray:none" />
     </g>
     <g
-       id="g1695">
+       id="g1695"
+       style="opacity:0.25">
       <line
          x1="224.40749"
          y1="210.36781"
@@ -1145,7 +1147,8 @@
          style="stroke-width:1.152;stroke-miterlimit:4;stroke-dasharray:none">O</text>
     </g>
     <g
-       id="g1677">
+       id="g1677"
+       style="opacity:0.25">
       <line
          x1="127.35178"
          y1="243.28894"
@@ -1251,20 +1254,5 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="blur">
-    <rect
-       style="opacity:0.75;fill:#ffffff;stroke:none;stroke-width:0.889084;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.889084, 1.77818;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect1"
-       width="65.843231"
-       height="72.252747"
-       x="11.302137"
-       y="59.747253" />
-    <rect
-       style="opacity:0.75;fill:#ffffff;stroke:none;stroke-width:1.42094;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1.42094, 2.84188;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2"
-       width="157.36993"
-       height="77.216263"
-       x="89.274399"
-       y="151.49791" />
-  </g>
+     inkscape:label="blur" />
 </svg>

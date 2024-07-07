@@ -68,7 +68,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="2.7347645"
-     inkscape:cx="123.22816"
+     inkscape:cx="122.8625"
      inkscape:cy="154.30945"
      inkscape:window-width="1868"
      inkscape:window-height="1136"
@@ -110,7 +110,7 @@
          style="font-size:13.3333px;stroke-width:1.57638">SER205</tspan></text>
     <text
        xml:space="preserve"
-       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.21627"
+       style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.21627;opacity:0.25"
        x="17.971943"
        y="77.871704"
        id="text10030-5-3"><tspan
@@ -121,7 +121,8 @@
          style="font-size:13.3333px;stroke-width:1.21627">THR203</tspan></text>
     <g
        id="g33121"
-       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)">
+       transform="matrix(-0.96019956,0.72223652,0.72223652,0.96019956,258.38474,-239.24088)"
+       style="opacity:0.25">
       <line
          x1="320.86646"
          y1="106.71401"
@@ -288,7 +289,8 @@
     </g>
     <g
        id="g39975"
-       transform="rotate(87.816155,64.340067,195.97869)">
+       transform="rotate(87.816155,64.340067,195.97869)"
+       style="opacity:0.25">
       <line
          x1="54.960747"
          y1="187.21921"
@@ -528,7 +530,8 @@
       </g>
     </g>
     <g
-       id="g1534">
+       id="g1534"
+       style="opacity:0.25">
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:1.57638"
@@ -1250,20 +1253,5 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="blur">
-    <rect
-       style="fill:#ffffff;stroke:none;stroke-width:2.62044;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2.62044, 5.24089;stroke-dashoffset:0;stroke-opacity:1;opacity:0.75"
-       id="rect1"
-       width="264"
-       height="156.53979"
-       x="0"
-       y="0" />
-    <rect
-       style="opacity:0.75;fill:#ffffff;stroke:none;stroke-width:0.490157;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.490157, 0.980315;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2"
-       width="41.487862"
-       height="34.852158"
-       x="50.192307"
-       y="161.98682" />
-  </g>
+     inkscape:label="blur" />
 </svg>
