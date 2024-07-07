@@ -6,11 +6,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
+from metalflare.analysis.figures import use_mpl_rc_params
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
+
+    # Update plot params
+    rc_json_path = os.path.join(
+        base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
+    )
+    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
+    use_mpl_rc_params(rc_json_path, font_dirs)
 
     rogfp_dist_path = os.path.join(
         base_dir, "analysis/001-rogfp-md/data/struct-desc/cro65_oh-cym145_ca-dist.npy"

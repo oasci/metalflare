@@ -5,6 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
+from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pdfs import (
     compute_pdf,
     compute_pmfs,
@@ -19,6 +20,13 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
+
+    # Update plot params
+    rc_json_path = os.path.join(
+        base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
+    )
+    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
+    use_mpl_rc_params(rc_json_path, font_dirs)
 
     # Reduced
     rogfp_data_path = os.path.join(
@@ -54,6 +62,9 @@ if __name__ == "__main__":
         extrema_table(x_values, "Distance (Å)", pdf_rogfp, "Density", sci_notation=True)
     )
     pdf_info_lines.append("\nOxidized roGFP2\n")
+    extrema_order = 5
+    polyorder = 3
+    window_length = int(0.5 / bin_width)
     pdf_info_lines.extend(
         extrema_table(
             x_values,
@@ -61,6 +72,9 @@ if __name__ == "__main__":
             pdf_rogfp_oxd,
             "Density",
             sci_notation=True,
+            extrema_order=extrema_order,
+            polyorder=polyorder,
+            window_length=window_length,
         )
     )
     pdf_info_lines.append("\nroGFP2 and Cu(I)\n")
@@ -98,7 +112,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.36, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 4.34, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -116,6 +130,9 @@ if __name__ == "__main__":
             pmf_rogfp_oxd,
             "PMF [kcal/mol]",
             sci_notation=False,
+            extrema_order=extrema_order,
+            polyorder=polyorder,
+            window_length=window_length,
         )
     )
     pmf_info_lines.append("\nroGFP2 and Cu(I)\n")
