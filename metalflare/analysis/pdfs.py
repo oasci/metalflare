@@ -30,9 +30,9 @@ def extrema_table(
     y,
     y_label,
     sci_notation=False,
-    extrema_order=5,
-    polyorder=3,
-    window_length=60,
+    extrema_order=3,
+    polyorder=2,
+    window_length=4,
 ):
     local_extrema_x, local_extrema = get_extrema(
         x,
@@ -67,6 +67,7 @@ def make_pdf_fig(
     y_bounds,
     pdf_rogfp_oxd=None,
     fill_between=False,
+    legend_frame=False,
 ):
     if fill_between:
         plot_function = plt.fill_between
@@ -88,7 +89,7 @@ def make_pdf_fig(
         x_values,
         pdf_rogfp_cu,
         color="#f99752",
-        label="Cu$^{+}$",
+        label="Cu(I)",
         zorder=2,
         **plt_kwargs,
     )
@@ -96,7 +97,7 @@ def make_pdf_fig(
     plt.xlim(*x_bounds)
     plt.ylim(*y_bounds)
     plt.ylabel(y_label)
-    plt.legend()
+    plt.legend(frameon=legend_frame)
     plt.tight_layout()
     return plt.gcf()
 
@@ -110,6 +111,7 @@ def make_pmf_fig(
     y_label,
     y_bounds,
     pmf_rogfp_oxd=None,
+    legend_frame=False,
 ):
     plt.plot(
         x_values, pmf_rogfp, color="#1e2e79", label="Reduced", zorder=0, linewidth=2.5
@@ -127,7 +129,7 @@ def make_pmf_fig(
         x_values,
         pmf_rogfp_cu,
         color="#f99752",
-        label="Cu$^{+}$",
+        label="Cu(I)",
         zorder=2,
         linewidth=2.5,
     )
@@ -136,6 +138,6 @@ def make_pmf_fig(
     plt.xlim(*x_bounds)
     plt.ylim(*y_bounds)
     plt.ylabel(y_label)
-    plt.legend()
+    plt.legend(frameon=legend_frame)
     plt.tight_layout()
     return plt.gcf()
