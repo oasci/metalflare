@@ -57,20 +57,20 @@ if __name__ == "__main__":
         [rogfp2_cu_data, rogfp2_cu_data + 360, rogfp2_cu_data - 360]
     )
 
-    x_bounds = (-180, 180)
-    x_values = np.linspace(*x_bounds, 1000)
-    bw_method = 0.03
+    x_bounds = (-120, 240)
+    x_values = np.linspace(*x_bounds, 360 * 2)
+    bw_method = 0.005
 
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(-180, 180)
+    scaling_factor = kde.integrate_box_1d(*x_bounds)
     pdf_rogfp = kde(x_values) / scaling_factor
 
     kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(-180, 180)
+    scaling_factor = kde.integrate_box_1d(*x_bounds)
     pdf_rogfp_oxd = kde(x_values) / scaling_factor
 
     kde = gaussian_kde(rogfp2_cu_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(-180, 180)
+    scaling_factor = kde.integrate_box_1d(*x_bounds)
     pdf_rogfp_cu = kde(x_values) / scaling_factor
 
     # save pdf information
@@ -98,8 +98,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "c002-ser205_og_cb_ca_n"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "SER205 OG-CB-CA-N Dihedral [°]"
-    plot_x_bounds = (-180, 180)
+    x_label = "Ser205 OG-CB-CA-N Dihedral [°]"
+    plot_x_bounds = x_bounds
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -114,7 +114,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(min(x_bounds), max(x_bounds) + 1, 60))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
@@ -152,7 +152,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (None, None)
+    plot_y_bounds = (None, 5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -163,6 +163,6 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(min(x_bounds), max(x_bounds) + 1, 60))
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

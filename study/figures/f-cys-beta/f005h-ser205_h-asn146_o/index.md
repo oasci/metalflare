@@ -1,4 +1,4 @@
-# f009-cys147_sg-cys204_sg
+# f005h-ser205_h-asn146_o
 
 TODO:
 
@@ -12,10 +12,10 @@ jQuery.ajax( uri, {
             document.querySelector('#rogfp-view'),
             { backgroundAlpha: '0.0' }
         );
-        let resi1 = 147;
-        let atom1Name = "SG";
-        let resi2 = 204;
-        let atom2Name = "SG";
+        let resi1 = 205;
+        let atom1Name = "N";
+        let resi2 = 146;
+        let atom2Name = "O";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
@@ -29,7 +29,7 @@ jQuery.ajax( uri, {
         viewer.setStyle({chain: 'A', resi: 222}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
         viewer.setStyle({chain: 'B'}, {});
         viewer.setStyle({chain: 'C'}, {});
-        viewer.setView([ -181.803365540136, -10.257851896163483, -40.1607556632344, 97.49843708210796, -0.2017206957273539, 0.35811559103623963, -0.7729265658498808, -0.48336994959921564 ]);
+        viewer.setView([ -180.33196291381824, -12.112329257963113, -46.47604478199624, 97.49843708210796, 0.17474428971354652, -0.9161577310617698, 0.2631075810734197, 0.2467667842517564 ]);
         let atom1 = viewer.getModel().selectedAtoms(
             {chain: 'A', resi: resi1, atom: atom1Name}
         )[0];
@@ -59,19 +59,19 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./f009-cys147_sg-cys204_sg-pdf.svg)
+![](./f005h-ser205_h-asn146_o-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/f009-cys147_sg-cys204_sg/pdf-info.md"
+--8<-- "study/figures/f-cys-beta/f005h-ser205_h-asn146_o/pdf-info.md"
 
 ## Potential of mean force
 
 <figure markdown>
-![](./f009-cys147_sg-cys204_sg-pmf.svg)
+![](./f005h-ser205_h-asn146_o-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/f009-cys147_sg-cys204_sg/pmf-info.md"
+--8<-- "study/figures/f-cys-beta/f005h-ser205_h-asn146_o/pmf-info.md"

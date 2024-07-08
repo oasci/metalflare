@@ -1,4 +1,4 @@
-# f009-cys147_sg-cys204_sg
+# f008h-cys147_ca-cys204_ca
 
 TODO:
 
@@ -13,9 +13,9 @@ jQuery.ajax( uri, {
             { backgroundAlpha: '0.0' }
         );
         let resi1 = 147;
-        let atom1Name = "SG";
+        let atom1Name = "CA";
         let resi2 = 204;
-        let atom2Name = "SG";
+        let atom2Name = "CA";
         viewer.addModel( data, 'pdb' );
         viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum', opacity: 0.65}});
         viewer.setStyle({chain: 'A', resi: 66}, {stick: {}, cartoon: {color: "spectrum", opacity: 0.65}});
@@ -59,19 +59,19 @@ jQuery.ajax( uri, {
 ## Probability density function
 
 <figure markdown>
-![](./f009-cys147_sg-cys204_sg-pdf.svg)
+![](./f008h-cys147_ca-cys204_ca-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/f009-cys147_sg-cys204_sg/pdf-info.md"
+--8<-- "study/figures/f-cys-beta/f008h-cys147_ca-cys204_ca/pdf-info.md"
 
 ## Potential of mean force
 
 <figure markdown>
-![](./f009-cys147_sg-cys204_sg-pmf.svg)
+![](./f008h-cys147_ca-cys204_ca-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/f009-cys147_sg-cys204_sg/pmf-info.md"
+--8<-- "study/figures/f-cys-beta/f008h-cys147_ca-cys204_ca/pmf-info.md"
