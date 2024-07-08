@@ -40,15 +40,18 @@ If we observe similar differences between reduced and copper states, this would 
 
 We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
 
-!!! quote "Alpha carbon distances between roGFP2 cysteines."
-    For more figure information, go [here](../../../figures/f-cys-beta/f008-cys147_ca-cys204_ca/).
-
+!!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f008-cys147_ca-cys204_ca/f008-cys147_ca-cys204_ca-pdf.svg){ width=500 }
+    ![](../../../figures/f-cys-beta/f008h-cys147_ca-cys204_ca/f008h-cys147_ca-cys204_ca-pdf.svg){ width=600 }
     </figure>
 
-As one would expect, formation of the disulfide bridge in the oxidized state induces a highly strained conformation of around 3.93 Å C$_\alpha$-C$_\alpha$ distance, agreeing with the average experimental distance of 4.04 $\pm$ 0.09 Å [^hanson2004investigating].
-However, 
+    For more figure information, go [here](../../../figures/f-cys-beta/f008h-cys147_ca-cys204_ca/).
+
+As one would expect, formation of the disulfide bridge in the oxidized state induces a highly strained conformation of around 4.07 Å C$_\alpha$-C$_\alpha$ distance, agreeing with the average experimental distance of 4.04 ± 0.09 Å [^hanson2004investigating].
+Additional conformational flexibility is observed in the reduced simulations with a broader distribution centered around 5.07 Å.
+A reduced&mdash;albeit partially oxidized&mdash;crystal structure of roGFP2 had a distance of 4.30 ± 0.12 Å [^hanson2004investigating], well within the observed distribution.
+Our Cu(I) simulation C$_\alpha$-C$_\alpha$ distances resemble those of the reduced cysteines; however, Cu(I) binding induces closer contacts on the order of 0.5 Å.
+Certainly, binding of Cu(I) to Cys147 and Cys204 causes a distinct conformational change relative to canonical roGFP2.
 
 ## Photocycle reprotonation
 
@@ -76,7 +79,7 @@ Intermolecular distances distances between each chemical species is a common fea
 
 !!! quote "Figure X. Probability density of SER205 to WAT proton transfer."
     <figure markdown>
-    ![](../../../figures/e-proton-wire/e010-ser205_og-h2o_h/e010-ser205_og-h2o_h-pdf.svg){ width=500 }
+    ![](../../../figures/e-proton-wire/e011-ser205_hg-h2o_o/e010-ser205_hg-h2o_o-pdf.svg){ width=500 }
     </figure>
 
 ### WAT to CRO66
