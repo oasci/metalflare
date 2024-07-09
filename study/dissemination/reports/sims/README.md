@@ -14,7 +14,7 @@ We performed the following three sets of simulations.
     Cys147 and Cys204 remain in their reduced (i.e., protonated) form.
 
     <figure markdown>
-    ![](../../../figures/h-background/h001-rogfp2/rogfp2-reduced.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-reduced.png){ width=500 }
     </figure>
 
 === "Oxidized"
@@ -22,7 +22,7 @@ We performed the following three sets of simulations.
     Disulfide bridge between Cys147 and Cys204.
 
     <figure markdown>
-    ![](../../../figures/h-background/h001-rogfp2/rogfp2-oxidized.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=500 }
     </figure>
 
 === "Copper"
@@ -30,7 +30,7 @@ We performed the following three sets of simulations.
     Reduced Cys147 and Cys204 with a coordinated Cu(I).
 
     <figure markdown>
-    ![](../../../figures/h-background/h001-rogfp2/rogfp2-cu.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-cu.png){ width=500 }
     </figure>
 
 Differences between reduced and oxidized states are indicative of the canonical roGFP2 atomistic mechanism.
