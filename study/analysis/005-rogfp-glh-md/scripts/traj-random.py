@@ -4,7 +4,7 @@ import os
 from random import randrange
 
 import MDAnalysis as mda
-from MDAnalysis.transformations import center_in_box, unwrap
+from MDAnalysis import transformations
 
 
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
@@ -34,16 +34,25 @@ def main():
     data_dir = os.path.join(base_dir, "analysis/005-rogfp-glh-md/data/traj")
     os.makedirs(data_dir, exist_ok=True)
 
-    u = mda.Universe(topology_path, trajectory_paths)
+    for _ in range(5):
+        u = mda.Universe(topology_path, trajectory_paths)
+        atoms_of_interest = u.select_atoms("protein")
+        not_atoms_of_interest = u.select_atoms("not protein")
 
-    n_max = len(u.trajectory)
+        n_max = len(u.trajectory)
 
-    i_selection = randrange(n_max)
-    path_pdb = os.path.join(data_dir, f"frame_{i_selection}.pdb")
-    u.trajectory[i_selection]
-    u.trajectory.add_transformations(center_in_box(u.atoms, center="geometry"))
-    print(f"Writing {path_pdb}")
-    u.atoms.write(path_pdb, bonds=None)
+        i_selection = randrange(n_max)
+        path_pdb = os.path.join(data_dir, f"frame_{i_selection}.pdb")
+
+        u.trajectory[i_selection]
+        transforms = [
+            transformations.unwrap(atoms_of_interest),
+            transformations.center_in_box(atoms_of_interest, wrap=True),
+            transformations.wrap(not_atoms_of_interest),
+        ]
+        u.trajectory.add_transformations(*transforms)
+        print(f"Writing {path_pdb}")
+        u.atoms.write(path_pdb, bonds=None)
 
 
 if __name__ == "__main__":
