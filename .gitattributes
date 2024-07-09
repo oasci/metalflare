@@ -9,4 +9,3 @@
 *.jpg binary
 * annex.backend=MD5E
 **/.git* annex.largefiles=nothing
-*.pdb filter=lfs diff=lfs merge=lfs -text
