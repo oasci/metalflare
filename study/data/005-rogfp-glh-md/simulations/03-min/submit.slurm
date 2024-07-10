@@ -7,7 +7,7 @@
 #SBATCH --cluster=mpi
 #SBATCH --partition=mpi
 #SBATCH --account=jdurrant
-#SBATCH --job-name=metalflare/001/03-min
+#SBATCH --job-name=metalflare/005/03-min
 
 # Load environment
 module purge

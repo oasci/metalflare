@@ -8,7 +8,7 @@
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
 #SBATCH --account=jdurrant
-#SBATCH --job-name=metalflare/001/05-prod/run-03
+#SBATCH --job-name=metalflare/005/05-prod/run-03
 
 # Load environment
 module purge
