@@ -6,12 +6,12 @@ PACKAGE_PATH := $(PACKAGE_NAME)/
 TESTS_PATH := tests/
 CONDA_NAME := $(PACKAGE_NAME)-dev
 CONDA := conda run -n $(CONDA_NAME)
-CONDA_LOCK_OPTIONS := -p linux-64 -p osx-64 -c conda-forge -c schrodinger
+CONDA_LOCK_OPTIONS := -p linux-64 -p osx-64 -c conda-forge
 
 ###   ENVIRONMENT   ###
 
 # See https://github.com/pypa/pip/issues/7883#issuecomment-643319919
-export PYTHON_KEYRING_BACKEND := keyring.backends.null.Keyring
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 .PHONY: conda-create
 conda-create:
@@ -34,7 +34,6 @@ conda-dependencies:
 	$(CONDA) conda install -y -c conda-forge ambertools
 	$(CONDA) conda install -y -c conda-forge xtb
 	$(CONDA) conda install -y -c conda-forge openbabel
-	$(CONDA) conda install -y -c conda-forge -c schrodinger pymol-bundle
 	$(CONDA) conda install -y -c conda-forge nodejs
 
 .PHONY: nodejs-dependencies
