@@ -1,5 +1,9 @@
+import os
+
 import pymol
 from pymol import cmd, util
+
+os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
@@ -25,34 +29,19 @@ def hex_to_rgb(hex_color):
     # Normalize the RGB values to 0-1 range (PyMOL RGB format)
     return (r, g, b)
 
-
 # Start PyMOL session
 pymol.finish_launching()
 
 # Setup colors
 cmd.bg_color("white")
 
+SAVE_PNG = True
+
 # Load files
-cmd.load(
-    "../../../analysis/005-rogfp-glh-md/data/traj/frame_89526.pdb",
-    "reduced",
-    format="pdb",
-)
+cmd.load("../../../analysis/005-rogfp-glh-md/data/traj/frame_89526.pdb", "reduced")
 cmd.load("../../../analysis/007-rogfp-oxd-glh-md/data/traj/frame_50564.pdb", "oxidized")
 cmd.load("../../../analysis/006-rogfp-cu-glh-md/data/traj/frame_100971.pdb", "cu")
 cmd.center("reduced")
-
-# Make selections
-cmd.select("cro", "resname cro")
-cmd.select(
-    "cys-sensor",
-    "resi 145 or resi 202",
-)
-cmd.select(
-    "cro-water",
-    "(model reduced and resi 3259) or (model oxidized and resi 1496) or (model cu and resi 313)",
-)
-cmd.deselect()
 
 # Remove unnecessary waters
 cmd.remove("(resname HOH or resname WAT)")
@@ -63,6 +52,25 @@ cmd.remove("element Cl")
 cmd.align("model oxidized", "model reduced")
 cmd.align("model cu", "model reduced")
 
+# Make selections
+cmd.deselect()
+cmd.select(
+    "cys-sensor-reduced",
+    "(resi 145 or resi 202) and model reduced",
+)
+cmd.create(name="cys-reduced", selection="cys-sensor-reduced")
+cmd.select(
+    "cys-sensor-oxidized",
+    "(resi 145 or resi 202) and model oxidized",
+)
+cmd.create(name="cys-oxidized", selection="cys-sensor-oxidized")
+cmd.select(
+    "cys-sensor-cu",
+    "(resi 145 or resi 202) and model cu",
+)
+cmd.create(name="cys-cu", selection="cys-sensor-cu")
+cmd.deselect()
+
 # Display settings
 util.performance(0)
 cmd.space("rgb")
@@ -70,21 +78,23 @@ cmd.set("ray_trace_fog", 0)
 cmd.set("depth_cue", 0)
 cmd.set("antialias", 4)
 cmd.set("hash_max", 300)
-cmd.set("ray_trace_mode", 1)
+cmd.set("ray_trace_mode", 0)
 cmd.set("opaque_background", 0)
 cmd.set("cartoon_discrete_colors", 0)
-cmd.set("direct", 1)
-cmd.set("ambient", 0)
+cmd.set("direct", 0.5)
+cmd.set("ambient", 0.25)
 cmd.set("specular", 0)
-cmd.set("light_count", 2)
+cmd.set("light_count", 4)
 cmd.set("ray_shadows", 0)
 
 # Styling
-cmd.show("sticks", "cys")
+cmd.show("sticks", "cys-reduced")
+cmd.show("sticks", "cys-oxidized")
+cmd.show("sticks", "cys-cu")
 cmd.show("sticks", "resname HOH")
 cmd.show("spheres", "element Cu")
 
-cmd.set("cartoon_transparency", 0.8)
+# cmd.set("cartoon_transparency", 0.8)
 
 cmd.set_color("cartoon-color", hex_to_rgb("#F2F2F2"))
 cmd.color("cartoon-color", "rep cartoon")
@@ -102,9 +112,9 @@ cmd.color("loop-color", "ss l and rep cartoon")
 cmd.set_color("carbon-color", hex_to_rgb("#B8B8B8"))
 cmd.color("carbon-color", "element C and rep sticks")
 
-util.cnc("cys-sensor")
-cmd.rebuild()
-cmd.refresh()
+util.cnc("cys-reduced")
+util.cnc("cys-oxidized")
+util.cnc("cys-cu")
 
 cmd.set_view(
     """
@@ -112,25 +122,30 @@ cmd.set_view(
 """
 )
 
+if SAVE_PNG:
+    # Pictures
+    png_path = "cys-sensor-reduced.png"
+    print(f"Rendering {png_path}")
+    cmd.disable("all")
+    cmd.enable("reduced")
+    cmd.enable("cys-reduced")
+    cmd.png(png_path, dpi=1000)
 
-# Pictures
-cmd.enable("reduced")
-cmd.disable("oxidized")
-cmd.disable("cu")
-cmd.png("cys-sensor-reduced.png", dpi=1000)
+    png_path = "cys-sensor-oxidized.png"
+    print(f"Rendering {png_path}")
+    cmd.disable("all")
+    cmd.enable("oxidized")
+    cmd.enable("cys-oxidized")
+    cmd.png(png_path, dpi=1000)
 
-cmd.disable("reduced")
-cmd.enable("oxidized")
-cmd.disable("cu")
-cmd.png("cys-sensor-oxidized.png", dpi=1000)
+    png_path = "cys-sensor-cu.png"
+    print(f"Rendering {png_path}")
+    cmd.disable("all")
+    cmd.enable("cu")
+    cmd.enable("cys-cu")
+    cmd.png(png_path, dpi=1000)
 
-cmd.disable("reduced")
-cmd.disable("oxidized")
-cmd.enable("cu")
-cmd.png("cys-sensor-cu.png", dpi=1000)
+    cmd.enable("reduced")
+    cmd.enable("oxidized")
+    cmd.enable("cu")
 
-cmd.enable("reduced")
-cmd.enable("oxidized")
-cmd.enable("cu")
-
-cmd.refresh()
