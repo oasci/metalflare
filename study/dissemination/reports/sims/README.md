@@ -36,7 +36,18 @@ We performed the following three sets of simulations.
 Differences between reduced and oxidized states are indicative of the canonical roGFP2 atomistic mechanism.
 If we observe similar differences between reduced and copper states, this would suggest a similar mechanism as the oxidized state; however, deviations between oxidized and copper would suggest a separate mechanism.
 
-## Cysteine conformations
+???+ note
+
+    We experimentally observe the following changes in relative fluorescence:
+
+    - 1 mM H<sub>2</sub>O<sub>2</sub>
+        - Modest A band increase
+        - Slight B band decrease
+    - 1 μM Cu(I)
+        - Slight A band decrease
+        - Large B band decrease.
+
+## Cu(I) binding exhibits distinct Cys147 and Cys204 conformations
 
 We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
 
@@ -53,14 +64,21 @@ A reduced&mdash;albeit partially oxidized&mdash;crystal structure of roGFP2 had 
 Our Cu(I) simulation C$_\alpha$-C$_\alpha$ distances resemble those of the reduced cysteines; however, Cu(I) binding induces closer contacts on the order of 0.5 Å.
 Certainly, binding of Cu(I) to Cys147 and Cys204 causes a distinct conformational change relative to canonical roGFP2.
 
-## Photocycle reprotonation
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-all.png){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/h-background/h008-cys-aligned/).
+
+## Broken chromophore reprotonation between Glu222 and Ser205
 
 The last step of the [canonical photocycle](../fluorescence-mechanism/#photocycle) is reprotonation of of anionic chromophore through a GLU222, SER205, WAT, and finally CRO66 proton wire.
 Intermolecular distances distances between each chemical species is a common feature to describe potential proton transfers in MD simulations.
 
 ### GLH222 to SER205
 
-!!! quote "Figure X. Illustration of GLH222 to SER205 distance."
+!!! quote ""
     <figure markdown>
     ![](../../../figures/h-background/h007-distances/gfp-glh222-ser205.svg){ width=500 }
     </figure>
@@ -106,13 +124,6 @@ TODO:
 !!! quote "Figure X. Probability density of THR203 to CRO66 hydrogen bonding in GLH222 simulations."
     <figure markdown>
     ![](../../../figures/b-cro-between/b008h-cro66_oh-thr203_hg1/b008h-cro66_oh-thr203_hg1-pdf.svg){ width=500 }
-    </figure>
-
-### Deprotonated GLU
-
-!!! quote "Figure X. Probability density of THR203 to CRO66 hydrogen bonding in GLU222 simulations."
-    <figure markdown>
-    ![](../../../figures/b-cro-between/b008-cro66_oh-thr203_hg1/b008-cro66_oh-thr203_hg1-pdf.svg){ width=500 }
     </figure>
 
 ## Non-adiabatic crossings
