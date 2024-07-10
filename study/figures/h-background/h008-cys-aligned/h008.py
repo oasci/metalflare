@@ -93,6 +93,7 @@ cmd.show("sticks", "cys-oxidized")
 cmd.show("sticks", "cys-cu")
 cmd.show("sticks", "resname HOH")
 cmd.show("spheres", "element Cu")
+cmd.hide(representation="sticks", selection="element H")
 
 # cmd.set("cartoon_transparency", 0.8)
 
