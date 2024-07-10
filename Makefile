@@ -6,7 +6,7 @@ PACKAGE_PATH := $(PACKAGE_NAME)/
 TESTS_PATH := tests/
 CONDA_NAME := $(PACKAGE_NAME)-dev
 CONDA := conda run -n $(CONDA_NAME)
-CONDA_LOCK_OPTIONS := -p linux-64 -p osx-64 --channel conda-forge
+CONDA_LOCK_OPTIONS := -p linux-64 -p osx-64 -c conda-forge -c schrodinger
 
 ###   ENVIRONMENT   ###
 
@@ -25,17 +25,16 @@ conda-create:
 .PHONY: conda-setup
 conda-setup:
 	$(CONDA) conda install -y -c conda-forge poetry
-	$(CONDA) conda install -y -c conda-forge pre-commit
 	$(CONDA) conda install -y -c conda-forge tomli tomli-w
 	$(CONDA) conda install -y -c conda-forge conda-poetry-liaison
 
 # Conda-only packages specific to this project.
 .PHONY: conda-dependencies
 conda-dependencies:
-	$(CONDA) conda install -c conda-forge ambertools
-	$(CONDA) conda install -c conda-forge xtb
-	$(CONDA) conda install -c conda-forge openbabel
-	$(CONDA) conda install -c conda-forge datalad
+	$(CONDA) conda install -y -c conda-forge ambertools
+	$(CONDA) conda install -y -c conda-forge xtb
+	$(CONDA) conda install -y -c conda-forge openbabel
+	$(CONDA) conda install -y -c conda-forge -c schrodinger pymol-bundle
 	$(CONDA) conda install -y -c conda-forge nodejs
 
 .PHONY: nodejs-dependencies
@@ -55,10 +54,6 @@ from-conda-lock:
 	$(CONDA) conda-lock install -n $(CONDA_NAME) conda-lock.yml
 	$(CONDA) cpl-clean --env_name $(CONDA_NAME)
 
-.PHONY: pre-commit-install
-pre-commit-install:
-	$(CONDA) pre-commit install
-
 # Reads `pyproject.toml`, solves environment, then writes lock file.
 .PHONY: poetry-lock
 poetry-lock:
@@ -71,17 +66,13 @@ install:
 	- $(CONDA) mypy --install-types --non-interactive --explicit-package-bases $(PACKAGE_NAME)
 
 .PHONY: environment
-environment: conda-create from-conda-lock pre-commit-install nodejs-dependencies install
+environment: conda-create from-conda-lock nodejs-dependencies install
 
 .PHONY: locks
-locks: conda-create conda-setup conda-dependencies conda-lock pre-commit-install poetry-lock nodejs-dependencies install
+locks: conda-create conda-setup conda-dependencies conda-lock poetry-lock nodejs-dependencies install
 
 
 ###   FORMATTING   ###
-
-.PHONY: validate
-validate:
-	- $(CONDA) pre-commit run --all-files
 
 .PHONY: formatting
 formatting:
