@@ -96,6 +96,8 @@ cmd.set("ambient", 0.25)
 cmd.set("specular", 0)
 cmd.set("light_count", 4)
 cmd.set("ray_shadows", 0)
+cmd.set("label_size", 24)
+cmd.set("label_font_id", 7)
 
 # Styling
 cmd.show("sticks", "cys-reduced")
@@ -115,6 +117,10 @@ cmd.color("carbon-color", "element C and rep sticks")
 util.cnc("cys-reduced")
 util.cnc("cys-oxidized")
 util.cnc("cys-cu")
+
+cmd.label(selection="resi 145 and name CB", expression="'Cys147'")
+cmd.label(selection="resi 202 and name CB", expression="'Cys204'")
+cmd.set("label_position", (0, 4.5, 0))
 
 cmd.set_view(
     """
@@ -156,12 +162,15 @@ if SAVE_PNG:
     cmd.color("oxidized-color", "element C and rep sticks and model cys-oxidized")
     cmd.color("cu-color", "element C and rep sticks and model cys-cu")
 
-    cmd.align("model cys-oxidized", "model cys-reduced")
-    cmd.align("model cys-cu", "model cys-reduced")
-
     cmd.set_view(
         """(0.14115269482135773, 0.9428754448890686, -0.3017517328262329, -0.6285635232925415, 0.3208395540714264, 0.7085011601448059, 0.7648432850837708, 0.08965732157230377, 0.6379397511482239, -0.000559425912797451, -0.000637061835732311, -24.11861801147461, 33.97719192504883, 45.098697662353516, 36.60597610473633, -21.58184242248535, 69.75759887695312, -20.0)"""
     )
+
+    cmd.label(selection="resi 145 and name CB", expression="")
+    cmd.label(selection="resi 202 and name CB", expression="")
+    cmd.label(selection="resi 145 and name CB and model cys-reduced", expression="'Cys147'")
+    cmd.label(selection="resi 202 and name CB and model cys-reduced", expression="'Cys204'")
+    cmd.set("label_position", (-1, 2.5, 0))
 
     cmd.png(png_path, dpi=1000)
     cmd.color("carbon-color", "element C and rep sticks")
