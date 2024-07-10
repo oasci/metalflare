@@ -34,6 +34,16 @@ pymol.finish_launching()
 
 # Setup colors
 cmd.bg_color("white")
+cmd.set_color("cartoon-color", hex_to_rgb("#F2F2F2"))
+cmd.set_color("helix-color", hex_to_rgb("#F2F2F2"))
+cmd.set_color("sheet-color", hex_to_rgb("#00CCF5"))
+cmd.set_color("helix-color", hex_to_rgb("#FFE45E"))
+cmd.set_color("loop-color", hex_to_rgb("#F2F2F2"))
+cmd.set_color("carbon-color", hex_to_rgb("#B8B8B8"))
+
+cmd.set_color("reduced-color", hex_to_rgb("#1e2e79"))
+cmd.set_color("oxidized-color", hex_to_rgb("#EC4067"))
+cmd.set_color("cu-color", hex_to_rgb("#f99752"))
 
 SAVE_PNG = True
 
@@ -95,22 +105,11 @@ cmd.show("sticks", "resname HOH")
 cmd.show("spheres", "element Cu")
 cmd.hide(representation="sticks", selection="element H")
 
-# cmd.set("cartoon_transparency", 0.8)
-
-cmd.set_color("cartoon-color", hex_to_rgb("#F2F2F2"))
 cmd.color("cartoon-color", "rep cartoon")
-# Helix cartoon
-cmd.set_color("helix-color", hex_to_rgb("#F2F2F2"))
 cmd.color("helix-color", "ss H and rep cartoon")
-# Sheets cartoon
-cmd.set_color("sheet-color", hex_to_rgb("#00CCF5"))
 cmd.color("sheet-color", "ss S and rep cartoon")
-cmd.set_color("helix-color", hex_to_rgb("#FFE45E"))
 cmd.color("helix-color", "ss h and rep cartoon")
-cmd.set_color("loop-color", hex_to_rgb("#F2F2F2"))
 cmd.color("loop-color", "ss l and rep cartoon")
-# Carbon color
-cmd.set_color("carbon-color", hex_to_rgb("#B8B8B8"))
 cmd.color("carbon-color", "element C and rep sticks")
 
 util.cnc("cys-reduced")
@@ -146,7 +145,24 @@ if SAVE_PNG:
     cmd.enable("cys-cu")
     cmd.png(png_path, dpi=1000)
 
-    cmd.enable("reduced")
-    cmd.enable("oxidized")
-    cmd.enable("cu")
+    png_path = "cys-sensor-all.png"
+    print(f"Rendering {png_path}")
+    cmd.disable("all")
+    cmd.enable("cys-reduced")
+    cmd.enable("cys-oxidized")
+    cmd.enable("cys-cu")
+
+    cmd.color("reduced-color", "element C and rep sticks and model cys-reduced")
+    cmd.color("oxidized-color", "element C and rep sticks and model cys-oxidized")
+    cmd.color("cu-color", "element C and rep sticks and model cys-cu")
+
+    cmd.align("model cys-oxidized", "model cys-reduced")
+    cmd.align("model cys-cu", "model cys-reduced")
+
+    cmd.set_view(
+        """(0.14115269482135773, 0.9428754448890686, -0.3017517328262329, -0.6285635232925415, 0.3208395540714264, 0.7085011601448059, 0.7648432850837708, 0.08965732157230377, 0.6379397511482239, -0.000559425912797451, -0.000637061835732311, -24.11861801147461, 33.97719192504883, 45.098697662353516, 36.60597610473633, -21.58184242248535, 69.75759887695312, -20.0)"""
+    )
+
+    cmd.png(png_path, dpi=1000)
+    cmd.color("carbon-color", "element C and rep sticks")
 
