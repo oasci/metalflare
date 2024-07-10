@@ -29,7 +29,7 @@ metalflare-minimize-box $SAVE_DIR/3-$PDB_ID-centered.pdb --output $SAVE_DIR/4-$P
 metalflare-unify-resids $SAVE_DIR/4-$PDB_ID-rotated.pdb --output $SAVE_DIR/5-$PDB_ID-residues.pdb
 metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb MSE MET --output $SAVE_DIR/5-$PDB_ID-residues.pdb
 metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb GLU GLH --include 220 --output $SAVE_DIR/5-$PDB_ID-residues.pdb
-metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb CYS CYM --include 145 202 --output $SAVE_DIR/5-$PDB_ID-residues.pdb
+metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb CYS CYS --include 145 202 --output $SAVE_DIR/5-$PDB_ID-residues.pdb
 
 pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/5-$PDB_ID-residues.pdb $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
 cat $SAVE_DIR/6-$PDB_ID-pdb2pqr.log >> $METALFLARE_LOG_FILE_PATH
