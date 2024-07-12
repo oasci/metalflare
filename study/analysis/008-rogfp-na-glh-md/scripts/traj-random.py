@@ -38,6 +38,12 @@ def main():
         u = mda.Universe(topology_path, trajectory_paths)
         atoms_of_interest = u.select_atoms("protein")
         not_atoms_of_interest = u.select_atoms("not protein")
+        transforms = [
+            transformations.unwrap(atoms_of_interest),
+            transformations.center_in_box(atoms_of_interest, wrap=True),
+            transformations.wrap(not_atoms_of_interest),
+        ]
+        u.trajectory.add_transformations(*transforms)
 
         n_max = len(u.trajectory)
 
@@ -45,12 +51,6 @@ def main():
         path_pdb = os.path.join(data_dir, f"frame_{i_selection}.pdb")
 
         u.trajectory[i_selection]
-        transforms = [
-            transformations.unwrap(atoms_of_interest),
-            transformations.center_in_box(atoms_of_interest, wrap=True),
-            transformations.wrap(not_atoms_of_interest),
-        ]
-        u.trajectory.add_transformations(*transforms)
         print(f"Writing {path_pdb}")
         u.atoms.write(path_pdb, bonds=None)
 
