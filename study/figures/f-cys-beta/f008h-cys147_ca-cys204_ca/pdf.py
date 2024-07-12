@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # Reduced
     rogfp_data_path = os.path.join(
         base_dir,
-        "analysis/005-rogfp-glh-md/data/struct-desc/cym145_ca-cym202_ca-dist.npy",
+        "analysis/005-rogfp-glh-md/data/struct-desc/cys145_ca-cys202_ca-dist.npy",
     )
     rogfp_data = np.load(rogfp_data_path)
     # Oxidized
