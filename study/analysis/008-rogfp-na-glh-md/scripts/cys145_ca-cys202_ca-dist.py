@@ -3,6 +3,7 @@
 import os
 
 import MDAnalysis as mda
+from MDAnalysis import transformations
 import numpy as np
 
 
@@ -13,7 +14,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
             [
                 os.path.join(
                     base_dir,
-                    f"data/006-rogfp-cu-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
+                    f"data/008-rogfp-na-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
                 )
                 for prod in range(*prod_range)
             ]
@@ -26,21 +27,29 @@ def main():
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(
-        base_dir, "data/006-rogfp-cu-glh-md/simulations/02-prep/mol.prmtop"
+        base_dir, "data/008-rogfp-na-glh-md/simulations/02-prep/mol.prmtop"
     )
     atoms1_str = "resname CYM and resid 145 and name CA"
     atoms2_str = "resname CYM and resid 202 and name CA"
 
-    data_dir = os.path.join(base_dir, "analysis/006-rogfp-cu-glh-md/data/struct-desc/")
+    data_dir = os.path.join(base_dir, "analysis/008-rogfp-na-glh-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
+    atoms_of_interest = u.select_atoms("protein")
+    not_atoms_of_interest = u.select_atoms("not protein")
+    transforms = [
+        transformations.unwrap(atoms_of_interest),
+        transformations.center_in_box(atoms_of_interest, wrap=True),
+        transformations.wrap(not_atoms_of_interest),
+    ]
+    u.trajectory.add_transformations(*transforms)
     n_frames = len(u.trajectory)
 
     atoms_1 = u.select_atoms(atoms1_str)
     atoms_2 = u.select_atoms(atoms2_str)
 
-    atoms_npy_path = os.path.join(data_dir, "cym145_ca-cym202_ca-dist.npy")
+    atoms_npy_path = os.path.join(data_dir, "cys145_ca-cys202_ca-dist.npy")
     atoms_dist_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):

@@ -3,6 +3,7 @@
 import os
 
 import MDAnalysis as mda
+from MDAnalysis import transformations
 import numpy as np
 
 
@@ -35,6 +36,14 @@ def main():
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
+    atoms_of_interest = u.select_atoms("protein")
+    not_atoms_of_interest = u.select_atoms("not protein")
+    transforms = [
+        transformations.unwrap(atoms_of_interest),
+        transformations.center_in_box(atoms_of_interest, wrap=True),
+        transformations.wrap(not_atoms_of_interest),
+    ]
+    u.trajectory.add_transformations(*transforms)
     n_frames = len(u.trajectory)
 
     atoms_npy_path = os.path.join(data_dir, "ser203_hg-h2o_o-dist.npy")
