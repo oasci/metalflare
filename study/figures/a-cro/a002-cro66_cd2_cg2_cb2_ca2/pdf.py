@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     rogfp_data_path = os.path.join(
         base_dir,
-        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_cd2_cg2_cb2_ca2-dihedral.npy",
     )
     rogfp_data = np.load(rogfp_data_path)
     rogfp_data = np.degrees(rogfp_data)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
-        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_cd2_cg2_cb2_ca2-dihedral.npy",
     )
     rogfp_oxd_data = np.load(rogfp_oxd_data_path)
     rogfp_oxd_data = np.degrees(rogfp_oxd_data)
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     rogfp2_cu_path = os.path.join(
         base_dir,
-        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_cd2_cg2_cb2_ca2-dihedral.npy",
     )
     rogfp2_cu_data = np.load(rogfp2_cu_path)
     rogfp2_cu_data = np.degrees(rogfp2_cu_data)
@@ -56,7 +56,7 @@ if __name__ == "__main__":
         [rogfp2_cu_data, rogfp2_cu_data + 360, rogfp2_cu_data - 360]
     )
 
-    x_bounds = (-180, 180)
+    x_bounds = (0, 360)
     x_values = np.linspace(*x_bounds, 360 * 2)
     bw_method = 0.003
 
@@ -95,10 +95,10 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "a001-cro66_og1_cb1_ca1_c1"
+    fig_title = "a002-cro66_cd2_cg2_cb2_ca2"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Cro66 OG1-CB1-CA1-C1 Dihedral [°]"
-    plot_x_bounds = (-180, 180)
+    x_label = "Cro66 CD2-CG2-CB2-CA2 Dihedral [°]"
+    plot_x_bounds = (0, 360)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -113,13 +113,13 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(0, 361, 60))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 48.32, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 177.25, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -151,7 +151,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (-4, 6)
+    plot_y_bounds = (-1, 8)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -162,6 +162,6 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(0, 361, 60))
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

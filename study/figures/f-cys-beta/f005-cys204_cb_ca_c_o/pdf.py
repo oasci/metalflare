@@ -27,9 +27,10 @@ if __name__ == "__main__":
     font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
     use_mpl_rc_params(rc_json_path, font_dirs)
 
+    # Reduced
     rogfp_data_path = os.path.join(
         base_dir,
-        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/005-rogfp-glh-md/data/struct-desc/cys202_cb_ca_c_o-dihedral.npy",
     )
     rogfp_data = np.load(rogfp_data_path)
     rogfp_data = np.degrees(rogfp_data)
@@ -38,7 +39,7 @@ if __name__ == "__main__":
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
-        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cys202_cb_ca_c_o-dihedral.npy",
     )
     rogfp_oxd_data = np.load(rogfp_oxd_data_path)
     rogfp_oxd_data = np.degrees(rogfp_oxd_data)
@@ -46,9 +47,10 @@ if __name__ == "__main__":
         [rogfp_oxd_data, rogfp_oxd_data + 360, rogfp_oxd_data - 360]
     )
 
+    # Copper
     rogfp2_cu_path = os.path.join(
         base_dir,
-        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_og1_cb1_ca1_c1-dihedral.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cys202_cb_ca_c_o-dihedral.npy",
     )
     rogfp2_cu_data = np.load(rogfp2_cu_path)
     rogfp2_cu_data = np.degrees(rogfp2_cu_data)
@@ -57,19 +59,19 @@ if __name__ == "__main__":
     )
 
     x_bounds = (-180, 180)
-    x_values = np.linspace(*x_bounds, 360 * 2)
-    bw_method = 0.003
+    x_values = np.linspace(*x_bounds, 1000)
+    bw_method = 0.03
 
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(*x_bounds)
+    scaling_factor = kde.integrate_box_1d(-180, 180)
     pdf_rogfp = kde(x_values) / scaling_factor
 
     kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(*x_bounds)
+    scaling_factor = kde.integrate_box_1d(-180, 180)
     pdf_rogfp_oxd = kde(x_values) / scaling_factor
 
     kde = gaussian_kde(rogfp2_cu_data, bw_method=bw_method)
-    scaling_factor = kde.integrate_box_1d(*x_bounds)
+    scaling_factor = kde.integrate_box_1d(-180, 180)
     pdf_rogfp_cu = kde(x_values) / scaling_factor
 
     # save pdf information
@@ -95,9 +97,9 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "a001-cro66_og1_cb1_ca1_c1"
+    fig_title = "f006-cys204_cb_ca_c_o"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Cro66 OG1-CB1-CA1-C1 Dihedral [°]"
+    x_label = "CYS204 CB-CA-C-O Dihedral [°]"
     plot_x_bounds = (-180, 180)
     y_label = "Density"
     plot_y_bounds = (0, None)
@@ -119,7 +121,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 48.32, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, -148.29, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -151,7 +153,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_y_bounds = (-4, 6)
+    plot_y_bounds = (None, None)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
