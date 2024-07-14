@@ -111,6 +111,7 @@ extra_css:
 extra_javascript:
   - js/mathjax-config.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/molstar@4.4.1/build/viewer/molstar.min.js
 
 markdown_extensions:
   - abbr

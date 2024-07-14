@@ -1,16 +1,16 @@
 {
-  "timestamp": 1720985556959,
+  "timestamp": 1720985364333,
   "version": "4.4.1",
-  "current": "rZ7AtV3EQ8t1fKofb4qejQ",
+  "current": "EG44lxf92KIWYxpfJyKRHw",
   "playback": {
     "isPlaying": false,
     "nextSnapshotDelayInMs": 1500
   },
   "entries": [
     {
-      "timestamp": 1720985556956,
+      "timestamp": 1720985364330,
       "snapshot": {
-        "id": "rZ7AtV3EQ8t1fKofb4qejQ",
+        "id": "EG44lxf92KIWYxpfJyKRHw",
         "data": {
           "tree": {
             "transforms": [
@@ -1902,7 +1902,7 @@
                                       "name": "core.type.set"
                                     },
                                     "args": [
-                                      2301
+                                      3490
                                     ]
                                   },
                                   {
@@ -1954,7 +1954,7 @@
                                       "name": "core.type.set"
                                     },
                                     "args": [
-                                      3194
+                                      3210
                                     ]
                                   },
                                   {
@@ -1986,14 +1986,14 @@
                   "isTransitive": true,
                   "label": "Distance"
                 },
-                "ref": "GRnViznfVuAF5XCCDmi23A",
+                "ref": "wZlIjUf4GZABFbt8YuymsQ",
                 "dependsOn": [
                   "w2DzEkiLjK1xPVEM0Hmgcw"
                 ],
-                "version": "rplMoD0329PMt7uHLRnaWA"
+                "version": "pLg4T2Q7G0ff0F4O5wa5wQ"
               },
               {
-                "parent": "GRnViznfVuAF5XCCDmi23A",
+                "parent": "wZlIjUf4GZABFbt8YuymsQ",
                 "transformer": "ms-plugin.structure-selections-distance-3d",
                 "params": {
                   "alpha": 1,
@@ -2030,7 +2030,7 @@
                   "borderWidth": 0,
                   "borderColor": 8421504,
                   "offsetX": 0,
-                  "offsetY": 1,
+                  "offsetY": 0.7,
                   "offsetZ": 0,
                   "background": false,
                   "backgroundMargin": 0.2,
@@ -2048,8 +2048,8 @@
                     "text"
                   ]
                 },
-                "ref": "JbRKok5dm_5UUoCJCVeg4A",
-                "version": "dNPVWru-RKhVKG-X07K9aw"
+                "ref": "G9zB1gbufVfW5BmRGGl52g",
+                "version": "B4Evs34SOqzFU-dUpaCx5A"
               }
             ]
           }
@@ -3103,21 +3103,21 @@
             "mode": "perspective",
             "fov": 0.7853981633974483,
             "position": [
-              12.655546088817898,
-              33.964639596907304,
-              60.15384757522424
+              20.49407474142334,
+              29.34083666138574,
+              45.109795755268166
             ],
             "up": [
-              -0.7146381873040497,
-              0.33098990248339216,
-              0.6162288095349218
+              0.26911976213022015,
+              0.729662431332228,
+              -0.6286233291354477
             ],
             "target": [
-              6.198920998065984,
-              40.47419265764039,
-              49.169701623255015
+              6.9383285811690065,
+              34.801980133379935,
+              45.64536614516711
             ],
-            "radius": 8.608308344179083,
+            "radius": 8.974600060646752,
             "radiusMax": 61.291260351832086,
             "fog": 15,
             "clipFar": true,
@@ -3183,7 +3183,7 @@
             },
             "cameraClipping": {
               "far": true,
-              "radius": 86,
+              "radius": 85,
               "minNear": 5
             },
             "cameraResetDurationMs": 250,

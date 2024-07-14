@@ -3,6 +3,7 @@
 TODO:
 
 <div id="f001-view" class="mol-container"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     const viewer = molstar.Viewer.create('f001-view', {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         viewportShowAnimation: false,
         pdbProvider: 'rcsb',
     }).then(viewer => {
-        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_7722.pdb", "pdb");
+        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
         viewer.loadSnapshotFromUrl("/misc/002-molstar-states/f001.molj", "molj");
     });
 });

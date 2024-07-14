@@ -1,16 +1,16 @@
 {
-  "timestamp": 1720985556959,
+  "timestamp": 1720985766165,
   "version": "4.4.1",
-  "current": "rZ7AtV3EQ8t1fKofb4qejQ",
+  "current": "0NU6Pq3hOZhxkbQMbmZEsA",
   "playback": {
     "isPlaying": false,
     "nextSnapshotDelayInMs": 1500
   },
   "entries": [
     {
-      "timestamp": 1720985556956,
+      "timestamp": 1720985766162,
       "snapshot": {
-        "id": "rZ7AtV3EQ8t1fKofb4qejQ",
+        "id": "0NU6Pq3hOZhxkbQMbmZEsA",
         "data": {
           "tree": {
             "transforms": [
@@ -1902,7 +1902,7 @@
                                       "name": "core.type.set"
                                     },
                                     "args": [
-                                      2301
+                                      2306
                                     ]
                                   },
                                   {
@@ -1954,7 +1954,7 @@
                                       "name": "core.type.set"
                                     },
                                     "args": [
-                                      3194
+                                      3199
                                     ]
                                   },
                                   {
@@ -1986,14 +1986,14 @@
                   "isTransitive": true,
                   "label": "Distance"
                 },
-                "ref": "GRnViznfVuAF5XCCDmi23A",
+                "ref": "PijZgUczV7xvCIo66oOHgA",
                 "dependsOn": [
                   "w2DzEkiLjK1xPVEM0Hmgcw"
                 ],
-                "version": "rplMoD0329PMt7uHLRnaWA"
+                "version": "mhxMTqwEPv6e1s0zBIh_1A"
               },
               {
-                "parent": "GRnViznfVuAF5XCCDmi23A",
+                "parent": "PijZgUczV7xvCIo66oOHgA",
                 "transformer": "ms-plugin.structure-selections-distance-3d",
                 "params": {
                   "alpha": 1,
@@ -2030,7 +2030,7 @@
                   "borderWidth": 0,
                   "borderColor": 8421504,
                   "offsetX": 0,
-                  "offsetY": 1,
+                  "offsetY": 1.2,
                   "offsetZ": 0,
                   "background": false,
                   "backgroundMargin": 0.2,
@@ -2048,8 +2048,8 @@
                     "text"
                   ]
                 },
-                "ref": "JbRKok5dm_5UUoCJCVeg4A",
-                "version": "dNPVWru-RKhVKG-X07K9aw"
+                "ref": "P3Dn71MBYQRLmYUHIXP9lQ",
+                "version": "P7TErRq3_AXx8RrZJNLj7g"
               }
             ]
           }
@@ -3103,19 +3103,19 @@
             "mode": "perspective",
             "fov": 0.7853981633974483,
             "position": [
-              12.655546088817898,
-              33.964639596907304,
-              60.15384757522424
+              17.832027187909436,
+              36.67619143740523,
+              60.14571115657557
             ],
             "up": [
-              -0.7146381873040497,
-              0.33098990248339216,
-              0.6162288095349218
+              -0.5485785008639122,
+              0.34059501638955236,
+              0.7635814712265633
             ],
             "target": [
-              6.198920998065984,
-              40.47419265764039,
-              49.169701623255015
+              5.781285765219708,
+              41.044418685290275,
+              49.53967316296635
             ],
             "radius": 8.608308344179083,
             "radiusMax": 61.291260351832086,

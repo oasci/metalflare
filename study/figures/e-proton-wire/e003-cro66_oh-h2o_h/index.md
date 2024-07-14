@@ -2,10 +2,29 @@
 
 TODO:
 
-## Probability density function
+<div id="e003-view" class="mol-container"></div>
 
-**Bandwidth**: `0.001`.
-Anything higher than this starts distorting the relative heights of the peaks.
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const viewer = molstar.Viewer.create('e003-view', {
+        layoutIsExpanded: false,
+        layoutShowControls: false,
+        layoutShowRemoteState: false,
+        layoutShowSequence: true,
+        layoutShowLog: false,
+        layoutShowLeftPanel: false,
+        viewportShowExpand: true,
+        viewportShowSelectionMode: true,
+        viewportShowAnimation: false,
+        pdbProvider: 'rcsb',
+    }).then(viewer => {
+        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/e003.molj", "molj");
+    });
+});
+</script>
+
+## Probability density function
 
 <figure markdown>
 ![](./e003-cro66_oh-h2o_h-pdf.svg)
