@@ -92,8 +92,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "f007-cys147_sg-cys204_sg"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = r"Cys147 C$_\alpha$ - Cys204 C$_\alpha$ Distance [Å]"
-    plot_x_bounds = (3, 7)
+    x_label = "Cys147 SG - Cys204 SG Distance [Å]"
+    plot_x_bounds = (1, 7)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.31, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 4.85, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -148,8 +148,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (3, 6)
-    plot_y_bounds = (-1, 1)
+    plot_x_bounds = (1, 7)
+    plot_y_bounds = (-10, 10)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,

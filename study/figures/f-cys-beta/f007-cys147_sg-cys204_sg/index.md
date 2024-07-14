@@ -2,10 +2,11 @@
 
 TODO:
 
-<div id="f001-view" class="mol-container"></div>
+<div id="f007-view" class="mol-container"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('f001-view', {
+    const viewer = molstar.Viewer.create('f007-view', {
         layoutIsExpanded: false,
         layoutShowControls: false,
         layoutShowRemoteState: false,
@@ -17,8 +18,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         viewportShowAnimation: false,
         pdbProvider: 'rcsb',
     }).then(viewer => {
-        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_7722.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/f001.molj", "molj");
+        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/f007.molj", "molj");
     });
 });
 </script>
