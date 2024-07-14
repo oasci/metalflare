@@ -47,22 +47,23 @@ If we observe similar differences between reduced and copper states, this would 
         - Slight A band decrease
         - Large B band decrease.
 
-## Cu(I) binding exhibits distinct Cys147 and Cys204 conformations
+## Cu(I) binding increases distance and flexibility between Cys147 and Cys204
 
 We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f008h-cys147_ca-cys204_ca/f008h-cys147_ca-cys204_ca-pdf.svg){ width=600 }
+    ![](../../../figures/f-cys-beta/f001-cys147_ca-cys204_ca/f001-cys147_ca-cys204_ca-pdf.svg){ width=600 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f008h-cys147_ca-cys204_ca/).
+    For more figure information, go [here](../../../figures/f-cys-beta/f001-cys147_ca-cys204_ca/).
 
-As one would expect, formation of the disulfide bridge in the oxidized state induces a highly strained conformation of around 4.07 Å C$_\alpha$-C$_\alpha$ distance, agreeing with the average experimental distance of 4.04 ± 0.09 Å [^hanson2004investigating].
-Additional conformational flexibility is observed in the reduced simulations with a broader distribution centered around 5.07 Å.
-A reduced&mdash;albeit partially oxidized&mdash;crystal structure of roGFP2 had a distance of 4.30 ± 0.12 Å [^hanson2004investigating], well within the observed distribution.
-Our Cu(I) simulation C$_\alpha$-C$_\alpha$ distances resemble those of the reduced cysteines; however, Cu(I) binding induces closer contacts on the order of 0.5 Å.
-Certainly, binding of Cu(I) to Cys147 and Cys204 causes a distinct conformational change relative to canonical roGFP2.
+As expected, the formation of the disulfide bridge in the oxidized state induces a highly strained conformation, with a C$_\alpha$-C$_\alpha$ distance of approximately 4.07 Å, closely matching the experimental average distance of 4.04 ± 0.09 Å [^hanson2004investigating].
+In contrast, a reduced—albeit partially oxidized—crystal structure of roGFP2 exhibits a distance of 4.30 ± 0.12 Å [^hanson2004investigating], which aligns with our simulation peak at 4.31 Å.
+
+The binding of Cu(I) to roGFP2 induces significant structural changes, particularly in the protein's conformation.
+The observed increase in the C$_\alpha$-C$_\alpha$ distance from approximately 4.3 Å to a broader distribution centered around 4.48 Å and 4.96 Å indicates a marked increase in conformational flexibility.
+These residues are adjacent to residues crucial to the GFP fluorescence mechanism involving Thr203 and Ser205.
 
 !!! quote ""
     <figure markdown>
