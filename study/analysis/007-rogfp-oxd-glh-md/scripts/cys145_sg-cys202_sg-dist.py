@@ -13,7 +13,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
             [
                 os.path.join(
                     base_dir,
-                    f"data/005-rogfp-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
+                    f"data/007-rogfp-oxd-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
                 )
                 for prod in range(*prod_range)
             ]
@@ -26,12 +26,12 @@ def main():
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(
-        base_dir, "data/005-rogfp-glh-md/simulations/02-prep/mol.prmtop"
+        base_dir, "data/007-rogfp-oxd-glh-md/simulations/02-prep/mol.prmtop"
     )
     atoms1_str = "resid 145 and name SG"
     atoms2_str = "resid 202 and name SG"
 
-    data_dir = os.path.join(base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/")
+    data_dir = os.path.join(base_dir, "analysis/007-rogfp-oxd-glh-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
