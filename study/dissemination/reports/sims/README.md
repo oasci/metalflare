@@ -84,9 +84,9 @@ Intermolecular distances distances between each chemical species is a common fea
     ![](../../../figures/h-background/h007-distances/gfp-glh222-ser205.svg){ width=500 }
     </figure>
 
-!!! quote "Figure X. Probability density of GLH222 to SER205 proton transfer."
+!!! quote ""
     <figure markdown>
-    ![](../../../figures/e-proton-wire/e008-ser205_og-glu222_he2/e008-ser205_og-glh222_he2-pdf.svg){ width=500 }
+    ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=500 }
     </figure>
 
 ### SER205 to WAT
@@ -98,7 +98,7 @@ Intermolecular distances distances between each chemical species is a common fea
 
 !!! quote "Figure X. Probability density of SER205 to WAT proton transfer."
     <figure markdown>
-    ![](../../../figures/e-proton-wire/e011-ser205_hg-h2o_o/e010-ser205_hg-h2o_o-pdf.svg){ width=500 }
+    ![](../../../figures/e-proton-wire/e002-ser205_hg-h2o_o/e002-ser205_hg-h2o_o-pdf.svg){ width=500 }
     </figure>
 
 ### WAT to CRO66
@@ -110,7 +110,7 @@ Intermolecular distances distances between each chemical species is a common fea
 
 !!! quote "Figure X. Probability density of WAT to CRO66 proton transfer."
     <figure markdown>
-    ![](../../../figures/e-proton-wire/e009-cro66_oh-h2o_h/e009-cro66_oh-h2o_h-pdf.svg){ width=500 }
+    ![](../../../figures/e-proton-wire/e003-cro66_oh-h2o_h/){ width=500 }
     </figure>
 
 ## B-state stabilization

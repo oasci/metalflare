@@ -1,8 +1,8 @@
 {
   "citationExportFormat": "biblatex",
   "literatureNoteTitleTemplate": "{{title}} (@{{citekey}})",
-  "literatureNoteFolder": "Reading notes",
-  "literatureNoteContentTemplate": "---\ntags:\n  - lit\ndate: {{year}}-01-01\n---\n\n# {{title}}\n\n**Authors:** {{authorString}}\n\n**DOI:** [{{DOI}}](https://doi.org/{{DOI}})\n\n<!-- more -->\n\nTakeaways:\n\n- \n\n## Abstract\n\n> {{abstract}}\n\n## Main\n\n\n\n\n\n",
+  "literatureNoteFolder": "study/management/literature/articles/",
+  "literatureNoteContentTemplate": "---\ntags:\n  - lit\ndate: {{year}}-01-01\n---\n\n# {{title}}\n\n**Authors:** {{authorString}}\n\n**DOI:** [{{DOI}}](https://doi.org/{{DOI}})\n\n<!-- more -->\n\nTakeaways:\n\n- \n\n## Abstract\n\n{{abstract}}\n\n## Main\n",
   "markdownCitationTemplate": "[@{{citekey}}]",
   "alternativeMarkdownCitationTemplate": "@{{citekey}}",
   "bibtexLocation": "study/management/literature/refs.bib",
