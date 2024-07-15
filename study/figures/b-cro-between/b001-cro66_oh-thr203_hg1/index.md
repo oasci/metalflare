@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b001-cro66_oh-thr203_hg1/pdf-info.md"
-
-### Bandwidth validation
+--8<-- "study/figures/b-cro-between/b001-cro66_oh-thr203_hg1/pdf-info.md"
 
 <figure markdown>
 ![](./b001-cro66_oh-thr203_hg1-hist.svg)
@@ -50,4 +48,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b001-cro66_oh-thr203_hg1/pmf-info.md"
+--8<-- "study/figures/b-cro-between/b001-cro66_oh-thr203_hg1/pmf-info.md"
