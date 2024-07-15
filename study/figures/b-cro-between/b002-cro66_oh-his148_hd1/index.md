@@ -34,13 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b002-cro66_oh-his148_hd1/pdf-info.md"
-
-### Bandwidth validation
-
-<figure markdown>
-![](./b002-cro66_oh-his148_hd1-hist.svg)
-</figure>
+--8<-- "study/figures/b-cro-between/b002-cro66_oh-his148_hd1/pdf-info.md"
 
 ## Potential of mean force
 
@@ -50,4 +44,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/b-cro-between/b002-cro66_oh-his148_hd1/pmf-info.md"
+--8<-- "study/figures/b-cro-between/b002-cro66_oh-his148_hd1/pmf-info.md"
