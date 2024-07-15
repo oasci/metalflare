@@ -48,9 +48,9 @@ cmd.set_color("cu-color", hex_to_rgb("#f99752"))
 SAVE_PNG = True
 
 # Load files
-cmd.load("../../../analysis/005-rogfp-glh-md/data/traj/frame_89526.pdb", "reduced")
-cmd.load("../../../analysis/007-rogfp-oxd-glh-md/data/traj/frame_50564.pdb", "oxidized")
-cmd.load("../../../analysis/006-rogfp-cu-glh-md/data/traj/frame_100971.pdb", "cu")
+cmd.load("../../../analysis/005-rogfp-glh-md/data/traj/frame_7722.pdb", "reduced")
+cmd.load("../../../analysis/007-rogfp-oxd-glh-md/data/traj/frame_8984.pdb", "oxidized")
+cmd.load("../../../analysis/006-rogfp-cu-glh-md/data/traj/frame_32791.pdb", "cu")
 cmd.center("reduced")
 
 # Remove unnecessary waters
