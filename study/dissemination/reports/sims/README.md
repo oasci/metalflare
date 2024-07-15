@@ -137,7 +137,7 @@ A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å mi
     ![](../../../figures/a-cro/a003-cro66_cg2_cb2_ca2_c2/a003-cro66_cg2_cb2_ca2_c2-pdf.svg){ width=500 }
     </figure>
 
-## Cu(I) binding perturbs Thr203 stabilization of chromophore
+## Cu(I) binding perturbs Thr203 dynamics
 
 TODO:
 
