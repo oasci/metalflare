@@ -7,75 +7,107 @@ from metalflare.analysis.figures import use_mpl_rc_params
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
+KB = 1.987204259e-3  # kcal/(mol K)
+T = 300.0  # Kelvin
+bin_min, bin_max = -180, 180
+bin_width = 3
+n_bins = int((bin_max - bin_min) / bin_width)
+x_lims = (-180, 180)
+y_lims = (-180, 180)
+
 fig_label = "a004-pes"
-data1_str = "cro65_cd2_cg2_cb2_ca2-dihedral"
-data1_label = "Cro66 CD2-CG2-CB2-CA2 Dihedral [°]"
-data2_str = "cro65_cg2_cb2_ca2_c2-dihedral"
-data2_label = "Cro66 CG2-CB2-CA2-C2 Dihedral [°]"
+data_x_str = "cro65_cd2_cg2_cb2_ca2-dihedral"
+data_x_label = "Cro66 CD2-CG2-CB2-CA2 Dihedral [°]"
+data_y_str = "cro65_cg2_cb2_ca2_c2-dihedral"
+data_y_label = "Cro66 CG2-CB2-CA2-C2 Dihedral [°]"
 
 
-def create_histogram(x_data, y_data, bins=50):
+def create_histogram(x_data, y_data, bins=30, in_energy=True):
     x_bins = np.linspace(-180, 180, bins + 1)
     y_bins = np.linspace(-180, 180, bins + 1)
-    hist, _, _ = np.histogram2d(x_data, y_data, bins=[x_bins, y_bins], density=True)
+    hist, x_edges, y_edges = np.histogram2d(x_data, y_data, bins=[x_bins, y_bins])
     hist = np.ma.masked_where(hist == 0, hist)
+    hist /= np.sum(hist)
     hist = -np.log(hist)
-    x_centers = (x_bins[:-1] + x_bins[1:]) / 2
-    y_centers = (y_bins[:-1] + y_bins[1:]) / 2
-    return hist, x_centers, y_centers
+    if in_energy:
+        hist *= KB * T
+        hist -= np.min(hist)
+    x_centers = (x_edges[:-1] + x_edges[1:]) / 2
+    y_centers = (y_edges[:-1] + y_edges[1:]) / 2
+    bins_info = {"edges": (x_edges, y_edges), "centers": (x_centers, y_centers)}
+    return hist, bins_info
 
 
 def create_pes(x_data, y_data, file_name):
-    hist, x_centers, y_centers = create_histogram(x_data, y_data)
+    hist, bins_info = create_histogram(x_data, y_data, bins=n_bins, in_energy=True)
 
-    vmin, vmax = 5, 16
+    vmin, vmax = 0, 5
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
 
-    fig, ax = plt.subplots(figsize=(8, 6))
-    contour = ax.contourf(
-        x_centers, y_centers, hist.T, levels=100, cmap="viridis", norm=norm
+    contour = plt.contourf(
+        *bins_info["centers"], hist.T, levels=10, cmap="viridis", norm=norm
     )
-    plt.colorbar(contour, label="-ln(p)", norm=norm, ticks=list(range(vmin, vmax + 1)))
+    plt.colorbar(
+        contour,
+        label="PMF [kcal/mol]",
+        norm=norm,
+        ticks=list(range(vmin, int(np.floor(vmax)) + 1)),
+    )
 
-    ax.set_xlabel(data2_label)
-    ax.set_xlim(-180, 180)
-    ax.set_xticks(np.arange(-180, 181, 60))
-    ax.set_ylabel(data1_label)
-    ax.set_ylim(-180, 180)
-    ax.set_yticks(np.arange(-180, 181, 60))
+    plt.xlabel(data_x_label)
+    plt.xlim(-180, 180)
+    plt.xticks(np.arange(-180, 181, 60))
+    plt.ylabel(data_y_label)
+    plt.ylim(-180, 180)
+    plt.yticks(np.arange(-180, 181, 60))
     plt.tight_layout()
     plt.savefig(file_name)
     plt.close()
 
+def masked_difference(hist_ref, hist):
+    diff = hist - hist_ref
 
-def create_difference_pes(x_data_cu, y_data_cu, x_data_red, y_data_red, file_name):
-    hist_cu, x_centers, y_centers = create_histogram(x_data_cu, y_data_cu)
-    hist_red, _, _ = create_histogram(x_data_red, y_data_red)
+    # Handle the special cases
+    mask_not_in_ref = np.where(hist_ref.mask & ~hist.mask)
+    mask_only_in_ref = np.where(~hist_ref.mask & hist.mask)
+    diff[mask_not_in_ref] = hist[mask_not_in_ref] - np.max(hist)
+    diff[mask_only_in_ref] = hist_ref[mask_only_in_ref]
 
-    diff_hist = hist_cu - hist_red
-    diff_hist = np.ma.masked_where(np.isnan(diff_hist), diff_hist)
+    return diff
+
+def create_difference_pes(data_x_ref, data_y_ref, data_x, data_y, file_name):
+    hist_ref, bins_info = create_histogram(
+        data_x_ref, data_y_ref, bins=n_bins, in_energy=True
+    )
+    hist, _ = create_histogram(
+        data_x, data_y, bins=n_bins, in_energy=True
+    )
+
+    hist_diff = masked_difference(hist_ref, hist)
 
     vmin, vmax = -5, 5
     norm = mpl.colors.TwoSlopeNorm(vmin=vmin, vcenter=0, vmax=vmax)
 
-    fig, ax = plt.subplots(figsize=(8, 6))
-    contour = ax.contourf(
-        x_centers, y_centers, diff_hist.T, levels=100, cmap="RdBu_r", norm=norm
+    contour = plt.contourf(
+        *bins_info["centers"], hist_diff.T, levels=200, cmap="RdBu_r", norm=norm
     )
-    plt.colorbar(contour, label="-Δln(p)", norm=norm, ticks=list(range(vmin, vmax + 1)))
+    plt.colorbar(
+        contour, label="ΔPMF [kcal/mol]", norm=norm, ticks=list(range(vmin, vmax + 1))
+    )
 
-    ax.set_xlabel(data2_label)
-    ax.set_xlim(-180, 180)
-    ax.set_xticks(np.arange(-180, 181, 60))
-    ax.set_ylabel(data1_label)
-    ax.set_ylim(-180, 180)
-    ax.set_yticks(np.arange(-180, 181, 60))
+    plt.xlabel(data_x_label)
+    plt.xlim(-180, 180)
+    plt.xticks(np.arange(-180, 181, 60))
+    plt.ylabel(data_y_label)
+    plt.ylim(-180, 180)
+    plt.yticks(np.arange(-180, 181, 60))
     plt.tight_layout()
     plt.savefig(file_name)
     plt.close()
 
 
 if __name__ == "__main__":
+    # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
 
     # Update plot params
@@ -86,57 +118,58 @@ if __name__ == "__main__":
     use_mpl_rc_params(rc_json_path, font_dirs)
 
     # Original data
-    rogfp_dist_path = os.path.join(
+    path_x_red = os.path.join(
         base_dir,
-        f"analysis/005-rogfp-glh-md/data/struct-desc/{data1_str}.npy",
+        f"analysis/005-rogfp-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data1_red = np.load(rogfp_dist_path)
-    data1_red = np.degrees(data1_red)
+    data_x_red = np.load(path_x_red)
+    data_x_red = np.degrees(data_x_red)
 
-    data1_oxd_path = os.path.join(
+    path_x_oxd = os.path.join(
         base_dir,
-        f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data1_str}.npy",
+        f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data1_oxd = np.load(data1_oxd_path)
-    data1_oxd = np.degrees(data1_oxd)
+    data_x_oxd = np.load(path_x_oxd)
+    data_x_oxd = np.degrees(data_x_oxd)
 
-    rogfp_cu_dist_path = os.path.join(
+    path_x_cu = os.path.join(
         base_dir,
-        f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data1_str}.npy",
+        f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data1_cu = np.load(rogfp_cu_dist_path)
-    data1_cu = np.degrees(data1_cu)
+    data_x_cu = np.load(path_x_cu)
+    data_x_cu = np.degrees(data_x_cu)
 
     # Cys data
-    data2_red_path = os.path.join(
+    path_y_red = os.path.join(
         base_dir,
-        f"analysis/005-rogfp-glh-md/data/struct-desc/{data2_str}.npy",
+        f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data2_red = np.load(data2_red_path)
-    data2_red = np.degrees(data2_red)
+    data_y_red = np.load(path_y_red)
+    data_y_red = np.degrees(data_y_red)
 
-    data2_oxd_path = os.path.join(
+    path_y_oxd = os.path.join(
         base_dir,
-        f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data2_str}.npy",
+        f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data2_oxd = np.load(data2_oxd_path)
-    data2_oxd = np.degrees(data2_oxd)
+    data_y_oxd = np.load(path_y_oxd)
+    data_y_oxd = np.degrees(data_y_oxd)
 
-    data2_cu_path = os.path.join(
+    path_y_cu = os.path.join(
         base_dir,
-        f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data2_str}.npy",
+        f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data2_cu = np.load(data2_cu_path)
-    data2_cu = np.degrees(data2_cu)
+    data_y_cu = np.load(path_y_cu)
+    data_y_cu = np.degrees(data_y_cu)
 
-    create_pes(data2_red, data1_red, f"{fig_label}-reduced.png")
-    create_pes(data2_oxd, data1_oxd, f"{fig_label}-oxidized.png")
-    create_pes(data2_cu, data1_cu, f"{fig_label}-cu.png")
+    create_pes(data_x_red, data_y_red, f"{fig_label}-reduced.png")
+    create_pes(data_x_oxd, data_y_oxd, f"{fig_label}-oxidized.png")
+    create_pes(data_x_cu, data_y_cu, f"{fig_label}-cu.png")
+
+    # Create the difference plot
+    create_difference_pes(
+        data_x_red, data_y_red, data_x_oxd, data_y_oxd, f"{fig_label}-diff-oxd-red.png"
+    )
 
     create_difference_pes(
-        data2_cu, data1_cu, data2_red, data1_red, f"{fig_label}-diff-cu-red.png"
-    )
-
-    create_difference_pes(
-        data2_oxd, data1_oxd, data2_red, data1_red, f"{fig_label}-diff-oxd-red.png"
+        data_x_red, data_y_red, data_x_cu, data_y_cu, f"{fig_label}-diff-cu-red.png"
     )
