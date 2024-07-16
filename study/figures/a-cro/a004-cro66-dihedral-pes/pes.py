@@ -16,10 +16,10 @@ x_lims = (-180, 180)
 y_lims = (-180, 180)
 
 fig_label = "a004-pes"
-data_x_str = "cro65_cd2_cg2_cb2_ca2-dihedral"
-data_x_label = "Cro66 CD2-CG2-CB2-CA2 Dihedral [°]"
-data_y_str = "cro65_cg2_cb2_ca2_c2-dihedral"
-data_y_label = "Cro66 CG2-CB2-CA2-C2 Dihedral [°]"
+data_x_str = "cro65_n2_ca2_cb2_cg2-dihedral"
+data_x_label = "Cro66 N2-CA2-CB2-CG2 Dihedral [°]"
+data_y_str = "cro65_ca2_cb2_cg2_cd1-dihedral"
+data_y_label = "Cro66 CA2-CB2-CG2-CD1 Dihedral [°]"
 
 
 def create_histogram(x_data, y_data, bins=30, in_energy=True):
@@ -55,11 +55,11 @@ def create_pes(x_data, y_data, file_name):
     )
 
     plt.xlabel(data_x_label)
-    plt.xlim(-180, 180)
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xlim(-60, 60)
+    plt.xticks(np.arange(-60, 61, 30))
     plt.ylabel(data_y_label)
-    plt.ylim(-180, 180)
-    plt.yticks(np.arange(-180, 181, 60))
+    plt.ylim(-60, 60)
+    plt.yticks(np.arange(-60, 61, 30))
     plt.tight_layout()
     plt.savefig(file_name)
     plt.close()
@@ -96,11 +96,11 @@ def create_difference_pes(data_x_ref, data_y_ref, data_x, data_y, file_name):
     )
 
     plt.xlabel(data_x_label)
-    plt.xlim(-180, 180)
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xlim(-60, 60)
+    plt.xticks(np.arange(-60, 61, 30))
     plt.ylabel(data_y_label)
-    plt.ylim(-180, 180)
-    plt.yticks(np.arange(-180, 181, 60))
+    plt.ylim(-60, 60)
+    plt.yticks(np.arange(-60, 61, 30))
     plt.tight_layout()
     plt.savefig(file_name)
     plt.close()
@@ -139,13 +139,14 @@ if __name__ == "__main__":
     data_x_cu = np.load(path_x_cu)
     data_x_cu = np.degrees(data_x_cu)
 
-    # Cys data
     path_y_red = os.path.join(
         base_dir,
         f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy",
     )
     data_y_red = np.load(path_y_red)
     data_y_red = np.degrees(data_y_red)
+    data_y_red[data_y_red < 0] += 360
+    data_y_red[data_y_red > 0] -= 180
 
     path_y_oxd = os.path.join(
         base_dir,
@@ -153,6 +154,8 @@ if __name__ == "__main__":
     )
     data_y_oxd = np.load(path_y_oxd)
     data_y_oxd = np.degrees(data_y_oxd)
+    data_y_oxd[data_y_oxd < 0] += 360
+    data_y_oxd[data_y_oxd > 0] -= 180
 
     path_y_cu = os.path.join(
         base_dir,
@@ -160,6 +163,8 @@ if __name__ == "__main__":
     )
     data_y_cu = np.load(path_y_cu)
     data_y_cu = np.degrees(data_y_cu)
+    data_y_cu[data_y_cu < 0] += 360
+    data_y_cu[data_y_cu > 0] -= 180
 
     create_pes(data_x_red, data_y_red, f"{fig_label}-reduced.png")
     create_pes(data_x_oxd, data_y_oxd, f"{fig_label}-oxidized.png")

@@ -1,4 +1,4 @@
-# a003-cro66_cg2_cb2_ca2_c2
+# a003-cro66_ca2_cb2_cg2_cd1
 
 TODO:
 
@@ -27,21 +27,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 ## Probability density function
 
 <figure markdown>
-![](./a003-cro66_cg2_cb2_ca2_c2-pdf.svg)
+![](./a003-cro66_ca2_cb2_cg2_cd1-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/a-cro/a003-cro66_cg2_cb2_ca2_c2/pdf-info.md"
+--8<-- "study/figures/a-cro/a003-cro66_ca2_cb2_cg2_cd1/pdf-info.md"
 
 ## Potential of mean force
 
 TODO:
 
 <figure markdown>
-![](./a003-cro66_cg2_cb2_ca2_c2-pmf.svg)
+![](./a003-cro66_ca2_cb2_cg2_cd1-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/a-cro/a003-cro66_cg2_cb2_ca2_c2/pmf-info.md"
+--8<-- "study/figures/a-cro/a003-cro66_ca2_cb2_cg2_cd1/pmf-info.md"

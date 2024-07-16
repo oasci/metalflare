@@ -1,4 +1,4 @@
-# a002-cro66_cd2_cg2_cb2_ca2
+# a002-cro66_n2_ca2_cb2_cg2
 
 TODO:
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 ## Probability density function
 
 <figure markdown>
-![](./a002-cro66_cd2_cg2_cb2_ca2-pdf.svg)
+![](./a002-cro66_n2_ca2_cb2_cg2-pdf.svg)
 </figure>
 
 ### Quantitative
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 TODO:
 
 <figure markdown>
-![](./a002-cro66_cd2_cg2_cb2_ca2-pmf.svg)
+![](./a002-cro66_n2_ca2_cb2_cg2-pmf.svg)
 </figure>
 
 ### Quantitative

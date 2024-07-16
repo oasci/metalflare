@@ -6,7 +6,6 @@ import json
 import MDAnalysis as mda
 from MDAnalysis.analysis import align
 from MDAnalysis import transformations
-import numpy as np
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 

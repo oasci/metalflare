@@ -17,21 +17,21 @@ if __name__ == "__main__":
         "reduced": {
             "path_data": os.path.join(
                 base_dir,
-                "analysis/005-rogfp-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
+                "analysis/005-rogfp-glh-md/data/struct-desc/cro65_ca2_cb2_cg2_cd1-dihedral.npy",
             ),
             "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
         "oxidized": {
             "path_data": os.path.join(
                 base_dir,
-                "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
+                "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_ca2_cb2_cg2_cd1-dihedral.npy",
             ),
             "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
         "cu": {
             "path_data": os.path.join(
                 base_dir,
-                "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
+                "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_ca2_cb2_cg2_cd1-dihedral.npy",
             ),
             "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
