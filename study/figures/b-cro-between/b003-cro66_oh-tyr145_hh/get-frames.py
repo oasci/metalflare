@@ -10,6 +10,7 @@ import numpy as np
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
+
 def generate_trajectory_paths(base_dir, dir_name, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
     for run_i in range(*run_range):
@@ -24,6 +25,7 @@ def generate_trajectory_paths(base_dir, dir_name, run_range=(1, 4), prod_range=(
         )
     return trajectory_paths
 
+
 FIG_LABEL = "b003"
 
 if __name__ == "__main__":
@@ -32,16 +34,15 @@ if __name__ == "__main__":
     path_json = "relevant-frames.json"
     with open(path_json, "r", encoding="utf-8") as f:
         json_data = json.load(f)
-    
+
     # Write PDBs
     dir_info = {
         "reduced": "005-rogfp-glh-md",
         "oxidized": "007-rogfp-oxd-glh-md",
-        "cu": "006-rogfp-cu-glh-md"
+        "cu": "006-rogfp-cu-glh-md",
     }
     pdb_paths = []
     for label, dirname in dir_info.items():
-
         trajectory_paths = generate_trajectory_paths(base_dir, dir_name=dirname)
         topology_path = os.path.join(
             base_dir, f"data/{dirname}/simulations/02-prep/mol.prmtop"
@@ -66,7 +67,7 @@ if __name__ == "__main__":
             atoms = u.select_atoms("protein or resname CRO or resname CU1")
             print(f"Writing {path_pdb}")
             atoms.write(path_pdb, bonds=None)
-    
+
     # Align PDBs
     print("Alinging PDBs")
     u_ref = mda.Universe(pdb_paths[0])
@@ -74,5 +75,3 @@ if __name__ == "__main__":
         u = mda.Universe(pdb_path)
         align.alignto(u, u_ref, select="protein and name CA and (not resid 227)")
         u.atoms.write(pdb_path, bonds=None)
-
-

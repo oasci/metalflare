@@ -3,9 +3,11 @@ import os
 import json
 import numpy as np
 
+
 def angle_difference(angle1, angle2):
     """Calculate the minimum angle difference accounting for periodicity."""
-    return np.minimum(np.abs(angle1 - angle2), 2*np.pi - np.abs(angle1 - angle2))
+    return np.minimum(np.abs(angle1 - angle2), 2 * np.pi - np.abs(angle1 - angle2))
+
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -17,21 +19,21 @@ if __name__ == "__main__":
                 base_dir,
                 "analysis/005-rogfp-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
             ),
-            "values": [0, np.pi/4, np.pi/2, (3/4)*np.pi],
+            "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
         "oxidized": {
             "path_data": os.path.join(
                 base_dir,
                 "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
             ),
-            "values": [0, np.pi/4, np.pi/2, (3/4)*np.pi],
+            "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
         "cu": {
             "path_data": os.path.join(
                 base_dir,
                 "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_cg2_cb2_ca2_c2-dihedral.npy",
             ),
-            "values": [0, np.pi/4, np.pi/2, (3/4)*np.pi],
+            "values": [0, np.pi / 4, np.pi / 2, (3 / 4) * np.pi],
         },
     }
 

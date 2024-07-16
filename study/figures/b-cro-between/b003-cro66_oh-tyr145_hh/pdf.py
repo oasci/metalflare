@@ -118,7 +118,7 @@ if __name__ == "__main__":
             "Distance (Å)",
             pmf_rogfp_oxd,
             "PMF [kcal/mol]",
-            sci_notation=False
+            sci_notation=False,
         )
     )
     pmf_info_lines.append("\nroGFP2 and Cu(I)\n")

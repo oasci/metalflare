@@ -29,6 +29,7 @@ def hex_to_rgb(hex_color):
     # Normalize the RGB values to 0-1 range (PyMOL RGB format)
     return (r, g, b)
 
+
 # Start PyMOL session
 pymol.finish_launching()
 
@@ -168,10 +169,13 @@ if SAVE_PNG:
 
     cmd.label(selection="resi 145 and name CB", expression="")
     cmd.label(selection="resi 202 and name CB", expression="")
-    cmd.label(selection="resi 145 and name CB and model cys-reduced", expression="'Cys147'")
-    cmd.label(selection="resi 202 and name CB and model cys-reduced", expression="'Cys204'")
+    cmd.label(
+        selection="resi 145 and name CB and model cys-reduced", expression="'Cys147'"
+    )
+    cmd.label(
+        selection="resi 202 and name CB and model cys-reduced", expression="'Cys204'"
+    )
     cmd.set("label_position", (-1, 2.5, 0))
 
     cmd.png(png_path, dpi=1000)
     cmd.color("carbon-color", "element C and rep sticks")
-

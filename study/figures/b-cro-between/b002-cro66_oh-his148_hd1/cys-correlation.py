@@ -14,6 +14,7 @@ data_label = "Cro66 OH - His148 HD1 Distance [Å]"
 corr_str = "ser203_h-asn144_o-dist"
 corr_label = r"Cys147 C$_\alpha$ - Cys204 C$_\alpha$ Distance [Å]"
 
+
 def create_pes(x_data, y_data, plot_title, file_name):
     # Compute 2D histogram
     hist, x_edges, y_edges = np.histogram2d(x_data, y_data, bins=50)
@@ -27,18 +28,25 @@ def create_pes(x_data, y_data, plot_title, file_name):
     max_axis = np.ceil(max(np.max(x_centers), np.max(y_centers)))
 
     # Plot 2D histogram with contours
-    plt.contourf(x_centers, y_centers, hist.T, levels=20, cmap='viridis')
-    plt.plot([min_axis, max_axis], [min_axis, max_axis], color="black", linestyle="--", zorder=1)
+    plt.contourf(x_centers, y_centers, hist.T, levels=20, cmap="viridis")
+    plt.plot(
+        [min_axis, max_axis],
+        [min_axis, max_axis],
+        color="black",
+        linestyle="--",
+        zorder=1,
+    )
 
     plt.xlim(min_axis, max_axis)
     plt.ylim(min_axis, max_axis)
 
-    plt.colorbar(label='-ln(p)')
+    plt.colorbar(label="-ln(p)")
     plt.xlabel(corr_label)
     plt.ylabel(data_label)
     plt.tight_layout()
     plt.savefig(file_name)
     plt.close()
+
 
 if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files

@@ -14,7 +14,7 @@ We performed the following three sets of simulations.
     Cys147 and Cys204 remain in their reduced (i.e., protonated) form.
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-reduced.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-reduced.png){ width=600 }
     </figure>
 
 === "Oxidized"
@@ -22,7 +22,7 @@ We performed the following three sets of simulations.
     Disulfide bridge between Cys147 and Cys204.
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=600 }
     </figure>
 
 === "Copper"
@@ -30,7 +30,7 @@ We performed the following three sets of simulations.
     Reduced Cys147 and Cys204 with a coordinated Cu(I).
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-cu.png){ width=500 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-cu.png){ width=600 }
     </figure>
 
 Differences between reduced and oxidized states are indicative of the canonical roGFP2 atomistic mechanism.
@@ -91,13 +91,6 @@ Additional His148 conformational diversity could very well destabilize the anion
 
     For more figure information, go [here](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/).
 
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/b002-cro66_oh-his148_hd1-pmf.svg){ width=600 }
-    </figure>
-
-    For more figure information, go [here](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/).
-
 ### From Tyr145
 
 Furthermore, We see parallel results to His148 in Tyr145 dynamics.
@@ -113,29 +106,35 @@ A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å mi
 
     For more figure information, go [here](../../../figures/b-cro-between/b003-cro66_oh-tyr145_hh/).
 
-!!! quote ""
+### Comparisons
+
+!!! quote "Reduced"
     <figure markdown>
-    ![](../../../figures/b-cro-between/b003-cro66_oh-tyr145_hh/b003-cro66_oh-tyr145_hh-pmf.svg){ width=600 }
+    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-reduced.png){ width=600 }
     </figure>
 
-    For more figure information, go [here](../../../figures/b-cro-between/b003-cro66_oh-tyr145_hh/).
+!!! quote "Oxidized vs. reduced"
+    <figure markdown>
+    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-diff-oxd-red.png){ width=600 }
+    </figure>
+
+!!! quote "Cu(I) vs. reduced"
+    <figure markdown>
+    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-diff-cu-red.png){ width=600 }
+    </figure>
 
 ## More frequent non-adiabatic crossings could diminish florescence
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/h-background/h005-cro/cro-b-atom-types.svg){ width=500 }
+    ![](../../../figures/h-background/h005-cro/cro-b-atom-types.svg){ width=600 }
     </figure>
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/a-cro/a002-cro66_cd2_cg2_cb2_ca2/a002-cro66_cd2_cg2_cb2_ca2-pdf.svg){ width=500 }
+    ![](../../../figures/a-cro/a004-cro66-dihedral-pes/a004-pes-diff-cu-red.png){ width=600 }
     </figure>
 
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/a-cro/a003-cro66_cg2_cb2_ca2_c2/a003-cro66_cg2_cb2_ca2_c2-pdf.svg){ width=500 }
-    </figure>
 
 ## Cu(I) binding perturbs Thr203 dynamics
 
@@ -143,12 +142,12 @@ TODO:
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/h-background/h007-distances/gfp-b-thr203-cro66.svg){ width=500 }
+    ![](../../../figures/h-background/h007-distances/gfp-b-thr203-cro66.svg){ width=600 }
     </figure>
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/b-cro-between/b001-cro66_oh-thr203_hg1/b001-cro66_oh-thr203_hg1-pdf.svg){ width=500 }
+    ![](../../../figures/b-cro-between/b001-cro66_oh-thr203_hg1/b001-cro66_oh-thr203_hg1-pdf.svg){ width=600 }
     </figure>
 
 ## Broken chromophore reprotonation between Glu222 and Ser205
@@ -158,12 +157,12 @@ Intermolecular distances distances between each chemical species is a common fea
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/h-background/h007-distances/gfp-glh222-ser205.svg){ width=500 }
+    ![](../../../figures/h-background/h007-distances/gfp-glh222-ser205.svg){ width=600 }
     </figure>
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=500 }
+    ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=600 }
     </figure>
 
 <!-- References -->
