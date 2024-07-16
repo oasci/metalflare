@@ -13,7 +13,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
             [
                 os.path.join(
                     base_dir,
-                    f"data/008-rogfp-na-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
+                    f"data/006-rogfp-cu-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
                 )
                 for prod in range(*prod_range)
             ]
@@ -32,17 +32,17 @@ def main():
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(
-        base_dir, "data/008-rogfp-na-glh-md/simulations/02-prep/mol.prmtop"
+        base_dir, "data/006-rogfp-cu-glh-md/simulations/02-prep/mol.prmtop"
     )
     residue_str = "resname CRO and resid 65"
     atom_names = [
-        "CG2",
-        "CB2",
+        "N2",
         "CA2",
-        "C2",
+        "CB2",
+        "CG2",
     ]  # Specify the four atoms on the same residue
 
-    data_dir = os.path.join(base_dir, "analysis/008-rogfp-na-glh-md/data/struct-desc/")
+    data_dir = os.path.join(base_dir, "analysis/006-rogfp-cu-glh-md/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
@@ -50,7 +50,7 @@ def main():
 
     atoms = u.select_atoms(f"{residue_str} and name {' '.join(atom_names)}")
 
-    atoms_npy_path = os.path.join(data_dir, "cro65_cg2_cb2_ca2_c2-dihedral.npy")
+    atoms_npy_path = os.path.join(data_dir, "cro65_n2_ca2_cb2_cg2-dihedral.npy")
     atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):

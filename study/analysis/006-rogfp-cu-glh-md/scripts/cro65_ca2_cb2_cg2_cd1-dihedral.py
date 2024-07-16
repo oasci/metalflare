@@ -36,10 +36,10 @@ def main():
     )
     residue_str = "resname CRO and resid 65"
     atom_names = [
-        "CG2",
-        "CB2",
         "CA2",
-        "C2",
+        "CB2",
+        "CG2",
+        "CD1",
     ]  # Specify the four atoms on the same residue
 
     data_dir = os.path.join(base_dir, "analysis/006-rogfp-cu-glh-md/data/struct-desc/")
@@ -50,7 +50,7 @@ def main():
 
     atoms = u.select_atoms(f"{residue_str} and name {' '.join(atom_names)}")
 
-    atoms_npy_path = os.path.join(data_dir, "cro65_cg2_cb2_ca2_c2-dihedral.npy")
+    atoms_npy_path = os.path.join(data_dir, "cro65_ca2_cb2_cg2_cd1-dihedral.npy")
     atoms_dihedral_array = np.full((n_frames,), np.nan, dtype=np.float64)
 
     for i, ts in enumerate(u.trajectory):
