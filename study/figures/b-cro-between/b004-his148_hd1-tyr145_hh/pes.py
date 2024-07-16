@@ -68,9 +68,8 @@ def masked_difference(hist_ref, hist):
     mask_not_in_ref = np.where(hist_ref.mask & ~hist.mask)
     mask_only_in_ref = np.where(~hist_ref.mask & hist.mask)
     diff[mask_not_in_ref] = hist[mask_not_in_ref] - np.max(hist)
-    diff[mask_only_in_ref] = -hist_ref[mask_only_in_ref]
+    diff[mask_only_in_ref] = hist_ref[mask_only_in_ref]
 
-    # The result is not masked
     return diff
 
 
@@ -115,42 +114,42 @@ if __name__ == "__main__":
     use_mpl_rc_params(rc_json_path, font_dirs)
 
     # Original data
-    rogfp_dist_path = os.path.join(
+    path_x_red = os.path.join(
         base_dir,
         f"analysis/005-rogfp-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data_x_red = np.load(rogfp_dist_path)
+    data_x_red = np.load(path_x_red)
 
-    data_x_oxd_path = os.path.join(
+    path_x_oxd = os.path.join(
         base_dir,
         f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data_x_oxd = np.load(data_x_oxd_path)
+    data_x_oxd = np.load(path_x_oxd)
 
-    rogfp_cu_dist_path = os.path.join(
+    path_x_cu = os.path.join(
         base_dir,
         f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_x_str}.npy",
     )
-    data_x_cu = np.load(rogfp_cu_dist_path)
+    data_x_cu = np.load(path_x_cu)
 
     # Cys data
-    data_y_red_path = os.path.join(
+    path_y_red = os.path.join(
         base_dir,
         f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data_y_red = np.load(data_y_red_path)
+    data_y_red = np.load(path_y_red)
 
-    data_y_oxd_path = os.path.join(
+    path_y_oxd = os.path.join(
         base_dir,
         f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data_y_oxd = np.load(data_y_oxd_path)
+    data_y_oxd = np.load(path_y_oxd)
 
-    data_y_cu_path = os.path.join(
+    path_y_cu = os.path.join(
         base_dir,
         f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_y_str}.npy",
     )
-    data_y_cu = np.load(data_y_cu_path)
+    data_y_cu = np.load(path_y_cu)
 
     create_pes(data_x_red, data_y_red, f"{fig_label}-reduced.png")
     create_pes(data_x_oxd, data_y_oxd, f"{fig_label}-oxidized.png")
