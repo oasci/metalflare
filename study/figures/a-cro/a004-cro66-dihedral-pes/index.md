@@ -2,17 +2,20 @@
 
 ## Probability densities
 
-<figure markdown>
-![](./a004-pes-reduced.png)
-</figure>
+!!! quote "Reduced"
+    <figure markdown>
+    ![](./a004-pes-reduced.png)
+    </figure>
 
-<figure markdown>
-![](./a004-pes-oxidized.png)
-</figure>
+!!! quote "Oxidized"
+    <figure markdown>
+    ![](./a004-pes-oxidized.png)
+    </figure>
 
-<figure markdown>
-![](./a004-pes-cu.png)
-</figure>
+!!! quote "Cu(I)"
+    <figure markdown>
+    ![](./a004-pes-cu.png)
+    </figure>
 
 ## Differences
 
