@@ -69,10 +69,15 @@ plugins:
           paths: ["metalflare"]
           import:
           - https://docs.python.org/3/objects.inv
+          - https://numpy.org/doc/stable/objects.inv
           options:
-            show_source: true
+            show_source: false
+            show_root_heading: false
             annotations_path: brief
             docstring_style: google
+            merge_init_into_class: true
+            docstring_section_style: spacy
+            show_if_no_docstring: true
   - awesome-pages:
         collapse_single_pages: true
         strict: false
