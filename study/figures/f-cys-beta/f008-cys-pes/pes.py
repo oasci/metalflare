@@ -7,16 +7,19 @@ from metalflare.analysis.pes import create_pes, create_pes_difference
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-bin_min, bin_max = -180, 180
-bin_width = 3
+bin_min, bin_max = 1, 10
+bin_width = 0.2
 n_bins = int((bin_max - bin_min) / bin_width)
-bins = (np.linspace(-180, 180, n_bins + 1), np.linspace(-180, 180, n_bins + 1))
+x_lims = (3, 7)
+x_ticks = np.arange(2, 7 + 1, 1)
+y_lims = (1.4, 8)
+y_ticks = np.arange(2, 8 + 1, 1)
 
-fig_label = "a004-pes"
-data_x_str = "cro65_n2_ca2_cb2_cg2-dihedral"
-data_x_label = "Cro66 N2-CA2-CB2-CG2 Dihedral [°]"
-data_y_str = "cro65_ca2_cb2_cg2_cd1-dihedral"
-data_y_label = "Cro66 CA2-CB2-CG2-CD1 Dihedral [°]"
+fig_label = "f008-pes"
+data_x_str = "cys145_ca-cys202_ca-dist"
+data_x_label = r"Cys147 C$_\alpha$ - Cys204 C$_\alpha$ Distance [Å]"
+data_y_str = "cys145_sg-cys202_sg-dist"
+data_y_label = r"Cys147 SG - Cys204 SG Distance [Å]"
 
 
 if __name__ == "__main__":
@@ -36,126 +39,95 @@ if __name__ == "__main__":
         f"analysis/005-rogfp-glh-md/data/struct-desc/{data_x_str}.npy",
     )
     data_x_red = np.load(path_x_red)
-    data_x_red = np.degrees(data_x_red)
 
     path_x_oxd = os.path.join(
         base_dir,
         f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_x_str}.npy",
     )
     data_x_oxd = np.load(path_x_oxd)
-    data_x_oxd = np.degrees(data_x_oxd)
 
     path_x_cu = os.path.join(
         base_dir,
         f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_x_str}.npy",
     )
     data_x_cu = np.load(path_x_cu)
-    data_x_cu = np.degrees(data_x_cu)
 
+    # Cys data
     path_y_red = os.path.join(
         base_dir,
         f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy",
     )
     data_y_red = np.load(path_y_red)
-    data_y_red = np.degrees(data_y_red)
-    data_y_red[data_y_red < 0] += 360
-    data_y_red[data_y_red > 0] -= 180
 
     path_y_oxd = os.path.join(
         base_dir,
         f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_y_str}.npy",
     )
     data_y_oxd = np.load(path_y_oxd)
-    data_y_oxd = np.degrees(data_y_oxd)
-    data_y_oxd[data_y_oxd < 0] += 360
-    data_y_oxd[data_y_oxd > 0] -= 180
 
     path_y_cu = os.path.join(
         base_dir,
         f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_y_str}.npy",
     )
     data_y_cu = np.load(path_y_cu)
-    data_y_cu = np.degrees(data_y_cu)
-    data_y_cu[data_y_cu < 0] += 360
-    data_y_cu[data_y_cu > 0] -= 180
 
     fig = create_pes(
-        data_x_red, data_y_red, bins=bins, vmin=0, vmax=5, levels=13, T=300.0
+        data_x_red, data_y_red, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
-    plt.xlim(-60, 60)
-    plt.xticks(np.arange(-60, 61, 30))
+    plt.xlim(3, 6)
+    plt.xticks(np.arange(3, 6 + 1, 1))
     plt.ylabel(data_y_label)
-    plt.ylim(-60, 60)
-    plt.yticks(np.arange(-60, 61, 30))
+    plt.ylim(3.2, 8.2)
+    plt.yticks(np.arange(3, 8 + 1, 1))
     plt.tight_layout()
     fig.savefig(f"{fig_label}-reduced.png")
     plt.close()
 
     fig = create_pes(
-        data_x_oxd, data_y_oxd, bins=bins, vmin=0, vmax=5, levels=13, T=300.0
+        data_x_oxd, data_y_oxd, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
-    plt.xlim(-60, 60)
-    plt.xticks(np.arange(-60, 61, 30))
+    plt.xlim(3, 7)
+    plt.xticks(np.arange(3, 7 + 0.001, 1))
     plt.ylabel(data_y_label)
-    plt.ylim(-60, 60)
-    plt.yticks(np.arange(-60, 61, 30))
+    plt.ylim(1, 5)
+    plt.yticks(np.arange(1, 5 + 0.001, 1))
     plt.tight_layout()
     fig.savefig(f"{fig_label}-oxidized.png")
     plt.close()
 
     fig = create_pes(
-        data_x_cu, data_y_cu, bins=bins, vmin=0, vmax=5, levels=13, T=300.0
+        data_x_cu, data_y_cu, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
-    plt.xlim(-60, 60)
-    plt.xticks(np.arange(-60, 61, 30))
+    plt.xlim(3, 7)
+    plt.xticks(np.arange(3, 7 + 0.001, 1))
     plt.ylabel(data_y_label)
-    plt.ylim(-60, 60)
-    plt.yticks(np.arange(-60, 61, 30))
+    plt.ylim(1, 5)
+    plt.yticks(np.arange(1, 5 + 0.001, 1))
     plt.tight_layout()
     fig.savefig(f"{fig_label}-cu.png")
     plt.close()
 
+    bins = np.arange(1, 8, bin_width)
     fig = create_pes_difference(
-        data_x_red,
-        data_y_red,
         data_x_oxd,
         data_y_oxd,
-        bins=bins,
-        vmin=-5,
-        vmax=5,
-        levels=200,
-        T=300.0,
-    )
-    plt.xlabel(data_x_label)
-    plt.xlim(-60, 60)
-    plt.xticks(np.arange(-60, 61, 30))
-    plt.ylabel(data_y_label)
-    plt.ylim(-60, 60)
-    plt.yticks(np.arange(-60, 61, 30))
-    plt.tight_layout()
-    fig.savefig(f"{fig_label}-diff-oxd-red.png")
-    plt.close()
-
-    fig = create_pes_difference(
-        data_x_red,
-        data_y_red,
         data_x_cu,
         data_y_cu,
         bins=bins,
-        vmin=-5,
-        vmax=5,
+        vmin=-6,
+        vmax=6,
         levels=200,
         T=300.0,
     )
     plt.xlabel(data_x_label)
-    plt.xlim(-60, 60)
-    plt.xticks(np.arange(-60, 61, 30))
+    plt.xlim(3, 7)
+    plt.xticks(np.arange(3, 7 + 0.001, 1))
     plt.ylabel(data_y_label)
-    plt.ylim(-60, 60)
-    plt.yticks(np.arange(-60, 61, 30))
+    plt.ylim(1, 5)
+    plt.yticks(np.arange(1, 5 + 0.001, 1))
     plt.tight_layout()
-    fig.savefig(f"{fig_label}-diff-cu-red.png")
+    fig.savefig(f"{fig_label}-diff-cu-oxd.png")
     plt.close()

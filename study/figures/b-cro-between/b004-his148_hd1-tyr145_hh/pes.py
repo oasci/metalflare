@@ -7,8 +7,6 @@ from metalflare.analysis.pes import create_pes, create_pes_difference
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-KB = 1.987204259e-3  # kcal/(mol K)
-T = 300.0  # Kelvin
 bin_min, bin_max = 1, 10
 bin_width = 0.2
 n_bins = int((bin_max - bin_min) / bin_width)
@@ -79,7 +77,7 @@ if __name__ == "__main__":
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
     plt.xticks(x_ticks)
-    plt.ylabel(data_x_label)
+    plt.ylabel(data_y_label)
     plt.ylim(*y_lims)
     plt.yticks(y_ticks)
     plt.tight_layout()
@@ -92,7 +90,7 @@ if __name__ == "__main__":
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
     plt.xticks(x_ticks)
-    plt.ylabel(data_x_label)
+    plt.ylabel(data_y_label)
     plt.ylim(*y_lims)
     plt.yticks(y_ticks)
     plt.tight_layout()
@@ -105,7 +103,7 @@ if __name__ == "__main__":
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
     plt.xticks(x_ticks)
-    plt.ylabel(data_x_label)
+    plt.ylabel(data_y_label)
     plt.ylim(*y_lims)
     plt.yticks(y_ticks)
     plt.tight_layout()
@@ -126,7 +124,7 @@ if __name__ == "__main__":
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
     plt.xticks(x_ticks)
-    plt.ylabel(data_x_label)
+    plt.ylabel(data_y_label)
     plt.ylim(*y_lims)
     plt.yticks(y_ticks)
     plt.tight_layout()
@@ -147,7 +145,7 @@ if __name__ == "__main__":
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
     plt.xticks(x_ticks)
-    plt.ylabel(data_x_label)
+    plt.ylabel(data_y_label)
     plt.ylim(*y_lims)
     plt.yticks(y_ticks)
     plt.tight_layout()
