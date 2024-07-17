@@ -6,7 +6,6 @@ import json
 import MDAnalysis as mda
 from MDAnalysis.analysis import align
 from MDAnalysis import transformations
-import numpy as np
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -73,5 +72,5 @@ if __name__ == "__main__":
     u_ref = mda.Universe(pdb_paths[0])
     for pdb_path in pdb_paths[1:]:
         u = mda.Universe(pdb_path)
-        align.alignto(u, u_ref, select="protein and name CA and (not resid 227)")
+        align.alignto(u, u_ref, select="resname CRO")
         u.atoms.write(pdb_path, bonds=None)
