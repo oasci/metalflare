@@ -97,8 +97,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "f011-thr203_n_ca_c-cys204_n"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Thr203 N-CA-C Cys204 N Dihedral [°]"
-    plot_x_bounds = (-180, 180)
+    x_label = r"Thr203 $\Psi$ [deg.]"
+    plot_x_bounds = (80, 180)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(90, 180+1, 30))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 

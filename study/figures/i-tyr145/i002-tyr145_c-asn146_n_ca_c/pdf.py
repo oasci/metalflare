@@ -56,9 +56,9 @@ if __name__ == "__main__":
         [rogfp2_cu_data, rogfp2_cu_data + 360, rogfp2_cu_data - 360]
     )
 
-    x_bounds = (-180, 180)
+    x_bounds = (-360, 0)
     x_values = np.linspace(*x_bounds, 360 * 2)
-    bw_method = 0.003
+    bw_method = 0.005
 
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
     scaling_factor = kde.integrate_box_1d(*x_bounds)
@@ -97,8 +97,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "i002-tyr145_c-asn146_n_ca_c"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Tyr145 C Asn146 N-CA-C Dihedral [°]"
-    plot_x_bounds = (-180, 180)
+    x_label = r"Asn146 $\phi$ [deg.]"
+    plot_x_bounds = (-210, -30)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(-210, -30 + 1, 30))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (-180, -30)
+    plot_x_bounds = (-210, -30)
     plot_y_bounds = (-1, 4)
     pmf_fig = make_pmf_fig(
         x_values,
@@ -163,6 +163,6 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, -30 - 0.01, 30))
+    plt.xticks(np.arange(-210, -30 + 1, 30))
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()
