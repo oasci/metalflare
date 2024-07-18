@@ -10,7 +10,7 @@ TODO:
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/i002-tyr145_c-asn146_n_ca_c/pdf-info.md"
+--8<-- "study/figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/pdf-info.md"
 
 ## Potential of mean force
 
@@ -20,4 +20,4 @@ TODO:
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/i002-tyr145_c-asn146_n_ca_c/pmf-info.md"
+--8<-- "study/figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/pmf-info.md"

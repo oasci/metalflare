@@ -10,7 +10,7 @@ TODO:
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/f011-thr203_n_ca_c-cys204_n/pdf-info.md"
+--8<-- "study/figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/pdf-info.md"
 
 ## Potential of mean force
 
@@ -20,4 +20,4 @@ TODO:
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/f011-thr203_n_ca_c-cys204_n/pmf-info.md"
+--8<-- "study/figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/pmf-info.md"
