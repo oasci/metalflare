@@ -1,23 +1,23 @@
-# j001-tyr145_ca_c-asn146_n_ca
+# j001-glu222_n_ca_cb_cg-pdf
 
 TODO:
 
 ## Probability density function
 
 <figure markdown>
-![](./j001-tyr145_ca_c-asn146_n_ca-pdf.svg)
+![](./j001-glu222_n_ca_cb_cg-pdf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/i-tyr145/j001-tyr145_ca_c-asn146_n_ca/pdf-info.md"
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pdf-info.md"
 
 ## Potential of mean force
 
 <figure markdown>
-![](./j001-tyr145_ca_c-asn146_n_ca-pmf.svg)
+![](./j001-glu222_n_ca_cb_cg-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/i-tyr145/j001-tyr145_ca_c-asn146_n_ca/pmf-info.md"
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pmf-info.md"

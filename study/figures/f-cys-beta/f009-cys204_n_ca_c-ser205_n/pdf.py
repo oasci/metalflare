@@ -56,9 +56,9 @@ if __name__ == "__main__":
         [rogfp2_cu_data, rogfp2_cu_data + 360, rogfp2_cu_data - 360]
     )
 
-    x_bounds = (-180, 180)
+    x_bounds = (0, 360)
     x_values = np.linspace(*x_bounds, 360 * 2)
-    bw_method = 0.003
+    bw_method = 0.004
 
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
     scaling_factor = kde.integrate_box_1d(*x_bounds)
@@ -97,8 +97,8 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "f009-cys204_n_ca_c-ser205_n"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Cys204 N-CA-C Ser205 N Dihedral [°]"
-    plot_x_bounds = (-180, 180)
+    x_label = "Cys204 $\psi$ [deg.]"
+    plot_x_bounds = (50, 200)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
-    plt.xticks(np.arange(-180, 181, 60))
+    plt.xticks(np.arange(60, 180 + 0.01, 30))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
@@ -151,8 +151,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (0, 180)
-    plot_y_bounds = (-1, 3)
+    plot_x_bounds = (30, 200)
+    plot_y_bounds = (-1, 5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -163,6 +163,6 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
     )
-    plt.xticks(np.arange(0, 181, 60))
+    plt.xticks(np.arange(30, 180 + 0.01, 30))
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

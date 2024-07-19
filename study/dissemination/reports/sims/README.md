@@ -1,6 +1,6 @@
 # R002 - Molecular simulations
 
-We performed classical molecular dynamics (MD) simulations of roGFP2 [^hanson2004investigating] with
+This report details our observations from classical molecular dynamics (MD) simulations of roGFP2 [^hanson2004investigating] with
 
 -   the anionic chromophore in the ground state;
 -   neutral and anionic Glu222.
@@ -47,7 +47,7 @@ If we observe similar differences between reduced and copper states, this would 
         - Slight A band decrease
         - Large B band decrease.
 
-## Increased distance and flexibility in Cys147 and Cys204
+## Backbone changes from Cys147 and Cys204
 
 We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
 
@@ -65,14 +65,66 @@ The binding of Cu(I) to roGFP2 induces significant structural changes, particula
 The observed increase in the C$_\alpha$-C$_\alpha$ distance from approximately 4.3 Å to a broader distribution centered around 4.48 Å and 4.96 Å indicates a marked increase in conformational flexibility.
 These residues are adjacent to residues crucial to the GFP fluorescence mechanism involving Thr203 and Ser205.
 
-## Destabilization of anionic chromophore
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f007-cys147_sg-cys204_sg/f007-cys147_sg-cys204_sg-pdf.svg){ width=600 }
+    </figure>
 
-Notably, two residues flanked by Cys147 play a role in stabilizing the anionic chromophore through hydrogen bonding.
-Disturbing these interactions could distort the neutral and anionic chromophore populations or even reduce the quantum yield for roGFP2 florescence.
+    For more figure information, go [here](../../../figures/f-cys-beta/f007-cys147_sg-cys204_sg/).
 
-TODO: Make structural figure to show these interactions.
+### Cys204
 
-### From His148
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f009-cys204_n_ca_c-ser205_n/f009-cys204_n_ca_c-ser205_n-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/f-cys-beta/f009-cys204_n_ca_c-ser205_n/).
+
+### Ser205
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f013-cys204_c-ser205_n_ca_c/f013-cys204_c-ser205_n_ca_c-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/f-cys-beta/f013-cys204_c-ser205_n_ca_c/).
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f004-ser205_h-asn146_o/f004-ser205_h-asn146_o-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/f-cys-beta/f004-ser205_h-asn146_o/).
+
+### Thr203
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f010-his148_h-thr203_o/f010-his148_h-thr203_o-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/f-cys-beta/f010-his148_h-thr203_o/).
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/f011-thr203_n_ca_c-cys204_n-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/).
+
+### Asn146
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/i002-tyr145_c-asn146_n_ca_c-pdf.svg){ width=600 }
+    </figure>
+
+    For more figure information, go [here](../../../figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/).
+
+## Cro66 interactions
+
+### His148
 
 `HD1` in His148 is typically around 1.85 Å away from the anionic phenolate oxygen in the chromophore; however, the 3.97-Å state is only 0.6 kcal/mol higher in energy.
 
@@ -91,7 +143,7 @@ Additional His148 conformational diversity could very well destabilize the anion
 
     For more figure information, go [here](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/).
 
-### From Tyr145
+### Tyr145
 
 Furthermore, We see parallel results to His148 in Tyr145 dynamics.
 Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å between the Tyr145 phenolic hydrogen and Cro66.

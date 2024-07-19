@@ -3,6 +3,8 @@
 import os
 
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.patches import Rectangle
 import numpy as np
 
 from metalflare.analysis.figures import use_mpl_rc_params
@@ -80,7 +82,7 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "f004-ser205_h-asn146_o"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Ser206 H - Asn146 O Distance [Å]"
+    x_label = "Ser206 -NH to Asn146 =O Distance [Å]"
     plot_x_bounds = (1, 8)
     y_label = "Density"
     plot_y_bounds = (0, None)
@@ -96,6 +98,25 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
+
+    rect = Rectangle((0, 0), 2.0, 0.8, facecolor='#f3f3f3', zorder=-10)
+    plt.gca().add_patch(rect)
+    colors = ['#f3f3f3', '#ffffff']
+    n_bins = 100
+    cmap = LinearSegmentedColormap.from_list('custom', colors, N=n_bins)
+    gradient = np.linspace(0, 1, 256).reshape(1, -1)
+    plt.imshow(gradient, extent=[2.0, 2.5, 0, 0.8], aspect='auto', cmap=cmap, zorder=-9)
+    plt.text(
+        0.025,
+        0.95,
+        "H-bond\nregion",
+        color="#8c8c8c",
+        weight="heavy",
+        transform=plt.gca().transAxes,
+        verticalalignment='top',
+        horizontalalignment='left'
+    )
+
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
