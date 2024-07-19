@@ -36,6 +36,7 @@ if __name__ == "__main__":
     rogfp_data = np.degrees(rogfp_data)
     rogfp_data = np.concatenate([rogfp_data, rogfp_data + 360, rogfp_data - 360])
 
+
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
@@ -97,7 +98,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "f006-cys204_cb_ca_c_o"
+    fig_title = "f005-cys204_cb_ca_c_o"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "CYS204 CB-CA-C-O Dihedral [°]"
     plot_x_bounds = (-180, 180)

@@ -25,7 +25,7 @@ We performed the following three sets of simulations.
     ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=600 }
     </figure>
 
-=== "Copper"
+=== "Cu(I)"
 
     Reduced Cys147 and Cys204 with a coordinated Cu(I).
 
@@ -47,7 +47,7 @@ If we observe similar differences between reduced and copper states, this would 
         - Slight A band decrease
         - Large B band decrease.
 
-## Backbone changes from Cys147 and Cys204
+## Backbone changes
 
 We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
 
@@ -72,14 +72,69 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
     For more figure information, go [here](../../../figures/f-cys-beta/f007-cys147_sg-cys204_sg/).
 
-### Cys204
+### Cys147
 
-!!! quote ""
+#### φ and ψ
+
+=== "Reduced"
+
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f009-cys204_n_ca_c-ser205_n/f009-cys204_n_ca_c-ser205_n-pdf.svg){ width=600 }
+    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-reduced.png){ width=700 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f009-cys204_n_ca_c-ser205_n/).
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-cu.png){ width=700 }
+    </figure>
+
+### Cys204
+
+#### φ and ψ
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-cu.png){ width=700 }
+    </figure>
+
+#### χ
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-cu.png){ width=700 }
+    </figure>
 
 ### Ser205
 
