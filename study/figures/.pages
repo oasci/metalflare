@@ -3,4 +3,7 @@ sort_type: natural
 order_by: title
 nav:
     - README.md
+    - "A: Chromophore": a-cro
+    - "B: Cys147 and 204": b-cys
+    - "C: Ser205": c-ser205
     - ...
