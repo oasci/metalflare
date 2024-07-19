@@ -7,6 +7,8 @@ from MDAnalysis import transformations
 import numpy as np
 
 
+SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
+
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
     for run_i in range(*run_range):
@@ -14,7 +16,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
             [
                 os.path.join(
                     base_dir,
-                    f"data/005-rogfp-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
+                    f"data/{SIM_LABEL}/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
                 )
                 for prod in range(*prod_range)
             ]
@@ -27,12 +29,12 @@ def main():
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(
-        base_dir, "data/005-rogfp-glh-md/simulations/02-prep/mol.prmtop"
+        base_dir, f"data/{SIM_LABEL}/simulations/02-prep/mol.prmtop"
     )
     atoms1_str = "resid 201 and name OG1"
     atoms2_str = "resname WAT and (around 6.0 (resname CRO and name OH)) and (around 6.5 (resid 143 and name OH)) and (around 6.0 (resid 201 and name CA)) and name H2"
 
-    data_dir = os.path.join(base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/")
+    data_dir = os.path.join(base_dir, f"analysis/{SIM_LABEL}/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)

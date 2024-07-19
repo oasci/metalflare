@@ -5,6 +5,7 @@ import os
 import MDAnalysis as mda
 import numpy as np
 
+SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
@@ -13,7 +14,7 @@ def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
             [
                 os.path.join(
                     base_dir,
-                    f"data/005-rogfp-glh-md/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
+                    f"data/{SIM_LABEL}/simulations/05-prod/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc",
                 )
                 for prod in range(*prod_range)
             ]
@@ -32,7 +33,7 @@ def main():
     trajectory_paths = generate_trajectory_paths(base_dir)
 
     topology_path = os.path.join(
-        base_dir, "data/005-rogfp-glh-md/simulations/02-prep/mol.prmtop"
+        base_dir, f"data/{SIM_LABEL}/simulations/02-prep/mol.prmtop"
     )
     residue_str = "resname CRO and resid 65"
     atom_names = [
@@ -42,7 +43,7 @@ def main():
         "CD1",
     ]  # Specify the four atoms on the same residue
 
-    data_dir = os.path.join(base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/")
+    data_dir = os.path.join(base_dir, f"analysis/{SIM_LABEL}/data/struct-desc/")
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
