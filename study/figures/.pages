@@ -7,4 +7,6 @@ nav:
     - "B: Cys147 and 204": b-cys
     - "C: Ser205": c-ser205
     - "D: Thr203": d-thr203
+    - "E: Proton wire": e-proton-wire
+    - "H: background": h-background
     - ...
