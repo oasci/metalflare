@@ -2,11 +2,12 @@
 
 TODO:
 
-<div id="l003-view" class="mol-container"></div>
+## Visualization
 
+<div id="reduced-view" class="mol-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('l003-view', {
+    const viewer = molstar.Viewer.create('reduced-view', {
         layoutIsExpanded: false,
         layoutShowControls: false,
         layoutShowRemoteState: false,
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         pdbProvider: 'rcsb',
     }).then(viewer => {
         // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/l003.molj", "molj");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/reduced-example.molj", "molj");
     });
 });
 </script>
