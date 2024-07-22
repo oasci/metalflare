@@ -53,10 +53,10 @@ We first investigate the structural dynamics of Cys147 and Cys204 interactions b
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f001-cys147_ca-cys204_ca/f001-cys147_ca-cys204_ca-pdf.svg){ width=600 }
+    ![](../../../figures/b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg){ width=600 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f001-cys147_ca-cys204_ca/).
+    For more figure information, go [here](../../../figures/b-cys/b004-cys147_ca-cys204_ca/).
 
 As expected, the formation of the disulfide bridge in the oxidized state induces a highly strained conformation, with a C$_\alpha$-C$_\alpha$ distance of approximately 4.07 Å, closely matching the experimental average distance of 4.04 ± 0.09 Å [^hanson2004investigating].
 In contrast, a reduced—albeit partially oxidized—crystal structure of roGFP2 exhibits a distance of 4.30 ± 0.12 Å [^hanson2004investigating], which aligns with our simulation peak at 4.31 Å.
@@ -67,115 +67,150 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f007-cys147_sg-cys204_sg/f007-cys147_sg-cys204_sg-pdf.svg){ width=600 }
+    ![](../../../figures/b-cys/b005-cys147_sg-cys204_sg/b005-cys147_sg-cys204_sg-pdf.svg){ width=600 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f007-cys147_sg-cys204_sg/).
+    For more figure information, go [here](../../../figures/b-cys/b005-cys147_sg-cys204_sg/).
 
 ### Cys147
-
-#### φ and ψ
 
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-reduced.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-oxidized.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f014-cys147-backbone/f014-pes-cu.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-cu.png){ width=700 }
+    </figure>
+
+#### Tyr145
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-cu.png){ width=700 }
+    </figure>
+
+#### Asn146
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/m-asn146/m001-asn146-backbone/m001-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/m-asn146/m001-asn146-backbone/m001-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/m-asn146/m001-asn146-backbone/m001-pes-cu.png){ width=700 }
+    </figure>
+
+#### His148
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/l-his148/l001-his148-backbone/l001-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/l-his148/l001-his148-backbone/l001-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/l-his148/l001-his148-backbone/l001-pes-cu.png){ width=700 }
     </figure>
 
 ### Cys204
 
-#### φ and ψ
-
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-reduced.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-oxidized.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f015-cys204-backbone/f015-pes-cu.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-cu.png){ width=700 }
     </figure>
 
-#### χ
+#### Thr203
 
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-reduced.png){ width=700 }
+    ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-oxidized.png){ width=700 }
+    ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f016-cys-chi/f016-pes-cu.png){ width=700 }
+    ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-cu.png){ width=700 }
     </figure>
 
-### Ser205
+#### Ser205
 
-!!! quote ""
+=== "Reduced"
+
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f013-cys204_c-ser205_n_ca_c/f013-cys204_c-ser205_n_ca_c-pdf.svg){ width=600 }
+    ![](../../../figures/c-ser205/c001-ser205-backbone/c001-pes-reduced.png){ width=700 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f013-cys204_c-ser205_n_ca_c/).
+=== "Oxidized"
 
-!!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f004-ser205_h-asn146_o/f004-ser205_h-asn146_o-pdf.svg){ width=600 }
+    ![](../../../figures/c-ser205/c001-ser205-backbone/c001-pes-oxidized.png){ width=700 }
     </figure>
 
-    For more figure information, go [here](../../../figures/f-cys-beta/f004-ser205_h-asn146_o/).
+=== "Cu(I)"
 
-### Thr203
-
-!!! quote ""
     <figure markdown>
-    ![](../../../figures/f-cys-beta/f010-his148_h-thr203_o/f010-his148_h-thr203_o-pdf.svg){ width=600 }
+    ![](../../../figures/c-ser205/c001-ser205-backbone/c001-pes-cu.png){ width=700 }
     </figure>
-
-    For more figure information, go [here](../../../figures/f-cys-beta/f010-his148_h-thr203_o/).
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/f011-thr203_n_ca_c-cys204_n-pdf.svg){ width=600 }
-    </figure>
-
-    For more figure information, go [here](../../../figures/f-cys-beta/f011-thr203_n_ca_c-cys204_n/).
-
-### Asn146
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/i002-tyr145_c-asn146_n_ca_c-pdf.svg){ width=600 }
-    </figure>
-
-    For more figure information, go [here](../../../figures/i-tyr145/i002-tyr145_c-asn146_n_ca_c/).
 
 ## Cro66 interactions
 
