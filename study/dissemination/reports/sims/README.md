@@ -214,9 +214,33 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
 ## Cro66 interactions
 
-### His148
+### Tyr145 and His148
 
 `HD1` in His148 is typically around 1.85 Å away from the anionic phenolate oxygen in the chromophore; however, the 3.97-Å state is only 0.6 kcal/mol higher in energy.
+
+Furthermore, We see parallel results to His148 in Tyr145 dynamics.
+Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å between the Tyr145 phenolic hydrogen and Cro66.
+This hydrogen bonding would further stabilize the anionic chromophore.
+However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics in Cys147 and Cys204.
+A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å minimum with a 2.0 kcal/mol barrier.
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-cu.png){ width=700 }
+    </figure>
 
 Both oxidized and Cu(I) simulations exhibit substantial deviations from the reduced state in different ways.
 His148&mdash;protonated at the $\delta$ position&mdash;more frequently is hydrogen bonded to Cro66 with oxidized Cys147 and Cys204.
@@ -226,43 +250,24 @@ This Cro66-stabilizing transition is completely downhill for the oxidized simula
 Cu(I) binding exhibits a bimodal distribution with similar peaks as the reduced state; however, the two states differ by only 0.3 kcal/mol and about half the kinetic barrier.
 Additional His148 conformational diversity could very well destabilize the anionic chromophore, potentially leading to reduced quantum yield.
 
-!!! quote ""
+### Thr203 and H2O
+
+=== "Reduced"
+
     <figure markdown>
-    ![](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/b002-cro66_oh-his148_hd1-pdf.svg){ width=600 }
+    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-reduced.png){ width=700 }
     </figure>
 
-    For more figure information, go [here](../../../figures/b-cro-between/b002-cro66_oh-his148_hd1/).
+=== "Oxidized"
 
-### Tyr145
-
-Furthermore, We see parallel results to His148 in Tyr145 dynamics.
-Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å between the Tyr145 phenolic hydrogen and Cro66.
-This hydrogen bonding would further stabilize the anionic chromophore.
-However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics in Cys147 and Cys204.
-A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å minimum with a 2.0 kcal/mol barrier.
-
-!!! quote ""
     <figure markdown>
-    ![](../../../figures/b-cro-between/b003-cro66_oh-tyr145_hh/b003-cro66_oh-tyr145_hh-pdf.svg){ width=600 }
+    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-oxidized.png){ width=700 }
     </figure>
 
-    For more figure information, go [here](../../../figures/b-cro-between/b003-cro66_oh-tyr145_hh/).
+=== "Cu(I)"
 
-### Comparisons
-
-!!! quote "Reduced"
     <figure markdown>
-    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-reduced.png){ width=600 }
-    </figure>
-
-!!! quote "Oxidized vs. reduced"
-    <figure markdown>
-    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-diff-oxd-red.png){ width=600 }
-    </figure>
-
-!!! quote "Cu(I) vs. reduced"
-    <figure markdown>
-    ![](../../../figures/b-cro-between/b004-his148_hd1-tyr145_hh/b004-pes-diff-cu-red.png){ width=600 }
+    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-cu.png){ width=700 }
     </figure>
 
 ## More frequent non-adiabatic crossings could diminish florescence

@@ -8,7 +8,7 @@ from metalflare.analysis.pes import create_pes, create_pes_difference
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 bin_min, bin_max = 1, 10
-bin_width = 0.2
+bin_width = 0.1
 n_bins = int((bin_max - bin_min) / bin_width)
 x_lims = (1.4, 7)
 x_ticks = np.arange(2, 7 + 1, 1)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     data_y_cu = np.load(path_y_cu)
 
     fig = create_pes(
-        data_x_red, data_y_red, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
+        data_x_red, data_y_red, bins=n_bins, vmin=0, vmax=4, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_oxd, data_y_oxd, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
+        data_x_oxd, data_y_oxd, bins=n_bins, vmin=0, vmax=4, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_cu, data_y_cu, bins=n_bins, vmin=0, vmax=4.5, levels=15, T=300.0
+        data_x_cu, data_y_cu, bins=n_bins, vmin=0, vmax=4, levels=15, T=300.0
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
