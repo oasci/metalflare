@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/d004-thr203_og1-h2o_h/pdf-info.md"
+--8<-- "study/figures/d-thr203/d004-thr203_og1-h2o_h/pdf-info.md"
 
 ## Potential of mean force
 
@@ -43,4 +43,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/d004-thr203_og1-h2o_h/pmf-info.md"
+--8<-- "study/figures/d-thr203/d004-thr203_og1-h2o_h/pmf-info.md"

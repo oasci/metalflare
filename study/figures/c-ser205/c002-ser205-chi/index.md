@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/c002-cys204_c-ser205_n_ca_cb/pdf-info.md"
+--8<-- "study/figures/c-ser205/c002-ser205-chi/pdf-info.md"
 
 ## Potential of mean force
 
@@ -43,4 +43,4 @@ TODO:
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/c002-cys204_c-ser205_n_ca_cb/pmf-info.md"
+--8<-- "study/figures/c-ser205/c002-ser205-chi/pmf-info.md"

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/d002-cro66_oh-thr203_hg1/pdf-info.md"
+--8<-- "study/figures/d-thr203/d002-cro66_oh-thr203_hg1/pdf-info.md"
 
 <figure markdown>
 ![](./d002-cro66_oh-thr203_hg1-hist.svg)
@@ -48,4 +48,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/b-cro-between/d002-cro66_oh-thr203_hg1/pmf-info.md"
+--8<-- "study/figures/d-thr203/d002-cro66_oh-thr203_hg1/pmf-info.md"

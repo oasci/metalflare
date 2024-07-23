@@ -212,6 +212,22 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
     ![](../../../figures/c-ser205/c001-ser205-backbone/c001-pes-cu.png){ width=700 }
     </figure>
 
+## Beta sheets
+
+### His148 to Thr203
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
+    </figure>
+
+### Asn146 to Ser205
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg){ width=700 }
+    </figure>
+
 ## Cro66 interactions
 
 ### Tyr145 and His148
@@ -268,48 +284,6 @@ Additional His148 conformational diversity could very well destabilize the anion
 
     <figure markdown>
     ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-cu.png){ width=700 }
-    </figure>
-
-## More frequent non-adiabatic crossings could diminish florescence
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/h-background/h005-cro/cro-b-atom-types.svg){ width=600 }
-    </figure>
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/a-cro/a004-cro66-dihedral-pes/a004-pes-diff-cu-red.png){ width=600 }
-    </figure>
-
-
-## Cu(I) binding perturbs Thr203 dynamics
-
-TODO:
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/h-background/h007-distances/gfp-b-thr203-cro66.svg){ width=600 }
-    </figure>
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/b-cro-between/b001-cro66_oh-thr203_hg1/b001-cro66_oh-thr203_hg1-pdf.svg){ width=600 }
-    </figure>
-
-## Broken chromophore reprotonation between Glu222 and Ser205
-
-The last step of the [canonical photocycle](../fluorescence-mechanism/#photocycle) is reprotonation of of anionic chromophore through a GLU222, SER205, WAT, and finally CRO66 proton wire.
-Intermolecular distances distances between each chemical species is a common feature to describe potential proton transfers in MD simulations.
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/h-background/h007-distances/gfp-glh222-ser205.svg){ width=600 }
-    </figure>
-
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=600 }
     </figure>
 
 <!-- References -->

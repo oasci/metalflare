@@ -31,6 +31,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 ![](./f003-cys204_o-phe223_h-pdf.svg)
 </figure>
 
+### Hydrogen bonding
+
+The following table presents the probability of the hydrogen bonding (within 2.5 Å).
+
+| System | H bond |
+| ------ | ------ |
+| Reduced | 0.994 |
+| Oxidized | 0.997 |
+| Cu(I) | 0.992 |
+
 ### Quantitative
 
 --8<-- "study/figures/f-beta-sheets/f003-cys204_o-phe223_h/pdf-info.md"
