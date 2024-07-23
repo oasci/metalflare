@@ -1,4 +1,4 @@
-# j001-glu222_n_ca_cb_cg-pdf
+# J001 Glu222 χ
 
 TODO:
 

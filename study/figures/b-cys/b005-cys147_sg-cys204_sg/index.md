@@ -32,14 +32,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 ### Quantitative
 
---8<-- "study/figures/f-cys-beta/b005-cys147_sg-cys204_sg/pdf-info.md"
-
-## Potential of mean force
-
-<figure markdown>
-![](./b005-cys147_sg-cys204_sg-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/f-cys-beta/b005-cys147_sg-cys204_sg/pmf-info.md"
+--8<-- "study/figures/b-cys/b005-cys147_sg-cys204_sg/pdf-info.md"

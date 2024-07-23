@@ -1,12 +1,11 @@
-# e001-ser205_og-glu222_he2
+# E001: Ser205 OG - Glu222 HE2
 
 TODO:
 
-<div id="e001-view" class="mol-container"></div>
-
+<div id="reduced-view" class="mol-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('e001-view', {
+    const viewer = molstar.Viewer.create('reduced-view', {
         layoutIsExpanded: false,
         layoutShowControls: false,
         layoutShowRemoteState: false,
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         pdbProvider: 'rcsb',
     }).then(viewer => {
         // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/e001.molj", "molj");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/reduced-example.molj", "molj");
     });
 });
 </script>
@@ -29,6 +28,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <figure markdown>
 ![](./e001-ser205_og-glu222_he2-pdf.svg)
 </figure>
+
+### Hydrogen bonding
+
+The following table presents the probability of the hydrogen bonding (within 2.5 Å).
+
+| System | H bond |
+| ------ | ------ |
+| Reduced | 0.299 |
+| Oxidized | 0.000 |
+| Cu(I) | 0.000 |
 
 ### Quantitative
 

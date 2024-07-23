@@ -1,4 +1,4 @@
-# i004-tyr145-psi-dist
+# I004: Tyr145 ψ and Cro66 distance
 
 ## Visualization
 
@@ -38,16 +38,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 !!! quote "Cu(I)"
     <figure markdown>
     ![](./i004-pes-cu.png)
-    </figure>
-
-## Differences
-
-!!! quote "Oxidized vs. reduced"
-    <figure markdown>
-    ![](./i004-pes-diff-oxd-red.png)
-    </figure>
-
-!!! quote "Cu(I) vs. reduced"
-    <figure markdown>
-    ![](./i004-pes-diff-cu-red.png)
     </figure>

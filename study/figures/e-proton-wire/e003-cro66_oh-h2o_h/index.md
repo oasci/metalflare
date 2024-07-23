@@ -1,12 +1,13 @@
-# e003-cro66_oh-h2o_h
+# E003: H2O O - Cro66 OH
 
 TODO:
 
-<div id="e003-view" class="mol-container"></div>
+## Visualization
 
+<div id="reduced-view" class="mol-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('e003-view', {
+    const viewer = molstar.Viewer.create('reduced-view', {
         layoutIsExpanded: false,
         layoutShowControls: false,
         layoutShowRemoteState: false,
@@ -19,10 +20,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
         pdbProvider: 'rcsb',
     }).then(viewer => {
         // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/e003.molj", "molj");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/reduced-example.molj", "molj");
     });
 });
 </script>
+
+## Water detection
+
+TODO:
+
+The following table presents the probability of either a water molecule was (a) near or (hydrogen bonding) to the chromophore.
+
+| System | Detected | H bond |
+| ------ | -------- | ------ |
+| Reduced | 0.830 | 0.560 |
+| Oxidized | 0.630 | 0.601 |
+| Cu(I) | 0.841 | 0.538 |
 
 ## Probability density function
 

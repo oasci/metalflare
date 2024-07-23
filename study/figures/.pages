@@ -9,5 +9,11 @@ nav:
     - "D: Thr203": d-thr203
     - "E: Proton wire": e-proton-wire
     - "F: Beta sheets": f-beta-sheets
-    - "H: background": h-background
+    - "G: CRO interactions": g-cro-interact
+    - "H: Background": h-background
+    - "I: Tyr145": i-tyr145
+    - "J: Glu222": j-glu222
+    - "K: Phe223": k-phe223
+    - "L: His148": l-his148
+    - "M: Asn146": m-asn146
     - ...

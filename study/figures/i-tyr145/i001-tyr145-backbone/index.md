@@ -1,4 +1,4 @@
-# D001: Thr203 backbone
+# I001: Tyr145 backbone
 
 ## Visualization
 
@@ -29,19 +29,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 !!! quote ""
     <figure markdown>
-    ![](./d001-pes-reduced.png)
+    ![](./i001-pes-reduced.png)
     </figure>
 
 ### Oxidized
 
 !!! quote ""
     <figure markdown>
-    ![](./d001-pes-oxidized.png)
+    ![](./i001-pes-oxidized.png)
     </figure>
 
 ### Cu(I)
 
 !!! quote ""
     <figure markdown>
-    ![](./d001-pes-cu.png)
+    ![](./i001-pes-cu.png)
     </figure>

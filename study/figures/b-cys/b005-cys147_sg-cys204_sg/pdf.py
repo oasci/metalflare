@@ -8,10 +8,8 @@ import numpy as np
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pdfs import (
     compute_pdf,
-    compute_pmfs,
     extrema_table,
     make_pdf_fig,
-    make_pmf_fig,
 )
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
@@ -109,56 +107,4 @@ if __name__ == "__main__":
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
-    plt.close()
-
-    # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.85, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
-    )
-
-    # save pmf information
-    pmf_info_lines = ["Reduced roGFP2\n"]
-    pmf_info_lines.extend(
-        extrema_table(
-            x_values, "Distance (Å)", pmf_rogfp, "PMF [kcal/mol]", sci_notation=False
-        )
-    )
-    pmf_info_lines.append("\nOxidized roGFP2\n")
-    pmf_info_lines.extend(
-        extrema_table(
-            x_values,
-            "Distance (Å)",
-            pmf_rogfp_oxd,
-            "PMF [kcal/mol]",
-            sci_notation=False,
-            extrema_order=extrema_order,
-            polyorder=polyorder,
-            window_length=window_length,
-        )
-    )
-    pmf_info_lines.append("\nroGFP2 and Cu(I)\n")
-    pmf_info_lines.extend(
-        extrema_table(
-            x_values, "Distance (Å)", pmf_rogfp_cu, "PMF [kcal/mol]", sci_notation=False
-        )
-    )
-    pmf_info_lines = [line + "\n" for line in pmf_info_lines]
-    pmf_info_path = "./pmf-info.md"
-    with open(pmf_info_path, "w", encoding="utf-8") as f:
-        f.writelines(pmf_info_lines)
-
-    y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 7)
-    plot_y_bounds = (-10, 10)
-    pmf_fig = make_pmf_fig(
-        x_values,
-        pmf_rogfp,
-        pmf_rogfp_cu,
-        x_label=x_label,
-        x_bounds=plot_x_bounds,
-        y_label=y_label,
-        y_bounds=plot_y_bounds,
-        pmf_rogfp_oxd=pmf_rogfp_oxd,
-    )
-    pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

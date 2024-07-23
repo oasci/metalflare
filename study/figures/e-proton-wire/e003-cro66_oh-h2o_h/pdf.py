@@ -3,7 +3,10 @@
 import os
 
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.patches import Rectangle
 import numpy as np
+from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pdfs import (
@@ -41,9 +44,7 @@ if __name__ == "__main__":
         "analysis/005-rogfp-glh-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
     rogfp_data_1 = np.load(rogfp_data_path_1)
-    rogfp_data_1[rogfp_data_1 == 0.0] = 20.0
     rogfp_data_2 = np.load(rogfp_data_path_2)
-    rogfp_data_2[rogfp_data_2 == 0.0] = 20.0
     rogfp_data = np.minimum(rogfp_data_1, rogfp_data_2)
 
     # Oxidized
@@ -56,9 +57,7 @@ if __name__ == "__main__":
         "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
-    rogfp_oxd_data_1[rogfp_oxd_data_1 == 0.0] = 20.0
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
-    rogfp_oxd_data_2[rogfp_oxd_data_2 == 0.0] = 20.0
     rogfp_oxd_data = np.minimum(rogfp_oxd_data_1, rogfp_oxd_data_2)
 
     # Copper
@@ -71,9 +70,7 @@ if __name__ == "__main__":
         "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_oh-h2o_h2-dist.npy",
     )
     rogfp_cu_data_1 = np.load(rogfp_cu_data_path_1)
-    rogfp_cu_data_1[rogfp_cu_data_1 == 0.0] = 20.0
     rogfp_cu_data_2 = np.load(rogfp_cu_data_path_2)
-    rogfp_cu_data_2[rogfp_cu_data_2 == 0.0] = 20.0
     rogfp_cu_data = np.minimum(rogfp_cu_data_1, rogfp_cu_data_2)
 
     # Compute all pdfs
@@ -85,6 +82,19 @@ if __name__ == "__main__":
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
+
+    # KDE stats
+    kde = gaussian_kde(rogfp_data, bw_method=bw_method)
+    reduced_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Reduced kde stat:  {reduced_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
+    oxidized_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Oxidized kde stat: {oxidized_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
+    cu_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
@@ -114,7 +124,7 @@ if __name__ == "__main__":
     x_label = "CRO66 OH - H2O H Distance [Å]"
     plot_x_bounds = (1, 7)
     y_label = "Density"
-    plot_y_bounds = (0, None)
+    plot_y_bounds = (0, 2)
 
     pdf_fig = make_pdf_fig(
         x_values,
@@ -127,6 +137,26 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
+
+    # Add hydrogen bond region
+    rect = Rectangle((0, 0), 2.0, 10, facecolor='#F5F5F5', zorder=-10)
+    plt.gca().add_patch(rect)
+    colors = ['#F5F5F5', '#ffffff']
+    n_bins = 100
+    cmap = LinearSegmentedColormap.from_list('custom', colors, N=n_bins)
+    gradient = np.linspace(0, 1, 256).reshape(1, -1)
+    plt.imshow(gradient, extent=[1.99, 2.5, 0, 10], aspect='auto', cmap=cmap, zorder=-9)
+    plt.text(
+        0.005,
+        0.995,
+        "H-bond\nregion",
+        color="#8c8c8c",
+        weight="heavy",
+        transform=plt.gca().transAxes,
+        verticalalignment='top',
+        horizontalalignment='left'
+    )
+
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
