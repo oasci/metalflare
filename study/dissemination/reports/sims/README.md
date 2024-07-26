@@ -47,32 +47,49 @@ If we observe similar differences between reduced and copper states, this would 
         - Slight A band decrease
         - Large B band decrease.
 
-## Backbone changes
+## Backbone
 
-We first investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
+First, we investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C$_\alpha$-C$_\alpha$ distances.
+Experimental structures of both the reduced (PDB ID: [1JC0](https://www.rcsb.org/structure/1JC0)) and oxidized (PDB ID: [1JC1](https://www.rcsb.org/structure/1JC1)) states of for roGFP2 exhibited a mean C$_\alpha$-C$_\alpha$ distance of 4.30 ± 0.12 and 4.07 ± 0.09, respectively. [^hanson2004investigating]
+Our MD simulations agreed well with experimental observations as shown in the following table.
 
-!!! quote ""
+!!! quote "Table 1: C$_\alpha$-C$_\alpha$ distance mean ± 2std."
+    | State | Experimental (Å) | MD simulations (Å) |
+    | ----- | ------------ | -------------- |
+    | **Reduced** | 4.30 ± 0.12 | 4.34 ± 0.47 |
+    | **Oxidized** | 4.07 ± 0.09 | 4.11 ± 0.29 |
+    | **Cu(I)** | N/A | 4.78 ± 0.82 |
+
+Larger standard deviations, $\sigma$, would be expected for molecular simulations due to capturing the dynamic fluctuations in solution.
+Figure 1 shows the observed distribution of C$_\alpha$-C$_\alpha$ distances.
+
+!!! quote "Figure 1: C$_\alpha$-C$_\alpha$ distance probability density."
     <figure markdown>
     ![](../../../figures/b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg){ width=600 }
     </figure>
 
     For more figure information, go [here](../../../figures/b-cys/b004-cys147_ca-cys204_ca/).
 
-As expected, the formation of the disulfide bridge in the oxidized state induces a highly strained conformation, with a C$_\alpha$-C$_\alpha$ distance of approximately 4.07 Å, closely matching the experimental average distance of 4.04 ± 0.09 Å [^hanson2004investigating].
-In contrast, a reduced—albeit partially oxidized—crystal structure of roGFP2 exhibits a distance of 4.30 ± 0.12 Å [^hanson2004investigating], which aligns with our simulation peak at 4.31 Å.
-
-The binding of Cu(I) to roGFP2 induces significant structural changes, particularly in the protein's conformation.
+Cu(I) binding to Cys147 and Cys204 in roGFP2 induces significant structural changes, particularly in the protein's conformation.
 The observed increase in the C$_\alpha$-C$_\alpha$ distance from approximately 4.3 Å to a broader distribution centered around 4.48 Å and 4.96 Å indicates a marked increase in conformational flexibility.
-These residues are adjacent to residues crucial to the GFP fluorescence mechanism involving Thr203 and Ser205.
+Cu(I) coordination to Cys147 and Cys204 thiolates (R-S<sup>&ndash;</sup>) also hinders rotational flexibility with respect to the thiols (R-S-H) in the reduced simulations.
 
-!!! quote ""
+!!! quote "Figure 2: Probability density of sulfur atom distance between Cys147 and Cys204."
     <figure markdown>
     ![](../../../figures/b-cys/b005-cys147_sg-cys204_sg/b005-cys147_sg-cys204_sg-pdf.svg){ width=600 }
     </figure>
 
     For more figure information, go [here](../../../figures/b-cys/b005-cys147_sg-cys204_sg/).
 
+These two cystines are near residues that play a crucial role in the GFP mechanism; thus, one would expect differences in the protein backbone $\phi$ and $\psi$ angles.
+In the following sections, we show two-dimensional histograms of the potential of mean force (PMF) of these backbone angles (i.e., Ramachandran plot).
+We will refer to these plots as backbone PMFs.
+
 ### Cys147
+
+Differences in oxidized and Cu(I) in the $\phi$ dihedral angle (Asn146 C Cys147 N-C$_\alpha$-C dihedral) are observed with respect to the reduced simulations.
+In particular, Cu(I) simulations have substantially reduced $\phi < 90$ angles that are frequently observed in both reduced and oxidized states.
+$\psi$ ranges are also increased upon the binding of Cu(I).
 
 === "Reduced"
 
@@ -92,27 +109,10 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
     ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-cu.png){ width=700 }
     </figure>
 
-#### Tyr145
-
-=== "Reduced"
-
-    <figure markdown>
-    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-reduced.png){ width=700 }
-    </figure>
-
-=== "Oxidized"
-
-    <figure markdown>
-    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-oxidized.png){ width=700 }
-    </figure>
-
-=== "Cu(I)"
-
-    <figure markdown>
-    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-cu.png){ width=700 }
-    </figure>
-
 #### Asn146
+
+Indeed, the large $\phi$<sub>Cys147</sub> distribution shift we observe also impacts Asn146.
+Reduced and oxidized simulations exhibit an additional local minima around $\phi$<sub>Asn146</sub> = -115° and $\psi$<sub>Asn146</sub> = 220° not present in Cu(I) simulations.
 
 === "Reduced"
 
@@ -132,7 +132,32 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
     ![](../../../figures/m-asn146/m001-asn146-backbone/m001-pes-cu.png){ width=700 }
     </figure>
 
+#### Tyr145
+
+We do see some differences in oxidized and Cu(I) simulations; however, these are subtle compared to Asn146.
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i001-tyr145-backbone/i001-pes-cu.png){ width=700 }
+    </figure>
+
 #### His148
+
+If we go one more residue further down the backbone, we see that His148 backbone dihedrals are relative similar across simulations.
+Cu(I) does have slightly larger ranges (i.e., backbone flexibility), but this does not appear nearly as drastic as Asn146.
 
 === "Reduced"
 
@@ -154,6 +179,10 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
 ### Cys204
 
+Changes in Cys204 would arguably have drastic consequences for roGFP2 florescence due to the adjacent residues (e.g., Thr203 and Ser205).
+Here, we see enhanced flexibility in $\psi$<sub>Cys204</sub> for oxidized simulations in the 70 to 120° region to favor cis conformations&mdash;even more so in Cu(I) simulations.
+Cu(I) simulations also have reduced entropy around $\phi$<sub>Cys204</sub> = -145° and $\psi$<sub>Cys204</sub> = 150°.
+
 === "Reduced"
 
     <figure markdown>
@@ -173,6 +202,9 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
     </figure>
 
 #### Thr203
+
+Reduced and oxidized simulations show similar Thr203 backbone conformational dynamics.
+Cu(I) simulations, on the other hand, has dramatically reduced flexibility with a minima around $\phi$<sub>Thr203</sub> = 175° and $\psi$<sub>Thr203</sub> = 155°.
 
 === "Reduced"
 
@@ -194,6 +226,8 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
 #### Ser205
 
+Here, we see similarly enhanced flexibility in both oxidized and Cu(I) simulations.
+
 === "Reduced"
 
     <figure markdown>
@@ -214,12 +248,21 @@ These residues are adjacent to residues crucial to the GFP fluorescence mechanis
 
 ## Beta sheets
 
+Most of these aforementioned residues are either in, or near, antiparallel beta sheet.
+Changes in these backbones could therefore stabilize or destabilize the hydrogen-bonding network.
+Below, we show two relevant -NH to O= hydrogen bonding near the cysteine sensor residues.
+
 ### His148 to Thr203
+
+Forming a disulfide bond between Cys147 and Cys204 substantially stabilizes the beta-sheet.
 
 !!! quote ""
     <figure markdown>
     ![](../../../figures/f-beta-sheets/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
     </figure>
+
+Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For an cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
+Cu(I) binding induces the opposite effect by destabilizing the beta strand with a probability of 0.063 of forming the hydrogen bond.
 
 ### Asn146 to Ser205
 
