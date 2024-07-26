@@ -7,6 +7,7 @@ import numpy as np
 
 SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
+
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
     for run_i in range(*run_range):
@@ -41,7 +42,7 @@ def main():
 
     u = mda.Universe(topology_path, trajectory_paths)
     n_frames = len(u.trajectory)
-    
+
     atoms = u.select_atoms("(resid 145 and name C) or (resid 146 and name N CA C)")
 
     atoms_npy_path = os.path.join(data_dir, "cys145_c-his146_n_ca_c-dihedral.npy")

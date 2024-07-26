@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes, create_pes_difference
 
@@ -84,7 +86,13 @@ if __name__ == "__main__":
     data_y_cu = np.load(path_y_cu)
 
     fig = create_pes(
-        data_x_red, data_y_red, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=15, T=300.0
+        data_x_red,
+        data_y_red,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=15,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -97,7 +105,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_oxd, data_y_oxd, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=15, T=300.0
+        data_x_oxd,
+        data_y_oxd,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=15,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -110,7 +124,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_cu, data_y_cu, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=15, T=300.0
+        data_x_cu,
+        data_y_cu,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=15,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -121,7 +141,6 @@ if __name__ == "__main__":
     plt.tight_layout()
     fig.savefig(f"{fig_label}-cu.png")
     plt.close()
-
 
     # fig = create_pes_difference(
     #     data_x_red,

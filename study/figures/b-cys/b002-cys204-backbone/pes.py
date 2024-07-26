@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes, create_pes_difference
 
@@ -15,10 +17,13 @@ data_y_label = "Cys204 $\psi$ [deg.]"
 
 bin_width_angle = 2
 bin_width_dist = 0.1
-bins = (np.arange(-360, 0 + 0.01, bin_width_angle), np.arange(0, 360 + 0.01, bin_width_angle))
+bins = (
+    np.arange(-360, 0 + 0.01, bin_width_angle),
+    np.arange(0, 360 + 0.01, bin_width_angle),
+)
 
 x_lims = (-210, -50)
-x_ticks = np.arange(-210, -50 + 0.001, 60)
+x_ticks = np.arange(-210, -50 + 0.001, 30)
 y_lims = (30, 190)
 y_ticks = np.arange(min(y_lims), max(y_lims) + 0.001, 30)
 
@@ -90,7 +95,13 @@ if __name__ == "__main__":
     data_y_cu[data_y_cu <= 0] += 360
 
     fig = create_pes(
-        data_x_red, data_y_red, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_red,
+        data_y_red,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -103,7 +114,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_oxd, data_y_oxd, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_oxd,
+        data_y_oxd,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -116,7 +133,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_cu, data_y_cu, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_cu,
+        data_y_cu,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)

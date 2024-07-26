@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes, create_pes_difference
 

@@ -75,18 +75,35 @@ if __name__ == "__main__":
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
     pdf_info_lines.extend(
-        extrema_table(x_values, "Dihedral [°]", pdf_rogfp, "Density", sci_notation=True, window_length=20)
+        extrema_table(
+            x_values,
+            "Dihedral [°]",
+            pdf_rogfp,
+            "Density",
+            sci_notation=True,
+            window_length=20,
+        )
     )
     pdf_info_lines.append("\nOxidized roGFP2\n")
     pdf_info_lines.extend(
         extrema_table(
-            x_values, "Dihedral [°]", pdf_rogfp_oxd, "Density", sci_notation=True, window_length=20
+            x_values,
+            "Dihedral [°]",
+            pdf_rogfp_oxd,
+            "Density",
+            sci_notation=True,
+            window_length=20,
         )
     )
     pdf_info_lines.append("\nroGFP2 and Cu(I)\n")
     pdf_info_lines.extend(
         extrema_table(
-            x_values, "Dihedral [°]", pdf_rogfp_cu, "Density", sci_notation=True, window_length=20
+            x_values,
+            "Dihedral [°]",
+            pdf_rogfp_cu,
+            "Density",
+            sci_notation=True,
+            window_length=20,
         )
     )
     pdf_info_lines = [line + "\n" for line in pdf_info_lines]

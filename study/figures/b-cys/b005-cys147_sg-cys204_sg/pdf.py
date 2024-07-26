@@ -6,11 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from metalflare.analysis.figures import use_mpl_rc_params
-from metalflare.analysis.pdfs import (
-    compute_pdf,
-    extrema_table,
-    make_pdf_fig,
-)
+from metalflare.analysis.pdfs import compute_pdf, extrema_table, make_pdf_fig
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 

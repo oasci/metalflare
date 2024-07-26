@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes, create_pes_difference
 
@@ -15,7 +17,10 @@ data_y_label = "Cys204 $\chi$ [deg.]"
 
 bin_width_angle = 2
 bin_width_dist = 0.1
-bins = (np.arange(-180, 180 + 0.01, bin_width_angle), np.arange(-180, 180 + 0.01, bin_width_angle))
+bins = (
+    np.arange(-180, 180 + 0.01, bin_width_angle),
+    np.arange(-180, 180 + 0.01, bin_width_angle),
+)
 
 x_lims = (90, 180)
 x_ticks = np.arange(90, 180 + 0.001, 30)
@@ -85,7 +90,13 @@ if __name__ == "__main__":
     data_y_cu = np.degrees(data_y_cu)
 
     fig = create_pes(
-        data_x_red, data_y_red, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_red,
+        data_y_red,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -98,7 +109,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_oxd, data_y_oxd, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_oxd,
+        data_y_oxd,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)
@@ -111,7 +128,13 @@ if __name__ == "__main__":
     plt.close()
 
     fig = create_pes(
-        data_x_cu, data_y_cu, bins=bins, vmin=pes_vmin, vmax=pes_vmax, levels=13, T=300.0
+        data_x_cu,
+        data_y_cu,
+        bins=bins,
+        vmin=pes_vmin,
+        vmax=pes_vmax,
+        levels=13,
+        T=300.0,
     )
     plt.xlabel(data_x_label)
     plt.xlim(*x_lims)

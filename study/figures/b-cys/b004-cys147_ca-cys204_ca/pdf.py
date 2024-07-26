@@ -47,6 +47,15 @@ if __name__ == "__main__":
     )
     rogfp_cu_data = np.load(rogfp_cu_data_path)
 
+    # print stats
+    print(f"reduced Mean: {np.mean(rogfp_data):.2f}   2std: {2*np.std(rogfp_data):.2f}")
+    print(
+        f"Oxidized Mean: {np.mean(rogfp_oxd_data):.2f}   2std: {2*np.std(rogfp_oxd_data):.2f}"
+    )
+    print(
+        f"Cu(I) Mean: {np.mean(rogfp_cu_data):.2f}   2std: {2*np.std(rogfp_cu_data):.2f}"
+    )
+
     # Compute all pdfs
     x_bounds = (1, 10)
     bin_width = 0.01  # Angstrom

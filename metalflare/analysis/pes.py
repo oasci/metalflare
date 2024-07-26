@@ -1,7 +1,7 @@
-import numpy as np
-from numpy.typing import ArrayLike
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import numpy as np
+from numpy.typing import ArrayLike
 
 KB = 1.987204259e-3  # kcal/(mol K)
 """Boltzmann constant in kcal/(mol K)."""
@@ -195,7 +195,7 @@ def create_pes_difference(
     vmin: float = -10,
     vmax: float = 10,
     levels: int = 30,
-    T: float | None = None
+    T: float | None = None,
 ) -> plt.Figure:
     """Create a difference plot of two potential energy surfaces (PES) using matplotlib.
 

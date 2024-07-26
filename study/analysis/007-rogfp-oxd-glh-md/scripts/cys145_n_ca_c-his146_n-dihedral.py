@@ -7,6 +7,7 @@ import numpy as np
 
 SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
+
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
     for run_i in range(*run_range):

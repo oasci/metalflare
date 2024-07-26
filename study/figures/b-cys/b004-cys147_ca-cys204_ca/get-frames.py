@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-import os
 import json
+import os
 
 import MDAnalysis as mda
-from MDAnalysis.analysis import align
-from MDAnalysis import transformations
 import numpy as np
+from MDAnalysis import transformations
+from MDAnalysis.analysis import align
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 

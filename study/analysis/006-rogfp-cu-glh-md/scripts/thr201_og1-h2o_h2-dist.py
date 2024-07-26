@@ -3,8 +3,8 @@
 import os
 
 import MDAnalysis as mda
-from MDAnalysis import transformations
 import numpy as np
+from MDAnalysis import transformations
 
 
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):

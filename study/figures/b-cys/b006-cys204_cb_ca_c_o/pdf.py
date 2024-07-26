@@ -36,7 +36,6 @@ if __name__ == "__main__":
     rogfp_data = np.degrees(rogfp_data)
     rogfp_data = np.concatenate([rogfp_data, rogfp_data + 360, rogfp_data - 360])
 
-
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,

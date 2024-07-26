@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes, create_pes_difference
 
@@ -37,27 +39,32 @@ if __name__ == "__main__":
         base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy"
     )
     path_x_red2 = os.path.join(
-        base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
+        base_dir,
+        "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     data_x_red1 = np.load(path_x_red1)
     data_x_red2 = np.load(path_x_red2)
     data_x_red = np.minimum(data_x_red1, data_x_red2)
 
     path_x_oxd1 = os.path.join(
-        base_dir, "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy"
+        base_dir,
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy",
     )
     path_x_oxd2 = os.path.join(
-        base_dir, "analysis/007-rogfp-oxd-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
+        base_dir,
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     data_x_oxd1 = np.load(path_x_oxd1)
     data_x_oxd2 = np.load(path_x_oxd2)
     data_x_oxd = np.minimum(data_x_oxd1, data_x_oxd2)
 
     path_x_cu1 = os.path.join(
-        base_dir, "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy"
+        base_dir,
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_oh-h2o_h1-dist.npy",
     )
     path_x_cu2 = os.path.join(
-        base_dir, "analysis/006-rogfp-cu-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
+        base_dir,
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     data_x_cu1 = np.load(path_x_cu1)
     data_x_cu2 = np.load(path_x_cu2)
