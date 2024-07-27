@@ -207,19 +207,16 @@ Reduced and oxidized simulations show similar Thr203 backbone conformational dyn
 Cu(I) simulations, on the other hand, has dramatically reduced flexibility with a minima around $\phi$<sub>Thr203</sub> = 175° and $\psi$<sub>Thr203</sub> = 155°.
 
 === "Reduced"
-
     <figure markdown>
     ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
-
     <figure markdown>
     ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
-
     <figure markdown>
     ![](../../../figures/d-thr203/d001-thr203-backbone/d001-pes-cu.png){ width=700 }
     </figure>
@@ -263,6 +260,34 @@ Forming a disulfide bond between Cys147 and Cys204 substantially stabilizes the 
 
 Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For an cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
 Cu(I) binding induces the opposite effect by destabilizing the beta strand with a probability of 0.063 of forming the hydrogen bond.
+As shown in the figures below, this destabilized hydrogen bond is correlated to Thr203 backbone angles.
+
+=== "Reduced"
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-reduced.png){ width=700 }
+    </figure>
+
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-oxidized.png){ width=700 }
+    </figure>
+
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-cu.png){ width=700 }
+    </figure>
+
+    <figure markdown>
+    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-cu.png){ width=700 }
+    </figure>
 
 ### Asn146 to Ser205
 
@@ -273,11 +298,27 @@ Cu(I) binding induces the opposite effect by destabilizing the beta strand with 
 
 ## Cro66 interactions
 
-### Tyr145 and His148
+Oxidized and Cu(I) simulations show markedly different backbone dynamics.
 
-`HD1` in His148 is typically around 1.85 Å away from the anionic phenolate oxygen in the chromophore; however, the 3.97-Å state is only 0.6 kcal/mol higher in energy.
+TODO: write introduction.
 
-Furthermore, We see parallel results to His148 in Tyr145 dynamics.
+### His148
+
+His148 HD1 is typically around 1.85 Å away from the anionic phenolate oxygen in the chromophore; however, the 3.97-Å state is only 0.6 kcal/mol higher in energy.
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg){ width=700 }
+    </figure>
+
+### Tyr145
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g003-cro66_oh-tyr145_hh/g003-cro66_oh-tyr145_hh-pdf.svg){ width=700 }
+    </figure>
+
+Furthermore, we see parallel results to His148 in Tyr145 dynamics.
 Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å between the Tyr145 phenolic hydrogen and Cro66.
 This hydrogen bonding would further stabilize the anionic chromophore.
 However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics in Cys147 and Cys204.
