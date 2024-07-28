@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 fig_label = "f005-pes"
 data_x_str = "cys145_c-his146_n_ca_c-dihedral"
-data_x_label = "Thr203 $\psi$ [deg.]"
+data_x_label = "His148 $\phi$ [deg.]"
 data_y_str = "his146_h-thr201_o-dist"
 data_y_label = "His148 -NH to Thr203 =O Distance [Å]"
 

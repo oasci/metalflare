@@ -258,7 +258,7 @@ Forming a disulfide bond between Cys147 and Cys204 substantially stabilizes the 
     ![](../../../figures/f-beta-sheets/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
     </figure>
 
-Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For an cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
+Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For a cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
 Cu(I) binding induces the opposite effect by destabilizing the beta strand with a probability of 0.063 of forming the hydrogen bond.
 As shown in the figures below, this destabilized hydrogen bond is correlated to Thr203 backbone angles.
 
@@ -290,6 +290,9 @@ As shown in the figures below, this destabilized hydrogen bond is correlated to 
     </figure>
 
 ### Asn146 to Ser205
+
+On other other side of Cys147 and Cys204, there is little hydrogen bonding present in the reduced simulations with only a 0.047 probability.
+Hydrogen bond probability increases to 0.144 during the oxidized simulations, but no hydrogen bonding is observed.
 
 !!! quote ""
     <figure markdown>
