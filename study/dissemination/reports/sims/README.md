@@ -14,7 +14,7 @@ We performed the following three sets of simulations.
     Cys147 and Cys204 remain in their reduced (i.e., protonated) form.
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-reduced.png){ width=600 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
@@ -22,7 +22,7 @@ We performed the following three sets of simulations.
     Disulfide bridge between Cys147 and Cys204.
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=600 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
@@ -30,22 +30,21 @@ We performed the following three sets of simulations.
     Reduced Cys147 and Cys204 with a coordinated Cu(I).
 
     <figure markdown>
-    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-cu.png){ width=600 }
+    ![](../../../figures/h-background/h008-cys-aligned/cys-sensor-cu.png){ width=700 }
     </figure>
 
 Differences between reduced and oxidized states are indicative of the canonical roGFP2 atomistic mechanism.
 If we observe similar differences between reduced and copper states, this would suggest a similar mechanism as the oxidized state; however, deviations between oxidized and copper would suggest a separate mechanism.
 
-???+ note
+The figure below shows most of the relevant residues involved in the cysteine sensor and florescent mechanism.
 
-    We experimentally observe the following changes in relative fluorescence:
+<figure markdown>
+![](../../../figures/h-background/h009-rogfp2-sims/relevant-reduced.png){ width=700 }
+</figure>
 
-    - 1 mM H<sub>2</sub>O<sub>2</sub>
-        - Modest A band increase
-        - Slight B band decrease
-    - 1 μM Cu(I)
-        - Slight A band decrease
-        - Large B band decrease.
+!!! warning
+    Our simulations use residue numbers that are two less than the canonical sequence.
+    For example, Cys145 in our simulations is Cys147 in all of our results and discussions.
 
 ## Backbone
 
@@ -65,7 +64,7 @@ Figure 1 shows the observed distribution of C$_\alpha$-C$_\alpha$ distances.
 
 !!! quote "Figure 1: C$_\alpha$-C$_\alpha$ distance probability density."
     <figure markdown>
-    ![](../../../figures/b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg){ width=600 }
+    ![](../../../figures/b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg){ width=700 }
     </figure>
 
     For more figure information, go [here](../../../figures/b-cys/b004-cys147_ca-cys204_ca/).
@@ -76,7 +75,7 @@ Cu(I) coordination to Cys147 and Cys204 thiolates (R-S<sup>&ndash;</sup>) also h
 
 !!! quote "Figure 2: Probability density of sulfur atom distance between Cys147 and Cys204."
     <figure markdown>
-    ![](../../../figures/b-cys/b005-cys147_sg-cys204_sg/b005-cys147_sg-cys204_sg-pdf.svg){ width=600 }
+    ![](../../../figures/b-cys/b005-cys147_sg-cys204_sg/b005-cys147_sg-cys204_sg-pdf.svg){ width=700 }
     </figure>
 
     For more figure information, go [here](../../../figures/b-cys/b005-cys147_sg-cys204_sg/).
@@ -243,8 +242,19 @@ Here, we see similarly enhanced flexibility in both oxidized and Cu(I) simulatio
     ![](../../../figures/c-ser205/c001-ser205-backbone/c001-pes-cu.png){ width=700 }
     </figure>
 
+### Summary
+
+Distinct structural changes in the protein backbone are observed upon oxidation or Cu(I) binding to [Cys147](#cys147) and [Cys204](#cys204) of roGFP2.
+Besides clear differences in cysteine sensor dynamics, there is clear evidence of structural changes in nearby residues also relevant for chromophore florescence.
+
+-   Reduced and oxidized simulations have similar [Asn146](#asn146) backbone dynamics&mdash;whereas Cu(I) binding exhibits substantial deviations.
+-   [Thr203](#thr203) also has large changes in Cu(I), but not in oxidized, simulations.
+
+Other residues do have subtle differences between the reduced, oxidized, and Cu(I) simulations.
+
 ## Beta sheets
 
+In this section, we further analyze potential changes in roGFP2's secondary structure.
 Most of these aforementioned residues are either in, or near, antiparallel beta sheet.
 Changes in these backbones could therefore stabilize or destabilize the hydrogen-bonding network.
 Below, we show two relevant -NH to O= hydrogen bonding near the cysteine sensor residues.
@@ -252,15 +262,20 @@ Below, we show two relevant -NH to O= hydrogen bonding near the cysteine sensor 
 ### His148 to Thr203
 
 Forming a disulfide bond between Cys147 and Cys204 substantially stabilizes the beta-sheet.
+Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For a cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
+Cu(I) binding induces the opposite effect by destabilizing the beta strand with a probability of 0.063 of forming the hydrogen bond.
 
 !!! quote ""
     <figure markdown>
     ![](../../../figures/f-beta-sheets/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
     </figure>
 
-Indeed, the hydrogen bonding probability increases from 0.865 to 0.997 when using a H to O cutoff of 2.5 Å. (For a cutoff rationale, please see our [protocol](../../../methods/01-protocols/hbond).)
-Cu(I) binding induces the opposite effect by destabilizing the beta strand with a probability of 0.063 of forming the hydrogen bond.
-As shown in the figures below, this destabilized hydrogen bond is correlated to Thr203 backbone angles.
+We can elucidate the mechanism by plotting 2D histograms of this His148 -NH to Thr203 =O distance with respect to relevant dihedral angles.
+If correlated, we would see distinct patterns in the PMFs.
+
+The figures below show this distance with respect to $\psi$<sub>Thr203</sub> or $\phi$<sub>His148</sub>.
+Larger distances (i.e., destabilized beta-sheet) are weakly positively correlated with $\psi$<sub>Thr203</sub>; with distances beyond 2.5 Å are primarily observed in trans-like conformations.
+Values of $\phi$<sub>His148</sub> do not appear to be more relevant for longer distances as the 2D PMF appears roughly symmetric across the y-axis.
 
 === "Reduced"
     <figure markdown>
@@ -299,6 +314,10 @@ Hydrogen bond probability increases to 0.144 during the oxidized simulations, bu
     ![](../../../figures/f-beta-sheets/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg){ width=700 }
     </figure>
 
+### Summary
+
+TODO:
+
 ## Cro66 interactions
 
 Oxidized and Cu(I) simulations show markedly different backbone dynamics.
@@ -308,10 +327,51 @@ TODO: write introduction.
 ### His148
 
 His148 HD1 is typically around 1.85 Å away from the anionic phenolate oxygen in the chromophore; however, the 3.97-Å state is only 0.6 kcal/mol higher in energy.
+TODO: write more.
 
 !!! quote ""
     <figure markdown>
     ![](../../../figures/g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg){ width=700 }
+    </figure>
+
+TODO: If not hydrogen binding to CRO, where to?
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g007-his148_hd1-bonding/g007-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g007-his148_hd1-bonding/g007-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g007-his148_hd1-bonding/g007-pes-cu.png){ width=700 }
+    </figure>
+
+TODO:
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-cu.png){ width=700 }
     </figure>
 
 ### Tyr145
@@ -326,6 +386,28 @@ Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å 
 This hydrogen bonding would further stabilize the anionic chromophore.
 However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics in Cys147 and Cys204.
 A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å minimum with a 2.0 kcal/mol barrier.
+
+TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i005-tyr145-thr64-pes/i005-pes-reduced.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i005-tyr145-thr64-pes/i005-pes-oxidized.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i005-tyr145-thr64-pes/i005-pes-cu.png){ width=700 }
+    </figure>
+
+### His148 and Tyr145
 
 === "Reduced"
 

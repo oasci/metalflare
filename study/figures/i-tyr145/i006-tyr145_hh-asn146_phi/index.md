@@ -1,4 +1,6 @@
-# I005: Tyr145 to Cro65 and Thr62
+# I006: His148-HD1 bonding and Asn146 ψ
+
+TODO:
 
 ## Visualization
 
@@ -23,19 +25,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-## Probability densities
+## Potential of mean force
 
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./i005-pes-reduced.png)
-    </figure>
+### Reduced
 
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./i005-pes-oxidized.png)
-    </figure>
+<figure markdown>
+![](./i006-pes-reduced.png)
+</figure>
 
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./i005-pes-cu.png)
-    </figure>
+### Oxidized
+
+<figure markdown>
+![](./i006-pes-oxidized.png)
+</figure>
+
+### Cu(I)
+
+<figure markdown>
+![](./i006-pes-cu.png)
+</figure>
