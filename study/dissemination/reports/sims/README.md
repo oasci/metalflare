@@ -36,15 +36,11 @@ We performed the following three sets of simulations.
 Differences between reduced and oxidized states are indicative of the canonical roGFP2 atomistic mechanism.
 If we observe similar differences between reduced and copper states, this would suggest a similar mechanism as the oxidized state; however, deviations between oxidized and copper would suggest a separate mechanism.
 
-The figure below shows most of the relevant residues involved in the cysteine sensor and florescent mechanism.
+The figure below shows relevant residues involved in our analysis.
 
 <figure markdown>
 ![](../../../figures/h-background/h009-rogfp2-sims/relevant-reduced.png){ width=700 }
 </figure>
-
-!!! warning
-    Our simulations use residue numbers that are two less than the canonical sequence.
-    For example, Cys145 in our simulations is Cys147 in all of our results and discussions.
 
 ## Backbone
 

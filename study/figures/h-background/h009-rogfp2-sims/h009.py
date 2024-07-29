@@ -1,5 +1,7 @@
 import pymol
 from pymol import cmd, util
+import os
+import tempfile
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
@@ -42,19 +44,49 @@ cmd.set_color("reduced-color", hex_to_rgb("#1e2e79"))
 cmd.set_color("oxidized-color", hex_to_rgb("#EC4067"))
 cmd.set_color("cu-color", hex_to_rgb("#f99752"))
 
+def modify_pdb(input_file, output_file):
+    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+        for line in infile:
+            if line.startswith('ATOM') or line.startswith('HETATM'):
+                # Increase residue number by 2
+                residue_num = int(line[22:26]) + 2
+                new_line = line[:22] + f"{residue_num:4d}" + line[26:]
+                outfile.write(new_line)
+            else:
+                outfile.write(line)
+
+path_reduced_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-reduced-4.310.pdb"
+with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+    path_reduced = temp_file.name
+    modify_pdb(path_reduced_original, path_reduced)
+
+path_oxidized_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-oxidized-4.080.pdb"
+with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+    path_oxidized = temp_file.name
+    modify_pdb(path_oxidized_original, path_oxidized)
+
+path_cu_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-cu-4.080.pdb"
+with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+    path_cu = temp_file.name
+    modify_pdb(path_cu_original, path_cu)
+
 # Load files
 cmd.load(
-    "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-reduced-4.310.pdb",
+    path_reduced,
     "reduced",
 )
 cmd.load(
-    "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-oxidized-4.080.pdb",
+    path_oxidized,
     "oxidized",
 )
-cmd.load("../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-cu-4.310.pdb", "cu")
+cmd.load(path_cu, "cu")
+
+os.unlink(path_reduced)
+os.unlink(path_oxidized)
+os.unlink(path_cu)
 
 # Make selections
-residue_selection = "(resi 143-146 or resi 201-203 or resi 220)"
+residue_selection = "(resi 145-148 or resi 203-205 or resi 222)"
 cmd.deselect()
 cmd.select("cro", "resname cro")
 cmd.select(
@@ -105,13 +137,15 @@ cmd.show("sticks", "relevant-reduced")
 cmd.show("sticks", "relevant-oxidized")
 cmd.show("sticks", "relevant-cu")
 # cmd.show("spheres", "element Cu")
-cmd.hide(representation="sticks", selection="element H")
-cmd.show(representation="sticks", selection="(resi 145 or resi 202) and name HG")
-cmd.show(representation="sticks", selection="(resi 143) and name HH")
-cmd.show(representation="sticks", selection="(resi 146) and name HD1")
-cmd.show(representation="sticks", selection="(resi 201) and name HG1")
-cmd.show(representation="sticks", selection="(resi 203) and name HG")
-cmd.show(representation="sticks", selection="(resi 220) and name HE2")
+cmd.hide(representation="sticks", selection="elem H")
+cmd.show(representation="sticks", selection="elem H and (neighbor elem O or neighbor elem N or neighbor elem S)")
+# cmd.show(representation="sticks", selection="(resname CRO) and name H4")
+# cmd.show(representation="sticks", selection="(resi 147 or resi 204) and name HG")
+# cmd.show(representation="sticks", selection="(resi 145) and name HH")
+# cmd.show(representation="sticks", selection="(resi 148) and name HD1")
+# cmd.show(representation="sticks", selection="(resi 203) and name HG1")
+# cmd.show(representation="sticks", selection="(resi 205) and name HG")
+# cmd.show(representation="sticks", selection="(resi 222) and name HE2")
 cmd.hide(representation="cartoon", selection="relevant-reduced")
 cmd.hide(representation="cartoon", selection="relevant-oxidized")
 cmd.hide(representation="cartoon", selection="relevant-cu")
