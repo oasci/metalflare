@@ -335,6 +335,29 @@ TODO: If not hydrogen binding to CRO, where to?
 === "Reduced"
 
     <figure markdown>
+    ![](../../../figures/l-his148/l003-his148_hd1-pls/reduced_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/l-his148/l003-his148_hd1-pls/oxidized_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/l-his148/l003-his148_hd1-pls/cu_pls_regression.png){ width=700 }
+    </figure>
+
+???+ example "Feature (i.e., loading) analysis"
+    --8<-- "study/figures/l-his148/l003-his148_hd1-pls/loadings_analysis.md"
+
+TODO: His148 HD1 - Asn146 O distance (O)
+
+=== "Reduced"
+
+    <figure markdown>
     ![](../../../figures/g-cro-interact/g007-his148_hd1-bonding/g007-pes-reduced.png){ width=700 }
     </figure>
 
@@ -348,26 +371,6 @@ TODO: If not hydrogen binding to CRO, where to?
 
     <figure markdown>
     ![](../../../figures/g-cro-interact/g007-his148_hd1-bonding/g007-pes-cu.png){ width=700 }
-    </figure>
-
-TODO:
-
-=== "Reduced"
-
-    <figure markdown>
-    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-reduced.png){ width=700 }
-    </figure>
-
-=== "Oxidized"
-
-    <figure markdown>
-    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-oxidized.png){ width=700 }
-    </figure>
-
-=== "Cu(I)"
-
-    <figure markdown>
-    ![](../../../figures/g-cro-interact/g008-his148_hd1-asn146_phi/g008-pes-cu.png){ width=700 }
     </figure>
 
 ### Tyr145
@@ -384,6 +387,27 @@ However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics 
 A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å minimum with a 2.0 kcal/mol barrier.
 
 TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/reduced_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/oxidized_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/cu_pls_regression.png){ width=700 }
+    </figure>
+
+???+ example "Feature (i.e., loading) analysis"
+    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/loadings_analysis.md"
 
 === "Reduced"
 
