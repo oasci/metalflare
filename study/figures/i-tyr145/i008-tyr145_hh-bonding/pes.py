@@ -9,7 +9,7 @@ from metalflare.analysis.pes import create_pes, create_pes_difference
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-fig_label = "g007-pes"
+fig_label = "pes"
 data_x_str = "his146_h-thr201_o-dist"
 data_x_label = "His148 -NH to Thr203 =O Distance [Å]"
 data_y_str = "cro65_oh-tyr143_hh-dist"

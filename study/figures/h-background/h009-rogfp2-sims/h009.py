@@ -1,7 +1,8 @@
-import pymol
-from pymol import cmd, util
 import os
 import tempfile
+
+import pymol
+from pymol import cmd, util
 
 # https://pymol.org/dokuwiki/doku.php?id=api:cmd:alpha
 
@@ -44,10 +45,11 @@ cmd.set_color("reduced-color", hex_to_rgb("#1e2e79"))
 cmd.set_color("oxidized-color", hex_to_rgb("#EC4067"))
 cmd.set_color("cu-color", hex_to_rgb("#f99752"))
 
+
 def modify_pdb(input_file, output_file):
-    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+    with open(input_file, "r") as infile, open(output_file, "w") as outfile:
         for line in infile:
-            if line.startswith('ATOM') or line.startswith('HETATM'):
+            if line.startswith("ATOM") or line.startswith("HETATM"):
                 # Increase residue number by 2
                 residue_num = int(line[22:26]) + 2
                 new_line = line[:22] + f"{residue_num:4d}" + line[26:]
@@ -55,18 +57,25 @@ def modify_pdb(input_file, output_file):
             else:
                 outfile.write(line)
 
-path_reduced_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-reduced-4.310.pdb"
-with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+
+path_reduced_original = (
+    "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-reduced-4.310.pdb"
+)
+with tempfile.NamedTemporaryFile(mode="w+", suffix=".pdb", delete=False) as temp_file:
     path_reduced = temp_file.name
     modify_pdb(path_reduced_original, path_reduced)
 
-path_oxidized_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-oxidized-4.080.pdb"
-with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+path_oxidized_original = (
+    "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-oxidized-4.080.pdb"
+)
+with tempfile.NamedTemporaryFile(mode="w+", suffix=".pdb", delete=False) as temp_file:
     path_oxidized = temp_file.name
     modify_pdb(path_oxidized_original, path_oxidized)
 
-path_cu_original = "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-cu-4.080.pdb"
-with tempfile.NamedTemporaryFile(mode='w+', suffix='.pdb', delete=False) as temp_file:
+path_cu_original = (
+    "../../../figures/b-cys/b004-cys147_ca-cys204_ca/pdbs/f001-cu-4.080.pdb"
+)
+with tempfile.NamedTemporaryFile(mode="w+", suffix=".pdb", delete=False) as temp_file:
     path_cu = temp_file.name
     modify_pdb(path_cu_original, path_cu)
 
@@ -138,7 +147,10 @@ cmd.show("sticks", "relevant-oxidized")
 cmd.show("sticks", "relevant-cu")
 # cmd.show("spheres", "element Cu")
 cmd.hide(representation="sticks", selection="elem H")
-cmd.show(representation="sticks", selection="elem H and (neighbor elem O or neighbor elem N or neighbor elem S)")
+cmd.show(
+    representation="sticks",
+    selection="elem H and (neighbor elem O or neighbor elem N or neighbor elem S)",
+)
 # cmd.show(representation="sticks", selection="(resname CRO) and name H4")
 # cmd.show(representation="sticks", selection="(resi 147 or resi 204) and name HG")
 # cmd.show(representation="sticks", selection="(resi 145) and name HH")
@@ -164,14 +176,12 @@ util.cnc("relevant-oxidized")
 util.cnc("relevant-cu")
 
 cmd.label(
-    '''(name CA+C1*+C1' and (byres(relevant-reduced)))''','''"%s-%s"%(resn,resi)'''
+    """(name CA+C1*+C1' and (byres(relevant-reduced)))""", """"%s-%s"%(resn,resi)"""
 )
 cmd.label(
-    '''(name CA+C1*+C1' and (byres(relevant-oxidized)))''','''"%s-%s"%(resn,resi)'''
+    """(name CA+C1*+C1' and (byres(relevant-oxidized)))""", """"%s-%s"%(resn,resi)"""
 )
-cmd.label(
-    '''(name CA+C1*+C1' and (byres(relevant-cu)))''','''"%s-%s"%(resn,resi)'''
-)
+cmd.label("""(name CA+C1*+C1' and (byres(relevant-cu)))""", """"%s-%s"%(resn,resi)""")
 cmd.set("label_position", (0, -2, 3))
 
 cmd.rebuild()

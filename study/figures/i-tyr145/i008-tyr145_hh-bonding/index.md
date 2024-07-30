@@ -1,4 +1,4 @@
-# G007: His148-HD1 bonding to Cro66-OH vs. Asn146-O
+# I008: His148-HD1 bonding to Cro66-OH vs. Asn146-O
 
 TODO:
 
@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 ### Reduced
 
 <figure markdown>
-![](./g007-pes-reduced.png)
+![](./pes-reduced.png)
 </figure>
 
 ### Oxidized
 
 <figure markdown>
-![](./g007-pes-oxidized.png)
+![](./pes-oxidized.png)
 </figure>
 
 ### Cu(I)
 
 <figure markdown>
-![](./g007-pes-cu.png)
+![](./pes-cu.png)
 </figure>
