@@ -1,4 +1,4 @@
-# I011: Cro66 bonding PLS
+# D005: Cro66 bonding PLS
 
 To investigate the relationship between structural descriptors and the distance between Cro66 OH and His148 HD1, we employed Partial Least Squares (PLS) regression analysis.
 This multivariate statistical technique was chosen for its ability to handle high-dimensional, correlated data and reveal underlying patterns in complex datasets.
@@ -40,21 +40,21 @@ Ideally, we want to identify loadings that correlate to the PLS components paral
     ![](./reduced_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/reduced_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/d-thr203/d005-thr203_hg1-pls/reduced_loading_angles_and_magnitudes.md"
 
 === "Oxidized"
     <figure markdown>
     ![](./oxidized_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/oxidized_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/d-thr203/d005-thr203_hg1-pls/oxidized_loading_angles_and_magnitudes.md"
 
 === "Cu(I)"
     <figure markdown>
     ![](./cu_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/cu_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/d-thr203/d005-thr203_hg1-pls/cu_loading_angles_and_magnitudes.md"
 
 In these tables, features are sorted by the absolute value of the sine of the angle, with those closest to 0 appearing at the top.
 This ordering highlights the features that are most aligned with the direction of maximum change in the response variable.
@@ -71,7 +71,7 @@ To compare the influence of structural descriptors across different states:
 This analysis allows for the identification of structural descriptors that consistently influence the Cro66 OH - His148 HD1 distance across different protein states, as well as those that show state-specific importance.
 
 ???+ example "Feature (i.e., loading) analysis"
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/loadings_analysis.md"
+    --8<-- "study/figures/d-thr203/d005-thr203_hg1-pls/loadings_analysis.md"
 
 ## Visualization
 

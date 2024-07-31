@@ -78,7 +78,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "d002-cro66_oh-thr203_hg1"
+    fig_title = "g010-cro66_oh-thr203_hg1"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "Cro66 OH - Thr203 HG1 Distance [Å]"
     plot_x_bounds = (1, 7.5)

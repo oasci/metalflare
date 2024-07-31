@@ -48,7 +48,7 @@ First, we investigate the structural dynamics of Cys147 and Cys204 interactions 
 Experimental structures of both the reduced (PDB ID: [1JC0](https://www.rcsb.org/structure/1JC0)) and oxidized (PDB ID: [1JC1](https://www.rcsb.org/structure/1JC1)) states of for roGFP2 exhibited a mean C$_\alpha$-C$_\alpha$ distance of 4.30 ± 0.12 and 4.07 ± 0.09, respectively. [^hanson2004investigating]
 Our MD simulations agreed well with experimental observations as shown in the following table.
 
-!!! quote "Table 1: C$_\alpha$-C$_\alpha$ distance mean ± 2std."
+!!! quote "Table 1: C$_\alpha$-C$_\alpha$ distance mean ± 2$\sigma$."
     | State | Experimental (Å) | MD simulations (Å) |
     | ----- | ------------ | -------------- |
     | **Reduced** | 4.30 ± 0.12 | 4.34 ± 0.47 |
@@ -108,6 +108,7 @@ $\psi$ ranges are also increased upon the binding of Cu(I).
 
 Indeed, the large $\phi$<sub>Cys147</sub> distribution shift we observe also impacts Asn146.
 Reduced and oxidized simulations exhibit an additional local minima around $\phi$<sub>Asn146</sub> = -115° and $\psi$<sub>Asn146</sub> = 220° not present in Cu(I) simulations.
+Elimination of this configuration would likely have large impacts on overall dynamics.
 
 === "Reduced"
 
@@ -151,7 +152,7 @@ We do see some differences in oxidized and Cu(I) simulations; however, these are
 
 #### His148
 
-If we go one more residue further down the backbone, we see that His148 backbone dihedrals are relative similar across simulations.
+On the other side of Cys147, we see that His148 backbone dihedrals are relative similar across simulations.
 Cu(I) does have slightly larger ranges (i.e., backbone flexibility), but this does not appear nearly as drastic as Asn146.
 
 === "Reduced"
@@ -270,7 +271,7 @@ We can elucidate the mechanism by plotting 2D histograms of this His148 -NH to T
 If correlated, we would see distinct patterns in the PMFs.
 
 The figures below show this distance with respect to $\psi$<sub>Thr203</sub> or $\phi$<sub>His148</sub>.
-Larger distances (i.e., destabilized beta-sheet) are weakly positively correlated with $\psi$<sub>Thr203</sub>; with distances beyond 2.5 Å are primarily observed in trans-like conformations.
+Larger distances (i.e., destabilized beta-sheet) are weakly correlated with $\psi$<sub>Thr203</sub>; with distances beyond 2.5 Å are primarily observed in trans-like conformations.
 Values of $\phi$<sub>His148</sub> do not appear to be more relevant for longer distances as the 2D PMF appears roughly symmetric across the y-axis.
 
 === "Reduced"
@@ -312,13 +313,14 @@ Hydrogen bond probability increases to 0.144 during the oxidized simulations, bu
 
 ### Summary
 
-TODO:
+Destabilization of the beta sheet is observed at His148-Thr203 when Cu(I) binds to Cys147 and Cys204.
+An opposite response (i.e., beta sheet stabilization) occurs at Asn146-Ser205.
+Other backbone hydrogen bonds did not exhibit any notable differences.
 
 ## Cro66 interactions
 
 Oxidized and Cu(I) simulations show markedly different backbone dynamics.
-
-TODO: write introduction.
+While important, protein interactions with Cro66 are of particular interest.
 
 ### His148
 
@@ -375,16 +377,16 @@ TODO: His148 HD1 - Asn146 O distance (O)
 
 ### Tyr145
 
-!!! quote ""
-    <figure markdown>
-    ![](../../../figures/g-cro-interact/g003-cro66_oh-tyr145_hh/g003-cro66_oh-tyr145_hh-pdf.svg){ width=700 }
-    </figure>
-
 Furthermore, we see parallel results to His148 in Tyr145 dynamics.
 Both reduced and oxidized simulations primarily have sharp peaks around 1.80 Å between the Tyr145 phenolic hydrogen and Cro66.
 This hydrogen bonding would further stabilize the anionic chromophore.
 However, a bimodal peak is observed upon Cu(I) binding due to changing dynamics in Cys147 and Cys204.
 A second peak at 4.42 Å is only 1 kcal/mol higher in energy than the 1.75 Å minimum with a 2.0 kcal/mol barrier.
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g003-cro66_oh-tyr145_hh/g003-cro66_oh-tyr145_hh-pdf.svg){ width=700 }
+    </figure>
 
 TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
 
@@ -427,52 +429,51 @@ TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
     ![](../../../figures/i-tyr145/i005-tyr145-thr64-pes/i005-pes-cu.png){ width=700 }
     </figure>
 
-### His148 and Tyr145
+### Thr203
+
+!!! quote ""
+    <figure markdown>
+    ![](../../../figures/g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg){ width=700 }
+    </figure>
 
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-reduced.png){ width=700 }
+    ![](../../../figures/d-thr203/d005-thr203_hg1-pls/reduced_pls_regression.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-oxidized.png){ width=700 }
+    ![](../../../figures/d-thr203/d005-thr203_hg1-pls/oxidized_pls_regression.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-cu.png){ width=700 }
+    ![](../../../figures/d-thr203/d005-thr203_hg1-pls/cu_pls_regression.png){ width=700 }
     </figure>
 
-Both oxidized and Cu(I) simulations exhibit substantial deviations from the reduced state in different ways.
-His148&mdash;protonated at the $\delta$ position&mdash;more frequently is hydrogen bonded to Cro66 with oxidized Cys147 and Cys204.
-In the reduced simulations, the 1.85-Å state is only 0.6 kcal/mol lower in energy than the 3.97-Å state with a 0.9 kcal/mol kinetic barrier.
-This Cro66-stabilizing transition is completely downhill for the oxidized simulations by -1.5 kcal/mol.
+???+ example "Feature (i.e., loading) analysis"
+    --8<-- "study/figures/d-thr203/d005-thr203_hg1-pls/loadings_analysis.md"
 
-Cu(I) binding exhibits a bimodal distribution with similar peaks as the reduced state; however, the two states differ by only 0.3 kcal/mol and about half the kinetic barrier.
-Additional His148 conformational diversity could very well destabilize the anionic chromophore, potentially leading to reduced quantum yield.
+### Summary
 
-### Thr203 and H2O
+## Proton wire
 
-=== "Reduced"
-
+!!! quote ""
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-reduced.png){ width=700 }
+    ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=700 }
     </figure>
 
-=== "Oxidized"
-
+!!! quote ""
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-oxidized.png){ width=700 }
+    ![](../../../figures/e-proton-wire/e002-ser205_hg-h2o_o/e002-ser205_hg-h2o_o-pdf.svg){ width=700 }
     </figure>
 
-=== "Cu(I)"
-
+!!! quote ""
     <figure markdown>
-    ![](../../../figures/g-cro-interact/g002-h2o_h-thr203_hg1/g002-pes-cu.png){ width=700 }
+    ![](../../../figures/e-proton-wire/e003-cro66_oh-h2o_h/e003-cro66_oh-h2o_h-pdf.svg){ width=700 }
     </figure>
 
 <!-- References -->
