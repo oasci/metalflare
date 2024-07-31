@@ -2,30 +2,6 @@
 
 TODO:
 
-## Visualization
-
-<div id="d002-view" class="mol-container"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('d002-view', {
-        layoutIsExpanded: false,
-        layoutShowControls: false,
-        layoutShowRemoteState: false,
-        layoutShowSequence: true,
-        layoutShowLog: false,
-        layoutShowLeftPanel: false,
-        viewportShowExpand: true,
-        viewportShowSelectionMode: true,
-        viewportShowAnimation: false,
-        pdbProvider: 'rcsb',
-    }).then(viewer => {
-        // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/d002.molj", "molj");
-    });
-});
-</script>
-
 ## Probability density function
 
 <figure markdown>

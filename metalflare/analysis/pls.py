@@ -30,6 +30,8 @@ def plot_pls_results(
     n_bins=150,
     y_label="Response variable",
     arrow_scaling=4.0,
+    vmin = None,
+    vmax = None
 ):
     # Calculate PLS components
     pls_components = pls.transform(X_scaled)
@@ -60,8 +62,12 @@ def plot_pls_results(
     plt.colorbar(im, label=y_label)
 
     # Set the colorbar limits to the actual data range
-    vmin, vmax = np.nanmin(hist_avg), np.nanmax(hist_avg)
-    im.set_clim(vmin, vmax)
+    v_min, v_max = np.nanmin(hist_avg), np.nanmax(hist_avg)
+    if vmin is not None:
+        v_min = vmin
+    if vmax is not None:
+        v_max = vmax
+    im.set_clim(v_min, v_max)
 
     # Add labels and title
     ax.set_xlabel("PLS Component 1")
