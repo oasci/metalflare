@@ -52,6 +52,7 @@ def main():
     np.save(atoms_npy_path, atoms_dist_array)
 
     print(atoms_dist_array)
+    print(f"Max: {np.max(atoms_dist_array)}")
 
 
 if __name__ == "__main__":
