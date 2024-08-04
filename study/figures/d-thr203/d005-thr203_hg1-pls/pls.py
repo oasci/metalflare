@@ -25,7 +25,6 @@ names_state = {
 }
 names_data = [
     # Residue specific
-
     # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
@@ -84,7 +83,7 @@ if __name__ == "__main__":
             state_key,
             y_label=data_y_label,
             arrow_scaling=4.0,
-            vmax=None
+            vmax=None,
         )
 
         if gradient_vector is not None:

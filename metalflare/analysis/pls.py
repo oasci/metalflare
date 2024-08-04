@@ -30,8 +30,8 @@ def plot_pls_results(
     n_bins=150,
     y_label="Response variable",
     arrow_scaling=4.0,
-    vmin = None,
-    vmax = None
+    vmin=None,
+    vmax=None,
 ):
     # Calculate PLS components
     pls_components = pls.transform(X_scaled)

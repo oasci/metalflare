@@ -1,0 +1,50 @@
+{
+    "XGBoost": {
+        "best_params": {
+            "model__learning_rate": 0.1,
+            "model__max_depth": 9,
+            "model__n_estimators": 250,
+            "model__reg_alpha": 0.0,
+            "model__reg_lambda": 1.0
+        },
+        "mse": 0.4126411248938033,
+        "r2": 0.5497495722362058,
+        "feature_importance": {
+            "tyr143_ca_cb_cg_cd1-dihedral": 0.09946680814027786,
+            "tyr143_ce1_cz_oh_hh-dihedral": 0.07648680359125137,
+            "asn142_c-tyr143_n_ca_c-dihedral": 0.02800336480140686,
+            "tyr143_n_ca_c-asn144_n-dihedral": 0.05794056877493858,
+            "cys145_n_ca_c-his146_n-dihedral": 0.09177195280790329,
+            "asn144_n_ca_c-cys145_n-dihedral": 0.04053197801113129,
+            "tyr143_c-asn144_n_ca_c-dihedral": 0.2884787619113922,
+            "cys145_c-his146_n_ca_c-dihedral": 0.110440693795681,
+            "his146_n_ca_c-asn147_n-dihedral": 0.0289241261780262,
+            "cys202_c-ser203_n_ca_c-dihedral": 0.03786355257034302,
+            "ser203_n_ca_c-ala204_n-dihedral": 0.02846517600119114,
+            "ser200_c-thr201_n_ca_c-dihedral": 0.11162621527910233
+        }
+    },
+    "ElasticNet": {
+        "best_params": {
+            "model__alpha": 5e-05,
+            "model__l1_ratio": 1e-05,
+            "model__max_iter": 100000
+        },
+        "mse": 0.6291841058692837,
+        "r2": 0.3134702391024825,
+        "feature_importance": {
+            "tyr143_ca_cb_cg_cd1-dihedral": 0.16790834312566497,
+            "tyr143_ce1_cz_oh_hh-dihedral": 0.13863599196021523,
+            "asn142_c-tyr143_n_ca_c-dihedral": 0.001350679601357487,
+            "tyr143_n_ca_c-asn144_n-dihedral": 0.24388783318970192,
+            "cys145_n_ca_c-his146_n-dihedral": 0.2541701965263385,
+            "asn144_n_ca_c-cys145_n-dihedral": 0.018000997118601574,
+            "tyr143_c-asn144_n_ca_c-dihedral": 0.44405235751462213,
+            "cys145_c-his146_n_ca_c-dihedral": 0.2983303196042933,
+            "his146_n_ca_c-asn147_n-dihedral": 0.008923956112708228,
+            "cys202_c-ser203_n_ca_c-dihedral": 0.05617498034782094,
+            "ser203_n_ca_c-ala204_n-dihedral": 0.00929697692611795,
+            "ser200_c-thr201_n_ca_c-dihedral": 0.12142582361568718
+        }
+    }
+}
