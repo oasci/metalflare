@@ -33,22 +33,18 @@ names_data = [
     # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
-    "cys145_n_ca_c-his146_n-dihedral",
-    "asn144_n_ca_c-cys145_n-dihedral",
     "tyr143_c-asn144_n_ca_c-dihedral",
+    "asn144_n_ca_c-cys145_n-dihedral",
+    "asn144_c-cys145_n_ca_c-dihedral",
+    "cys145_n_ca_c-his146_n-dihedral",
     "cys145_c-his146_n_ca_c-dihedral",
     "his146_n_ca_c-asn147_n-dihedral",
+    "ser200_c-thr201_n_ca_c-dihedral",
+    "thr201_n_ca_c-cys202_n-dihedral",
+    "thr201_c-cys202_n_ca_c-dihedral",
+    "cys202_c-ser203_n_ca_c-dihedral",
     "cys202_c-ser203_n_ca_c-dihedral",
     "ser203_n_ca_c-ala204_n-dihedral",
-    "ser200_c-thr201_n_ca_c-dihedral",
-    # Backbone distances
-    # "cys202_o-phe221_h-dist",
-    # "his146_h-thr201_o-dist",
-    # "ser203_h-asn144_o-dist",
-    # Non-backbone distances
-    # "ser203_og-glu220_he2-dist",
-    # "his146_hd1-asn144_o-dist",
-    # "cro65_og1-glu220_he2-dist",
 ]
 
 
@@ -137,17 +133,17 @@ if __name__ == "__main__":
             XGBRegressor(random_state=random_seed),
             {
                 "model__n_estimators": [250, 400, 550, 700],
-                "model__learning_rate": [0.1],
+                "model__learning_rate": [0.05, 0.1, 0.2],
                 "model__max_depth": [5, 7, 9],
-                "model__reg_alpha": [0.0],
-                "model__reg_lambda": [1.0],
+                "model__reg_alpha": [0.0, 0.1, 0.2],
+                "model__reg_lambda": [1.0, 0.9, 0.8],
             },
         ),
         "ElasticNet": (
             ElasticNet(random_state=random_seed),
             {
-                "model__alpha": [0.00001, 0.000025, 0.00005, 0.0001],
-                "model__l1_ratio": [0.00001, 0.0001, 0.001, 0.01],
+                "model__alpha": [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0, 2.0, 5.0],
+                "model__l1_ratio": [0.2, 0.5, 0.8, 1.0],
                 "model__max_iter": [100000],
             },
         ),

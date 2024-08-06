@@ -27,8 +27,8 @@ names_state = {
 }
 names_data = [
     # Residue specific
-    # "tyr143_hh-thr62_og1-dist",
-    # Backbone angles
+
+    # Relevant backbones
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
     "tyr143_c-asn144_n_ca_c-dihedral",
@@ -61,8 +61,7 @@ def optimize_model(X, y, model, param_grid, cv=3):
 
     return grid_search.best_estimator_, grid_search.best_params_
 
-
-def plot_feature_importance(importance, names, model_type):
+def plot_feature_importance(importance, names, model_type, state):
     feature_importance = np.array(importance)
     feature_names = np.array(names)
 
@@ -76,12 +75,11 @@ def plot_feature_importance(importance, names, model_type):
     plt.xticks(range(fi_df.shape[0]), fi_df["feature_names"], rotation="vertical")
     plt.xlabel("Features")
     plt.ylabel("Importance")
+    plt.title(f"{model_type} Feature Importance - {state}")
     plt.tight_layout()
-    plt.savefig(f"{model_type}_feature_importance.png")
+    plt.savefig(f"{model_type}_{state}_feature_importance.png")
     plt.close()
 
-
-# In the main part of the script, modify the call to compare_states:
 if __name__ == "__main__":
     base_dir = "../../../"
 
@@ -92,38 +90,7 @@ if __name__ == "__main__":
     font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
     use_mpl_rc_params(rc_json_path, font_dirs)
 
-    # Initialize empty lists to store combined data
-    X_list = []
-    y_list = []
-
-    for state_key, state_path in names_state.items():
-        print(f"\nLoading data for {state_key}...")
-        paths_data = [
-            os.path.join(base_dir, f"analysis/{state_path}/data/struct-desc/{name}.npy")
-            for name in names_data
-        ]
-        X_state = load_features(paths_data)
-        y_state = np.load(
-            os.path.join(
-                base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"
-            )
-        )
-
-        X_list.append(X_state)
-        y_list.append(y_state)
-
-    # Combine all states into single X and y arrays
-    X = pd.concat(X_list, axis=0, ignore_index=True)
-    y = np.concatenate(y_list)
-
-    # Select subset of data due to its size
     random_seed = 3984729
-    # X, _, y, _ = train_test_split(X, y, test_size=0.50, random_state=random_seed)
-
-    # Split the data
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=random_seed
-    )
 
     # Define models and their parameter grids
     models = {
@@ -147,42 +114,65 @@ if __name__ == "__main__":
         ),
     }
 
-    # Optimize models, evaluate performance, and calculate feature importance
-    results = {}
-    for model_name, (model, param_grid) in models.items():
-        print(f"\nOptimizing {model_name}...")
-        best_model, best_params = optimize_model(X_train, y_train, model, param_grid)
+    all_results = {}
 
-        # Evaluate the model
-        y_pred = best_model.predict(X_test)
-        mse = mean_squared_error(y_test, y_pred)
-        r2 = r2_score(y_test, y_pred)
+    for state_key, state_path in names_state.items():
+        print(f"\nProcessing state: {state_key}")
 
-        # Get feature importance
-        if model_name == "RandomForest":
-            importance = best_model.named_steps["model"].feature_importances_
-        elif model_name == "XGBoost":
-            importance = best_model.named_steps["model"].feature_importances_
-        elif model_name == "ElasticNet":
-            importance = np.abs(best_model.named_steps["model"].coef_)
+        # Load data for the current state
+        paths_data = [
+            os.path.join(base_dir, f"analysis/{state_path}/data/struct-desc/{name}.npy")
+            for name in names_data
+        ]
+        X = load_features(paths_data)
+        y = np.load(
+            os.path.join(
+                base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"
+            )
+        )
 
-        # Plot feature importance
-        plot_feature_importance(importance, X.columns, model_name)
+        # Split the data
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=random_seed
+        )
 
-        results[model_name] = {
-            "best_params": best_params,
-            "mse": mse,
-            "r2": r2,
-            "feature_importance": dict(zip(X.columns, importance.tolist())),
-        }
+        state_results = {}
 
-        print(f"Best parameters for {model_name}: {best_params}")
-        print(f"MSE: {mse:.4f}")
-        print(f"R2 Score: {r2:.4f}")
+        # Optimize models, evaluate performance, and calculate feature importance
+        for model_name, (model, param_grid) in models.items():
+            print(f"Optimizing {model_name} for {state_key}...")
+            best_model, best_params = optimize_model(X_train, y_train, model, param_grid)
+
+            # Evaluate the model
+            y_pred = best_model.predict(X_test)
+            mse = mean_squared_error(y_test, y_pred)
+            r2 = r2_score(y_test, y_pred)
+
+            # Get feature importance
+            if model_name == "XGBoost":
+                importance = best_model.named_steps["model"].feature_importances_
+            elif model_name == "ElasticNet":
+                importance = np.abs(best_model.named_steps["model"].coef_)
+
+            # Plot feature importance
+            plot_feature_importance(importance, X.columns, model_name, state_key)
+
+            state_results[model_name] = {
+                "best_params": best_params,
+                "mse": mse,
+                "r2": r2,
+                "feature_importance": dict(zip(X.columns, importance.tolist())),
+            }
+
+            print(f"Best parameters for {model_name}: {best_params}")
+            print(f"MSE: {mse:.4f}")
+            print(f"R2 Score: {r2:.4f}")
+
+        all_results[state_key] = state_results
 
     # Save results to JSON file
-    output_file = "model_results.json"
+    output_file = "model_results_by_state.json"
     with open(output_file, "w") as f:
-        json.dump(results, f, indent=4)
+        json.dump(all_results, f, indent=4)
 
     print(f"\nResults saved to {output_file}")
