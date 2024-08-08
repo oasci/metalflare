@@ -16,17 +16,59 @@ The distance between Cro66 OH and His148 HD1 ($y$) was used as the response vari
 
 TODO: Regression
 
-## Visualization and Interpretation
+## Feature importance
 
-=== "ElasticNet"
-    <figure markdown>
-    ![](./ElasticNet_feature_importance.png){ width=700 }
-    </figure>
+=== "All"
+    Regression on all states' trajectories.
 
-=== "XGBoost"
-    <figure markdown>
-    ![](./XGBoost_feature_importance.png){ width=700 }
-    </figure>
+    === "ElasticNet"
+        <figure markdown>
+        ![](./all_elasticnet_feature_importance.png){ width=700 }
+        </figure>
+
+    === "XGBoost"
+        <figure markdown>
+        ![](./all_xgboost_feature_importance.png){ width=700 }
+        </figure>
+
+=== "Reduced"
+    Regression on only trajectories from reduced simulations.
+
+    === "ElasticNet"
+        <figure>
+        ![](./reduced_elasticnet_feature_importance.png){ width=700 }
+        </figure>
+
+    === "XGBoost"
+        <figure>
+        ![](./reduced_xgboost_feature_importance.png){ width=700 }
+        </figure>
+
+=== "Oxidized"
+    Regression on only trajectories from oxidized simulations.
+
+    === "ElasticNet"
+        <figure>
+        ![](./oxidized_elasticnet_feature_importance.png){ width=700 }
+        </figure>
+
+    === "XGBoost"
+        <figure>
+        ![](./oxidized_xgboost_feature_importance.png){ width=700 }
+        </figure>
+
+=== "Cu(I)"
+    Regression on only trajectories from Cu(I) simulations.
+
+    === "ElasticNet"
+        <figure>
+        ![](./cu_elasticnet_feature_importance.png){ width=700 }
+        </figure>
+
+    === "XGBoost"
+        <figure>
+        ![](./cu_xgboost_feature_importance.png){ width=700 }
+        </figure>
 
 ## Visualization
 

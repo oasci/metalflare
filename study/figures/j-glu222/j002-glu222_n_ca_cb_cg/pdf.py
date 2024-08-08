@@ -95,7 +95,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "j001-glu222_n_ca_cb_cg"
+    fig_title = "glu222_n_ca_cb_cg"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
     x_label = "Glu222 $\chi$ [deg.]"
     plot_x_bounds = (0, 360)

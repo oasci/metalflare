@@ -71,7 +71,7 @@ To compare the influence of structural descriptors across different states:
 This analysis allows for the identification of structural descriptors that consistently influence the Cro66 OH - His148 HD1 distance across different protein states, as well as those that show state-specific importance.
 
 ???+ example "Feature (i.e., loading) analysis"
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/loadings_analysis.md"
+    --8<-- "study/figures/i-tyr145/i011-tyr145_hd1-pls/loadings_analysis.md"
 
 ## Visualization
 

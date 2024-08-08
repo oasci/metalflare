@@ -1,4 +1,6 @@
-# F004: Thr203 dihedral and beta sheet distance
+# J001 Glu222 χ
+
+TODO:
 
 ## Visualization
 
@@ -23,19 +25,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-## Probability densities
+## Probability density function
 
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./f004-pes-reduced.png)
-    </figure>
+<figure markdown>
+![](./glu222_n_ca_cb_cg-pdf.svg)
+</figure>
 
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./f004-pes-oxidized.png)
-    </figure>
+### Quantitative
 
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./f004-pes-cu.png)
-    </figure>
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pdf-info.md"
+
+## Potential of mean force
+
+<figure markdown>
+![](./glu222_n_ca_cb_cg-pmf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pmf-info.md"

@@ -2,7 +2,6 @@
 import json
 import os
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import ElasticNet
@@ -12,7 +11,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBRegressor
 
-from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.utils import load_features
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
@@ -62,35 +60,9 @@ def optimize_model(X, y, model, param_grid, cv=3):
     return grid_search.best_estimator_, grid_search.best_params_
 
 
-def plot_feature_importance(importance, names, model_type):
-    feature_importance = np.array(importance)
-    feature_names = np.array(names)
-
-    data = {"feature_names": feature_names, "feature_importance": feature_importance}
-    fi_df = pd.DataFrame(data)
-
-    fi_df.sort_values(by=["feature_importance"], ascending=False, inplace=True)
-
-    plt.figure(figsize=(10, 8))
-    plt.bar(range(fi_df.shape[0]), fi_df["feature_importance"])
-    plt.xticks(range(fi_df.shape[0]), fi_df["feature_names"], rotation="vertical")
-    plt.xlabel("Features")
-    plt.ylabel("Importance")
-    plt.tight_layout()
-    plt.savefig(f"{model_type}_feature_importance.png")
-    plt.close()
-
-
 # In the main part of the script, modify the call to compare_states:
 if __name__ == "__main__":
     base_dir = "../../../"
-
-    # Update plot params
-    rc_json_path = os.path.join(
-        base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
-    )
-    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
-    use_mpl_rc_params(rc_json_path, font_dirs)
 
     # Initialize empty lists to store combined data
     X_list = []
@@ -165,9 +137,6 @@ if __name__ == "__main__":
             importance = best_model.named_steps["model"].feature_importances_
         elif model_name == "ElasticNet":
             importance = np.abs(best_model.named_steps["model"].coef_)
-
-        # Plot feature importance
-        plot_feature_importance(importance, X.columns, model_name)
 
         results[model_name] = {
             "best_params": best_params,

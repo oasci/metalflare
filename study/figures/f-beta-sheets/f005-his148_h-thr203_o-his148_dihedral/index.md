@@ -1,4 +1,4 @@
-# F005: Cro66 dihedral and Glu222 distance
+# F005: His148 dihedral and beta sheet distance
 
 ## Visualization
 

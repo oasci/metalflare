@@ -1,6 +1,27 @@
-# J001 Glu222 χ
+# J001: Glu222 backbone
 
-TODO:
+## Potential of mean force
+
+### Reduced
+
+!!! quote ""
+    <figure markdown>
+    ![](./glu222-dihedral-pes-reduced.png)
+    </figure>
+
+### Oxidized
+
+!!! quote ""
+    <figure markdown>
+    ![](./glu222-dihedral-pes-oxidized.png)
+    </figure>
+
+### Cu(I)
+
+!!! quote ""
+    <figure markdown>
+    ![](./glu222-dihedral-pes-cu.png)
+    </figure>
 
 ## Visualization
 
@@ -24,23 +45,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./j001-glu222_n_ca_cb_cg-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pdf-info.md"
-
-## Potential of mean force
-
-<figure markdown>
-![](./j001-glu222_n_ca_cb_cg-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pmf-info.md"

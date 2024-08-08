@@ -2,9 +2,7 @@
 import json
 import os
 
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, train_test_split
@@ -62,25 +60,6 @@ def optimize_model(X, y, model, param_grid, cv=3):
     grid_search.fit(X, y)
 
     return grid_search.best_estimator_, grid_search.best_params_
-
-def plot_feature_importance(importance, names, model_type, state):
-    feature_importance = np.array(importance)
-    feature_names = np.array(names)
-
-    data = {"feature_names": feature_names, "feature_importance": feature_importance}
-    fi_df = pd.DataFrame(data)
-
-    fi_df.sort_values(by=["feature_importance"], ascending=False, inplace=True)
-
-    plt.figure(figsize=(10, 8))
-    plt.bar(range(fi_df.shape[0]), fi_df["feature_importance"])
-    plt.xticks(range(fi_df.shape[0]), fi_df["feature_names"], rotation="vertical")
-    plt.xlabel("Features")
-    plt.ylabel("Importance")
-    plt.title(f"{model_type} Feature Importance - {state}")
-    plt.tight_layout()
-    plt.savefig(f"{model_type}_{state}_feature_importance.png")
-    plt.close()
 
 if __name__ == "__main__":
     base_dir = "../../../"
@@ -143,7 +122,9 @@ if __name__ == "__main__":
         # Optimize models, evaluate performance, and calculate feature importance
         for model_name, (model, param_grid) in models.items():
             print(f"Optimizing {model_name} for {state_key}...")
-            best_model, best_params = optimize_model(X_train, y_train, model, param_grid)
+            best_model, best_params = optimize_model(
+                X_train, y_train, model, param_grid
+            )
 
             # Evaluate the model
             y_pred = best_model.predict(X_test)
@@ -155,9 +136,6 @@ if __name__ == "__main__":
                 importance = best_model.named_steps["model"].feature_importances_
             elif model_name == "ElasticNet":
                 importance = np.abs(best_model.named_steps["model"].coef_)
-
-            # Plot feature importance
-            plot_feature_importance(importance, X.columns, model_name, state_key)
 
             state_results[model_name] = {
                 "best_params": best_params,
