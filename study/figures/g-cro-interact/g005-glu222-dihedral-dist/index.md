@@ -1,5 +1,22 @@
 # G005: Cro66 dihedral and Glu222 distance
 
+## Probability densities
+
+!!! quote "Reduced"
+    <figure markdown>
+    ![](./g005-pes-reduced.png)
+    </figure>
+
+!!! quote "Oxidized"
+    <figure markdown>
+    ![](./g005-pes-oxidized.png)
+    </figure>
+
+!!! quote "Cu(I)"
+    <figure markdown>
+    ![](./g005-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,20 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability densities
-
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./g005-pes-reduced.png)
-    </figure>
-
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./g005-pes-oxidized.png)
-    </figure>
-
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./g005-pes-cu.png)
-    </figure>

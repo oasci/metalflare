@@ -35,12 +35,12 @@ TODO: Regression
     Regression on only trajectories from reduced simulations.
 
     === "ElasticNet"
-        <figure>
+        <figure markdown>
         ![](./reduced_elasticnet_feature_importance.png){ width=700 }
         </figure>
 
     === "XGBoost"
-        <figure>
+        <figure markdown>
         ![](./reduced_xgboost_feature_importance.png){ width=700 }
         </figure>
 
@@ -48,12 +48,12 @@ TODO: Regression
     Regression on only trajectories from oxidized simulations.
 
     === "ElasticNet"
-        <figure>
+        <figure markdown>
         ![](./oxidized_elasticnet_feature_importance.png){ width=700 }
         </figure>
 
     === "XGBoost"
-        <figure>
+        <figure markdown>
         ![](./oxidized_xgboost_feature_importance.png){ width=700 }
         </figure>
 
@@ -61,12 +61,12 @@ TODO: Regression
     Regression on only trajectories from Cu(I) simulations.
 
     === "ElasticNet"
-        <figure>
+        <figure markdown>
         ![](./cu_elasticnet_feature_importance.png){ width=700 }
         </figure>
 
     === "XGBoost"
-        <figure>
+        <figure markdown>
         ![](./cu_xgboost_feature_importance.png){ width=700 }
         </figure>
 

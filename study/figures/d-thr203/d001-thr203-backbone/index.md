@@ -1,5 +1,22 @@
 # D001: Thr203 backbone
 
+## Potential of mean force
+
+=== "Reduced"
+    <figure markdown>
+    ![](./d001-pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](./d001-pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](./d001-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,26 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Potential of mean force
-
-### Reduced
-
-!!! quote ""
-    <figure markdown>
-    ![](./d001-pes-reduced.png)
-    </figure>
-
-### Oxidized
-
-!!! quote ""
-    <figure markdown>
-    ![](./d001-pes-oxidized.png)
-    </figure>
-
-### Cu(I)
-
-!!! quote ""
-    <figure markdown>
-    ![](./d001-pes-cu.png)
-    </figure>

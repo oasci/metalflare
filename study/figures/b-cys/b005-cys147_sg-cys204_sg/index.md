@@ -2,6 +2,18 @@
 
 TODO:
 
+## Probability density function
+
+<figure markdown>
+![](./b005-cys147_sg-cys204_sg-pdf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/b-cys/b005-cys147_sg-cys204_sg/pdf-info.md"
+
+## Visualization
+
 <div id="b005-view" class="mol-container"></div>
 
 <script>
@@ -23,13 +35,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./b005-cys147_sg-cys204_sg-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/b-cys/b005-cys147_sg-cys204_sg/pdf-info.md"

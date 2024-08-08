@@ -2,23 +2,17 @@
 
 ## Potential of mean force
 
-### Reduced
-
-!!! quote ""
+=== "Reduced"
     <figure markdown>
     ![](./glu222-dihedral-pes-reduced.png)
     </figure>
 
-### Oxidized
-
-!!! quote ""
+=== "Oxidized"
     <figure markdown>
     ![](./glu222-dihedral-pes-oxidized.png)
     </figure>
 
-### Cu(I)
-
-!!! quote ""
+=== "Cu(I)"
     <figure markdown>
     ![](./glu222-dihedral-pes-cu.png)
     </figure>

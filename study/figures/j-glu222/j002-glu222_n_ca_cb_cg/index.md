@@ -1,6 +1,24 @@
 # J001 Glu222 χ
 
-TODO:
+## Probability density function
+
+<figure markdown>
+![](./glu222_n_ca_cb_cg-pdf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pdf-info.md"
+
+## Potential of mean force
+
+<figure markdown>
+![](./glu222_n_ca_cb_cg-pmf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pmf-info.md"
 
 ## Visualization
 
@@ -24,23 +42,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./glu222_n_ca_cb_cg-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pdf-info.md"
-
-## Potential of mean force
-
-<figure markdown>
-![](./glu222_n_ca_cb_cg-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/i-tyr145/j001-glu222_n_ca_cb_cg-pdf/pmf-info.md"

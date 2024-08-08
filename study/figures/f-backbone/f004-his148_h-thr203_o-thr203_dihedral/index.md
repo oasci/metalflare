@@ -1,5 +1,22 @@
 # F004: Thr203 dihedral and beta sheet distance
 
+## Probability densities
+
+=== "Reduced"
+    <figure markdown>
+    ![](./f004-pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](./f004-pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](./f004-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,20 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability densities
-
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./f004-pes-reduced.png)
-    </figure>
-
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./f004-pes-oxidized.png)
-    </figure>
-
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./f004-pes-cu.png)
-    </figure>

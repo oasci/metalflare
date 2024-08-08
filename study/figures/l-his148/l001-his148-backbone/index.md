@@ -1,5 +1,22 @@
 # L001: His148 backbone
 
+## Potential of mean force
+
+=== "Reduced"
+    <figure markdown>
+    ![](./l001-pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](./l001-pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](./l001-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,26 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Potential of mean force
-
-### Reduced
-
-!!! quote ""
-    <figure markdown>
-    ![](./l001-pes-reduced.png)
-    </figure>
-
-### Oxidized
-
-!!! quote ""
-    <figure markdown>
-    ![](./l001-pes-oxidized.png)
-    </figure>
-
-### Cu(I)
-
-!!! quote ""
-    <figure markdown>
-    ![](./l001-pes-cu.png)
-    </figure>

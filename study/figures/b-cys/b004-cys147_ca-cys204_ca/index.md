@@ -1,6 +1,26 @@
 # B004: Cys147 CA - Cys204 CA
 
-TODO:
+## Probability density function
+
+<figure markdown>
+![](./b004-cys147_ca-cys204_ca-pdf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/b-cys/b004-cys147_ca-cys204_ca/pdf-info.md"
+
+## Potential of mean force
+
+<figure markdown>
+![](./b004-cys147_ca-cys204_ca-pmf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/b-cys/b004-cys147_ca-cys204_ca/pmf-info.md"
+
+## Visualization
 
 <div id="b004-view" class="mol-container"></div>
 
@@ -23,23 +43,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./b004-cys147_ca-cys204_ca-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/b-cys/b004-cys147_ca-cys204_ca/pdf-info.md"
-
-## Potential of mean force
-
-<figure markdown>
-![](./b004-cys147_ca-cys204_ca-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/b-cys/b004-cys147_ca-cys204_ca/pmf-info.md"

@@ -1,5 +1,20 @@
 # B002: Cys204 backbone
 
+=== "Reduced"
+    <figure markdown>
+    ![](./cys204-backbone-pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](./cys204-backbone-pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](./cys204-backbone-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,24 +37,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Reduced
-
-!!! quote ""
-    <figure markdown>
-    ![](./b002-pes-reduced.png)
-    </figure>
-
-## Oxidized
-
-!!! quote ""
-    <figure markdown>
-    ![](./b002-pes-oxidized.png)
-    </figure>
-
-## Cu(I)
-
-!!! quote ""
-    <figure markdown>
-    ![](./b002-pes-cu.png)
-    </figure>

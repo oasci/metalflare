@@ -1,5 +1,27 @@
 # C002: Ser205 χ
 
+## Probability density function
+
+<figure markdown>
+![](./c002-cys204_c-ser205_n_ca_cb-pdf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/c-ser205/c002-ser205-chi/pdf-info.md"
+
+## Potential of mean force
+
+TODO:
+
+<figure markdown>
+![](./c002-cys204_c-ser205_n_ca_cb-pmf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/c-ser205/c002-ser205-chi/pmf-info.md"
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,25 +44,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./c002-cys204_c-ser205_n_ca_cb-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/c-ser205/c002-ser205-chi/pdf-info.md"
-
-## Potential of mean force
-
-TODO:
-
-<figure markdown>
-![](./c002-cys204_c-ser205_n_ca_cb-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/c-ser205/c002-ser205-chi/pmf-info.md"

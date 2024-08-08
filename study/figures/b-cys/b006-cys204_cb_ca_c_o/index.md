@@ -1,6 +1,24 @@
 # B006: Cys204_cb_ca_c_o
 
-TODO:
+## Probability density function
+
+<figure markdown>
+![](./b006-cys204_cb_ca_c_o-pdf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/b-cys/b006-cys204_cb_ca_c_o/pdf-info.md"
+
+## Potential of mean force
+
+<figure markdown>
+![](./b006-cys204_cb_ca_c_o-pmf.svg)
+</figure>
+
+### Quantitative
+
+--8<-- "study/figures/b-cys/b006-cys204_cb_ca_c_o/pmf-info.md"
 
 ## Visualization
 
@@ -24,25 +42,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability density function
-
-<figure markdown>
-![](./b006-cys204_cb_ca_c_o-pdf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/b-cys/b006-cys204_cb_ca_c_o/pdf-info.md"
-
-## Potential of mean force
-
-TODO:
-
-<figure markdown>
-![](./b006-cys204_cb_ca_c_o-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/b-cys/b006-cys204_cb_ca_c_o/pmf-info.md"

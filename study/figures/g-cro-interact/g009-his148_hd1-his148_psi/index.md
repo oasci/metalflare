@@ -2,6 +2,26 @@
 
 TODO:
 
+## Potential of mean force
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](./pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](./pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](./pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -24,23 +44,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Potential of mean force
-
-### Reduced
-
-<figure markdown>
-![](./pes-reduced.png)
-</figure>
-
-### Oxidized
-
-<figure markdown>
-![](./pes-oxidized.png)
-</figure>
-
-### Cu(I)
-
-<figure markdown>
-![](./pes-cu.png)
-</figure>

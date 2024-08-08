@@ -1,5 +1,20 @@
 # B003: Cys147 and Cys204 χ
 
+=== "Reduced"
+    <figure markdown>
+    ![](./cys-chi-pes-reduced.png)
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](./cys-chi-pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](./cys-chi-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,24 +37,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Reduced
-
-!!! quote ""
-    <figure markdown>
-    ![](./b003-pes-reduced.png)
-    </figure>
-
-## Oxidized
-
-!!! quote ""
-    <figure markdown>
-    ![](./b003-pes-oxidized.png)
-    </figure>
-
-## Cu(I)
-
-!!! quote ""
-    <figure markdown>
-    ![](./b003-pes-cu.png)
-    </figure>

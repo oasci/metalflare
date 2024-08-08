@@ -1,6 +1,24 @@
 # I008: His148-HD1 bonding to Cro66-OH vs. Asn146-O
 
-TODO:
+## Potential of mean force
+
+=== "Reduced
+
+    <figure markdown>
+    ![](./pes-reduced.png)
+    </figure>
+
+=== "Oxidized
+
+    <figure markdown>
+    ![](./pes-oxidized.png)
+    </figure>
+
+=== "Cu(I)
+
+    <figure markdown>
+    ![](./pes-cu.png)
+    </figure>
 
 ## Visualization
 
@@ -24,23 +42,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Potential of mean force
-
-### Reduced
-
-<figure markdown>
-![](./pes-reduced.png)
-</figure>
-
-### Oxidized
-
-<figure markdown>
-![](./pes-oxidized.png)
-</figure>
-
-### Cu(I)
-
-<figure markdown>
-![](./pes-cu.png)
-</figure>

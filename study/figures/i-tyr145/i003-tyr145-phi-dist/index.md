@@ -1,5 +1,22 @@
 # I003: Tyr145 φ and Cro66 distance
 
+## Probability densities
+
+!!! quote "Reduced"
+    <figure markdown>
+    ![](./i003-pes-reduced.png)
+    </figure>
+
+!!! quote "Oxidized"
+    <figure markdown>
+    ![](./i003-pes-oxidized.png)
+    </figure>
+
+!!! quote "Cu(I)"
+    <figure markdown>
+    ![](./i003-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,20 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability densities
-
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./i003-pes-reduced.png)
-    </figure>
-
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./i003-pes-oxidized.png)
-    </figure>
-
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./i003-pes-cu.png)
-    </figure>

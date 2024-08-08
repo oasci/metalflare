@@ -1,5 +1,22 @@
 # I005: Tyr145 to Cro65 and Thr64
 
+## Probability densities
+
+!!! quote "Reduced"
+    <figure markdown>
+    ![](./i005-pes-reduced.png)
+    </figure>
+
+!!! quote "Oxidized"
+    <figure markdown>
+    ![](./i005-pes-oxidized.png)
+    </figure>
+
+!!! quote "Cu(I)"
+    <figure markdown>
+    ![](./i005-pes-cu.png)
+    </figure>
+
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>
@@ -22,20 +39,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-
-## Probability densities
-
-!!! quote "Reduced"
-    <figure markdown>
-    ![](./i005-pes-reduced.png)
-    </figure>
-
-!!! quote "Oxidized"
-    <figure markdown>
-    ![](./i005-pes-oxidized.png)
-    </figure>
-
-!!! quote "Cu(I)"
-    <figure markdown>
-    ![](./i005-pes-cu.png)
-    </figure>
