@@ -264,7 +264,7 @@ Cu(I) binding induces the opposite effect by destabilizing the beta strand with 
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
+    ![](../../../figures/f-backbone/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg){ width=700 }
     </figure>
 
 We can elucidate the mechanism by plotting 2D histograms of this His148 -NH to Thr203 =O distance with respect to relevant dihedral angles.
@@ -276,29 +276,29 @@ Values of $\phi$<sub>His148</sub> do not appear to be more relevant for longer d
 
 === "Reduced"
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-reduced.png){ width=700 }
+    ![](../../../figures/f-backbone/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-reduced.png){ width=700 }
     </figure>
 
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-reduced.png){ width=700 }
+    ![](../../../figures/f-backbone/f005-his148_h-thr203_o-his148_dihedral/f005-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-oxidized.png){ width=700 }
+    ![](../../../figures/f-backbone/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-oxidized.png){ width=700 }
     </figure>
 
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-oxidized.png){ width=700 }
+    ![](../../../figures/f-backbone/f005-his148_h-thr203_o-his148_dihedral/f005-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-cu.png){ width=700 }
+    ![](../../../figures/f-backbone/f004-his148_h-thr203_o-thr203_dihedral/f004-pes-cu.png){ width=700 }
     </figure>
 
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f005-his148_h-thr203_o-his148_dihedral/f005-pes-cu.png){ width=700 }
+    ![](../../../figures/f-backbone/f005-his148_h-thr203_o-his148_dihedral/f005-pes-cu.png){ width=700 }
     </figure>
 
 ### Asn146 to Ser205
@@ -308,7 +308,7 @@ Hydrogen bond probability increases to 0.144 during the oxidized simulations, bu
 
 !!! quote ""
     <figure markdown>
-    ![](../../../figures/f-beta-sheets/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg){ width=700 }
+    ![](../../../figures/f-backbone/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg){ width=700 }
     </figure>
 
 ### Summary

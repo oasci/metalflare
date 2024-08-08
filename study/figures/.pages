@@ -8,7 +8,7 @@ nav:
     - "C: Ser205": c-ser205
     - "D: Thr203": d-thr203
     - "E: Proton wire": e-proton-wire
-    - "F: Beta sheets": f-beta-sheets
+    - "F: Backbone": f-backbone
     - "G: CRO interactions": g-cro-interact
     - "H: Background": h-background
     - "I: Tyr145": i-tyr145

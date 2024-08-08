@@ -43,7 +43,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 ### Quantitative
 
---8<-- "study/figures/f-beta-sheets/f003-cys204_o-phe223_h/pdf-info.md"
+--8<-- "study/figures/f-backbone/f003-cys204_o-phe223_h/pdf-info.md"
 
 ## Potential of mean force
 
@@ -53,4 +53,4 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 ### Quantitative
 
---8<-- "study/figures/f-beta-sheets/f003-cys204_o-phe223_h/pmf-info.md"
+--8<-- "study/figures/f-backbone/f003-cys204_o-phe223_h/pmf-info.md"
