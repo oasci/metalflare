@@ -74,7 +74,7 @@ if __name__ == "__main__":
             os.path.join(base_dir, f"analysis/{state_path}/data/struct-desc/{name}.npy")
             for name in names_data
         ]
-        X_state = load_features(paths_data)
+        X_state = load_features(paths_data, transform_dihedrals=True)
         y_state = np.load(
             os.path.join(
                 base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"

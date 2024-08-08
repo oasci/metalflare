@@ -139,14 +139,16 @@ def format_feature_name(feature):
         return " ".join(formatted_parts)
 
 
-def load_features(file_paths):
+def load_features(file_paths, transform_dihedrals=False):
     df_list = []
     for path in file_paths:
         data = np.load(path)
         base_name = os.path.basename(path).split(".")[0]
 
         if "dihedral" in base_name:
-            df = pd.DataFrame({base_name: (1 - np.cos(data)) / 2})
+            if transform_dihedrals:
+                data = (1 - np.cos(data)) / 2
+            df = pd.DataFrame({base_name: data})
         elif "dist" in base_name:
             df = pd.DataFrame({base_name: data})
 
