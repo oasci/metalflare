@@ -89,19 +89,19 @@ $\psi$ ranges are also increased upon the binding of Cu(I).
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-reduced.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/cys147-backbone-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-oxidized.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/cys147-backbone-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b001-cys147-backbone/b001-pes-cu.png){ width=700 }
+    ![](../../../figures/b-cys/b001-cys147-backbone/cys147-backbone-pes-cu.png){ width=700 }
     </figure>
 
 #### Asn146
@@ -182,19 +182,19 @@ Cu(I) simulations also have reduced entropy around $\phi$<sub>Cys204</sub> = -14
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-reduced.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/cys204-backbone-pes-reduced.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-oxidized.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/cys204-backbone-pes-oxidized.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/b-cys/b002-cys204-backbone/b002-pes-cu.png){ width=700 }
+    ![](../../../figures/b-cys/b002-cys204-backbone/cys204-backbone-pes-cu.png){ width=700 }
     </figure>
 
 #### Thr203
@@ -393,23 +393,23 @@ TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
 === "Reduced"
 
     <figure markdown>
-    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/reduced_pls_regression.png){ width=700 }
+    ![](../../../figures/i-tyr145/i011-tyr145_hd1-pls/reduced_pls_regression.png){ width=700 }
     </figure>
 
 === "Oxidized"
 
     <figure markdown>
-    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/oxidized_pls_regression.png){ width=700 }
+    ![](../../../figures/i-tyr145/i011-tyr145_hd1-pls/oxidized_pls_regression.png){ width=700 }
     </figure>
 
 === "Cu(I)"
 
     <figure markdown>
-    ![](../../../figures/i-tyr145/i011-his148_hd1-pls/cu_pls_regression.png){ width=700 }
+    ![](../../../figures/i-tyr145/i011-tyr145_hd1-pls/cu_pls_regression.png){ width=700 }
     </figure>
 
 ???+ example "Feature (i.e., loading) analysis"
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/loadings_analysis.md"
+    --8<-- "study/figures/i-tyr145/i011-tyr145_hd1-pls/loadings_analysis.md"
 
 === "Reduced"
 
