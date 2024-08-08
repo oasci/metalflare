@@ -1,3 +1,3 @@
-# Tyr145
+# Glu222
 
-These figures involve properties just involving tyrosine 145.
+These figures involve properties just involving glutamic acid 222.

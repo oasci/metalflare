@@ -461,15 +461,21 @@ TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
 
 ## Proton wire
 
+### Glu222 to Ser205
+
 !!! quote ""
     <figure markdown>
     ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=700 }
     </figure>
 
+### Ser205 to water
+
 !!! quote ""
     <figure markdown>
     ![](../../../figures/e-proton-wire/e002-ser205_hg-h2o_o/e002-ser205_hg-h2o_o-pdf.svg){ width=700 }
     </figure>
+
+### Water to Cro66
 
 !!! quote ""
     <figure markdown>

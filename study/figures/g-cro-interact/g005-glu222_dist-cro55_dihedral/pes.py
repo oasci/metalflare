@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from metalflare.analysis.figures import use_mpl_rc_params
-from metalflare.analysis.pes import create_pes, create_pes_difference
+from metalflare.analysis.pes import create_pes
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -141,66 +141,3 @@ if __name__ == "__main__":
     plt.tight_layout()
     fig.savefig(f"{fig_label}-cu.png")
     plt.close()
-
-    # fig = create_pes_difference(
-    #     data_x_red,
-    #     data_y_red,
-    #     data_x_oxd,
-    #     data_y_oxd,
-    #     bins=bins,
-    #     vmin=pes_diff_vmin,
-    #     vmax=pes_diff_vmax,
-    #     levels=200,
-    #     T=300.0,
-    # )
-    # plt.xlabel(data_x_label)
-    # plt.xlim(*x_lims)
-    # plt.xticks(x_ticks)
-    # plt.ylabel(data_y_label)
-    # plt.ylim(*y_lims)
-    # plt.yticks(y_ticks)
-    # plt.tight_layout()
-    # fig.savefig(f"{fig_label}-diff-oxd-red.png")
-    # plt.close()
-
-    # fig = create_pes_difference(
-    #     data_x_red,
-    #     data_y_red,
-    #     data_x_cu,
-    #     data_y_cu,
-    #     bins=bins,
-    #     vmin=pes_diff_vmin,
-    #     vmax=pes_diff_vmax,
-    #     levels=200,
-    #     T=300.0,
-    # )
-    # plt.xlabel(data_x_label)
-    # plt.xlim(*x_lims)
-    # plt.xticks(x_ticks)
-    # plt.ylabel(data_y_label)
-    # plt.ylim(*y_lims)
-    # plt.yticks(y_ticks)
-    # plt.tight_layout()
-    # fig.savefig(f"{fig_label}-diff-cu-red.png")
-    # plt.close()
-
-    # fig = create_pes_difference(
-    #     data_x_oxd,
-    #     data_y_oxd,
-    #     data_x_cu,
-    #     data_y_cu,
-    #     bins=bins,
-    #     vmin=pes_diff_vmin,
-    #     vmax=pes_diff_vmax,
-    #     levels=200,
-    #     T=300.0,
-    # )
-    # plt.xlabel(data_x_label)
-    # plt.xlim(*x_lims)
-    # plt.xticks(x_ticks)
-    # plt.ylabel(data_y_label)
-    # plt.ylim(*y_lims)
-    # plt.yticks(y_ticks)
-    # plt.tight_layout()
-    # fig.savefig(f"{fig_label}-diff-cu-oxd.png")
-    # plt.close()

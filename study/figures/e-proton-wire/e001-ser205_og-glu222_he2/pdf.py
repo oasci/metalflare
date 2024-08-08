@@ -100,7 +100,7 @@ if __name__ == "__main__":
     # Make pdf plot
     fig_title = "e001-ser205_og-glu222_he2"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
-    x_label = "Ser205 OG - Glu222 HE2 Distance [Å]"
+    x_label = "Glu222 HE2 - Ser205 OG Distance [Å]"
     plot_x_bounds = (1, 8)
     y_label = "Density"
     plot_y_bounds = (0, None)
