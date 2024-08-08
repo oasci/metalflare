@@ -1,7 +1,5 @@
 # G001: His148-HD1 and Tyr145-HH
 
-TODO:
-
 ## Potential of mean force
 
 === "Reduced"

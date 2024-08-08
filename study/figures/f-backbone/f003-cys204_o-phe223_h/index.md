@@ -1,7 +1,5 @@
 # F003: Phe223 -NH to Cys204 =O
 
-TODO:
-
 ## Probability density function
 
 <figure markdown>

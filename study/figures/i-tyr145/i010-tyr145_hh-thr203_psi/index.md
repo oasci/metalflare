@@ -1,25 +1,23 @@
 # I010
 
-TODO:
-
 ## Potential of mean force
 
-=== "Reduced
+=== "Reduced"
 
     <figure markdown>
-    ![](./i007-pes-reduced.png)
+    ![](./i010-pes-reduced.png)
     </figure>
 
-=== "Oxidized
+=== "Oxidized"
 
     <figure markdown>
-    ![](./i007-pes-oxidized.png)
+    ![](./i010-pes-oxidized.png)
     </figure>
 
-=== "Cu(I)
+=== "Cu(I)"
 
     <figure markdown>
-    ![](./i007-pes-cu.png)
+    ![](./i010-pes-cu.png)
     </figure>
 
 ## Visualization

@@ -1,7 +1,5 @@
 # B005: Cys147 SG - Cys204 SG
 
-TODO:
-
 ## Probability density function
 
 <figure markdown>

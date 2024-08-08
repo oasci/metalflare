@@ -1,22 +1,20 @@
-# I009: His148-HD1 bonding and Asn146 ψ
-
-TODO:
+# I009: Tyr145 HH bonding and Asn146 ψ
 
 ## Potential of mean force
 
-=== "Reduced
+=== "Reduced"
 
     <figure markdown>
     ![](./i009-pes-reduced.png)
     </figure>
 
-=== "Oxidized
+=== "Oxidized"
 
     <figure markdown>
     ![](./i009-pes-oxidized.png)
     </figure>
 
-=== "Cu(I)
+=== "Cu(I)"
 
     <figure markdown>
     ![](./i009-pes-cu.png)

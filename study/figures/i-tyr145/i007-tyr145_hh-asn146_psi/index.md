@@ -1,4 +1,4 @@
-# I007: His148-HD1 bonding and Asn146 φ
+# I007: Tyr145 HH bonding and Asn146 φ
 
 TODO:
 

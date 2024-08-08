@@ -1,4 +1,4 @@
-# I006: His148-HD1 bonding and Asn146 ψ
+# I006: Tyr145 HH bonding and Asn146 ψ
 
 ## Potential of mean force
 

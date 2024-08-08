@@ -1,20 +1,20 @@
-# I008: His148-HD1 bonding to Cro66-OH vs. Asn146-O
+# I008: Tyr145 HH bonding to Cro66-OH vs. Asn146-O
 
 ## Potential of mean force
 
-=== "Reduced
+=== "Reduced"
 
     <figure markdown>
     ![](./pes-reduced.png)
     </figure>
 
-=== "Oxidized
+=== "Oxidized"
 
     <figure markdown>
     ![](./pes-oxidized.png)
     </figure>
 
-=== "Cu(I)
+=== "Cu(I)"
 
     <figure markdown>
     ![](./pes-cu.png)

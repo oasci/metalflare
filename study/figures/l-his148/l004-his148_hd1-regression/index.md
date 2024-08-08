@@ -1,7 +1,5 @@
 # L004: Cro66 and His148 bonding with regression
 
-TODO:
-
 ## Methodology
 
 Dihedral angles were transformed using the function,
@@ -13,8 +11,6 @@ $$
 This transformation maps the circular dihedral data to a [0, 1] range, preserving the periodicity while differentiating between cis (0°) and trans (180°) conformations.
 All input features ($X$) were standardized using sklearn's StandardScaler to ensure each feature contributes equally to the model.
 The distance between Cro66 OH and His148 HD1 ($y$) was used as the response variable without scaling.
-
-TODO: Regression
 
 ## Feature importance
 

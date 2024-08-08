@@ -1,7 +1,5 @@
 # G008: His148-HD1 bonding and Asn146 ψ
 
-TODO:
-
 ## Potential of mean force
 
 === "Reduced"

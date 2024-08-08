@@ -1,7 +1,5 @@
 # G010: Cro66 OH to Thr203 HG1
 
-TODO:
-
 ## Probability density function
 
 <figure markdown>

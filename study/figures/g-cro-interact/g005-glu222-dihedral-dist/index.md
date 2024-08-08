@@ -2,17 +2,17 @@
 
 ## Probability densities
 
-!!! quote "Reduced"
+=== "Reduced"
     <figure markdown>
     ![](./g005-pes-reduced.png)
     </figure>
 
-!!! quote "Oxidized"
+=== "Oxidized"
     <figure markdown>
     ![](./g005-pes-oxidized.png)
     </figure>
 
-!!! quote "Cu(I)"
+=== "Cu(I)"
     <figure markdown>
     ![](./g005-pes-cu.png)
     </figure>

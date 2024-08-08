@@ -1,7 +1,5 @@
 # k002-phe223_ca_c-val224_n_ca
 
-TODO:
-
 ## Probability density function
 
 <figure markdown>
