@@ -14,8 +14,12 @@ The distance between Cro66 OH and His148 HD1 ($y$) was used as the response vari
 
 ## Feature importance
 
+Consistently low ranked: Tyr145 $\phi$, Glu222 $\phi$, Glu222 $\psi$, Ser205 $\psi$.
+
 === "All"
     Regression on all states' trajectories.
+
+    Frequent disagreements.
 
     <figure markdown>
     ![](./all_feature_importance.png){ width=900 }
@@ -24,6 +28,8 @@ The distance between Cro66 OH and His148 HD1 ($y$) was used as the response vari
 === "Reduced"
     Regression on only trajectories from reduced simulations.
 
+    Frequent disagreements; especially on Thr203 $\psi$, Thr203 $\phi$, and many others.
+
     <figure markdown>
     ![](./reduced_feature_importance.png){ width=900 }
     </figure>
@@ -31,12 +37,20 @@ The distance between Cro66 OH and His148 HD1 ($y$) was used as the response vari
 === "Oxidized"
     Regression on only trajectories from oxidized simulations.
 
+    Agreement on top one: Cys147 $\phi$.
+
+    Disagreement on: Thr203 $\psi$, Cys204 $\phi$, Thr203 $\psi$.
+
     <figure markdown>
     ![](./oxidized_feature_importance.png){ width=900 }
     </figure>
 
 === "Cu(I)"
     Regression on only trajectories from Cu(I) simulations.
+
+    Consensus on top two: Cys147 $\psi$ and His148 $\phi$.
+
+    Large differences in: Thr203 $\psi$ and Thr203 $\phi$.
 
     <figure markdown>
     ![](./cu_feature_importance.png){ width=900 }

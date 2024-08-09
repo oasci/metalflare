@@ -24,26 +24,22 @@ names_state = {
     "cu": "006-rogfp-cu-glh-md",
 }
 names_data = [
-    # Residue specific
-    # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
-    "cys145_n_ca_c-his146_n-dihedral",
-    "asn144_n_ca_c-cys145_n-dihedral",
     "tyr143_c-asn144_n_ca_c-dihedral",
+    "asn144_n_ca_c-cys145_n-dihedral",
+    "asn144_c-cys145_n_ca_c-dihedral",
+    "cys145_n_ca_c-his146_n-dihedral",
     "cys145_c-his146_n_ca_c-dihedral",
     "his146_n_ca_c-asn147_n-dihedral",
+    "ser200_c-thr201_n_ca_c-dihedral",
+    "thr201_n_ca_c-cys202_n-dihedral",
+    "thr201_c-cys202_n_ca_c-dihedral",
+    "cys202_n_ca_c-ser203_n-dihedral",
     "cys202_c-ser203_n_ca_c-dihedral",
     "ser203_n_ca_c-ala204_n-dihedral",
-    "ser200_c-thr201_n_ca_c-dihedral",
-    # Backbone distances
-    "cys202_o-phe221_h-dist",
-    "his146_h-thr201_o-dist",
-    "ser203_h-asn144_o-dist",
-    # Non-backbone distances
-    # "ser203_og-glu220_he2-dist",
-    # "his146_hd1-asn144_o-dist",
-    # "cro65_og1-glu220_he2-dist",
+    "leu219_c-glu220_n_ca_c-dihedral",
+    "glu220_n_ca_c-phe221_n-dihedral",
 ]
 
 # In the main part of the script, modify the call to compare_states:
@@ -66,7 +62,7 @@ if __name__ == "__main__":
             for name in names_data
         ]
 
-        X = load_features(paths_data, transform_dihedrals=True)
+        X = load_features(paths_data, normalize_distances=True, transform_dihedrals=True)
         y = np.load(
             os.path.join(
                 base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"

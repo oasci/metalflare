@@ -5,6 +5,7 @@ import re
 import numpy as np
 import numpy.typing as npt
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
 from scipy.signal import argrelextrema, savgol_filter
 
 
@@ -139,7 +140,7 @@ def format_feature_name(feature):
         return " ".join(formatted_parts)
 
 
-def load_features(file_paths, transform_dihedrals=False):
+def load_features(file_paths, normalize_distances=False, transform_dihedrals=False):
     df_list = []
     for path in file_paths:
         data = np.load(path)
@@ -150,6 +151,9 @@ def load_features(file_paths, transform_dihedrals=False):
                 data = (1 - np.cos(data)) / 2
             df = pd.DataFrame({base_name: data})
         elif "dist" in base_name:
+            if normalize_distances:
+                scaler = MinMaxScaler()
+                data = scaler.fit_transform(X=data.reshape(-1, 1)).flatten()
             df = pd.DataFrame({base_name: data})
 
         df_list.append(df)

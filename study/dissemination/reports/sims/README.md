@@ -332,7 +332,14 @@ TODO: write more.
     ![](../../../figures/g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg){ width=700 }
     </figure>
 
-TODO: If not hydrogen binding to CRO, where to?
+We first employed Partial Least Squares (PLS) regression to probe relationships between Cys147 and Cys204 adjacent backbone and His148 stabilization of Cro66.
+
+TODO: introduce magnitude analysis
+
+???+ example "Feature (i.e., loading) analysis"
+    --8<-- "study/figures/l-his148/l003-his148_hd1-pls/loadings_analysis.md"
+
+TODO: introduce feature correlation analysis.
 
 === "Reduced"
 
@@ -352,8 +359,29 @@ TODO: If not hydrogen binding to CRO, where to?
     ![](../../../figures/l-his148/l003-his148_hd1-pls/cu_pls_regression.png){ width=700 }
     </figure>
 
-???+ example "Feature (i.e., loading) analysis"
-    --8<-- "study/figures/l-his148/l003-his148_hd1-pls/loadings_analysis.md"
+**Thr203**
+
+Both Thr203<sub>$\phi$</sub> and Thr203<sub>$\psi$</sub> have consistently large weight across simulations with varying importance.
+Differences in [His148 and Thr203 backbone hydrogen bonding](#his148-to-thr203) likely influences His148 flexibility.
+Indeed, perturbing (i.e., destabilizing) the His148 &ndash;NH to Thr203 =O hydrogen bond correlates to decreased Cro66 stabilization through His148.
+
+To extend these findings, we employed two machine learning models: [XGBoost](https://xgboost.readthedocs.io/en/stable/) and [ElasticNet](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html).
+These models provided feature importance scores, offering an additional perspective on the relative significance of each dihedral angle in determining His148's conformation.
+
+=== "Reduced"
+    <figure markdown>
+    ![](../../../figures/l-his148/l004-his148_hd1-regression/reduced_feature_importance.png){ width=900 }
+    </figure>
+
+=== "Oxidized"
+    <figure markdown>
+    ![](../../../figures/l-his148/l004-his148_hd1-regression/oxidized_feature_importance.png){ width=900 }
+    </figure>
+
+=== "Cu(I)"
+    <figure markdown>
+    ![](../../../figures/l-his148/l004-his148_hd1-regression/cu_feature_importance.png){ width=900 }
+    </figure>
 
 TODO: His148 HD1 - Asn146 O distance (O)
 
@@ -466,6 +494,31 @@ TODO: Thr64 OG1 is protonated; no hydrogen bonding (just a point of reference).
 !!! quote ""
     <figure markdown>
     ![](../../../figures/e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg){ width=700 }
+    </figure>
+
+    TODO: introduce magnitude analysis
+
+???+ example "Feature (i.e., loading) analysis"
+    --8<-- "study/figures/e-proton-wire/e004-glu222_he1-pls/loadings_analysis.md"
+
+TODO: introduce feature correlation analysis.
+
+=== "Reduced"
+
+    <figure markdown>
+    ![](../../../figures/e-proton-wire/e004-glu222_he1-pls/reduced_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Oxidized"
+
+    <figure markdown>
+    ![](../../../figures/e-proton-wire/e004-glu222_he1-pls/oxidized_pls_regression.png){ width=700 }
+    </figure>
+
+=== "Cu(I)"
+
+    <figure markdown>
+    ![](../../../figures/e-proton-wire/e004-glu222_he1-pls/cu_pls_regression.png){ width=700 }
     </figure>
 
 ### Ser205 to water

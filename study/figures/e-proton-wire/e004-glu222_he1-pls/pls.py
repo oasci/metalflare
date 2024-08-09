@@ -27,7 +27,12 @@ names_data = [
     # Residue specific
     "tyr143_ca_cb_cg_cd1-dihedral",
     "tyr143_ce1_cz_oh_hh-dihedral",
+    "tyr143_hh-thr62_og1-dist",
     "cro65_og1_cb1_ca1_c1-dihedral",
+    # Backbone distances
+    "his146_h-thr201_o-dist",
+    "ser203_h-asn144_o-dist",
+    "cys202_o-phe221_h-dist",
     # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
@@ -67,7 +72,7 @@ if __name__ == "__main__":
             for name in names_data
         ]
 
-        X = load_features(paths_data, transform_dihedrals=True)
+        X = load_features(paths_data, normalize_distances=True, transform_dihedrals=True)
         y = np.load(
             os.path.join(
                 base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"

@@ -1,21 +1,25 @@
 | Feature | $\sin \left( \theta \right)$ | Magnitude |
 |---------|------------|-----------|
-| **C**: Cro66-OG1-CB1-CA1-C1 dihedral | -0.2017 | 2.5051 |
-| **M**: Thr203-N-CA-C Cys204-N dihedral | 0.9552 | 2.1752 |
-| **L**: Ser202-C Thr203-N-CA-C dihedral | 0.9173 | 2.0477 |
-| **N**: Thr203-C Cys204-N-CA-C dihedral | 0.9922 | 1.6887 |
-| **H**: Asn146-C Cys147-N-CA-C dihedral | -0.8387 | 1.6269 |
-| **P**: Cys204-C Ser205-N-CA-C dihedral | 0.6012 | 1.5015 |
-| **B**: Tyr145-CE1-CZ-OH-HH dihedral | -0.4373 | 1.4832 |
-| **E**: Tyr145-N-CA-C Asn146-N dihedral | -0.9923 | 1.4449 |
-| **F**: Tyr145-C Asn146-N-CA-C dihedral | -0.9981 | 1.4301 |
-| **A**: Tyr145-CA-CB-CG-CD1 dihedral | 0.4991 | 1.2474 |
-| **G**: Asn146-N-CA-C Cys147-N dihedral | 0.9837 | 1.2472 |
-| **Q**: Ser205-N-CA-C Ala206-N dihedral | -0.5640 | 1.0637 |
-| **I**: Cys147-N-CA-C His148-N dihedral | 0.7907 | 1.0494 |
-| **O**: Cys204-N-CA-C Ser205-N dihedral | 0.8883 | 1.0312 |
-| **S**: Glu222-N-CA-C Phe223-N dihedral | 0.9934 | 0.7158 |
-| **K**: His148-N-CA-C Asn149-N dihedral | 0.8892 | 0.5478 |
-| **J**: Cys147-C His148-N-CA-C dihedral | 0.9531 | 0.5001 |
-| **R**: Leu221-C Glu222-N-CA-C dihedral | -0.1121 | 0.3218 |
-| **D**: Asn144-C Tyr145-N-CA-C dihedral | -0.1747 | 0.2155 |
+| **N**: Cys147-C His148-N-CA-C dihedral | 0.0675 | -1.7065 |
+| **F**: Ser205-H - Asn146-O distance | 0.8285 | 1.7038 |
+| **H**: Asn144-C Tyr145-N-CA-C dihedral | 0.0580 | -1.5382 |
+| **Q**: Thr203-N-CA-C Cys204-N dihedral | 0.9798 | 1.4689 |
+| **V**: Leu221-C Glu222-N-CA-C dihedral | -0.0239 | -1.4614 |
+| **G**: Cys204-O - Phe223-H distance | 0.4527 | -1.3976 |
+| **D**: Cro66-OG1-CB1-CA1-C1 dihedral | -0.2211 | 1.3042 |
+| **W**: Glu222-N-CA-C Phe223-N dihedral | 0.9608 | -1.2294 |
+| **L**: Asn146-C Cys147-N-CA-C dihedral | -0.8747 | 1.1980 |
+| **P**: Ser202-C Thr203-N-CA-C dihedral | 0.9554 | 1.1868 |
+| **E**: His148-H - Thr203-O distance | 0.9518 | 0.8368 |
+| **R**: Thr203-C Cys204-N-CA-C dihedral | 0.9988 | 0.7501 |
+| **O**: His148-N-CA-C Asn149-N dihedral | 0.9745 | -0.6243 |
+| **S**: Cys204-N-CA-C Ser205-N dihedral | 0.7277 | -0.6017 |
+| **M**: Cys147-N-CA-C His148-N dihedral | 0.4034 | -0.4905 |
+| **T**: Cys204-C Ser205-N-CA-C dihedral | 0.5205 | 0.2688 |
+| **U**: Ser205-N-CA-C Ala206-N dihedral | -0.7446 | -0.2225 |
+| **I**: Tyr145-N-CA-C Asn146-N dihedral | -0.9587 | 0.1978 |
+| **B**: Tyr145-CE1-CZ-OH-HH dihedral | 0.0732 | 0.1840 |
+| **K**: Asn146-N-CA-C Cys147-N dihedral | 0.9624 | 0.1793 |
+| **A**: Tyr145-CA-CB-CG-CD1 dihedral | -0.1270 | 0.1481 |
+| **J**: Tyr145-C Asn146-N-CA-C dihedral | -0.9974 | -0.0830 |
+| **C**: Tyr145-HH - Thr64-OG1 distance | -0.0951 | -0.0716 |

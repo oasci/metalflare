@@ -184,6 +184,8 @@ def plot_pls_results(
 def compute_loading_angles_and_magnitudes(pls, gradient_vector, feature_names):
     loadings = pls.x_loadings_[:, :2]  # Only consider the first two components
     magnitudes = np.linalg.norm(loadings, axis=1)
+    scaler = StandardScaler()
+    magnitudes = scaler.fit_transform(np.array(magnitudes).reshape(-1, 1)).flatten()
 
     sin_angles = []
     for loading in loadings:
@@ -249,11 +251,13 @@ def compare_states(results, feature_names, output_file="loadings_analysis.md"):
         loadings = results[state][0].x_loadings_
         # Calculate magnitude using the first two components
         magnitudes = np.sqrt(loadings[:, 0] ** 2 + loadings[:, 1] ** 2)
+        scaler = StandardScaler()
+        magnitudes = scaler.fit_transform(np.array(magnitudes).reshape(-1, 1)).flatten()
         loadings_df[state] = magnitudes
     loadings_df = pd.DataFrame(loadings_df)
     loadings_df.index = feature_names
 
-    sort_by = loadings_df.abs().mean(axis=1)
+    sort_by = loadings_df.mean(axis=1)
     sorted_df = loadings_df.loc[sort_by.sort_values(ascending=False).index]
 
     # Prepare data for the table

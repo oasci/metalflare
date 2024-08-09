@@ -42,9 +42,9 @@ names_data = [
     "leu219_c-glu220_n_ca_c-dihedral",
     "glu220_n_ca_c-phe221_n-dihedral",
     # Backbone distances
-    # "cys202_o-phe221_h-dist",
-    # "his146_h-thr201_o-dist",
-    # "ser203_h-asn144_o-dist",
+    "his146_h-thr201_o-dist",
+    "ser203_h-asn144_o-dist",
+    "cys202_o-phe221_h-dist",
     # Non-backbone distances
     # "ser203_og-glu220_he2-dist",
     # "his146_hd1-asn144_o-dist",
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             for name in names_data
         ]
 
-        X = load_features(paths_data, transform_dihedrals=True)
+        X = load_features(paths_data, normalize_distances=True, transform_dihedrals=True)
         y = np.load(
             os.path.join(
                 base_dir, f"analysis/{state_path}/data/struct-desc/{data_y_str}.npy"
