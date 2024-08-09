@@ -3,26 +3,29 @@
         "best_params": {
             "model__learning_rate": 0.05,
             "model__max_depth": 9,
-            "model__n_estimators": 550,
+            "model__n_estimators": 700,
             "model__reg_alpha": 0.2,
-            "model__reg_lambda": 1.0
+            "model__reg_lambda": 0.8
         },
-        "mse": 0.4610667427934344,
-        "r2": 0.5121356215527386,
+        "mse": 0.4170414688862867,
+        "r2": 0.5587196860648558,
         "feature_importance": {
-            "asn142_c-tyr143_n_ca_c-dihedral": 0.015261282213032246,
-            "tyr143_n_ca_c-asn144_n-dihedral": 0.05435865372419357,
-            "tyr143_c-asn144_n_ca_c-dihedral": 0.04250301048159599,
-            "asn144_n_ca_c-cys145_n-dihedral": 0.04898301139473915,
-            "asn144_c-cys145_n_ca_c-dihedral": 0.15450064837932587,
-            "cys145_n_ca_c-his146_n-dihedral": 0.207333505153656,
-            "cys145_c-his146_n_ca_c-dihedral": 0.1485552340745926,
-            "his146_n_ca_c-asn147_n-dihedral": 0.08429873734712601,
-            "ser200_c-thr201_n_ca_c-dihedral": 0.033692311495542526,
-            "thr201_n_ca_c-cys202_n-dihedral": 0.10341265797615051,
-            "thr201_c-cys202_n_ca_c-dihedral": 0.04253903776407242,
-            "cys202_c-ser203_n_ca_c-dihedral": 0.0,
-            "ser203_n_ca_c-ala204_n-dihedral": 0.023061010986566544
+            "asn142_c-tyr143_n_ca_c-dihedral": 0.011932672001421452,
+            "tyr143_n_ca_c-asn144_n-dihedral": 0.04874773323535919,
+            "tyr143_c-asn144_n_ca_c-dihedral": 0.038180965930223465,
+            "asn144_n_ca_c-cys145_n-dihedral": 0.04048991575837135,
+            "asn144_c-cys145_n_ca_c-dihedral": 0.13298355042934418,
+            "cys145_n_ca_c-his146_n-dihedral": 0.17808446288108826,
+            "cys145_c-his146_n_ca_c-dihedral": 0.1292807012796402,
+            "his146_n_ca_c-asn147_n-dihedral": 0.07451169192790985,
+            "ser200_c-thr201_n_ca_c-dihedral": 0.031758300960063934,
+            "thr201_n_ca_c-cys202_n-dihedral": 0.08915351331233978,
+            "thr201_c-cys202_n_ca_c-dihedral": 0.03962526097893715,
+            "cys202_n_ca_c-ser203_n-dihedral": 0.06611336022615433,
+            "cys202_c-ser203_n_ca_c-dihedral": 0.06416341662406921,
+            "ser203_n_ca_c-ala204_n-dihedral": 0.0213656984269619,
+            "leu219_c-glu220_n_ca_c-dihedral": 0.015772880986332893,
+            "glu220_n_ca_c-phe221_n-dihedral": 0.01783592440187931
         }
     },
     "ElasticNet": {
@@ -31,22 +34,25 @@
             "model__l1_ratio": 0.2,
             "model__max_iter": 100000
         },
-        "mse": 0.6319338988828905,
-        "r2": 0.3313375045651936,
+        "mse": 0.6091073006840859,
+        "r2": 0.3554908062647578,
         "feature_importance": {
-            "asn142_c-tyr143_n_ca_c-dihedral": 0.038294496375714006,
-            "tyr143_n_ca_c-asn144_n-dihedral": 0.11337011236537943,
-            "tyr143_c-asn144_n_ca_c-dihedral": 0.005494427200247405,
-            "asn144_n_ca_c-cys145_n-dihedral": 0.005639621560159646,
-            "asn144_c-cys145_n_ca_c-dihedral": 0.2078448077357054,
-            "cys145_n_ca_c-his146_n-dihedral": 0.4893661619787756,
-            "cys145_c-his146_n_ca_c-dihedral": 0.4258460491364593,
-            "his146_n_ca_c-asn147_n-dihedral": 0.15887744830862735,
-            "ser200_c-thr201_n_ca_c-dihedral": 0.26979271085718237,
-            "thr201_n_ca_c-cys202_n-dihedral": 0.5154693000468229,
-            "thr201_c-cys202_n_ca_c-dihedral": 0.26280905120057885,
-            "cys202_c-ser203_n_ca_c-dihedral": 4.6459789512634804e-05,
-            "ser203_n_ca_c-ala204_n-dihedral": 0.01172285079744291
+            "asn142_c-tyr143_n_ca_c-dihedral": 0.03144212069913433,
+            "tyr143_n_ca_c-asn144_n-dihedral": 0.11014287802367317,
+            "tyr143_c-asn144_n_ca_c-dihedral": 0.004306695582373403,
+            "asn144_n_ca_c-cys145_n-dihedral": 0.006464751617674983,
+            "asn144_c-cys145_n_ca_c-dihedral": 0.24449608842445025,
+            "cys145_n_ca_c-his146_n-dihedral": 0.4750657788647798,
+            "cys145_c-his146_n_ca_c-dihedral": 0.4097721110505715,
+            "his146_n_ca_c-asn147_n-dihedral": 0.14455502427107222,
+            "ser200_c-thr201_n_ca_c-dihedral": 0.36134178935979,
+            "thr201_n_ca_c-cys202_n-dihedral": 0.6186436352954051,
+            "thr201_c-cys202_n_ca_c-dihedral": 0.30524245506656933,
+            "cys202_n_ca_c-ser203_n-dihedral": 0.2795744204056036,
+            "cys202_c-ser203_n_ca_c-dihedral": 0.23189236033944505,
+            "ser203_n_ca_c-ala204_n-dihedral": 0.028240346107710833,
+            "leu219_c-glu220_n_ca_c-dihedral": 0.028225160583461115,
+            "glu220_n_ca_c-phe221_n-dihedral": 0.05375758372414604
         }
     }
 }

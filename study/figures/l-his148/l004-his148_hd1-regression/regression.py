@@ -38,9 +38,11 @@ names_data = [
     "ser200_c-thr201_n_ca_c-dihedral",
     "thr201_n_ca_c-cys202_n-dihedral",
     "thr201_c-cys202_n_ca_c-dihedral",
-    "cys202_c-ser203_n_ca_c-dihedral",
+    "cys202_n_ca_c-ser203_n-dihedral",
     "cys202_c-ser203_n_ca_c-dihedral",
     "ser203_n_ca_c-ala204_n-dihedral",
+    "leu219_c-glu220_n_ca_c-dihedral",
+    "glu220_n_ca_c-phe221_n-dihedral",
 ]
 
 

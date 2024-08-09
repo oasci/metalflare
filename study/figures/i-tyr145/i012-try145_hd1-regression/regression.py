@@ -27,7 +27,6 @@ names_data = [
     # Residue specific
     "tyr143_ca_cb_cg_cd1-dihedral",
     "tyr143_ce1_cz_oh_hh-dihedral",
-    # "tyr143_hh-thr62_og1-dist",
     # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
@@ -40,9 +39,11 @@ names_data = [
     "ser200_c-thr201_n_ca_c-dihedral",
     "thr201_n_ca_c-cys202_n-dihedral",
     "thr201_c-cys202_n_ca_c-dihedral",
-    "cys202_c-ser203_n_ca_c-dihedral",
+    "cys202_n_ca_c-ser203_n-dihedral",
     "cys202_c-ser203_n_ca_c-dihedral",
     "ser203_n_ca_c-ala204_n-dihedral",
+    "leu219_c-glu220_n_ca_c-dihedral",
+    "glu220_n_ca_c-phe221_n-dihedral",
 ]
 
 
