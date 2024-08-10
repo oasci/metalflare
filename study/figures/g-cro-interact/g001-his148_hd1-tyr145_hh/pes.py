@@ -12,10 +12,10 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 bin_min, bin_max = 1, 10
 bin_width = 0.1
 n_bins = int((bin_max - bin_min) / bin_width)
-x_lims = (1.4, 7)
-x_ticks = np.arange(2, 7 + 1, 1)
-y_lims = (1.4, 8)
-y_ticks = np.arange(2, 8 + 1, 1)
+x_lims = (1.4, 6)
+x_ticks = np.arange(2, 6 + 0.01, 1)
+y_lims = (1.4, 7)
+y_ticks = np.arange(2, 7 + 0.01, 1)
 
 fig_label = "g001-pes"
 data_x_str = "cro65_oh-his146_hd1-dist"
