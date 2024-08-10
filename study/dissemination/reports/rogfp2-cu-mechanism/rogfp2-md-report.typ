@@ -31,7 +31,7 @@
     bibliography: bibliography(BIBTEX_PATH, title: "References", style: "american-chemical-society")
 )
 
-Here, we propose atomistic mechanisms for a redox-sensitive green fluorescent protein (roGFP) variant including a novel Cu(I) sensing application.
+Here, we propose atomistic mechanisms for a redox-sensitive green fluorescent protein variant roGFP2 including a novel Cu(I) sensing application.
 
 = GFP fluorescence mechanism
 
@@ -80,7 +80,7 @@ The reduced fluorescence efficiency of the neutral form is attributed to excited
 The anionic form of the chromophore, where the phenolic oxygen is deprotonated, is primarily responsible for the characteristic green fluorescence of GFP.
 
 #figure(
-    image(FIG_DIR + "h-background/h005-cro/cro-b.svg", width: 2.0in),
+    image(FIG_DIR + "h-background/h005-cro/cro-b.svg", width: 2.3in),
     caption: [
         Anionic (i.e., B state) GFP chromophore.
     ],
@@ -101,14 +101,9 @@ These factors contribute significantly to the chromophore's spectroscopic charac
 
 Enhanced conjugation in a planar chromophore structure is primarily due to the maximized overlap of p-orbitals in the π-conjugated system.
 This optimal alignment of p-orbitals, perpendicular to the molecular plane, facilitates efficient delocalization of π-electrons across the entire conjugated system.
-Such extensive electron delocalization has profound effects on the chromophore's electronic structure, most notably in reducing the energy gap between the Highest Occupied Molecular Orbital (HOMO) and the Lowest Unoccupied Molecular Orbital (LUMO).
+Such extensive electron delocalization has profound effects on the chromophore's electronic structure, most notably in reducing the energy gap between the highest occupied molecular orbital (HOMO) and the lowest unoccupied molecular orbital (LUMO).
 
-The consequence of this reduced HOMO-LUMO gap is a red-shift in both absorption and emission spectra.
-As the energy required for electronic transitions decreases, the chromophore absorbs and emits light at longer wavelengths.
-This spectral shift is a direct result of the enhanced conjugation afforded by the planar structure.
-Moreover, the planar configuration typically leads to higher oscillator strengths for electronic transitions, potentially resulting in stronger absorption and brighter fluorescence.
-
-Planarity also significantly impacts the chromophore's quantum yield by restricting non-radiative decay pathways.
+Planarity significantly impacts the chromophore's quantum yield by restricting non-radiative decay pathways.
 In non-planar configurations, rotation around single bonds, can serve as an efficient route for non-radiative decay.
 However, when the chromophore is held in a planar conformation by the protein environment, these rotational movements are severely limited.
 This restriction of molecular motion creates energy barriers in the excited state potential energy surface, effectively preventing the chromophore from accessing geometries that favor non-radiative decay.
@@ -117,11 +112,7 @@ Furthermore, the planar structure reduces coupling between electronic and vibrat
 The minimized structural changes between ground and excited states in a planar chromophore also contribute to reduced internal conversion rates.
 Consequently, with fewer available non-radiative pathways, the excited chromophore is more likely to return to the ground state via fluorescence emission, directly increasing the fluorescence quantum yield.
 
-=== Available mechanisms
-
-With the above background, we will discuss possible fluorescence mechanisms.
-
-==== Neutral state
+=== Neutral-state fluorescence
 
 Excitation and subsequent emission of the neutral state of the chromophore without any structural changes is one---infrequent---possibility.
 
@@ -130,27 +121,26 @@ This excitation promotes the chromophore to its first excited singlet state ($S_
 The subsequent emission from this excited neutral state results in weak blue fluorescence with a peak around 460 nm.
 
 #figure(
-    image(FIG_DIR + "h-background/h006-cro-excitation/gfp-a-emission.svg", width: 2.0in),
+    image(FIG_DIR + "h-background/h006-cro-excitation/gfp-a-emission.png", width: 2.0in),
     caption: [
-        #todo("Add citation")
+        Excitation and emission of neutral chromophore.
     ],
     placement: auto
 ) <fig-a-emission>
 
 This protonated chromophore can be further stabilized by hydrogen bonding with a water molecule, Thr203, or Ser205.
 The presence or absence of these interactions contribute to the distinct excitation and emission.
-
-#figure(
-    image(FIG_DIR + "h-background/h004-cro-states/gfp-a2.svg", width: 2.0in),
-    caption: [
-        #todo("Add citation")
-    ],
-    placement: auto
-) <fig-a2-emission>
-
 Although, this emission is relatively weak compared to the anionic state discussed next.
 
-==== Anionic state
+#figure(
+    image(FIG_DIR + "h-background/h004-cro-states/gfp-a2-other.png", width: 3.0in),
+    caption: [
+        Example stabalizing configuration for the neutral chromophore.
+    ],
+    placement: auto
+) <fig-a-residues>
+
+=== Anionic-state fluorescence
 
 The anionic state of the chromophore represents a key configuration responsible for the protein's characteristic green fluorescence.
 In this state, the chromophore exists in its deprotonated form, with the phenolic oxygen carrying a negative charge.
@@ -160,9 +150,9 @@ This excitation promotes the chromophore to its first excited singlet state ($S_
 The subsequent relaxation and emission result in the bright green fluorescence typically associated with GFP, with a peak around 508 nm.
 
 #figure(
-    image(FIG_DIR + "h-background/h006-cro-excitation/gfp-b-emission.svg", width: 2.0in),
+    image(FIG_DIR + "h-background/h006-cro-excitation/gfp-b-emission.png", width: 2.0in),
     caption: [
-        #todo("Add citation")
+        #todo("Add caption")
     ],
     placement: auto
 ) <fig-b-emission>
@@ -172,9 +162,9 @@ Notably, Thr203 plays a crucial role in stabilizing the anionic form through hyd
 Additionally, a protonated Glu222 could form a hydrogen bond with the anionic chromophore, further contributing to its stabilization.
 
 #figure(
-    image(FIG_DIR + "h-background/h004-cro-states/gfp-b.svg", width: 2.0in),
+    image(FIG_DIR + "h-background/h004-cro-states/gfp-b-other.png", width: 3.0in),
     caption: [
-        #todo("Add citation")
+        Example stabalizing configuration for the anionic chromophore.
     ],
     placement: auto
 ) <fig-b2-emission>
@@ -182,51 +172,33 @@ Additionally, a protonated Glu222 could form a hydrogen bond with the anionic ch
 The protein environment around the chromophore is critical in maintaining this anionic configuration.
 The β-barrel structure of eGFP provides a hydrophobic pocket that shields the chromophore from bulk solvent, contributing to the high quantum yield of fluorescence in this state.
 
-==== Excited-state proton transfer
+=== Excited-state proton transfer
 
 The excited-state proton transfer (ESPT) mechanism represents a fundamental process in GFP, contributing significantly to its unique spectroscopic properties.
 This process involves the initial excitation of the neutral (protonated) chromophore, followed by rapid, successive proton transfer events in the excited state, ultimately resulting in emission from an anionic species.
 An overview of the process is shown below.
 
 #figure(
-    image(FIG_DIR + "h-background/h004-cro-states/gfp-photocycle.svg", width: 2.0in),
+    image(FIG_DIR + "h-background/h004-cro-states/gfp-photocycle.png", width: 3.5in),
     caption: [
-        #todo("Add citation")
+        #todo("Add caption")
     ],
     placement: auto
 ) <fig-espt-emission>
 
-1.  Upon absorption of a photon at approximately 395 nm, the neutral chromophore is promoted to its first excited singlet state ($S_1$).
+1. Upon absorption of a photon at approximately 395 nm, the neutral chromophore is promoted to its first excited singlet state ($S_1$).
 
-2.  In this excited state, the chromophore exhibits markedly different acid-base properties compared to its ground state, becoming a much stronger acid.
+2. In this excited state, the chromophore exhibits markedly different acid-base properties compared to its ground state, becoming a much stronger acid.
     This enhanced acidity facilitates the transfer of a proton from the chromophore to a proximal acceptor within the protein matrix.
-
     The proton transfer pathway involves a sophisticated hydrogen-bonding network.
     A critical component of this network is a strategically positioned water molecule, which acts as the initial proton acceptor.
     This water molecule is part of a proton wire that includes Ser205 and terminates at Glu222. The transfer occurs on an ultrafast timescale, typically in the order of picoseconds.
 
-3.  Following the ESPT, the system exists transiently in an intermediate state (I\*), characterized by an anionic chromophore and a protonated Glu222.
-    I\* subsequently relaxes and emits fluorescence at approximately 508 nm, closely resembling the emission profile of the intrinsically anionic chromophore.
+3. Following the ESPT, the system exists transiently in an intermediate state (I\*), characterized by an anionic chromophore and a protonated Glu222.
+I\* subsequently relaxes and emits fluorescence at approximately 508 nm, closely resembling the emission profile of the intrinsically anionic chromophore.
 
-4.  The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
+4. The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
 
-Little consensus has been made on the ESPT mechanism in GFP.
-
-
-
-
-
-
-
-
-
-
-Most experimental studies characterizing GFP fluorescence will perform a scan of excitation wavelengths from 300 to 500 nm while monitoring around 511 nm.
-
-
-GFP exhibits two distinct excitation peaks: (1) the A band around 400 nm and (2) the B band around 490 nm.
-These peaks correspond to 511 nm fluorescence of the chromophore's excited neutral (protonated) and anionic (deprotonated) forms.
-We will refer to the neutral and anionic forms of the chromophore as "A state" and "B state", respectively.
 
 = roGFP2 contains redox-sensing cysteines
 
@@ -239,7 +211,7 @@ The strategically placed cysteines can form a reversible disulfide bond in respo
 Formation of this disulfide alters the protonation state of the chromophore, resulting in reciprocal changes in the excitation peaks at ~400 nm and ~490 nm.
 
 #figure(
-    image(FIG_DIR + "h-background/h009-rogfp2-sims/relevant-reduced.png", width: 5.0in),
+    image(FIG_DIR + "h-background/h009-rogfp2-sims/relevant-reduced.png", width: 3.0in),
     caption: [
         Fluorescence-relevant residues in reduced roGFP2.
     ],
@@ -275,5 +247,158 @@ This spectral feature is a critical indicator of the probe's behavior: it sugges
 The maintenance of this isosbestic point across various redox potentials implies that the structural changes induced by oxidation and reduction are consistent and reversible.
 Any deviation from this behavior, such as a shift in the isosbestic point or its disappearance, would suggest more complex interactions---potentially involving intermediate states, protein structural changes, or interactions with other molecules---that could complicate data interpretation.
 
-= Methods
+== Possible perturbations
 
+Changes in A- or B-band absorption could indicate a variety of environmental changes in the chromophore.
+
+- *Equilibrium ratio of A or B state populations.*
+    Changes in neutral (A state) or anionic (B state) chromophore stability impacts the relative proportion of A- and B-band absorbance.
+    For example, roGFP1 @hanson2004investigating has a higher A band instead of B band.
+    A-state stability would be directly correlated to A-band fluorescence; whereas the B band would be inversely correlated.
+- *Excited-state proton transfer (ESPT) from A\* $arrow.r$ I\*.*
+    Emissions at the typical 511 nm (green) fluorescence from the A state requires an ESPT from Cro66 to Glu222 through a coordinated water molecule and Ser205.
+    Prohibiting ESPT would result in radiative emission at ~460 nm which often is not monitored.
+- *Ground-state proton transfer (GSPT) from I $arrow.r$ A.*
+    Reprotonating the chromophore through a GSPT is crucial for maintaining the A band and B-band lifetime.
+    Disrupting the Glu222 $arrow.r$ Ser205, Ser205 $arrow.r$ H#sub[2]O, or H#sub[2]O $arrow.r$ Cro66 pathway would decrease the A-state population&mdash;likely with a corresponding B state increase.
+
+= Molecular simulations
+
+#todo("Add methods")
+
+== Hydrogen bond cutoff
+
+A hydrogen bond of X---H $dots.c$ Y---Z, where X is the donor and Y is the acceptor atom, can be classified based on distances and angles.
+One characteristic recommended by IUPAC is that the H $dots.c$ Y distance is less than the sum of H and Y van der Waals radii.
+Hydrogen (1.10 Å) and oxygen (1.52 Å) @mantina2009consistent would have a cutoff of 2.62 Å.
+Others @hubbard2010hydrogen recommend a cutoff of 2.50 Å based on structural analysis @mcdonald1994satisfying and quantum chemical calculations @liu2008geometrical.
+Since the difference between a 2.5 and 2.62 Å cutoff is likely a substantially weak hydrogen bond, we will use a H $dots.c$ Y cutoff of 2.5 Å.
+
+= Fluorescence mechanism of Cu(I) distinct from oxidation
+
+Several experiments were performed to probe the fluorescence mechanism and binding affinity of Cu(I) to roGFP2.
+Our focus here is to elucidate the distinct Cu(I) atomistic mechanism from the oxidized state.
+@fig-cu-fluorescence shows the fluorescence of roGFP2 under various conditions.
+
+#figure(
+    image("s1b.png", width: 3.5in),
+    caption: [
+        Relative fluorescence (measured 528 nm emissions) of roGFP2 under reduced, oxidized, and Cu(I) conditions from 380 to 500 nm excitation scan.
+        #todo("Check emission value?")
+        Apo (i.e., reduced) roGFP2 exhibits typical bimodal absorption of A-band (excited at 400 nm) and B-band (excited at 488) peaks.
+        Upon roGFP2 oxidation from 1 mM H#sub[2]O#sub[2], a shift in A- (increased) and B-band (decreased) absorption and subsequent 528 nm emission marks a corresponding change in neutral and anionic chromophore populations.
+        Binding of Cu(I), however, exhibits a larger decrease in B-band without the A-band increase observed when oxidized.
+    ],
+    placement: auto
+) <fig-cu-fluorescence>
+
+First, we see a distinct difference from reduced $arrow.r$ oxidized and reduced $arrow.r$ Cu(I).
+Oxidized roGFP2 results in a (1) enhanced A band and (2) slight decrease in the B band.
+However, Cu(I) binding dramatically reduces the B band without change in the A band.
+This indicates that Cu(I) binding affects the chromophore differently than oxidation.
+
+= Cu(I) binding enhances roGFP2 backbone flexibility
+
+First, we investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C#sub[$alpha$]-C#sub[$alpha$] distances.
+Experimental structures of both the reduced (PDB ID: #link("https://www.rcsb.org/structure/1JC0")[1JC0]) and oxidized (PDB ID: #link("https://www.rcsb.org/structure/1JC1")[1JC1]) states of for roGFP2 exhibited a mean C#sub[$alpha$]-C#sub[$alpha$] distance of 4.30 ± 0.12 and 4.07 ± 0.09, respectively @hanson2004investigating.
+Our MD simulations agreed well with experimental observations as shown in Table 1.
+Larger standard deviations, $sigma$, would be expected for molecular simulations.
+
+#figure(
+    table(
+        columns: (auto, auto, auto),
+        stroke: none,
+        [*State*], [*Experimental (Å)*], [*MD simulations (Å)*],
+        table.hline(),
+        [Reduced], [4.30 ± 0.12], [4.34 ± 0.47],
+        [Oxidized], [4.07 ± 0.09], [4.11 ± 0.29],
+        [Cu(I)], [N/A], [4.78 ± 0.82],
+    ),
+    placement: auto
+) <tab-alpha-c>
+
+@fig-alpha-c shows the observed distribution of C#sub[$alpha$]-C#sub[$alpha$] distances.
+Cu(I) binding to Cys147 and Cys204 in roGFP2 induces significant structural changes, particularly in the protein's conformation.
+The observed increase in the C#sub[$alpha$]-C#sub[$alpha$] distance from approximately 4.3 Å to a broader distribution centered around 4.48 Å and 4.96 Å indicates a marked increase in conformational flexibility.
+
+#figure(
+    image(FIG_DIR + "b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+) <fig-alpha-c>
+
+Cys147 is located near the C-terminus end of a $beta$-pleaded sheet between His148 and Thr203.
+(Figure 7 illustrates the key residues in roGFP2 mechanism.)
+We observe in Figure 8 that Cu(I) binding breaks this $\beta$-sheet hydrogen bond.
+
+#figure(
+    image(FIG_DIR + "h-background/h009-rogfp2-sims/relevant-reduced.png", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
+
+In fact, Table 2 shows that the hydrogen bond probability ( &ndash;NH to O= within 2.5 Å) decreases from 0.865 (reduced) to 0.063 in Cu(I) simulations.
+
+#figure(
+    image(FIG_DIR + "f-backbone/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
+
+#figure(
+    caption: [Hydrogen bonding probability between residue backbones],
+    table(
+        columns: (auto, auto, auto),
+        stroke: none,
+        [*State*], [*His148 - Thr203*], [*Asn146 - Ser205*],
+        table.hline(),
+        [Reduced], [0.865], [0.047],
+        [Oxidized], [0.997], [0.144],
+        [Cu(I)], [0.063], [0.000],
+    ),
+    placement: auto
+)
+
+Parallel results are observed on the other side of Cys147&mdash;between Asn146 and Ser205.
+
+#figure(
+    image(FIG_DIR + "f-backbone/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
+
+= Perturbations in anionic chromophore stability
+
+#figure(
+    image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
+
+#figure(
+    image(FIG_DIR + "g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
+
+= Disruption of ground-state proton transfer
+
+#figure(
+    image(FIG_DIR + "e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)

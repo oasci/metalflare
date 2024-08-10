@@ -41,7 +41,7 @@
     set document(title: title, author: authors.map(author => author.name))
 
     // Set the body font.
-    set text(font: "Roboto", lang: "en", size: 12pt)
+    set text(font: "Roboto", lang: "en", size: 10pt, hyphenate: false)
 
     // Tables & figures
     set figure(placement: top)
@@ -59,7 +59,7 @@
     // Configure the page.
     set page(
         paper: "us-letter",
-        margin: (left: 1.0in, right: 1.0in, top: 1.0in, bottom: 1.0in),
+        margin: (left: 0.75in, right: 0.75in, top: 0.75in, bottom: 0.75in),
             footer: [
             #set text(9pt)
 
@@ -96,8 +96,7 @@
 
         set text(12pt, weight: 400)
         if it.level == 1 [
-            #set par(justify: true, first-line-indent: 0em)
-            #set text(size: 14pt, weight: "medium")
+            #set text(size: 12pt, weight: "medium")
             #set align(center)
             #v(20pt, weak: true)
             #if it.numbering != none{
@@ -173,8 +172,10 @@
 
     // Display bibliography.
     show heading: it => [
-      #it.body
-      #v(0.5em)
+        #set par(justify: true, first-line-indent: 0em)
+        #v(0.5em)
+        #it.body
+        #v(0.5em)
     ]
     if bibliography != none {
         show std-bibliography: set text(10pt)
