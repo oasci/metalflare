@@ -195,7 +195,7 @@ An overview of the process is shown below.
     This water molecule is part of a proton wire that includes Ser205 and terminates at Glu222. The transfer occurs on an ultrafast timescale, typically in the order of picoseconds.
 
 3. Following the ESPT, the system exists transiently in an intermediate state (I\*), characterized by an anionic chromophore and a protonated Glu222.
-I\* subsequently relaxes and emits fluorescence at approximately 508 nm, closely resembling the emission profile of the intrinsically anionic chromophore.
+    I\* subsequently relaxes and emits fluorescence at approximately 508 nm, closely resembling the emission profile of the intrinsically anionic chromophore.
 
 4. The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
 
@@ -253,18 +253,75 @@ Changes in A- or B-band absorption could indicate a variety of environmental cha
 
 - *Equilibrium ratio of A or B state populations.*
     Changes in neutral (A state) or anionic (B state) chromophore stability impacts the relative proportion of A- and B-band absorbance.
-    For example, roGFP1 @hanson2004investigating has a higher A band instead of B band.
-    A-state stability would be directly correlated to A-band fluorescence; whereas the B band would be inversely correlated.
+    For example, roGFP1 has a higher A band instead of B band @hanson2004investigating.
+    A-state stability is directly correlated to A-band fluorescence; whereas the B band would be inversely correlated.
 - *Excited-state proton transfer (ESPT) from A\* $arrow.r$ I\*.*
     Emissions at the typical 511 nm (green) fluorescence from the A state requires an ESPT from Cro66 to Glu222 through a coordinated water molecule and Ser205.
-    Prohibiting ESPT would result in radiative emission at ~460 nm which often is not monitored.
+    Prohibiting ESPT would result in radiative emission at ~460 nm which often is not monitored experimentally.
 - *Ground-state proton transfer (GSPT) from I $arrow.r$ A.*
     Reprotonating the chromophore through a GSPT is crucial for maintaining the A band and B-band lifetime.
     Disrupting the Glu222 $arrow.r$ Ser205, Ser205 $arrow.r$ H#sub[2]O, or H#sub[2]O $arrow.r$ Cro66 pathway would decrease the A-state population&mdash;likely with a corresponding B state increase.
+- *Non-radiative emissions.*
+    Enahnced flexibility of the chromophore through protein conformational shifts would lead to additional non-adiabatic crossings; thereby lowering the relative fluorescence in that state.
 
 = Molecular simulations
 
-#todo("Add methods")
+== Protein preparation
+
+Initial protein structures for reduced (#link("https://files.rcsb.org/download/1JC0.pdb")[1JC0]) and oxidized (#link("https://files.rcsb.org/download/1JC1.pdb")[1JC1]) states of roGFP2 were retrieved from the Protein Data Bank (PDB).
+The structures were processed using in-house Python and bash scripts (available free of charge at #link("https://gitlab.com/oasci/studies/metalflare")[gitlab.com/oasci/studies/metalflare]).
+The first chain, along with the crystallographic water molecules, were centered to the origin while minimize the box values using NumPy #addcite(), SciPy #addcite(), and MDAnalysis #addcite() packages.
+
+Given the relevance and availability of the GFP mechanism's force field parameters, the chromophore was modeled in its anionic state.
+All selenomethionine residues (MSE) were converted to methionine (MET), and Cys147 and Cys204 were transformed into the appropriate residues.
+Glu222 was protonated to model the I state of the GFP photocycle; this still probes the anionic chromophore's stability while offering insight into GSPT dynamics.
+The protonation states of all other residues were determined with PDB2PQR @jurrus2018improvements, using the default parameters to ensure standardization.
+The pdb4amber tool was then used to validate the PDB file before proceeding.
+
+== Simulation preparation
+
+System preparation was performed using the tleap module of AmberTools v23.6 #addcite().
+The protein structure was parameterized using the ff19SB force field #addcite().
+For the solvent environment, we employed the OPC3 water model, #addcite(), which is known for its balanced representation of water properties in biomolecular simulations.
+The 12-6 nonbonded model and parameters for all ions were taken from Sengupta et al @sengupta2021parameterization.
+The system was neutralized by adding Na+ and Cl- ions as needed.
+Additional ions were introduced to achieve a solvent ionic strength of 0.150 M to mimic physiological conditions.
+The protein was solvated in a rectangular box, with a minimum distance of 10 Å between the protein and the box edges to minimize periodic boundary condition artifacts.
+Parameters from Breyfogle et al. @breyfogle2023molecular were employed for the anionic chromophore.
+
+== Minimization
+
+The prepared system underwent a four-stage energy minimization protocol using Amber23 #addcite() to relieve any unfavorable interactions and optimize the structure.
+All minimization stages used the steepest descent method for the first 1000 steps, followed by the conjugate gradient method for the remaining steps, with a maximum of 5000 steps per stage.
+A non-bonded cutoff of 10.0 Å was applied throughout.
+Periodic boundary conditions were employed, and coordinates were wrapped to the primary unit cell.
+The minimization progress was monitored by writing energies every step and coordinates every 200 steps.
+
+#emph[Stage 1:] Initial minimization was performed with restraints (force constant: 5.0 kcal/mol/Å²) on all non-hydrogen atoms of the entire system, allowing hydrogen atoms to relax and adjust their positions.
+#emph[Stage 2:] The system was further minimized with restraints (force constant: 5.0 kcal/mol/Å²) on all non-hydrogen atoms of the solute (excluding water molecules and ions), allowing solvent and ions to equilibrate around the solute.
+#emph[Stage 3:] Minimization continued with reduced restraints (force constant: 2.0 kcal/mol/Å²) applied only to the protein backbone, allowing side chains and other flexible parts to relax.
+#emph[Stage 4:] Final minimization was performed with further reduced restraints (force constant: 1.0 kcal/mol/Å²).
+The resulting minimized structure served as the starting point for subsequent relaxation and production simulations.
+
+== Relaxation simulations
+
+Following energy minimization, the system underwent a three-stage relaxation protocol using Amber23 to gradually equilibrate the structure and solvent.
+Three independent runs were initiated with random initial velocities to ensure adequate sampling.
+All subsequent simulations were continued using the respective run's restart files.
+
+#emph[Stage 1:] An initial 20 ps NVT (constant Number of particles, Volume, and Temperature) simulation was performed with a 2 fs time step. The system was heated from 100 K to 300 K using Langevin dynamics with a collision frequency of 5 ps⁻¹. Restraints (force constant: 1.0 kcal/mol/Å²) were applied to the protein backbone.
+SHAKE algorithm was used to constrain bonds involving hydrogen atoms.
+The non-bonded cutoff was set to 10.0 Å.
+#emph[Stage 2:] A 1 ns NPT simulation followed, maintaining the temperature at 300 K using Langevin dynamics (collision frequency: 5 ps⁻¹).
+Pressure was regulated at 1.01325 bar using the Monte Carlo barostat with a relaxation time of 1 ps.
+Restraints on the same atoms were reduced (force constant: 0.5 kcal/mol/Å²).
+#emph[Stage 3:] The final relaxation stage consisted of a 1 ns NPT simulation with all positional restraints removed.
+
+== Production simulations
+
+All production runs were performed under the same setup as the last relaxation stage.
+Each run was simulated for 500 ns with coordinates saved every ten ps.
+The resulting trajectories from all three replicates were used for subsequent analyses, providing a cumulative 1.5 $mu$s of simulation data for the system under study.
 
 == Hydrogen bond cutoff
 
@@ -331,15 +388,7 @@ The observed increase in the C#sub[$alpha$]-C#sub[$alpha$] distance from approxi
 
 Cys147 is located near the C-terminus end of a $beta$-pleaded sheet between His148 and Thr203.
 (Figure 7 illustrates the key residues in roGFP2 mechanism.)
-We observe in Figure 8 that Cu(I) binding breaks this $\beta$-sheet hydrogen bond.
-
-#figure(
-    image(FIG_DIR + "h-background/h009-rogfp2-sims/relevant-reduced.png", width: 3.5in),
-    caption: [
-        #todo("Add caption")
-    ],
-    placement: auto
-)
+We observe in Figure 8 that Cu(I) binding breaks this $beta$-sheet hydrogen bond.
 
 In fact, Table 2 shows that the hydrogen bond probability ( &ndash;NH to O= within 2.5 Å) decreases from 0.865 (reduced) to 0.063 in Cu(I) simulations.
 

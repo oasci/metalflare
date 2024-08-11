@@ -128,7 +128,7 @@
 
     // Display the paper's title.
     v(3pt, weak: true)
-    align(center, text(24pt, title))
+    align(center, text(18pt, title))
     v(8.35mm, weak: true)
 
     // Display the authors list.
@@ -157,7 +157,7 @@
         )
 
         if not is-last {
-        v(16pt, weak: true)
+            v(16pt, weak: true)
         }
     }
     v(40pt, weak: true)
