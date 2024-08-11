@@ -278,6 +278,10 @@ Glu222 was protonated to model the I state of the GFP photocycle; this still pro
 The protonation states of all other residues were determined with PDB2PQR @jurrus2018improvements, using the default parameters to ensure standardization.
 The pdb4amber tool was then used to validate the PDB file before proceeding.
 
+== Cu(I) placement
+
+#todo("Add GFN2-xTB calculations.")
+
 == Simulation preparation
 
 System preparation was performed using the tleap module of AmberTools v23.6 #addcite().
@@ -333,14 +337,13 @@ Since the difference between a 2.5 and 2.62 Å cutoff is likely a substantially 
 
 = Fluorescence mechanism of Cu(I) distinct from oxidation
 
-Several experiments were performed to probe the fluorescence mechanism and binding affinity of Cu(I) to roGFP2.
-Our focus here is to elucidate the distinct Cu(I) atomistic mechanism from the oxidized state.
-@fig-cu-fluorescence shows the fluorescence of roGFP2 under various conditions.
+Joel Rosenbaum performed in vitro assays of roGFP2 under H#sub[2]O#sub[2] (i.e., oxidation) and Cu(I) conditions by monitoring 528 nm emissions #todo("Check emission value") with scanning excitation wavelengths between 380 and 500 nm.
+Relative fluorescence with respect to #todo("How was this normalized? Check methods") is shown in @fig-cu-fluorescence.
 
 #figure(
     image("s1b.png", width: 3.5in),
     caption: [
-        Relative fluorescence (measured 528 nm emissions) of roGFP2 under reduced, oxidized, and Cu(I) conditions from 380 to 500 nm excitation scan.
+        Relative fluorescence of roGFP2 under reduced, oxidized, and Cu(I) conditions from 380 to 500 nm excitation scan.
         #todo("Check emission value?")
         Apo (i.e., reduced) roGFP2 exhibits typical bimodal absorption of A-band (excited at 400 nm) and B-band (excited at 488) peaks.
         Upon roGFP2 oxidation from 1 mM H#sub[2]O#sub[2], a shift in A- (increased) and B-band (decreased) absorption and subsequent 528 nm emission marks a corresponding change in neutral and anionic chromophore populations.
@@ -349,34 +352,41 @@ Our focus here is to elucidate the distinct Cu(I) atomistic mechanism from the o
     placement: auto
 ) <fig-cu-fluorescence>
 
-First, we see a distinct difference from reduced $arrow.r$ oxidized and reduced $arrow.r$ Cu(I).
-Oxidized roGFP2 results in a (1) enhanced A band and (2) slight decrease in the B band.
-However, Cu(I) binding dramatically reduces the B band without change in the A band.
-This indicates that Cu(I) binding affects the chromophore differently than oxidation.
+Apo represents our control with roGFP2 in its reduced state.
+Adding 1.0 mM H#sub[2]O#sub[2] results in the expected shift in the A- and B-band proportions.
+Again, this indicates that oxidizing Cys147 and Cys204 and forming a disulfide bridge increases the neutral chromophore equilibrium proportion---with a corresponding decrease in the anionic state.
+This oxidation-induced change in the chromophore protonation state is the basis for roGFP2's utility as a redox sensor in biological systems.
+
+Cu(I), on the other hand, exhibits an entirely different fluorescence response.
+Strikingly, a mere 1 $mu$M of Cu(I) drastically reduces the B-band intensity while keeping the A band relatively stable.
+The distinct responses to oxidation and Cu(I) binding provide compelling evidence that Cu(I) binding to roGFP2 does not simply alter the chromophore's protonation state preference, as oxidation does. Instead, these results suggest that Cu(I) may disturb the anionic chromophore's electronic state or induce conformational changes that specifically affect its environment, underscoring the need for further exploration.
 
 = Cu(I) binding enhances roGFP2 backbone flexibility
 
-First, we investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C#sub[$alpha$]-C#sub[$alpha$] distances.
-Experimental structures of both the reduced (PDB ID: #link("https://www.rcsb.org/structure/1JC0")[1JC0]) and oxidized (PDB ID: #link("https://www.rcsb.org/structure/1JC1")[1JC1]) states of for roGFP2 exhibited a mean C#sub[$alpha$]-C#sub[$alpha$] distance of 4.30 ± 0.12 and 4.07 ± 0.09, respectively @hanson2004investigating.
-Our MD simulations agreed well with experimental observations as shown in Table 1.
-Larger standard deviations, $sigma$, would be expected for molecular simulations.
+First, we investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C#sub[$alpha$]-C#sub[$alpha$] distances over 1.5 $mu$s of MD simulations.
+Experimental structures of both the reduced (PDB ID: #link("https://www.rcsb.org/structure/1JC0")[1JC0]) and oxidized (PDB ID: #link("https://www.rcsb.org/structure/1JC1")[1JC1]) states of for roGFP2 exhibited a mean C#sub[$alpha$]-C#sub[$alpha$] distance of 4.30 ± 0.12 and 4.07 ± 0.09 $angstrom$, respectively @hanson2004investigating.
+Our MD simulations agreed well with experimental observations as shown in Table 1 with mean differences less than 0.04 $angstrom$.
 
 #figure(
     table(
         columns: (auto, auto, auto),
         stroke: none,
-        [*State*], [*Experimental (Å)*], [*MD simulations (Å)*],
+        [*State*], [*Experimental (Å)*], [*Simulations (Å)*],
         table.hline(),
         [Reduced], [4.30 ± 0.12], [4.34 ± 0.47],
         [Oxidized], [4.07 ± 0.09], [4.11 ± 0.29],
         [Cu(I)], [N/A], [4.78 ± 0.82],
     ),
-    placement: auto
+    placement: none,
+    caption: [Mean and standard deviations of C#sub[$alpha$]-C#sub[$alpha$] distances between Cys147 and Cys204.]
 ) <tab-alpha-c>
 
-@fig-alpha-c shows the observed distribution of C#sub[$alpha$]-C#sub[$alpha$] distances.
-Cu(I) binding to Cys147 and Cys204 in roGFP2 induces significant structural changes, particularly in the protein's conformation.
-The observed increase in the C#sub[$alpha$]-C#sub[$alpha$] distance from approximately 4.3 Å to a broader distribution centered around 4.48 Å and 4.96 Å indicates a marked increase in conformational flexibility.
+The standard deviations, $sigma$, also provide an indication of conformational flexibility.
+Unsurprisingly, the $sigma$ of oxidized roGFP2 exhibits is substantially smaller than the reduced state.
+
+An experimental structure of roGFP2-Cu(I) is currently not available; however, our simulations suggest that it is on average 0.44 $angstrom$ larger than the reduced state.
+Cu(I) stayed coordinated between Cys147 and Cys204 throughout all simulations while enhancing conformational flexibility.
+For example, @fig-alpha-c shows a broader distribution of C#sub[$alpha$]-C#sub[$alpha$] distances with a slight bimodal peaks centered around 4.48 Å and 4.96 Å.
 
 #figure(
     image(FIG_DIR + "b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg", width: 3.5in),
