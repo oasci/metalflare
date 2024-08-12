@@ -170,7 +170,7 @@ Additionally, a protonated Glu222 could form a hydrogen bond with the anionic ch
 ) <fig-b2-emission>
 
 The protein environment around the chromophore is critical in maintaining this anionic configuration.
-The β-barrel structure of eGFP provides a hydrophobic pocket that shields the chromophore from bulk solvent, contributing to the high quantum yield of fluorescence in this state.
+The $beta$-barrel structure of eGFP provides a hydrophobic pocket that shields the chromophore from bulk solvent, contributing to the high quantum yield of fluorescence in this state.
 
 === Excited-state proton transfer
 
@@ -199,13 +199,62 @@ An overview of the process is shown below.
 
 4. The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
 
+== Roles of crucial residues
+
+The exceptional fluorescent properties of GFP arise from a complex interplay of molecular interactions within its $beta$-barrel structure.
+
+=== His148
+
+His148 plays a pivotal role in the structure and function of GFP, significantly contributing to chromophore stabilization and modulation of photophysical properties.
+
+Structurally, His148 helps maintain $beta$-strand stability by hydrogen bonding to Arg168's backbone #addcite().
+Others have also explored introducing a hole in the $beta$ barel through a H148G mutation; thereby allowing metal ions to diffuse into the protein and interact directly with the chromophore @barondeau2002structural.
+
+His148 directly interacts with the chromophore, forming a critical hydrogen bond.
+Specifically, the imidazole side chain of His148 donates a hydrogen bond to the chromophore's phenolate oxygen #addcite().
+This interaction is vital for stabilizing the anionic form of the chromophore.
+
+The role of His148 in GFP's photophysics extends beyond static structural interactions.
+Upon chromophore excitation, His148 facilitates proton movement, contributing to the complex photochemistry that gives rise to GFP's unique fluorescent properties @shinobu2010visualizing.
+
+His148, along with Tyr145, aids in locking the chromophore into a planar conformation.
+This planar structure is essential for efficient π-electron delocalization across the chromophore system, directly influencing its fluorescent properties.
+The rigid environment provided by these residues minimizes non-radiative decay pathways, contributing to GFP's high fluorescence quantum yield.
+
+The importance of His148 has been further elucidated through mutational studies.
+Of particular interest is the H148G mutation, which introduces a hole in the β-barrel structure.
+Barondeau et al. demonstrated that this mutation allows metal ions to diffuse into the protein and interact directly with the chromophore @barondeau2002structural.
+
+=== Tyr145
+
+Tyr145 plays a crucial role in stabilizing the chromophore and influencing its photophysical properties.
+Located in close proximity to the chromophore within the $beta$-barrel structure of GFP, Tyr145 contributes significantly to the protein's unique fluorescent characteristics through several key interactions.
+
+One of the primary functions of Tyr145 is its direct involvement in the hydrogen bonding network surrounding the chromophore.
+The phenolic hydroxyl group of Tyr145 serves as a hydrogen bond donor to the imidazolinone nitrogen of the chromophore.
+This interaction is critical for maintaining the chromophore in its optimal conformation for fluorescence.
+The hydrogen bond between Tyr145 and the chromophore contributes to the rigidity of the chromophore's environment, which is essential for efficient fluorescence by minimizing non-radiative decay pathways.
+
+Tyr145 also plays a significant role in modulating the electronic structure of the chromophore.
+Through its proximity and interactions, Tyr145 influences the $pi$-electron system of the chromophore, affecting its spectral properties.
+The specific orientation and strength of the hydrogen bond formed by Tyr145 can lead to subtle shifts in the absorption and emission spectra of GFP.
+
+=== Thr203
+
+Thr203 is located close to the chromophore within the $beta$-barrel structure; its hydroxyl group can form a hydrogen bond with the chromophore's phenolate oxygen in its anionic state.
+The position and orientation of the side chain influence the chromophore's electronic environment, affecting both absorption and emission spectra.
+Mutations at this position, such as T203V or T203Y, disrupt this hydrogen bond and destabilize the deprotonated B-state of the chromophore, shifting the equilibrium towards the neutral A-state.
+
+T203 mutations also affect ESPT efficiency fluorescence quantum yields.
+The T203V mutation maintains high ESPT efficiency similar to wild-type, while T203Y significantly reduces ESPT.
+T203V and T203Y mutations generally lead to higher fluorescence quantum yields of the deprotonated chromophore form compared to wild-type T203, likely by suppressing non-radiative decay pathways like rotation around the chromophore's exocyclic bond @jung2005photophysics.
 
 = roGFP2 contains redox-sensing cysteines
 
 Redox-sensitive green fluorescent proteins (roGFPs) are engineered variants of GFP designed to report cellular redox states through changes in their fluorescence properties @hanson2004investigating.
 Among these, roGFP2 has emerged as a particularly useful probe due to its ratiometric readout and midpoint potential, which are suitable for measuring redox conditions in reducing cellular compartments like the cytosol and mitochondria.
 
-roGFP2 contains two cysteine residues (S147C and Q204C) on adjacent β-strands near the chromophore of a GFP variant already containing mutations C48S, S65T, and Q80R.
+roGFP2 contains two cysteine residues (S147C and Q204C) on adjacent $beta$-strands near the chromophore of a GFP variant already containing mutations C48S, S65T, and Q80R.
 (A structural depiction of the relevant residues is in @fig-rogfp2-structure.)
 The strategically placed cysteines can form a reversible disulfide bond in response to the surrounding redox environment changes.
 Formation of this disulfide alters the protonation state of the chromophore, resulting in reciprocal changes in the excitation peaks at ~400 nm and ~490 nm.
@@ -327,6 +376,63 @@ All production runs were performed under the same setup as the last relaxation s
 Each run was simulated for 500 ns with coordinates saved every ten ps.
 The resulting trajectories from all three replicates were used for subsequent analyses, providing a cumulative 1.5 $mu$s of simulation data for the system under study.
 
+
+== Analysis
+
+From the MD trajectories, we extracted two primary sets of data:
+
+1. Dihedral angles ($phi$, $psi$) were calculated using MDAnalysis #addcite() for specific residues known to be crucial for roGFP2 function.
+2. Key interactions between various residues through intermolecular distances.
+
+Dihedral angles were transformed using
+
+$ frac(1 - cos (theta), 2) $
+
+This transformation maps the circular dihedral data to a [0, 1] range, preserving the periodicity while differentiating between cis and trans conformations.
+
+All input features ($X$) were standardized using sklearn's `StandardScaler` to ensure each feature contributes equally to the model.
+This transformation ensures continuity across the periodic boundary, facilitating more accurate modeling.
+
+=== Potential of mean force (PMF)
+
+#todo("Write this.")
+
+=== Feature correlation
+
+To investigate the relationship between structural descriptors and various features, we employed Partial Least Squares (PLS) regression analysis.
+This multivariate statistical technique was chosen for its ability to handle high-dimensional, correlated data and reveal underlying patterns in complex datasets.
+
+A PLS regression model was fitted to $X$ and response variable $y$ using sklearn's `PLSRegression` with two components for each simulation state.
+The model's performance was evaluated using the $R^2$ score.
+
+Data points were projected onto the space of the first two PLS components.
+A 2D histogram was created in this space, with bin colors representing the mean $y$.
+
+Loading vectors for each feature were plotted as arrows in the PLS component space.
+The magnitude and direction of these arrows indicate the importance and relationship of each feature to the PLS components.
+The magnitude of each feature's loading vector was calculated as the Euclidean norm of its first two PLS components.
+
+A dashed line representing the direction of maximum change in the response variable was added to the plot.
+This line, referred to as the derivative line, indicates the direction in the PLS component space along which $y$ increases most rapidly.
+
+== Feature importance
+
+We developed a machine learning pipeline to elucidate the relationship between backbone dihedral angles and the target feature.
+Our approach employed two complementary models:
+
+- *XGBoost Regressor:* A gradient boosting algorithm chosen for its high performance and ability to capture non-linear relationships #addcite().
+- *Elastic Net:* A regularized linear regression model selected to identify linear correlations while mitigating multicollinearity #addcite().
+
+The dataset was randomly partitioned into training (80%) and testing (20%) sets, ensuring model generalizability.
+We utilized `GridSearchCV` with 3-fold cross-validation to tune model hyperparameters.
+For XGBoost, we optimized the number of estimators (250-700), learning rate (0.05-0.2), maximum tree depth (5-9), and regularization terms ($alpha$: 0.0-0.2, $gamma$: 0.8-1.0).
+For Elastic Net, we tuned the regularization strength ($alpha$: 10#super[-5] - 5) and L1 ratio (0.2-1.0).
+Performance was assessed using mean squared error (MSE) and coefficient of determination ($R^2$) on the held-out test set.
+
+Feature Importance Analysis
+We extracted XGBoost feature importance scores directly from the model, but used absolute values of the ElasticNet coefficients as a proxy for feature importance.
+This dual-model approach allows for a robust comparison of feature rankings, mitigating model-specific biases.
+
 == Hydrogen bond cutoff
 
 A hydrogen bond of X---H $dots.c$ Y---Z, where X is the donor and Y is the acceptor atom, can be classified based on distances and angles.
@@ -363,9 +469,12 @@ The distinct responses to oxidation and Cu(I) binding provide compelling evidenc
 
 = Cu(I) binding enhances roGFP2 backbone flexibility
 
-First, we investigate the structural dynamics of Cys147 and Cys204 interactions by analyzing the C#sub[$alpha$]-C#sub[$alpha$] distances over 1.5 $mu$s of MD simulations.
+First, we investigate the backbone dynamics over 1.5 $mu$s of MD simulations.
+
+== Cys147 and Cys207 C#sub[$alpha$] distance
+
 Experimental structures of both the reduced (PDB ID: #link("https://www.rcsb.org/structure/1JC0")[1JC0]) and oxidized (PDB ID: #link("https://www.rcsb.org/structure/1JC1")[1JC1]) states of for roGFP2 exhibited a mean C#sub[$alpha$]-C#sub[$alpha$] distance of 4.30 ± 0.12 and 4.07 ± 0.09 $angstrom$, respectively @hanson2004investigating.
-Our MD simulations agreed well with experimental observations as shown in Table 1 with mean differences less than 0.04 $angstrom$.
+Our MD simulations agreed well with experimental observations as shown in @tab-alpha-c with mean differences less than 0.04 $angstrom$.
 
 #figure(
     table(
@@ -396,19 +505,29 @@ For example, @fig-alpha-c shows a broader distribution of C#sub[$alpha$]-C#sub[$
     placement: auto
 ) <fig-alpha-c>
 
-Cys147 is located near the C-terminus end of a $beta$-pleaded sheet between His148 and Thr203.
-(Figure 7 illustrates the key residues in roGFP2 mechanism.)
-We observe in Figure 8 that Cu(I) binding breaks this $beta$-sheet hydrogen bond.
+== $beta$-strand fraying
 
-In fact, Table 2 shows that the hydrogen bond probability ( &ndash;NH to O= within 2.5 Å) decreases from 0.865 (reduced) to 0.063 in Cu(I) simulations.
+GFP and its variants are characterized by a distinctive $beta$-barrel structure, which plays a crucial role in their fluorescence properties.
+This $beta$-barrel is composed of 11 $beta$-strands, forming a robust scaffolding that encapsulates and protects the centrally located chromophore.
+The structural integrity of this $beta$-barrel is essential for maintaining the protein's fluorescence characteristics and its sensitivity to environmental changes.
+In roGFP2, Cys147 is strategically positioned near the C-terminus of a $beta$-pleated sheet, flanked by His148 and Thr203 (Figure @fig-rogfp2-structure).
 
 #figure(
     image(FIG_DIR + "f-backbone/f001-his148_h-thr203_o/f001-his148_h-thr203_o-pdf.svg", width: 3.5in),
     caption: [
-        #todo("Add caption")
+        Probability density of His148 and Thr203 backbone hydrogen bonding under various roGFP2 conditions.
     ],
     placement: auto
-)
+) <fig-beta-his147>
+Our molecular dynamics simulations reveal a striking structural change upon Cu(I) binding to roGFP2.
+Specifically, we observe a significant disruption in the $beta$-sheet structure near Cys147.
+@fig-beta-his147 illustrates that Cu(I) binding leads to the breaking of a key $beta$-sheet hydrogen bond in this region.
+This observation is further substantiated by quantitative analysis presented in @tab-beta-his147, which shows a dramatic decrease in the hydrogen bond probability between the backbone --NH and C=O groups within a 2.5 $angstrom$ distance.
+The probability drops from 0.865 in the reduced state to a mere 0.063 in the Cu(I)-bound state, indicating a near-complete loss of this stabilizing interaction.
+(Unsurprisingly, oxidized roGFP2 stabilizes this hydrogen bond.)
+
+This disruption of the $beta$-sheet hydrogen bonding network can be characterized as "fraying" of the $beta$-strand.
+Fraying is a phenomenon where the regular hydrogen bonding pattern at the termini of secondary structure elements, particularly $beta$-strands, becomes disrupted, leading to increased local flexibility.
 
 #figure(
     caption: [Hydrogen bonding probability between residue backbones],
@@ -422,9 +541,10 @@ In fact, Table 2 shows that the hydrogen bond probability ( &ndash;NH to O= with
         [Cu(I)], [0.063], [0.000],
     ),
     placement: auto
-)
+) <tab-beta-his147>
 
-Parallel results are observed on the other side of Cys147&mdash;between Asn146 and Ser205.
+In the case of roGFP2, the Cu(I)-induced fraying at the C-terminus of this $beta$-strand is likely to have several important implications.
+Given the proximity of this structural change to the chromophore, it may directly influence the chromophore's electronic environment, contributing to the observed changes in fluorescence properties upon Cu(I) binding.
 
 #figure(
     image(FIG_DIR + "f-backbone/f002-ser205_h-asn146_o/f002-ser205_h-asn146_o-pdf.svg", width: 3.5in),
@@ -432,9 +552,19 @@ Parallel results are observed on the other side of Cys147&mdash;between Asn146 a
         #todo("Add caption")
     ],
     placement: auto
-)
+) <fig-beta-his146>
+The structural perturbation at this site could also propagate through the protein structure.
+Indeed, @fig-beta-his146 shows the intermolecular distance peak between Asn146 and Ser205 increasing from 3.80 to 4.48 $angstrom$ with bound Cu(I).
+Distances with Cu(I) extends out to at least 0.66 $angstrom$ further than the reduced state.
+Under oxidizing conditions, the peak distance only decreases to 3.56 $angstrom$ and hydrogen bonds 14.4 % during the course of the simulations.
 
-= Perturbations in anionic chromophore stability
+No changes are observed in the Val150 and Leu201 $beta$-strand.
+
+= Cu(I) binding disrupts anionic chromophore hydrogen binding
+
+As previously mentioned, several residues are in close proximity to the chromophore.
+Numerous studies have observed complex interactions and have led to several variants tailord for specific applications.
+roGFP2 is no different.
 
 #figure(
     image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
@@ -443,6 +573,13 @@ Parallel results are observed on the other side of Cys147&mdash;between Asn146 a
     ],
     placement: auto
 )
+His148 often coordinates with the chromophore, both reduced and oxidized simulations spend 48.6 and 69.1% of the time within 2.5 $angstrom$.
+With bound Cu(I), this percentage drops to 33.9%.
+Outside of this time, the $delta$-protonated His148 hydrogen bonds to the Asn146 backbone, while keeping the $epsilon$-nitrogen coordinated to Arg168 for at least 68.7% of the time (data not shown).
+
+His148 and Thr203 $beta$-strand fraying appears to correlates correlate with decreased stabilization of the anionic chromophore through His148.
+Training
+
 
 #figure(
     image(FIG_DIR + "g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg", width: 3.5in),
