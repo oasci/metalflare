@@ -241,13 +241,11 @@ The specific orientation and strength of the hydrogen bond formed by Tyr145 can 
 
 === Thr203
 
-Thr203 is located close to the chromophore within the $beta$-barrel structure; its hydroxyl group can form a hydrogen bond with the chromophore's phenolate oxygen in its anionic state.
-The position and orientation of the side chain influence the chromophore's electronic environment, affecting both absorption and emission spectra.
-Mutations at this position, such as T203V or T203Y, disrupt this hydrogen bond and destabilize the deprotonated B-state of the chromophore, shifting the equilibrium towards the neutral A-state.
-
-T203 mutations also affect ESPT efficiency fluorescence quantum yields.
-The T203V mutation maintains high ESPT efficiency similar to wild-type, while T203Y significantly reduces ESPT.
-T203V and T203Y mutations generally lead to higher fluorescence quantum yields of the deprotonated chromophore form compared to wild-type T203, likely by suppressing non-radiative decay pathways like rotation around the chromophore's exocyclic bond @jung2005photophysics.
+Thr203 is located close to the chromophore within the $beta$-barrel structure.
+In specific conformations, its hydroxyl group can hydrogen bond with the anionic chromophore's phenolate oxygen.
+Mutating Thr203 to Ile or Val destabilizes the B-state and dramatically reduces its excitation peak; thus driving the grand-state equilibirum towards the A-state @kummer2000effects.
+Yellow FP (YFP) is also derived from mutations by placing chemical groups that can $pi$--$pi$-stacking with the chromophore @zimmer2002green.
+Quenching of A\* emissions through an ESPT is still present in T203 mutants; however, T203I and T203V mutants are slower down while T203Y maintains wild-type speeds @jung2005photophysics.
 
 = roGFP2 contains redox-sensing cysteines
 
