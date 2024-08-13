@@ -40,21 +40,21 @@ Ideally, we want to identify loadings that correlate to the PLS components paral
     ![](./reduced_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/reduced_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/i-tyr145/i011-tyr145_hd1-pls/reduced_loading_angles_and_magnitudes.md"
 
 === "Oxidized"
     <figure markdown>
     ![](./oxidized_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/oxidized_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/i-tyr145/i011-tyr145_hd1-pls/oxidized_loading_angles_and_magnitudes.md"
 
 === "Cu(I)"
     <figure markdown>
     ![](./cu_pls_regression.png){ width=700 }
     </figure>
 
-    --8<-- "study/figures/i-tyr145/i011-his148_hd1-pls/cu_loading_angles_and_magnitudes.md"
+    --8<-- "study/figures/i-tyr145/i011-tyr145_hd1-pls/cu_loading_angles_and_magnitudes.md"
 
 In these tables, features are sorted by the absolute value of the sine of the angle, with those closest to 0 appearing at the top.
 This ordering highlights the features that are most aligned with the direction of maximum change in the response variable.

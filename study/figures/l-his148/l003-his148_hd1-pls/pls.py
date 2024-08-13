@@ -46,9 +46,11 @@ names_data = [
     "ser203_h-asn144_o-dist",
     "cys202_o-phe221_h-dist",
     # Non-backbone distances
-    # "ser203_og-glu220_he2-dist",
-    # "his146_hd1-asn144_o-dist",
-    # "cro65_og1-glu220_he2-dist",
+    "cro65_oh-thr201_hg1-dist",
+    "cro65_oh-tyr143_hh-dist",
+    "his146_hd1-asn144_o-dist",
+    "his146_ne2-arg166_h-dist",
+    "tyr143_hh-thr62_og1-dist",
 ]
 
 # In the main part of the script, modify the call to compare_states:
@@ -87,7 +89,7 @@ if __name__ == "__main__":
             feature_names,
             state_key,
             y_label=data_y_label,
-            arrow_scaling=4.0,
+            arrow_scaling=9.0,
         )
 
         if gradient_vector is not None:

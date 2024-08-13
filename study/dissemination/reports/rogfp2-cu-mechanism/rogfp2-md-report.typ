@@ -31,21 +31,17 @@
     bibliography: bibliography(BIBTEX_PATH, title: "References", style: "american-chemical-society")
 )
 
-Here, we propose atomistic mechanisms for a redox-sensitive green fluorescent protein variant roGFP2 including a novel Cu(I) sensing application.
+Here, we propose an atomistic mechanism for Cu(I) sensing for a redox-sensitive green fluorescent protein variant, roGFP2.
+#todo("This is a very rough draft and not polished. Ideas and concepts are stable.")
 
 = GFP fluorescence mechanism
 
 The fluorescence mechanism in green fluorescent protein (GFP) is a complex interplay of photophysical and photochemical processes that occur at the molecular level.
 This section delves into the current understanding of fluorescence in GFP, exploring the fundamental principles of excitation and de-excitation, as well as the various factors that influence these processes.
 We will examine how the protein environment modulates the fluorescent properties, the critical role of chromophore protonation states, and the intricate dynamics of excited-state phenomena such as non-adiabatic crossings and proton transfer.
-From this point forward, we will refer to eGFP as "GFP" and eGFP chromophore @cormack1996facs as "chromophore" that is the result of the F64L and S65T mutations from the #emph[Aequorea victoria] wild type GFP @prasher1992primary.
+From this point forward, we will refer to enhanced GFP (eGFP) as "GFP" and eGFP chromophore @cormack1996facs as "chromophore" that is the result of the F64L and S65T mutations from the #emph[Aequorea victoria] wild type GFP (wtGFP) @prasher1992primary.
 
 == Chromophore
-
-Fluorescence in GFP begins with the absorption of a photon by the chromophore, typically in the blue region of the visible spectrum (around 488 nm).
-This absorption process is intimately linked to the unique molecular structure of the chromophore.
-The chromophore is formed autocatalytically from three amino acid residues---Ser65, Tyr66, and Gly67---through a series of reactions involving cyclization, dehydration, and oxidation.
-The resulting structure consists of a hydroxybenzylidene imidazolinone moiety, which forms an extended $pi$-conjugated system.
 
 #figure(
     image(FIG_DIR + "h-background/h005-cro/cro-a.svg", width: 2.3in),
@@ -54,12 +50,17 @@ The resulting structure consists of a hydroxybenzylidene imidazolinone moiety, w
     ],
     placement: auto
 ) <fig-cro-a>
+Fluorescence in all GFPs begins with the absorption of a photon by the chromophore, typically in the blue region of the visible spectrum (\~300 to 500 nm).
+This absorption process is intimately linked to the unique molecular structure of the chromophore.
+The chromophore is formed autocatalytically from three amino acid residues---Ser65, Tyr66, and Gly67---through a series of reactions involving cyclization, dehydration, and oxidation.
+The resulting structure consists of a hydroxybenzylidene imidazolinone moiety, which forms an extended $pi$-conjugated system as shown in @fig-cro-a.
+wtGFP chromophore has a primary alchohol group (i.e., Ser) instead of secondary (i.e., Thr).
 
 === Excitation
 
-This π-conjugated system is crucial for the chromophore's light-absorbing properties.
-The delocalized electrons in the conjugated bonds can be excited by photons of specific energies, corresponding to the energy gap between the ground state ($S_0$) and the first excited state ($S_1$) of the chromophore.
-The exact absorption wavelength is fine-tuned by several factors that are discussed later: planarity, protonation state, and protein environment.
+The $pi$-conjugated system is a cornerstone of the chromophore's light-absorbing properties.
+Photons of specific energies, precisely corresponding to the energy gap between the ground state ($S_0$) and the first excited state ($S_1$) of the chromophore, excite the delocalized electrons in the conjugated bonds.
+Planarity, protonation state, and notably the protein environment, collectively contribute to the fine-tuning of the exact absorption wavelength.
 
 When a blue photon is absorbed, it promotes an electron from the highest occupied molecular orbital (HOMO) to the lowest unoccupied molecular orbital (LUMO) of the chromophore.
 This electronic transition is predominantly $pi → pi^*$ in nature, reflecting the excitation within the π-conjugated system.
@@ -555,21 +556,29 @@ As previously mentioned, several residues are in close proximity to the chromoph
 Numerous studies have observed complex interactions and have led to several variants tailord for specific applications.
 roGFP2 is no different.
 
-== His148
+== His148 and Tyr145
 
-#figure(
-    image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
-    caption: [
-        #todo("Add caption")
-    ],
-    placement: auto
-)
+// #figure(
+//     image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
+//     caption: [
+//         #todo("Add caption")
+//     ],
+//     placement: auto
+// )
 His148 often coordinates with the chromophore, both reduced and oxidized simulations spend 48.6 and 69.1% of the time within 2.5 $angstrom$.
 With bound Cu(I), this percentage drops to 33.9%.
 Outside of this time, the $delta$-protonated His148 hydrogen bonds to the Asn146 backbone, while keeping the $epsilon$-nitrogen coordinated to Arg168 for at least 68.7% of the time (data not shown).
 
 His148 and Thr203 $beta$-strand fraying appears to correlates correlate with decreased stabilization of the anionic chromophore through His148.
 #todo("Add analysis")
+
+#figure(
+    image(FIG_DIR + "g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-combined.png", width: 3.5in),
+    caption: [
+        #todo("Add caption")
+    ],
+    placement: auto
+)
 
 == Thr203
 

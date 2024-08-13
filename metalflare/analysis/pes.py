@@ -83,6 +83,8 @@ def create_pes(
     vmax: float = 10,
     levels: int = 30,
     T: float | None = None,
+    ax: mpl.axis.Axis | None = None,
+    colorbar: bool = True
 ) -> plt.Figure:
     """Create a potential energy surface (PES) plot using matplotlib.
 
@@ -124,22 +126,29 @@ def create_pes(
 
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax, clip=True)
 
-    contour = plt.contourf(
+    if ax is None:
+        ax = plt.gca()  # Get the current axis if no axis is provided
+
+    contour = ax.contourf(
         *bins_info["centers"], hist.T, levels=levels, cmap="viridis", norm=norm
     )
+
     if T is not None:
         label = "PMF [kcal/mol]"
     else:
         label = "-ln(p)"
-    plt.colorbar(
-        contour,
-        label=label,
-        norm=norm,
-        ticks=list(range(vmin, int(np.floor(vmax)) + 1)),
-    )
 
-    plt.tight_layout()
-    return plt.gcf()
+    if colorbar:
+        ax.figure.colorbar(
+            contour,
+            ax=ax,
+            label=label,
+            norm=norm,
+            ticks=list(range(vmin, int(np.floor(vmax)) + 1)),
+        )
+
+    ax.set_aspect('auto')
+    return ax.figure
 
 
 def masked_difference(

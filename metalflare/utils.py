@@ -155,6 +155,8 @@ def load_features(file_paths, normalize_distances=False, transform_dihedrals=Fal
                 scaler = MinMaxScaler()
                 data = scaler.fit_transform(X=data.reshape(-1, 1)).flatten()
             df = pd.DataFrame({base_name: data})
+        else:
+            raise ValueError("Could not assign feature type")
 
         df_list.append(df)
 

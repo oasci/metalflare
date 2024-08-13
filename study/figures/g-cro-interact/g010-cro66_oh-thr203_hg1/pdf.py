@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "g010-cro66_oh-thr203_hg1"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Cro66 OH - Thr203 HG1 Distance [Å]"
     plot_x_bounds = (1, 7.5)
     y_label = "Density"
@@ -97,6 +97,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
+        figsize=(3.5, 3.0)
     )
 
     # Add hydrogen bond region
@@ -107,16 +108,18 @@ if __name__ == "__main__":
     cmap = LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
     gradient = np.linspace(0, 1, 256).reshape(1, -1)
     plt.imshow(gradient, extent=[1.99, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
-    plt.text(
-        0.005,
-        0.995,
-        "H-bond\nregion",
-        color="#8c8c8c",
-        weight="heavy",
-        transform=plt.gca().transAxes,
-        verticalalignment="top",
-        horizontalalignment="left",
-    )
+    # plt.text(
+    #     0.005,
+    #     0.995,
+    #     "H-bond\nregion",
+    #     color="#8c8c8c",
+    #     weight="heavy",
+    #     transform=plt.gca().transAxes,
+    #     verticalalignment="top",
+    #     horizontalalignment="left",
+    # )
+    # pdf_fig.set_size_inches(3.5, 3.0)
+    pdf_fig.tight_layout()
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 

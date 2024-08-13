@@ -1,7 +1,7 @@
 {
     "figure": {"dpi": 1000},
-    "font": {"family": "Roboto", "size": 12, "weight": "normal"},
+    "font": {"family": "Roboto", "size": 8, "weight": "normal"},
     "axes": {"edgecolor": "#C2C1C1", "labelweight": "heavy", "labelcolor": "#191919"},
-    "xtick": {"color": "#C2C1C1", "labelcolor": "#191919", "labelsize": 10},
-    "ytick": {"color": "#C2C1C1", "labelcolor": "#191919", "labelsize": 10}
+    "xtick": {"color": "#C2C1C1", "labelcolor": "#191919", "labelsize": 8},
+    "ytick": {"color": "#C2C1C1", "labelcolor": "#191919", "labelsize": 8}
 }

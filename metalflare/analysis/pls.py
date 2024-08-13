@@ -29,15 +29,16 @@ def plot_pls_results(
     state_key,
     n_bins=150,
     y_label="Response variable",
-    arrow_scaling=4.0,
+    arrow_scaling=5.0,
     vmin=None,
     vmax=None,
+    figsize=(3.5, 3.0),
 ):
     # Calculate PLS components
     pls_components = pls.transform(X_scaled)
 
     # Create the plot
-    fig, ax = plt.subplots(figsize=(6, 5))
+    fig, ax = plt.subplots(figsize=figsize)
 
     # Create 2D histogram with average distance
     hist, xedges, yedges, im = ax.hist2d(
@@ -111,8 +112,9 @@ def plot_pls_results(
             ha="center",
             va="center",
             alpha=1.0,
+            fontsize=6,
             fontweight="bold",
-            bbox=dict(boxstyle="circle,pad=0.3", fc="white", ec="none", alpha=0.75),
+            bbox=dict(boxstyle="circle,pad=0.15", fc="white", ec="none", alpha=0.8),
         )
 
     # Add R-squared value
@@ -167,7 +169,7 @@ def plot_pls_results(
             x2, y2 = t_max * normalized_dx, t_max * normalized_dy
 
             # Plot the dashed line
-            ax.plot([x1, x2], [y1, y2], color="#AFAFAF", linestyle="--", linewidth=2)
+            ax.plot([x1, x2], [y1, y2], color="#AFAFAF", linestyle="--", linewidth=1)
 
         else:
             print("Warning: Gradient magnitude is zero. Skipping gradient line.")

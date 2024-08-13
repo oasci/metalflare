@@ -28,10 +28,6 @@ names_data = [
     "tyr143_ca_cb_cg_cd1-dihedral",
     "tyr143_ce1_cz_oh_hh-dihedral",
     "tyr143_hh-thr62_og1-dist",
-    # Backbone distances
-    "his146_h-thr201_o-dist",
-    "ser203_h-asn144_o-dist",
-    "cys202_o-phe221_h-dist",
     # Backbone angles
     "asn142_c-tyr143_n_ca_c-dihedral",
     "tyr143_n_ca_c-asn144_n-dihedral",
@@ -48,15 +44,16 @@ names_data = [
     "cys202_c-ser203_n_ca_c-dihedral",
     "ser203_n_ca_c-ala204_n-dihedral",
     "leu219_c-glu220_n_ca_c-dihedral",
-    "glu220_n_ca_c-phe221_n-dihedral"
+    "glu220_n_ca_c-phe221_n-dihedral",
     # Backbone distances
-    # "cys202_o-phe221_h-dist",
-    # "his146_h-thr201_o-dist",
-    # "ser203_h-asn144_o-dist",
+    "his146_h-thr201_o-dist",
+    "ser203_h-asn144_o-dist",
+    "cys202_o-phe221_h-dist",
     # Non-backbone distances
-    # "ser203_og-glu220_he2-dist",
-    # "his146_hd1-asn144_o-dist",
-    # "cro65_og1-glu220_he2-dist",
+    "cro65_oh-thr201_hg1-dist",
+    "cro65_oh-his146_hd1-dist",
+    "his146_hd1-asn144_o-dist",
+    "his146_ne2-arg166_h-dist",
 ]
 
 # In the main part of the script, modify the call to compare_states:
@@ -86,6 +83,8 @@ if __name__ == "__main__":
             )
         )
         feature_names = X.columns
+        if len(feature_names) > 26:
+            raise RuntimeError("More features than numbers")
 
         pls, X_scaled, y_scaled, scaler_X, scaler_y = perform_pls_regression(X, y)
         gradient_vector = plot_pls_results(
@@ -95,7 +94,7 @@ if __name__ == "__main__":
             feature_names,
             state_key,
             y_label=data_y_label,
-            arrow_scaling=4.0,
+            arrow_scaling=6.0,
         )
 
         if gradient_vector is not None:

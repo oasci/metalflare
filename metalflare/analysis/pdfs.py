@@ -68,7 +68,9 @@ def make_pdf_fig(
     pdf_rogfp_oxd=None,
     fill_between=False,
     legend_frame=False,
+    figsize=(3.5, 3.0)
 ):
+    plt.figure(figsize=figsize)
     if fill_between:
         plot_function = plt.fill_between
     else:
