@@ -13,7 +13,7 @@ The following table presents the probability of either a water molecule was (a) 
 ## Probability density function
 
 <figure markdown>
-![](./e003-cro66_oh-h2o_h-pdf.svg)
+![](./e003-cro66_oh-h2o_h-pdf.svg){ width=600 }
 </figure>
 
 ### Quantitative

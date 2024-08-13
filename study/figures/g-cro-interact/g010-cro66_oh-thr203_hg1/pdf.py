@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
 import numpy as np
+from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pdfs import (
@@ -57,6 +58,19 @@ if __name__ == "__main__":
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
 
+    # KDE stats
+    kde = gaussian_kde(rogfp_data, bw_method=bw_method)
+    reduced_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Reduced kde stat:  {reduced_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
+    oxidized_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Oxidized kde stat: {oxidized_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
+    cu_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
+
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
     pdf_info_lines.extend(
@@ -101,24 +115,13 @@ if __name__ == "__main__":
     )
 
     # Add hydrogen bond region
-    rect = Rectangle((0, 0), 2.0, 10, facecolor="#F5F5F5", zorder=-10)
+    rect = Rectangle((0, 0), 2.15, 10, facecolor="#F5F5F5", zorder=-10)
     plt.gca().add_patch(rect)
     colors = ["#F5F5F5", "#ffffff"]
     n_bins = 100
     cmap = LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
     gradient = np.linspace(0, 1, 256).reshape(1, -1)
-    plt.imshow(gradient, extent=[1.99, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
-    # plt.text(
-    #     0.005,
-    #     0.995,
-    #     "H-bond\nregion",
-    #     color="#8c8c8c",
-    #     weight="heavy",
-    #     transform=plt.gca().transAxes,
-    #     verticalalignment="top",
-    #     horizontalalignment="left",
-    # )
-    # pdf_fig.set_size_inches(3.5, 3.0)
+    plt.imshow(gradient, extent=[2.14, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
     pdf_fig.tight_layout()
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()

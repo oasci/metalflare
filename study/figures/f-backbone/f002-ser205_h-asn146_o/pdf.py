@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "f002-ser205_h-asn146_o"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Ser205 -NH to Asn146 =O Distance [Å]"
     plot_x_bounds = (1, 8)
     y_label = "Density"
@@ -114,23 +114,13 @@ if __name__ == "__main__":
     )
 
     # Add hydrogen bond region
-    rect = Rectangle((0, 0), 2.0, 10, facecolor="#F5F5F5", zorder=-10)
+    rect = Rectangle((0, 0), 2.15, 10, facecolor="#F5F5F5", zorder=-10)
     plt.gca().add_patch(rect)
     colors = ["#F5F5F5", "#ffffff"]
     n_bins = 100
     cmap = LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
     gradient = np.linspace(0, 1, 256).reshape(1, -1)
-    plt.imshow(gradient, extent=[1.99, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
-    plt.text(
-        0.025,
-        0.95,
-        "H-bond\nregion",
-        color="#8c8c8c",
-        weight="heavy",
-        transform=plt.gca().transAxes,
-        verticalalignment="top",
-        horizontalalignment="left",
-    )
+    plt.imshow(gradient, extent=[2.14, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
 
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()

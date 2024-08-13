@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "k001-phe223_n_ca_c-val224_n"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Phe223 $\psi$ [deg.]"
     plot_x_bounds = (-180, 180)
     y_label = "Density"

@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "glu222_n_ca_cb_cg"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Glu222 $\chi$ [deg.]"
     plot_x_bounds = (0, 360)
     y_label = "Density"

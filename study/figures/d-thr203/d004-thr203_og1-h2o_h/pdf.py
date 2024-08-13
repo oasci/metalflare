@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "d004-thr203_og1-h2o_h"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Thr203 OG1 - H2O H Distance [Å]"
     plot_x_bounds = (1, 7)
     y_label = "Density"

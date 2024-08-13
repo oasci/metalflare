@@ -1,1 +1,2 @@
-lib.pdf
+*.pdf
+!rogfp2-md-report.pdf

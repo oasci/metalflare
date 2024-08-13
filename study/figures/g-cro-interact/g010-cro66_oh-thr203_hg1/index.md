@@ -6,6 +6,16 @@
 ![](./g010-cro66_oh-thr203_hg1-pdf.svg)
 </figure>
 
+### Hydrogen bonding
+
+The following table presents the probability of the hydrogen bonding (within 2.5 Å).
+
+| System | H bond |
+| ------ | ------ |
+| Reduced | 0.191 |
+| Oxidized | 0.009 |
+| Cu(I) | 0.619 |
+
 ### Quantitative
 
 --8<-- "study/figures/d-thr203/g010-cro66_oh-thr203_hg1/pdf-info.md"

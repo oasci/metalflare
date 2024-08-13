@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "l002-his148_hd1-asn146_o"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "His148 HD1 - Asn146 O Distance [Å]"
     plot_x_bounds = (1, 6)
     y_label = "Density"

@@ -114,9 +114,11 @@ def make_pmf_fig(
     y_bounds,
     pmf_rogfp_oxd=None,
     legend_frame=False,
+    figsize=(3.5, 3.0)
 ):
+    plt.figure(figsize=figsize)
     plt.plot(
-        x_values, pmf_rogfp, color="#1e2e79", label="Reduced", zorder=0, linewidth=2.5
+        x_values, pmf_rogfp, color="#1e2e79", label="Reduced", zorder=0, linewidth=1.5
     )
     if pmf_rogfp_oxd is not None:
         plt.plot(
@@ -125,7 +127,7 @@ def make_pmf_fig(
             color="#EC4067",
             label="Oxidized",
             zorder=1,
-            linewidth=2.5,
+            linewidth=1.5,
         )
     plt.plot(
         x_values,
@@ -133,9 +135,9 @@ def make_pmf_fig(
         color="#f99752",
         label="Cu(I)",
         zorder=2,
-        linewidth=2.5,
+        linewidth=1.5,
     )
-    plt.axhline(y=0, linewidth=1.75, color="#C0C0C0", linestyle="dotted", zorder=-1)
+    plt.axhline(y=0, linewidth=1.5, color="#C0C0C0", linestyle="dotted", zorder=-1)
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
     plt.ylim(*y_bounds)

@@ -372,6 +372,10 @@ This transformation maps the circular dihedral data to a [0, 1] range, preservin
 All input features ($X$) were standardized using sklearn's `StandardScaler` to ensure each feature contributes equally to the model.
 This transformation ensures continuity across the periodic boundary, facilitating more accurate modeling.
 
+=== Coordinated water detection
+
+#todo("Write this.")
+
 === Potential of mean force (PMF)
 
 #todo("Write this.")
@@ -515,9 +519,9 @@ Fraying is a phenomenon where the regular hydrogen bonding pattern at the termin
         stroke: none,
         [*State*], [*His148 - Thr203*], [*Asn146 - Ser205*],
         table.hline(),
-        [Reduced], [0.865], [0.047],
-        [Oxidized], [0.997], [0.144],
-        [Cu(I)], [0.063], [0.000],
+        [*Reduced*], [0.865], [0.047],
+        [*Oxidized*], [0.997], [0.144],
+        [*Cu(I)*], [0.063], [0.000],
     ),
     placement: auto
 ) <tab-beta-his147>
@@ -547,30 +551,54 @@ roGFP2 is no different.
 
 == His148 and Tyr145
 
-// #figure(
-//     image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
-//     caption: [
-//         #todo("Add caption")
-//     ],
-//     placement: auto
-// )
-His148 often coordinates with the chromophore, both reduced and oxidized simulations spend 48.6 and 69.1% of the time within 2.5 $angstrom$.
-With bound Cu(I), this percentage drops to 33.9%.
-Outside of this time, the $delta$-protonated His148 hydrogen bonds to the Asn146 backbone, while keeping the $epsilon$-nitrogen coordinated to Arg168 for at least 68.7% of the time (data not shown).
-
-His148 and Thr203 $beta$-strand fraying appears to correlates correlate with decreased stabilization of the anionic chromophore through His148.
-#todo("Add analysis")
-
+Our analysis of hydrogen bonding interactions with the chromophore in roGFP2 revealed distinct patterns across different protein states.
+@fig-pes-his-tyr illustrates the 2D potential energy surfaces for Tyr145 and His148 interactions with the chromophore.
 #figure(
     image(FIG_DIR + "g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-combined.png", width: 3.5in),
     caption: [
         #todo("Add caption")
     ],
     placement: auto
-)
+) <fig-pes-his-tyr>
+
+In the reduced state of roGFP2, we observed a diverse energy landscape characterized by multiple local minima.
+A minimum is located at Tyr145-chromophore and His148-chromophore distances of approximately 1.8 Å and 1.85 Å respectively.
+This minimum corresponds to a configuration where both residues simultaneously form hydrogen bonds with the chromophore.
+Two other local minima were observed, representing configurations where either Tyr145 or His148 independently formed a hydrogen bond with the chromophore.
+Still, both residues exhibit conformational flexibility where neither residues stabilize the anionic chromophore.
+This pattern suggests significant conformational flexibility in the reduced state, allowing for various hydrogen bonding arrangements.
+#figure(
+    caption: [Structural hydrogen bonding probability to chromophore],
+    table(
+        columns: (auto, auto, auto, auto, auto,),
+        stroke: none,
+        [*State*], [*Thr203*], [*His148*], [*Tyr145*], [*Glu222*],
+        table.hline(),
+        [*Reduced*], [0.191], [0.486], [0.612], [0.689],
+        [*Oxidized*], [0.009], [0.691], [0.795], [0.977],
+        [*Cu(I)*], [0.619], [0.339], [0.641], [0.895],
+    ),
+    placement: auto
+) <tab-cro-hbond>
+
+Upon oxidation of roGFP2, we noted a marked change in the energy landscape.
+The oxidized state exhibited a single, pronounced global minimum at similar Tyr145-chromophore (1.80 $angstrom$) and His148-chromophore (1.91 $angstrom$) distances as the reduced state.
+However, this energy well was deeper and narrower than the reduced state.
+The absence of significant additional local minima indicates a strong preference for the configuration where both Tyr145 and His148 simultaneously hydrogen bond with the chromophore.
+This suggests that oxidation induces a more rigid and stable arrangement of these critical residues around the chromophore.
+
+By contrast, the Cu(I)-bound state of roGFP2 exhibited similar minima as reduced simulations but with a notable increase in flexibility with shallower minima.
+The dual-hydrogen bonding minimum was significantly less pronounced than the reduced and oxidized states.
+It is worth noting that Tyr145 is 1.9 times more likely to hydrogen bond to the chromophore compared to His148, indicating an asymmetry in their hydrogen bonding behavior.
+
+His148 and Thr203 $beta$-strand fraying appears to correlates correlate with decreased stabilization of the anionic chromophore through His148.
+#todo("Add origin analysis")
 
 == Thr203
 
+Our molecular dynamics simulations reveal a striking change in the hydrogen bonding behavior of Thr203.
+In the reduced state of roGFP2, we observe several distribution peaks of Thr203-chromophore distances.
+Two primary peaks at 5.32 and 1.75 $angstrom$ suggest dynamic populations across the simulations.
 #figure(
     image(FIG_DIR + "g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg", width: 3.5in),
     caption: [
@@ -578,9 +606,6 @@ His148 and Thr203 $beta$-strand fraying appears to correlates correlate with dec
     ],
     placement: auto
 )
-Our molecular dynamics simulations reveal a striking change in the hydrogen bonding behavior of Thr203.
-In the reduced state of roGFP2, we observe several distribution peaks of Thr203-chromophore distances.
-Two primary peaks at 5.32 and 1.75 $angstrom$ suggest dynamic populations across the simulations.
 
 Oxidation of roGFP2 dramatically alters this interaction.
 The hydrogen bonding population decreases substantially, with a minor peak at 1.80 $angstrom$.
@@ -588,10 +613,24 @@ Instead, we observe a dominant peak at 5.83 $angstrom$, indicating that oxidatio
 This disruption likely contributes to the shift in chromophore protonation state observed upon oxidation.
 
 Remarkably, Cu(I) binding to roGFP2 significantly enhances the Thr203-chromophore hydrogen bond.
-We observe a sharp, dominant peak at 1.75 $angstrom$ with a density of 1.553, which is more than three times the corresponding peak in the reduced state (0.5014).
+We observe a sharp, dominant peak at 1.75 $angstrom$, which is more than three times the corresponding peak in the reduced state.
 This dramatic increase in hydrogen bonding suggests that Cu(I) binding induces a conformational change that positions Thr203 optimally for interaction with the chromophore.
 
 = Disruption of ground-state proton transfer
+
+#figure(
+    caption: [GSPT step probability],
+    table(
+        columns: (auto, auto, auto, auto),
+        stroke: none,
+        [*State*], [*Glu222 $arrow.r$ Ser205*], [*Ser205 $arrow.r$ H#sub[2]O*], [*H#sub[2]O $arrow.r$ Cro66*],
+        table.hline(),
+        [*Reduced*], [0.299], [0.516], [0.465],
+        [*Oxidized*], [0.000], [0.416], [0.379],
+        [*Cu(I)*], [0.000], [0.517], [0.452],
+    ),
+    placement: auto
+) <tab-gspt-hbond>
 
 #figure(
     image(FIG_DIR + "e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg", width: 3.5in),
@@ -600,3 +639,11 @@ This dramatic increase in hydrogen bonding suggests that Cu(I) binding induces a
     ],
     placement: auto
 )
+
+= Proposed Cu(I) fluorescence mechanism
+
+#todo("writeeee")
+
+// These observations indicate that Cu(I) binding increases the flexibility of Tyr145 and His148 interactions with the chromophore compared to the reduced state.
+// The shallower energy wells suggest that the probability of stable, long-lasting hydrogen bonds is reduced in the presence of Cu(I).
+// Additionally, the lower energy barriers imply that transitions between various hydrogen bonding states may occur more readily, pointing to a more dynamic local environment around the chromophore in the Cu(I)-bound state.

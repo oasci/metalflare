@@ -3,6 +3,8 @@
 import os
 
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.patches import Rectangle
 import numpy as np
 from scipy.stats import gaussian_kde
 
@@ -93,7 +95,7 @@ if __name__ == "__main__":
 
     # Make pdf plot
     fig_title = "g003-cro66_oh-tyr145_hh"
-    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 2.5}
+    pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Cro66 OH - Tyr145 HH Distance [Å]"
     plot_x_bounds = (1, 7)
     y_label = "Density"
@@ -110,6 +112,16 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
+
+    # Add hydrogen bond region
+    rect = Rectangle((0, 0), 2.15, 10, facecolor="#F5F5F5", zorder=-10)
+    plt.gca().add_patch(rect)
+    colors = ["#F5F5F5", "#ffffff"]
+    n_bins = 100
+    cmap = LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
+    gradient = np.linspace(0, 1, 256).reshape(1, -1)
+    plt.imshow(gradient, extent=[2.14, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
+
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 

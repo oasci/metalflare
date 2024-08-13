@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./g003-cro66_oh-tyr145_hh-pdf.svg)
+![](./g003-cro66_oh-tyr145_hh-pdf.svg){ width=600 }
 </figure>
 
 ### Hydrogen bonding
