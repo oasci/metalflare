@@ -200,44 +200,33 @@ An overview of the process is shown below.
 
 4. The final step is a reverse ground-state proton transfer from Glu222 through Ser205, a water molecule, and terminated at the chromophore.
 
-== Roles of crucial residues
+== Roles of other crucial residues
 
 The exceptional fluorescent properties of GFP arise from a complex interplay of molecular interactions within its $beta$-barrel structure.
 
 === His148
 
-His148 plays a pivotal role in the structure and function of GFP, significantly contributing to chromophore stabilization and modulation of photophysical properties.
-
 Structurally, His148 helps maintain $beta$-strand stability by hydrogen bonding to Arg168's backbone #addcite().
-Others have also explored introducing a hole in the $beta$ barel through a H148G mutation; thereby allowing metal ions to diffuse into the protein and interact directly with the chromophore @barondeau2002structural.
+Others have also explored introducing a hole in the $beta$ barrel through an H148G mutation, allowing metal ions to diffuse into the protein and interact directly with the chromophore @barondeau2002structural.
 
 His148 directly interacts with the chromophore, forming a critical hydrogen bond.
 Specifically, the imidazole side chain of His148 donates a hydrogen bond to the chromophore's phenolate oxygen #addcite().
-This interaction is vital for stabilizing the anionic form of the chromophore.
+This interaction aids in locking the chromophore into a planar conformation.
+These residues' rigid environment minimizes non-radiative decay pathways, contributing to GFP's high fluorescence quantum yield.
+=Upon chromophore excitation, His148 also helps facilitates proton movement @shinobu2010visualizing.
 
-The role of His148 in GFP's photophysics extends beyond static structural interactions.
-Upon chromophore excitation, His148 facilitates proton movement, contributing to the complex photochemistry that gives rise to GFP's unique fluorescent properties @shinobu2010visualizing.
+=== Thr203
 
-His148, along with Tyr145, aids in locking the chromophore into a planar conformation.
-This planar structure is essential for efficient π-electron delocalization across the chromophore system, directly influencing its fluorescent properties.
-The rigid environment provided by these residues minimizes non-radiative decay pathways, contributing to GFP's high fluorescence quantum yield.
-
-The importance of His148 has been further elucidated through mutational studies.
-Of particular interest is the H148G mutation, which introduces a hole in the β-barrel structure.
-Barondeau et al. demonstrated that this mutation allows metal ions to diffuse into the protein and interact directly with the chromophore @barondeau2002structural.
+Thr203 is located close to the chromophore within the $beta$-barrel structure.
+Its hydroxyl group can hydrogen bond with the anionic chromophore's phenolate oxygen in specific conformations.
+Mutating Thr203 to Ile or Val destabilizes the B-state and dramatically reduces its excitation peak, thus driving the grand-state equilibrium towards the A-state @kummer2000effects.
+Yellow FP (YFP) is also derived from mutations by placing chemical groups that can $pi$--$pi$-stacking with the chromophore @zimmer2002green.
+Quenching of A\* emissions through an ESPT is still present in T203 mutants; however, T203I and T203V mutants are slower down while T203Y maintains wild-type speeds @jung2005photophysics.
 
 === Tyr145
 
 Tyrosine's hydroxyl group produces a bulge in the $beta$-barrel, and a phenylalanine mutation enhances the protein's thermal stability @nasu2021structure.
 This mutation alleviates local structural strain, thereby increasing the thermal resilience of the GFP without disrupting its overall $beta$-barrel fold @akiyama2012experimental.
-
-=== Thr203
-
-Thr203 is located close to the chromophore within the $beta$-barrel structure.
-In specific conformations, its hydroxyl group can hydrogen bond with the anionic chromophore's phenolate oxygen.
-Mutating Thr203 to Ile or Val destabilizes the B-state and dramatically reduces its excitation peak; thus driving the grand-state equilibirum towards the A-state @kummer2000effects.
-Yellow FP (YFP) is also derived from mutations by placing chemical groups that can $pi$--$pi$-stacking with the chromophore @zimmer2002green.
-Quenching of A\* emissions through an ESPT is still present in T203 mutants; however, T203I and T203V mutants are slower down while T203Y maintains wild-type speeds @jung2005photophysics.
 
 = roGFP2 contains redox-sensing cysteines
 
