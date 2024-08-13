@@ -51,6 +51,7 @@ def main():
 
     atoms = u.select_atoms(atoms_str)
     R = rms.RMSF(atoms).run()
+    R = R.results.rmsf
 
     atoms_npy_path = os.path.join(data_dir, "cro65-rmsf.npy")
     np.save(atoms_npy_path, R)
