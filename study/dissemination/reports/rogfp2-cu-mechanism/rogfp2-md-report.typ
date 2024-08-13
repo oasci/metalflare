@@ -227,17 +227,8 @@ Barondeau et al. demonstrated that this mutation allows metal ions to diffuse in
 
 === Tyr145
 
-Tyr145 plays a crucial role in stabilizing the chromophore and influencing its photophysical properties.
-Located in close proximity to the chromophore within the $beta$-barrel structure of GFP, Tyr145 contributes significantly to the protein's unique fluorescent characteristics through several key interactions.
-
-One of the primary functions of Tyr145 is its direct involvement in the hydrogen bonding network surrounding the chromophore.
-The phenolic hydroxyl group of Tyr145 serves as a hydrogen bond donor to the imidazolinone nitrogen of the chromophore.
-This interaction is critical for maintaining the chromophore in its optimal conformation for fluorescence.
-The hydrogen bond between Tyr145 and the chromophore contributes to the rigidity of the chromophore's environment, which is essential for efficient fluorescence by minimizing non-radiative decay pathways.
-
-Tyr145 also plays a significant role in modulating the electronic structure of the chromophore.
-Through its proximity and interactions, Tyr145 influences the $pi$-electron system of the chromophore, affecting its spectral properties.
-The specific orientation and strength of the hydrogen bond formed by Tyr145 can lead to subtle shifts in the absorption and emission spectra of GFP.
+Tyrosine's hydroxyl group produces a bulge in the $beta$-barrel, and a phenylalanine mutation enhances the protein's thermal stability @nasu2021structure.
+This mutation alleviates local structural strain, thereby increasing the thermal resilience of the GFP without disrupting its overall $beta$-barrel fold @akiyama2012experimental.
 
 === Thr203
 
@@ -558,11 +549,13 @@ Under oxidizing conditions, the peak distance only decreases to 3.56 $angstrom$ 
 
 No changes are observed in the Val150 and Leu201 $beta$-strand.
 
-= Cu(I) binding disrupts anionic chromophore hydrogen binding
+= Cu(I) binding affects anionic chromophore hydrogen binding
 
 As previously mentioned, several residues are in close proximity to the chromophore.
 Numerous studies have observed complex interactions and have led to several variants tailord for specific applications.
 roGFP2 is no different.
+
+== His148
 
 #figure(
     image(FIG_DIR + "g-cro-interact/g006-cro66_oh-his148_hd1/g006-cro66_oh-his148_hd1-pdf.svg", width: 3.5in),
@@ -576,8 +569,9 @@ With bound Cu(I), this percentage drops to 33.9%.
 Outside of this time, the $delta$-protonated His148 hydrogen bonds to the Asn146 backbone, while keeping the $epsilon$-nitrogen coordinated to Arg168 for at least 68.7% of the time (data not shown).
 
 His148 and Thr203 $beta$-strand fraying appears to correlates correlate with decreased stabilization of the anionic chromophore through His148.
-Training
+#todo("Add analysis")
 
+== Thr203
 
 #figure(
     image(FIG_DIR + "g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg", width: 3.5in),
@@ -586,6 +580,18 @@ Training
     ],
     placement: auto
 )
+Our molecular dynamics simulations reveal a striking change in the hydrogen bonding behavior of Thr203.
+In the reduced state of roGFP2, we observe several distribution peaks of Thr203-chromophore distances.
+Two primary peaks at 5.32 and 1.75 $angstrom$ suggest dynamic populations across the simulations.
+
+Oxidation of roGFP2 dramatically alters this interaction.
+The hydrogen bonding population decreases substantially, with a minor peak at 1.80 $angstrom$.
+Instead, we observe a dominant peak at 5.83 $angstrom$, indicating that oxidation largely disrupts the Thr203-chromophore hydrogen bond.
+This disruption likely contributes to the shift in chromophore protonation state observed upon oxidation.
+
+Remarkably, Cu(I) binding to roGFP2 significantly enhances the Thr203-chromophore hydrogen bond.
+We observe a sharp, dominant peak at 1.75 $angstrom$ with a density of 1.553, which is more than three times the corresponding peak in the reduced state (0.5014).
+This dramatic increase in hydrogen bonding suggests that Cu(I) binding induces a conformational change that positions Thr203 optimally for interaction with the chromophore.
 
 = Disruption of ground-state proton transfer
 
