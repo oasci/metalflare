@@ -522,6 +522,7 @@ Fraying is a phenomenon where the regular hydrogen bonding pattern at the termin
         [*Reduced*], [0.865], [0.047],
         [*Oxidized*], [0.997], [0.144],
         [*Cu(I)*], [0.063], [0.000],
+        [*Na#super[+]*], [0.380], [0.002],
     ),
     placement: auto
 ) <tab-beta-his147>
@@ -578,6 +579,7 @@ This pattern suggests significant conformational flexibility in the reduced stat
         [*Reduced*], [0.191], [0.486], [0.612], [0.689],
         [*Oxidized*], [0.009], [0.691], [0.795], [0.977],
         [*Cu(I)*], [0.619], [0.339], [0.641], [0.895],
+        [*Na#super[+]*], [#todo("")], [#todo("")], [#todo("")], [#todo("")],
     ),
     placement: auto
 ) <tab-cro-hbond>
@@ -635,6 +637,7 @@ The GSPT pathway---which involves proton transfer from Glu222 to Ser205, a water
         [*Reduced*], [0.299], [0.516], [0.465],
         [*Oxidized*], [0.000], [0.416], [0.379],
         [*Cu(I)*], [1.122$times$10#super[-4]], [0.517], [0.452],
+        [*Na#super[+]*], [0.295], [#todo("")], [#todo("")],
     ),
     placement: auto
 ) <tab-gspt-hbond>

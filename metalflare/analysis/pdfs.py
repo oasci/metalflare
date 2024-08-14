@@ -68,7 +68,8 @@ def make_pdf_fig(
     pdf_rogfp_oxd=None,
     fill_between=False,
     legend_frame=False,
-    figsize=(3.5, 3.0)
+    figsize=(3.5, 3.0),
+    pdf_na=None
 ):
     plt.figure(figsize=figsize)
     if fill_between:
@@ -95,6 +96,16 @@ def make_pdf_fig(
         zorder=2,
         **plt_kwargs,
     )
+    if pdf_na is not None:
+        plot_function(
+            x_values,
+            pdf_na,
+            color="#1b998b",
+            label="Na$^+$",
+            alpha=0.6,
+            linewidth=1.5,
+            zorder=3
+        )
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
     plt.ylim(*y_bounds)

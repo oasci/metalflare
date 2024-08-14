@@ -50,6 +50,12 @@ if __name__ == "__main__":
     )
     rogfp_cu_data = np.load(rogfp_cu_data_path)
 
+    rogfp_na_dist_path = os.path.join(
+        base_dir,
+        "analysis/008-rogfp-na-glh-md/data/struct-desc/his146_h-thr201_o-dist.npy",
+    )
+    rogfp_na_data = np.load(rogfp_na_dist_path)
+
     # Compute all pdfs
     x_bounds = (1, 10)
     bin_width = 0.01  # Angstrom
@@ -59,6 +65,7 @@ if __name__ == "__main__":
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
+    pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
     # KDE stats
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
@@ -72,6 +79,10 @@ if __name__ == "__main__":
     kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
     cu_fraction = kde.integrate_box_1d(0.1, 2.5)
     print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_na_data, bw_method=bw_method)
+    na_fraction = kde.integrate_box_1d(0.1, 2.5)
+    print(f"Na+ kde stat:      {na_fraction:.3f}")
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
@@ -123,6 +134,8 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
+        figsize=(3.5, 3.0),
+        pdf_na=pdf_rogfp_na
     )
 
     # Add hydrogen bond region
