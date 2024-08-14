@@ -678,52 +678,58 @@ This inhibition occurs without significantly altering the latter steps of the pa
 
 In the fluorescence experiments, we observe the following characteristics.
 
-- *Oxidized*:
- - A-band increases.
- - B-band decreases.
- - An isosbestic point indicates there is an equilibrium between the two states.
-- *Cu(I)*:
- - A-band remains relatively stable but will begin to decrease with increasing Cu(I) concentration.
- - B-band dramatically decreases even at low Cu(I) concentrations.
- - Lacks an isosbestic point.
- - Neutral and anionic chromophores still absorb at expected wavelengths (data not shown).
+#v(0.5em)
+#h(-1em)
+*Oxidized*:
+- A-band increases.
+- B-band decreases.
+- An isosbestic point indicates there is an equilibrium between the two states.
+
+*Cu(I)*:
+- A-band remains relatively stable but will begin to decrease with increasing Cu(I) concentration.
+- B-band dramatically decreases even at low Cu(I) concentrations.
+- Lacks an isosbestic point.
+- Neutral and anionic chromophores still absorb at expected wavelengths (data not shown).
 
 These results---agreeing with previous studies #addcite()---indicate that oxidizing Cys147 and Cys204 leaves the fluorescence mechanism intact.
 However, the neutral chromophore becomes slightly preferred.
 
-Cu(I)-binding appears to quench the B-band primarily.
-The lack of the isosbestic point and no A-band increase indicates no detectable shift in chromophore protonation preference.
-However, there is likely a population shift along with fortuitous A-band quenching that makes it appear unchanged.
+Cu(I)-binding appears to quench the B band.
+The lack of the isosbestic point and no A band increase indicates no detectable shift in chromophore protonation preference.
+However, could be a population shift along with fortuitous A-band quenching that makes it appear unchanged.
 Applying Occam's razor would discourage this mechanism and instead attribute Cu(I) sensing to quenching the B-band faster than the A-band.
 
-Our molecular simulations suggest the following concerning the reduced state.
+Our molecular simulations suggest the following with respect to the reduced state.
 
-- *Oxidized*:
- - Added strain between Cys147 and Cys204.
- - Stabilized $beta$-sheet between His148 and Thr203.
- - Enhanced chromophore stabilization through His148 and Tyr145 hydrogen bonding.
- - Thr203 rarely coordinates with the chromophore.
- - Potentially broken GSPT pathway to re-protonate the chromophore.
-- *Cu(I)*:
- - Additional backbone flexibility around Cys147 and Cys204.
- - Destabilizes $beta$-sheet between His148 and Thr203.
- - Less hydrogen bonding of anionic chromophore through His148 and Tyr145.
- - Thr203 strongly favors coordinating with the phenolate oxygen in the chromophore.
- - Potentially broken GSPT pathway to re-protonate the chromophore.
+#v(0.5em)
+#h(-1em)
+*Oxidized*:
+- Added strain between Cys147 and Cys204.
+- Stabilized $beta$-sheet between His148 and Thr203.
+- Enhanced chromophore stabilization through His148 and Tyr145 hydrogen bonding.
+- Thr203 rarely coordinates with the chromophore.
+- Potentially broken GSPT pathway to re-protonate the chromophore.
+
+*Cu(I)*:
+- Additional backbone flexibility around Cys147 and Cys204.
+- Destabilizes $beta$-sheet between His148 and Thr203.
+- Less hydrogen bonding of anionic chromophore through His148 and Tyr145.
+- Thr203 strongly favors coordinating with the phenolate oxygen in the chromophore.
+- Potentially broken GSPT pathway to re-protonate the chromophore.
 
 Based on the experimental evidence and simulation data, we propose a multi-faceted atomistic mechanism for Cu(I) sensing in roGFP2.
 In the reduced state, roGFP2 maintains a dynamic equilibrium between the neutral and anionic chromophore states, with the anionic state being favored.
-Thr203 plays a crucial role in stabilizing the anionic chromophore through hydrogen bonding with the phenolate oxygen. The functional GSPT pathway allows for efficient re-protonation of the chromophore, maintaining the A-band fluorescence.
+Thr203 helps stabilize the anionic chromophore through hydrogen bonding with the phenolate oxygen.
+The functional GSPT pathway allows for efficient re-protonation of the chromophore, maintaining the A-band fluorescence.
 
 Upon Cu(I) binding, roGFP2 undergoes distinct conformational changes that affect the anionic chromophore state.
-The simulations reveal increased backbone flexibility around the Cu(I) binding site, destabilization of the $beta$-sheet structure, and reduced hydrogen bonding of the anionic chromophore through His148 and Tyr145.
-These changes likely contribute to the quenching of B-band fluorescence by promoting non-radiative decay pathways.
-Despite the destabilizing effects of the conformational changes, the strong coordination of Thr203 to the chromophore's phenolate oxygen in the Cu(I)-bound state may help maintain the anionic chromophore population.
-This stabilizing effect of Thr203 could explain the absence of a significant increase in the A-band fluorescence upon Cu(I) binding, as observed in the experimental data.
+The simulations reveal increased backbone flexibility around the Cu(I) binding site, destabilization of the $beta$-sheet structure, and reduced hydrogen bonding of the anionic chromophore through His148.
+These changes likely contribute to B-band quenching by promoting non-radiative decay pathways.
+Despite the destabilizing effects of the conformational changes, the strong coordination of Thr203 to the chromophore's phenolate oxygen in the Cu(I)-bound state may help maintain the chromophore protonation ratio.
+This stabilizing effect of Thr203 could explain the observed absence of a significant increase in the A-band fluorescence upon Cu(I) binding.
 
-The dramatic decrease in B-band fluorescence upon Cu(I) binding can be attributed to the quenching of the anionic chromophore through non-radiative decay pathways, which are likely promoted by the destabilization of the $beta$-sheet structure and reduced hydrogen bonding through His148 and Tyr145.
 The potentially disrupted GSPT pathway may further contribute to this quenching by impeding the re-protonation of the anionic chromophore.
-The relatively stable A-band in the presence of Cu(I) suggests that the GSPT pathway is not completely inhibited, allowing for some re-protonation of the chromophore to maintain the neutral state population.
+The relatively stable A band in the presence of Cu(I) suggests that the GSPT pathway is not completely inhibited, allowing for some re-protonation of the chromophore to maintain the neutral state population.
 
 In summary, we propose a multi-faceted Cu(I) sensing mechanism in roGFP2 that involves several factors.
 Thr203 maintains the anionic chromophore population through hydrogen bonding with the phenolate oxygen. The destabilization of the $beta$-sheet structure and reduced hydrogen bonding through His148 and Tyr145 promote non-radiative decay pathways, leading to the quenching of B-band fluorescence.
