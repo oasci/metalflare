@@ -2,6 +2,10 @@
 
 ## Probability densities
 
+<figure markdown>
+![](./cro66-dihedral-circular.svg){width=600}
+</figure>
+
 === "Reduced"
     <figure markdown>
     ![](./a001-pes-reduced.png)

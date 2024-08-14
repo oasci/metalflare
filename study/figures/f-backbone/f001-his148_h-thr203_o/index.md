@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./f001-his148_h-thr203_o-pdf.svg)
+![](./f001-his148_h-thr203_o-pdf.svg){width=600}
 </figure>
 
 ### Hydrogen bonding
@@ -23,7 +23,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 ## Potential of mean force
 
 <figure markdown>
-![](./f001-his148_h-thr203_o-pmf.svg)
+![](./f001-his148_h-thr203_o-pmf.svg){width=600}
 </figure>
 
 ### Quantitative

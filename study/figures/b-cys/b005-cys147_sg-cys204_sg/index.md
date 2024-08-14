@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./b005-cys147_sg-cys204_sg-pdf.svg)
+![](./b005-cys147_sg-cys204_sg-pdf.svg){width=600}
 </figure>
 
 ### Quantitative

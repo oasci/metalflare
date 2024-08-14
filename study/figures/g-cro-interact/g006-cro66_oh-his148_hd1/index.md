@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./g006-cro66_oh-his148_hd1-pdf.svg)
+![](./g006-cro66_oh-his148_hd1-pdf.svg){ width=600 }
 </figure>
 
 ### Hydrogen bonding
@@ -15,6 +15,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 | Reduced | 0.486 |
 | Oxidized | 0.691 |
 | Cu(I) | 0.339 |
+| Na+ | 0.347 |
 
 ### Quantitative
 
@@ -23,7 +24,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 ## Potential of mean force
 
 <figure markdown>
-![](./g006-cro66_oh-his148_hd1-pmf.svg)
+![](./g006-cro66_oh-his148_hd1-pmf.svg){ width=600 }
 </figure>
 
 ### Quantitative

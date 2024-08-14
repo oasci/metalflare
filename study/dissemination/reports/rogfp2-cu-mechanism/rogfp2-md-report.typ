@@ -579,7 +579,7 @@ This pattern suggests significant conformational flexibility in the reduced stat
         [*Reduced*], [0.191], [0.486], [0.612], [0.689],
         [*Oxidized*], [0.009], [0.691], [0.795], [0.977],
         [*Cu(I)*], [0.619], [0.339], [0.641], [0.895],
-        [*Na#super[+]*], [#todo("")], [#todo("")], [#todo("")], [#todo("")],
+        [*Na#super[+]*], [0.299], [0.347], [0.671], [0.627],
     ),
     placement: auto
 ) <tab-cro-hbond>
@@ -634,10 +634,10 @@ The GSPT pathway---which involves proton transfer from Glu222 to Ser205, a water
         stroke: none,
         [*State*], [*Glu222 $arrow.r$ Ser205*], [*Ser205 $arrow.r$ H#sub[2]O*], [*H#sub[2]O $arrow.r$ Cro66*],
         table.hline(),
-        [*Reduced*], [0.299], [0.516], [0.465],
-        [*Oxidized*], [0.000], [0.416], [0.379],
-        [*Cu(I)*], [1.122$times$10#super[-4]], [0.517], [0.452],
-        [*Na#super[+]*], [0.295], [#todo("")], [#todo("")],
+        [*Reduced*], [0.299], [0.516], [0.560],
+        [*Oxidized*], [0.000], [0.416], [0.601],
+        [*Cu(I)*], [1.122$times$10#super[-4]], [0.517], [0.538],
+        [*Na#super[+]*], [0.295], [0.472], [0.404],
     ),
     placement: auto
 ) <tab-gspt-hbond>

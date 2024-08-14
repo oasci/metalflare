@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./b004-cys147_ca-cys204_ca-pdf.svg)
+![](./b004-cys147_ca-cys204_ca-pdf.svg){width=600}
 </figure>
 
 ### Quantitative
@@ -13,7 +13,7 @@
 ## Potential of mean force
 
 <figure markdown>
-![](./b004-cys147_ca-cys204_ca-pmf.svg)
+![](./b004-cys147_ca-cys204_ca-pmf.svg){width=600}
 </figure>
 
 ### Quantitative

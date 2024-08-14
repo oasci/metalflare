@@ -1,20 +1,20 @@
-# G011: Glu222 to Cro66 and Ser205 distance
+# G011: Thr64 to Cro66 and Tyr145 distance
 
 ## Probability densities
 
 === "Reduced"
     <figure markdown>
-    ![](./g011-pes-reduced.png)
+    ![](./g013-pes-reduced.png)
     </figure>
 
 === "Oxidized"
     <figure markdown>
-    ![](./g011-pes-oxidized.png)
+    ![](./g013-pes-oxidized.png)
     </figure>
 
 === "Cu(I)"
     <figure markdown>
-    ![](./g011-pes-cu.png)
+    ![](./g013-pes-cu.png)
     </figure>
 
 ## Visualization

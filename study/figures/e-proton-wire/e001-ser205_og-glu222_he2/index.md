@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./e001-ser205_og-glu222_he2-pdf.svg)
+![](./e001-ser205_og-glu222_he2-pdf.svg){width=600}
 </figure>
 
 ### Hydrogen bonding
@@ -23,7 +23,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 ## Potential of mean force
 
 <figure markdown>
-![](./e001-ser205_og-glu222_he2-pmf.svg)
+![](./e001-ser205_og-glu222_he2-pmf.svg){width=600}
 </figure>
 
 ### Quantitative

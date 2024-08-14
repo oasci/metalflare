@@ -48,6 +48,12 @@ if __name__ == "__main__":
     )
     rogfp_cu_data = np.load(rogfp_cu_dist_path)
 
+    rogfp_na_dist_path = os.path.join(
+        base_dir,
+        "analysis/008-rogfp-na-glh-md/data/struct-desc/cro65_cg2-thr62_hg1-dist.npy",
+    )
+    rogfp_na_data = np.load(rogfp_na_dist_path)
+
     # Compute all pdfs
     x_bounds = (1, 10)
     bin_width = 0.05  # Angstrom
@@ -57,6 +63,7 @@ if __name__ == "__main__":
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
+    pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
     # KDE stats
     x_min = 4
@@ -72,6 +79,10 @@ if __name__ == "__main__":
     kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
     cu_fraction = kde.integrate_box_1d(x_min, x_max)
     print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
+
+    kde = gaussian_kde(rogfp_na_data, bw_method=bw_method)
+    na_fraction = kde.integrate_box_1d(x_min, x_max)
+    print(f"Na+ kde stat:     {na_fraction:.3f}")
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
@@ -96,7 +107,7 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "g012-cro66_cg2-thr64_hg1-pdf"
+    fig_title = "g012-cro66_cg2-thr64_hg1"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
     x_label = "Cro66 CG2 - Thr64 HG1 Distance [Å]"
     plot_x_bounds = (1, 7)
@@ -113,6 +124,8 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
+        figsize=(3.5, 3.0),
+        pdf_na=pdf_rogfp_na
     )
 
     pdf_fig.savefig(f"{fig_title}-pdf.svg")

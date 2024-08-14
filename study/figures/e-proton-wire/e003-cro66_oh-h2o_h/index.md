@@ -4,11 +4,12 @@
 
 The following table presents the probability of either a water molecule was (a) near or (hydrogen bonding) to the chromophore.
 
-| System | Detected | H bond |
-| ------ | -------- | ------ |
-| Reduced | 0.830 | 0.560 |
-| Oxidized | 0.630 | 0.601 |
-| Cu(I) | 0.841 | 0.538 |
+| System | H bond |
+| ------ | ------ |
+| Reduced | 0.560 |
+| Oxidized | 0.601 |
+| Cu(I) | 0.538 |
+| Na+ | 0.404 |
 
 ## Probability density function
 

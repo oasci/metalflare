@@ -15,6 +15,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 | Reduced | 0.612 |
 | Oxidized | 0.795 |
 | Cu(I) | 0.641 |
+| Na+ | 0.671 |
 
 ### Quantitative
 
