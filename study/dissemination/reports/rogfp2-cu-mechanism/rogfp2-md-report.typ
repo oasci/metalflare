@@ -542,7 +542,7 @@ Under oxidizing conditions, the peak distance only decreases to 3.56 $angstrom$ 
 
 No changes are observed in the Val150 and Leu201 $beta$-strand.
 
-= Cu(I) binding affects anionic chromophore hydrogen binding
+= Cu(I) binding affects hydrogen binding
 
 As previously mentioned, several residues interact with the chromophore.
 Numerous studies have observed complex interactions that have led to several variants tailored for specific applications.

@@ -164,6 +164,9 @@
 
     // Start two-column mode
     show: columns.with(2, gutter: 12pt)
+
+    outline(indent: 1em, depth: 1)
+
     set par(justify: true, first-line-indent: 1em)
     show par: set block(spacing: 0.65em)
 
