@@ -1,34 +1,21 @@
-# E001: Ser205 OG - Glu222 HE2
+# G011: Glu222 to Cro66 and Ser205 distance
 
-## Probability density function
+## Probability densities
 
-<figure markdown>
-![](./e001-ser205_og-glu222_he2-pdf.svg)
-</figure>
+=== "Reduced"
+    <figure markdown>
+    ![](./g011-pes-reduced.png)
+    </figure>
 
-### Hydrogen bonding
+=== "Oxidized"
+    <figure markdown>
+    ![](./g011-pes-oxidized.png)
+    </figure>
 
-The following table presents the probability of the hydrogen bonding (within 2.5 Å).
-
-| System | H bond |
-| ------ | ------ |
-| Reduced | 0.299 |
-| Oxidized | 0.000 |
-| Cu(I) | 1.122E-4 |
-
-### Quantitative
-
---8<-- "study/figures/e-proton-wire/e001-ser205_og-glu222_he2/pdf-info.md"
-
-## Potential of mean force
-
-<figure markdown>
-![](./e001-ser205_og-glu222_he2-pmf.svg)
-</figure>
-
-### Quantitative
-
---8<-- "study/figures/e-proton-wire/e001-ser205_og-glu222_he2/pmf-info.md"
+=== "Cu(I)"
+    <figure markdown>
+    ![](./g011-pes-cu.png)
+    </figure>
 
 ## Visualization
 

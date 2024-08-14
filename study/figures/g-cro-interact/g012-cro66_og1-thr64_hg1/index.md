@@ -1,9 +1,9 @@
-# E001: Ser205 OG - Glu222 HE2
+# G012: Cro66 CG2 - Thr64 HG1
 
 ## Probability density function
 
 <figure markdown>
-![](./e001-ser205_og-glu222_he2-pdf.svg)
+![](./g012-cro66_cg2-thr64_hg1-pdf.svg){ width=600 }
 </figure>
 
 ### Hydrogen bonding
@@ -12,30 +12,31 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 | System | H bond |
 | ------ | ------ |
-| Reduced | 0.299 |
-| Oxidized | 0.000 |
-| Cu(I) | 1.122E-4 |
+| Reduced | 0.689 |
+| Oxidized | 0.977 |
+| Cu(I) | 0.895 |
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/e001-ser205_og-glu222_he2/pdf-info.md"
+--8<-- "study/figures/b-cro-between/b007-cro66_og1-glu222_he2/pdf-info.md"
 
 ## Potential of mean force
 
 <figure markdown>
-![](./e001-ser205_og-glu222_he2-pmf.svg)
+![](./b007-cro66_og1-glu222_he2-pmf.svg)
 </figure>
 
 ### Quantitative
 
---8<-- "study/figures/e-proton-wire/e001-ser205_og-glu222_he2/pmf-info.md"
+--8<-- "study/figures/b-cro-between/b007-cro66_og1-glu222_he2/pmf-info.md"
 
 ## Visualization
 
-<div id="reduced-view" class="mol-container"></div>
+<div id="b003-view" class="mol-container"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    const viewer = molstar.Viewer.create('reduced-view', {
+    const viewer = molstar.Viewer.create('b003-view', {
         layoutIsExpanded: false,
         layoutShowControls: false,
         layoutShowRemoteState: false,
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         pdbProvider: 'rcsb',
     }).then(viewer => {
         // viewer.loadStructureFromUrl("/analysis/005-rogfp-glh-md/data/traj/frame_106403.pdb", "pdb");
-        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/reduced-example.molj", "molj");
+        viewer.loadSnapshotFromUrl("/misc/002-molstar-states/b003.molj", "molj");
     });
 });
 </script>

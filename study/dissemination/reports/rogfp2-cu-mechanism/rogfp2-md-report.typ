@@ -213,13 +213,13 @@ His148 directly interacts with the chromophore, forming a critical hydrogen bond
 Specifically, the imidazole side chain of His148 donates a hydrogen bond to the chromophore's phenolate oxygen #addcite().
 This interaction aids in locking the chromophore into a planar conformation.
 These residues' rigid environment minimizes non-radiative decay pathways, contributing to GFP's high fluorescence quantum yield.
-=Upon chromophore excitation, His148 also helps facilitates proton movement @shinobu2010visualizing.
+Upon chromophore excitation, His148 also helps facilitates proton movement @shinobu2010visualizing.
 
 === Thr203
 
 Thr203 is located close to the chromophore within the $beta$-barrel structure.
 Its hydroxyl group can hydrogen bond with the anionic chromophore's phenolate oxygen in specific conformations.
-Mutating Thr203 to Ile or Val destabilizes the B-state and dramatically reduces its excitation peak, thus driving the grand-state equilibrium towards the A-state @kummer2000effects.
+Mutating Thr203 to Ile or Val destabilizes the B-state and dramatically reduces its excitation peak, thus driving the ground-state equilibrium towards the A-state @kummer2000effects.
 Yellow FP (YFP) is also derived from mutations by placing chemical groups that can $pi$--$pi$-stacking with the chromophore @zimmer2002green.
 Quenching of A\* emissions through an ESPT is still present in T203 mutants; however, T203I and T203V mutants are slower down while T203Y maintains wild-type speeds @jung2005photophysics.
 
@@ -318,21 +318,21 @@ For the solvent environment, we employed the OPC3 water model, #addcite(), which
 The 12-6 nonbonded model and parameters for all ions were taken from Sengupta et al @sengupta2021parameterization.
 The system was neutralized by adding Na+ and Cl- ions as needed.
 Additional ions were introduced to achieve a solvent ionic strength of 0.150 M to mimic physiological conditions.
-The protein was solvated in a rectangular box, with a minimum distance of 10 Å between the protein and the box edges to minimize periodic boundary condition artifacts.
+The protein was solvated in a rectangular box, with a minimum distance of 10 $angstrom$ between the protein and the box edges to minimize periodic boundary condition artifacts.
 Parameters from Breyfogle et al. @breyfogle2023molecular were employed for the anionic chromophore.
 
 == Minimization
 
 The prepared system underwent a four-stage energy minimization protocol using Amber23 #addcite() to relieve any unfavorable interactions and optimize the structure.
 All minimization stages used the steepest descent method for the first 1000 steps, followed by the conjugate gradient method for the remaining steps, with a maximum of 5000 steps per stage.
-A non-bonded cutoff of 10.0 Å was applied throughout.
+A non-bonded cutoff of 10.0 $angstrom$ was applied throughout.
 Periodic boundary conditions were employed, and coordinates were wrapped to the primary unit cell.
 The minimization progress was monitored by writing energies every step and coordinates every 200 steps.
 
-#emph[Stage 1:] Initial minimization was performed with restraints (force constant: 5.0 kcal/mol/Å²) on all non-hydrogen atoms of the entire system, allowing hydrogen atoms to relax and adjust their positions.
-#emph[Stage 2:] The system was further minimized with restraints (force constant: 5.0 kcal/mol/Å²) on all non-hydrogen atoms of the solute (excluding water molecules and ions), allowing solvent and ions to equilibrate around the solute.
-#emph[Stage 3:] Minimization continued with reduced restraints (force constant: 2.0 kcal/mol/Å²) applied only to the protein backbone, allowing side chains and other flexible parts to relax.
-#emph[Stage 4:] Final minimization was performed with further reduced restraints (force constant: 1.0 kcal/mol/Å²).
+#emph[Stage 1:] Initial minimization was performed with restraints (force constant: 5.0 kcal/mol/$angstrom$²) on all non-hydrogen atoms of the entire system, allowing hydrogen atoms to relax and adjust their positions.
+#emph[Stage 2:] The system was further minimized with restraints (force constant: 5.0 kcal/mol/$angstrom$²) on all non-hydrogen atoms of the solute (excluding water molecules and ions), allowing solvent and ions to equilibrate around the solute.
+#emph[Stage 3:] Minimization continued with reduced restraints (force constant: 2.0 kcal/mol/$angstrom$²) applied only to the protein backbone, allowing side chains and other flexible parts to relax.
+#emph[Stage 4:] Final minimization was performed with further reduced restraints (force constant: 1.0 kcal/mol/$angstrom$²).
 The resulting minimized structure served as the starting point for subsequent relaxation and production simulations.
 
 == Relaxation simulations
@@ -341,12 +341,12 @@ Following energy minimization, the system underwent a three-stage relaxation pro
 Three independent runs were initiated with random initial velocities to ensure adequate sampling.
 All subsequent simulations were continued using the respective run's restart files.
 
-#emph[Stage 1:] An initial 20 ps NVT (constant Number of particles, Volume, and Temperature) simulation was performed with a 2 fs time step. The system was heated from 100 K to 300 K using Langevin dynamics with a collision frequency of 5 ps⁻¹. Restraints (force constant: 1.0 kcal/mol/Å²) were applied to the protein backbone.
+#emph[Stage 1:] An initial 20 ps NVT (constant Number of particles, Volume, and Temperature) simulation was performed with a 2 fs time step. The system was heated from 100 K to 300 K using Langevin dynamics with a collision frequency of 5 ps⁻¹. Restraints (force constant: 1.0 kcal/mol/$angstrom$²) were applied to the protein backbone.
 SHAKE algorithm was used to constrain bonds involving hydrogen atoms.
-The non-bonded cutoff was set to 10.0 Å.
+The non-bonded cutoff was set to 10.0 $angstrom$.
 #emph[Stage 2:] A 1 ns NPT simulation followed, maintaining the temperature at 300 K using Langevin dynamics (collision frequency: 5 ps⁻¹).
 Pressure was regulated at 1.01325 bar using the Monte Carlo barostat with a relaxation time of 1 ps.
-Restraints on the same atoms were reduced (force constant: 0.5 kcal/mol/Å²).
+Restraints on the same atoms were reduced (force constant: 0.5 kcal/mol/$angstrom$²).
 #emph[Stage 3:] The final relaxation stage consisted of a 1 ns NPT simulation with all positional restraints removed.
 
 == Production simulations
@@ -420,9 +420,9 @@ This dual-model approach allows for a robust comparison of feature rankings, mit
 
 A hydrogen bond of X---H $dots.c$ Y---Z, where X is the donor and Y is the acceptor atom, can be classified based on distances and angles.
 One characteristic recommended by IUPAC is that the H $dots.c$ Y distance is less than the sum of H and Y van der Waals radii.
-Hydrogen (1.10 Å) and oxygen (1.52 Å) @mantina2009consistent would have a cutoff of 2.62 Å.
-Others @hubbard2010hydrogen recommend a cutoff of 2.50 Å based on structural analysis @mcdonald1994satisfying and quantum chemical calculations @liu2008geometrical.
-Since the difference between a 2.5 and 2.62 Å cutoff is likely a substantially weak hydrogen bond, we will use a H $dots.c$ Y cutoff of 2.5 Å.
+Hydrogen (1.10 $angstrom$) and oxygen (1.52 $angstrom$) @mantina2009consistent would have a cutoff of 2.62 $angstrom$.
+Others @hubbard2010hydrogen recommend a cutoff of 2.50 $angstrom$ based on structural analysis @mcdonald1994satisfying and quantum chemical calculations @liu2008geometrical.
+Since the difference between a 2.5 and 2.62 $angstrom$ cutoff is likely a substantially weak hydrogen bond, we will use a H $dots.c$ Y cutoff of 2.5 $angstrom$.
 
 = Fluorescence mechanism of Cu(I) distinct from oxidation
 
@@ -463,7 +463,7 @@ Our MD simulations agreed well with experimental observations as shown in @tab-a
     table(
         columns: (auto, auto, auto),
         stroke: none,
-        [*State*], [*Experimental (Å)*], [*Simulations (Å)*],
+        [*State*], [*Experimental ($angstrom$)*], [*Simulations ($angstrom$)*],
         table.hline(),
         [Reduced], [4.30 ± 0.12], [4.34 ± 0.47],
         [Oxidized], [4.07 ± 0.09], [4.11 ± 0.29],
@@ -478,7 +478,7 @@ Unsurprisingly, the $sigma$ of oxidized roGFP2 exhibits is substantially smaller
 
 An experimental structure of roGFP2-Cu(I) is currently not available; however, our simulations suggest that it is on average 0.44 $angstrom$ larger than the reduced state.
 Cu(I) stayed coordinated between Cys147 and Cys204 throughout all simulations while enhancing conformational flexibility.
-For example, @fig-alpha-c shows a broader distribution of C#sub[$alpha$]-C#sub[$alpha$] distances with a slight bimodal peaks centered around 4.48 Å and 4.96 Å.
+For example, @fig-alpha-c shows a broader distribution of C#sub[$alpha$]-C#sub[$alpha$] distances with a slight bimodal peaks centered around 4.48 $angstrom$ and 4.96 $angstrom$.
 
 #figure(
     image(FIG_DIR + "b-cys/b004-cys147_ca-cys204_ca/b004-cys147_ca-cys204_ca-pdf.svg", width: 3.5in),
@@ -556,13 +556,14 @@ Our analysis of hydrogen bonding interactions with the chromophore in roGFP2 rev
 #figure(
     image(FIG_DIR + "g-cro-interact/g001-his148_hd1-tyr145_hh/g001-pes-combined.png", width: 3.5in),
     caption: [
-        #todo("Add caption")
+        2D potential of mean force (PMF) plot of the distance between the chromophore's phenolate oxygen and His148 (x-axis) and Tyr145 (y-axis).
+        The color map applies a linear colormap normalized from 0 (blue) to 4 (yellow) kcal/mol.
     ],
     placement: auto
 ) <fig-pes-his-tyr>
 
 In the reduced state of roGFP2, we observed a diverse energy landscape characterized by multiple local minima.
-A minimum is located at Tyr145-chromophore and His148-chromophore distances of approximately 1.8 Å and 1.85 Å respectively.
+A minimum is located at Tyr145-chromophore and His148-chromophore distances of approximately 1.8 $angstrom$ and 1.85 $angstrom$ respectively.
 This minimum corresponds to a configuration where both residues simultaneously form hydrogen bonds with the chromophore.
 Two other local minima were observed, representing configurations where either Tyr145 or His148 independently formed a hydrogen bond with the chromophore.
 Still, both residues exhibit conformational flexibility where neither residues stabilize the anionic chromophore.
@@ -602,7 +603,8 @@ Two primary peaks at 5.32 and 1.75 $angstrom$ suggest dynamic populations across
 #figure(
     image(FIG_DIR + "g-cro-interact/g010-cro66_oh-thr203_hg1/g010-cro66_oh-thr203_hg1-pdf.svg", width: 3.5in),
     caption: [
-        #todo("Add caption")
+        Probability density of the distance between Thr203 HG and the chromophore's phenolate oxygen.
+        The grey region indicates our hydrogen-bonding region.
     ],
     placement: auto
 )
@@ -616,8 +618,13 @@ Remarkably, Cu(I) binding to roGFP2 significantly enhances the Thr203-chromophor
 We observe a sharp, dominant peak at 1.75 $angstrom$, which is more than three times the corresponding peak in the reduced state.
 This dramatic increase in hydrogen bonding suggests that Cu(I) binding induces a conformational change that positions Thr203 optimally for interaction with the chromophore.
 
+#todo("Add origin analysis")
+
 = Disruption of ground-state proton transfer
 
+Our simulations reveal significant changes in the GSPT pathway of roGFP2 under different conditions.
+The GSPT pathway---which involves proton transfer from Glu222 to Ser205, a water molecule, and finally the chromophore---shows distinct behavior in reduced, oxidized, and Cu(I)-bound states of roGFP2.
+@tab-gspt-hbond presents the observed probabilities of the intermolecular distance to be less than 2.5 $angstrom$.
 #figure(
     caption: [GSPT step probability],
     table(
@@ -627,23 +634,158 @@ This dramatic increase in hydrogen bonding suggests that Cu(I) binding induces a
         table.hline(),
         [*Reduced*], [0.299], [0.516], [0.465],
         [*Oxidized*], [0.000], [0.416], [0.379],
-        [*Cu(I)*], [0.000], [0.517], [0.452],
+        [*Cu(I)*], [1.122$times$10#super[-4]], [0.517], [0.452],
     ),
     placement: auto
 ) <tab-gspt-hbond>
+
+In the reduced state of roGFP2, we observe a probability of 0.299 for the initial proton transfer step from Glu222 to Ser205.
+The subsequent steps in the pathway, from Ser205 to water and from water to Cro66, occur with probabilities of 0.516 and 0.465, respectively.
+These values suggest a functional GSPT pathway in the reduced state, with each step occurring at a substantial frequency throughout the simulations.
+
+Strikingly, we observe a complete inhibition of the initial GSPT step in oxidized simulations and a rare occurrence in Cu(I); instead, Glu222 hydrogen bonds to the secondary alcohol group of the chromophore instead of Ser205.
+This represents a marked change from the reduced state and indicates a significant alteration in the protein's proton transfer capabilities upon oxidation or Cu(I) binding.
+
+Despite the inhibition of the initial step, the probabilities for the latter two steps of the GSPT pathway remain relatively consistent across all three states.
+In the oxidized state, the probabilities of the Ser205 to water and water to Cro66 steps are 0.416 and 0.379, respectively.
+Similarly, in the Cu(I)-bound state, these steps show probabilities of 0.517 and 0.452.
+These values are comparable to those observed in the reduced state, suggesting that the capability for these latter proton transfer steps is maintained even when the initial step is inhibited.
 
 #figure(
     image(FIG_DIR + "e-proton-wire/e001-ser205_og-glu222_he2/e001-ser205_og-glu222_he2-pdf.svg", width: 3.5in),
     caption: [
         #todo("Add caption")
-    ],
+ ],
     placement: auto
-)
+) <fig-glu-ser>
+Further examination of the Glu222-Ser205 interaction reveals intriguing details about the GSPT pathway dynamics.
+Figure @fig-glu-ser illustrates the probability density of the distance between Glu222 and Ser205 across the three states of roGFP1.
 
-= Proposed Cu(I) fluorescence mechanism
+We observe a bimodal distribution of the Glu222-Ser205 distance in the reduced state.
+The primary peak at approximately 1.81 $angstrom$ corresponds to a hydrogen bonding distance.
+A secondary peak at around 4.54 $angstrom$ suggests an alternative conformation in which Glu222 does not interact directly with Ser205.
+Interestingly, this bimodal distribution in the reduced state indicates that Glu222 can alternate between interacting with Ser205 and the chromophore.
 
-#todo("writeeee")
+In stark contrast, the oxidized and Cu(I)-bound states show an unimodal distribution centered around 3.93 and 4.74 $angstrom$, respectively.
+This single peak at a larger distance indicates that Glu222 and Ser205 are consistently separated in these states and do not form a direct hydrogen bond.
+This observation directly corresponds to the zero probability of proton transfer from Glu222 to Ser205 in both oxidized and Cu(I)-bound states.
 
-// These observations indicate that Cu(I) binding increases the flexibility of Tyr145 and His148 interactions with the chromophore compared to the reduced state.
-// The shallower energy wells suggest that the probability of stable, long-lasting hydrogen bonds is reduced in the presence of Cu(I).
-// Additionally, the lower energy barriers imply that transitions between various hydrogen bonding states may occur more readily, pointing to a more dynamic local environment around the chromophore in the Cu(I)-bound state.
+These findings collectively demonstrate that oxidation and Cu(I) binding induce specific conformational changes in roGFP2 that increase the Glu222-Ser205 distance, thereby inhibiting the initial step of the GSPT pathway.
+This inhibition occurs without significantly altering the latter steps of the pathway, pointing to a localized effect on the Glu222-Ser205 interaction rather than a global disruption of the proton transfer network.
+
+= Proposed Cu(I) sensing mechanism
+
+In the fluorescence experiments, we observe the following characteristics.
+
+- *Oxidized*:
+    - A-band increases.
+    - B-band decreases.
+    - An isosbestic point indicates there is an equilibrium between the two states.
+- *Cu(I)*:
+    - A-band remains relatively stable but will begin to decrease with increasing Cu(I) concentration.
+    - B-band dramatically decreases even at low Cu(I) concentrations.
+    - Lacks an isosbestic point.
+    - Neutral and anionic chromophore still become excited at expected wavelengths (data not shown).
+
+These results---agreeing with previous studies #addcite()---indicate that oxidizing of Cys147 and Cys204 leaves the fluorescence mechanism intact.
+However, the neutral chromophore becomes slightly preferred.
+
+Cu(I)-binding appears to quench the B-band primarily.
+The lack of the isosbestic point and no A-band increase indicates no detectable shift in chromophore protonation preference.
+However, it is certainly possible that there is a population shift along with fortuitous A-band quenching that makes it appear unchanged.
+Applying Occam's razor would discourage this mechanism and instead attribute Cu(I) sensing to quenching the B-band faster than the A-band.
+
+Our molecular simulations suggest the following with respect to the reduced state.
+
+- *Oxidized*:
+    - Added strained between Cys147 and Cys204.
+    - Stabilized $beta$-sheet between His148 and Thr203.
+    - Enhanced chromophore stabilization through His148 and Tyr145 hydrogen bonding.
+    - Thr203 rarely coordinates with the chromophore.
+    - Potentially broken GSPT pathway to re-protonate the chromophore.
+- *Cu(I)*:
+    - Additional backbone flexibility around Cys147 and Cys204.
+    - Destabilizes $beta$-sheet between His148 and Thr203.
+    - Less hydrogen bonding of anionic chromophore through His148 and Tyr145.
+    - Thr203 strongly favors coordinating to the phenolate oxygen in the chromophore.
+    - Potentially broken GSPT pathway to re-protonate the chromophore.
+
+Based on the experimental evidence and simulation data, we propose a multi-faceted atomistic mechanism for Cu(I) sensing in roGFP2.
+In the reduced state, roGFP2 maintains a dynamic equilibrium between the neutral and anionic chromophore states, with the anionic state being favored.
+Thr203 plays a crucial role in stabilizing the anionic chromophore through hydrogen bonding with the phenolate oxygen. The functional GSPT pathway allows for efficient re-protonation of the chromophore, maintaining the A-band fluorescence.
+
+Upon Cu(I) binding, roGFP2 undergoes distinct conformational changes that affect the anionic chromophore state.
+The simulations reveal increased backbone flexibility around the Cu(I) binding site, destabilization of the $beta$-sheet structure, and reduced hydrogen bonding of the anionic chromophore through His148 and Tyr145.
+These changes likely contribute to the quenching of B-band fluorescence by promoting non-radiative decay pathways.
+Despite the destabilizing effects of the conformational changes, the strong coordination of Thr203 to the chromophore's phenolate oxygen in the Cu(I)-bound state may help maintain the anionic chromophore population.
+This stabilizing effect of Thr203 could explain the absence of a significant increase in the A-band fluorescence upon Cu(I) binding, as observed in the experimental data.
+
+The dramatic decrease in B-band fluorescence upon Cu(I) binding can be attributed to the quenching of the anionic chromophore through non-radiative decay pathways, which are likely promoted by the destabilization of the $beta$-sheet structure and reduced hydrogen bonding through His148 and Tyr145.
+The potentially disrupted GSPT pathway may further contribute to this quenching by impeding the re-protonation of the anionic chromophore.
+The relatively stable A-band in the presence of Cu(I) suggests that the GSPT pathway is not completely inhibited, allowing for some re-protonation of the chromophore to maintain the neutral state population.
+
+In summary, we propose a multi-faceted Cu(I) sensing mechanism in roGFP2 that involves several factors.
+Thr203 maintains the anionic chromophore population through hydrogen bonding with the phenolate oxygen. The destabilization of the $beta$-sheet structure and reduced hydrogen bonding through His148 and Tyr145 promote non-radiative decay pathways, leading to the quenching of B-band fluorescence.
+The partially functional GSPT pathway allows for some re-protonation of the chromophore, maintaining the neutral state population and contributing to the relatively stable A-band fluorescence.
+
+= Limitations
+
+This section details my own critical review of this work.
+Feedback will help me strength, adjust, or clarify points in this report.
+
+- *Absence of an Isosbestic Point:*
+    The lack of an isosbestic point in the Cu(I) fluorescence data is interpreted as evidence for a different mechanism from oxidation. This interpretation is reasonable, but additional controls should support it.
+    Have other metal ions been tested to ensure this response is specific to Cu(I)?
+    This would help to exclude the possibility that the observed changes are due to general metal-induced conformational shifts rather than specific Cu(I) interactions.
+- *Role of Thr203:*
+    The report suggests that Thr203 plays a crucial role in maintaining the anionic chromophore population through hydrogen bonding in the Cu(I)-bound state.
+    However, the simulation results indicate a strong preference for Thr203 to coordinate with the chromophore in the presence of Cu(I), contrasting with its behavior in the oxidized state.
+    This dual role needs to be reconciled—does Thr203 stabilize the anionic chromophore, or does it contribute to its quenching by altering the electronic environment?
+    This point needs clarification, possibly with additional experimental validation (e.g., mutagenesis studies).
+- *Disrupted GSPT Pathway:*
+    The report proposes that Cu(I) binding disrupts the GSPT pathway, leading to quenching of B-band fluorescence.
+    However, the evidence for this disruption is primarily computational.
+    Experimental data, such as proton exchange rates or hydrogen bonding network perturbations (e.g., through NMR or FTIR spectroscopy), would strengthen this argument.
+    Additionally, the complete inhibition of the GSPT pathway in the oxidized state, as suggested by the simulations, needs to be better supported by the existing literature on GFPs and their variants.
+- *Simulation of Cu(I) Binding:*
+    The choice of force fields and Cu(I) coordination accuracy need further justification.
+    Cu(I) has complex coordination chemistry, and improper parametrization could lead to erroneous results.
+    Have other methods, such as quantum mechanical/molecular mechanical (QM/MM) simulations, been considered to validate the Cu(I) coordination observed in the MD simulations?
+    This would address potential inaccuracies in the force field's Cu(I) treatment.
+- *Backbone Flexibility and $beta$-Strand Fraying:*
+    The report links Cu(I) binding to increased backbone flexibility and $beta$-strand fraying, leading to decreased stabilization of the anionic chromophore.
+    While the data support this, it remains speculative without direct experimental evidence.
+    Could experimental techniques, such as hydrogen-deuterium exchange (HDX) mass spectrometry, corroborate these findings?
+- *Hydrogen Bonding Analysis:*
+    The hydrogen bonding probabilities and distances presented are critical to the proposed mechanism.
+    However, the methodology for calculating these probabilities needs more detail.
+    Were these calculated over the entire simulation time, or were specific time windows chosen?
+    How were fluctuations in hydrogen bond lengths and angles accounted for in the analysis?
+    These hydrogen bonds' stability and significance need to be better contextualized, perhaps by comparing them to known benchmarks in similar systems.
+- *Fluorescence Spectra Interpretation:*
+    The interpretation of the fluorescence spectra, especially the distinct responses of the A- and B-bands, relies heavily on the computational predictions.
+    It would be beneficial to see more direct experimental tests, such as site-directed mutagenesis of Thr203, His148, or Tyr145, to confirm their roles in Cu(I) sensing.
+    How do mutations in these residues affect the fluorescence response to Cu(I)? This would directly test the proposed mechanism.
+- *Comparison with Other Metal Ions:*
+    To further substantiate the specificity of the Cu(I) sensing mechanism, comparisons with other metal ions (e.g., Zn(II), Fe(III), Ni(II)) should be included.
+    Does roGFP2 exhibit a similar fluorescence response to these metals, or is the response unique to Cu(I)?
+    This experiment would help to rule out non-specific metal binding as a confounding factor.
+- *Mechanistic Plausibility:*
+    The proposed mechanism for Cu(I) sensing involves multiple factors, such as the disruption of $β$-strand integrity, altered hydrogen bonding, and the inhibition of the GSPT pathway. While this multi-faceted approach is thorough, the sheer complexity of the mechanism raises questions about its biological plausibility. Are all these events necessary and sufficient to explain the observed fluorescence changes? The report could benefit from a discussion on the relative importance of each factor, potentially simplifying the proposed mechanism to focus on the most critical elements. Simplifying the narrative where possible would make the mechanism more digestible and potentially more convincing.
+- *Energetic Considerations:*
+    The report suggests that Cu(I) binding leads to increased backbone flexibility and destabilization of the $β$-sheet, affecting chromophore stability and fluorescence. However, the energetic cost of these structural rearrangements is not discussed. Given that a delicate balance of forces typically stabilizes protein structures, substantial conformational changes could have significant energetic penalties. It would be useful to discuss whether these conformational changes are likely to occur spontaneously in the presence of Cu(I) or whether additional factors (e.g., cellular environment, protein-protein interactions) might influence this process.
+- *Sampling Adequacy:*
+    The report mentions a total of 1.5 μs of MD simulation data, which is substantial. However, it is not clear whether this sampling is sufficient to capture the full range of conformational changes and dynamic behavior of roGFP2 in the presence of Cu(I). Have convergence tests been performed to ensure that the observed changes are not artifacts of insufficient sampling? Additionally, are there significant differences between the three independent simulation runs, or are the results consistent across all replicates? A more detailed analysis of the sampling adequacy and reproducibility of the results would strengthen the computational aspect of the study.
+- *Force Field Limitations:*
+    While the report uses well-established force fields (e.g., ff19SB for proteins), the limitations of these force fields should be acknowledged, especially in the context of metal coordination chemistry. Force fields are often parametrized for standard amino acid residues and may not accurately capture the unique coordination environment of Cu(I). This could lead to artifacts or misinterpretations of the Cu(I) binding effects. A brief discussion on the limitations of the chosen force fields and any potential impact on the results would be beneficial.
+- *Normalization of Fluorescence Data:*
+    The report mentions that the fluorescence data were normalized, but the normalization method is unclear. Given that the interpretation of the fluorescence spectra is central to the proposed mechanism, the normalization method should be described in detail. Was the fluorescence intensity normalized to the protein concentration, emission wavelength, or another factor? Inconsistent or inappropriate normalization could lead to misleading conclusions, so this aspect needs careful attention.
+- *Organization and Flow:*
+    The report is dense with information, which, while demonstrating the depth of the research, can also make it challenging to follow. Consider reorganizing some sections to improve the logical flow. For instance, the detailed descriptions of the fluorescence mechanism and the roles of specific residues might be more digestible if presented after a brief overview of the key findings. Additionally, some sections could benefit from subheadings that guide the reader through the complex narrative.
+- *Language and Terminology:*
+    The report uses highly technical language and more general descriptions. While this is appropriate for a specialized audience, it might benefit from a more consistent use of terminology, especially when describing key concepts such as proton transfer mechanisms or chromophore states. Defining terms clearly when first introduced and ensuring consistent usage throughout the report would improve clarity.
+- *Clarity and Completeness:*
+    The figures and tables are integral to the report, but some lack sufficient detail in the captions. For instance, some figures have placeholder captions or to-do notes that must be completed. Some complex figures (e.g., potential energy surfaces or hydrogen bonding networks) might also benefit from additional annotations or explanations in the captions to help the reader interpret the data without referring to the text.
+- *Relevance of Data Presented:*
+    While the report provides a wealth of data, it's important to ensure that all included figures and tables are directly relevant to the proposed mechanism.
+    If certain data are more exploratory or tangential, they could be moved to supplementary material. This would streamline the main report and keep the focus on the most critical findings.

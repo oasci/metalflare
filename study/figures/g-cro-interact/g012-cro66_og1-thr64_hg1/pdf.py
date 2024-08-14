@@ -3,9 +3,9 @@
 import os
 
 import matplotlib.pyplot as plt
-import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
+import numpy as np
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
@@ -31,49 +31,47 @@ if __name__ == "__main__":
     font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
     use_mpl_rc_params(rc_json_path, font_dirs)
 
-    # Reduced
-    rogfp_data_path = os.path.join(
+    rogfp_dist_path = os.path.join(
         base_dir,
-        "analysis/005-rogfp-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
+        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_cg2-thr62_hg1-dist.npy",
     )
-    rogfp_data = np.load(rogfp_data_path)
-
+    rogfp_data = np.load(rogfp_dist_path)
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
-        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_cg2-thr62_hg1-dist.npy",
     )
     rogfp_oxd_data = np.load(rogfp_oxd_data_path)
-
-    # Copper
-    rogfp_cu_data_path = os.path.join(
+    rogfp_cu_dist_path = os.path.join(
         base_dir,
-        "analysis/006-rogfp-cu-glh-md/data/struct-desc/ser203_og-glu220_he2-dist.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_cg2-thr62_hg1-dist.npy",
     )
-    rogfp_cu_data = np.load(rogfp_cu_data_path)
+    rogfp_cu_data = np.load(rogfp_cu_dist_path)
 
     # Compute all pdfs
     x_bounds = (1, 10)
-    bin_width = 0.1  # Angstrom
+    bin_width = 0.05  # Angstrom
     n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
     x_values = np.linspace(*x_bounds, n_bins)
-    bw_method = 0.01  # Manually tuned
+    bw_method = 0.03  # Manually adjusted
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
 
     # KDE stats
+    x_min = 4
+    x_max = 8
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
-    reduced_fraction = kde.integrate_box_1d(0.1, 2.5)
+    reduced_fraction = kde.integrate_box_1d(x_min, x_max)
     print(f"Reduced kde stat:  {reduced_fraction:.3f}")
 
     kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
-    oxidized_fraction = kde.integrate_box_1d(0.1, 2.5)
-    print(f"Oxidized kde stat: {oxidized_fraction:.3e}")
+    oxidized_fraction = kde.integrate_box_1d(x_min, x_max)
+    print(f"Oxidized kde stat: {oxidized_fraction:.3f}")
 
     kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
-    cu_fraction = kde.integrate_box_1d(0.1, 2.5)
-    print(f"Cu(I) kde stat:    {cu_fraction:.3e}")
+    cu_fraction = kde.integrate_box_1d(x_min, x_max)
+    print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
@@ -98,10 +96,10 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "e001-ser205_og-glu222_he2"
+    fig_title = "g012-cro66_cg2-thr64_hg1-pdf"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
-    x_label = "Glu222 HE2 - Ser205 OG Distance [Å]"
-    plot_x_bounds = (1, 8)
+    x_label = "Cro66 CG2 - Thr64 HG1 Distance [Å]"
+    plot_x_bounds = (1, 7)
     y_label = "Density"
     plot_y_bounds = (0, None)
 
@@ -117,21 +115,12 @@ if __name__ == "__main__":
         pdf_rogfp_oxd=pdf_rogfp_oxd,
     )
 
-    # Add hydrogen bond region
-    rect = Rectangle((0, 0), 2.15, 10, facecolor="#F5F5F5", zorder=-10)
-    plt.gca().add_patch(rect)
-    colors = ["#F5F5F5", "#ffffff"]
-    n_bins = 100
-    cmap = LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
-    gradient = np.linspace(0, 1, 256).reshape(1, -1)
-    plt.imshow(gradient, extent=[2.14, 2.5, 0, 10], aspect="auto", cmap=cmap, zorder=-9)
-
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
     # Compute potential of mean forces
     pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.54, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+        x_values, 1.75, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
     )
 
     # save pmf information
@@ -163,8 +152,8 @@ if __name__ == "__main__":
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 8)
-    plot_y_bounds = (-1, 4)
+    plot_x_bounds = (1, 9)
+    plot_y_bounds = (-0.5, 4.5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
