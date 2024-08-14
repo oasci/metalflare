@@ -4,7 +4,7 @@
 // Variables //
 ///////////////
 
-#let TITLE = "Unraveling the roGFP2 Cu(I) Sensing Mechanism"
+#let TITLE = "Unraveling the Cu(I) Sensing Mechanism of roGFP2"
 #let VERSION = (
   "v" + datetime.today().display("[year].[month padding:none].[day padding:none]")
 )
