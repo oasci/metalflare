@@ -465,9 +465,10 @@ Our MD simulations agreed well with experimental observations as shown in @tab-a
         stroke: none,
         [*State*], [*Experimental ($angstrom$)*], [*Simulations ($angstrom$)*],
         table.hline(),
-        [Reduced], [4.30 ± 0.12], [4.34 ± 0.47],
-        [Oxidized], [4.07 ± 0.09], [4.11 ± 0.29],
-        [Cu(I)], [N/A], [4.78 ± 0.82],
+        [*Reduced*], [4.30 ± 0.12], [4.34 ± 0.47],
+        [*Oxidized*], [4.07 ± 0.09], [4.11 ± 0.29],
+        [*Cu(I)*], [N/A], [4.78 ± 0.82],
+        [*Na#super[+]*], [N/A], [5.06 ± 0.89],
     ),
     placement: none,
     caption: [Mean and standard deviations of C#sub[$alpha$]-C#sub[$alpha$] distances between Cys147 and Cys204.]
