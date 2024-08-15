@@ -3,9 +3,8 @@ docs_dir: study
 site_name: metalflare
 site_author: OASCI
 
-repo_name: oasci/studies/metalflare
-repo_url: https://gitlab.com/oasci/studies/metalflare
-edit_uri: -/edit/main/study
+repo_name: oasci/metalflare
+repo_url: https://github.com/oasci/metalflare
 
 # https://squidfunk.github.io/mkdocs-material/
 theme:
@@ -28,7 +27,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   icon:
-    repo: fontawesome/brands/gitlab
+    repo: fontawesome/brands/github
     annotation: material/star-four-points-circle
   features:
     - content.action.edit

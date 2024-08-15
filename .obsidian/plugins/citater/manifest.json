@@ -5,6 +5,6 @@
 	"minAppVersion": "0.15.9",
 	"description": "Automatically search and insert citations from a BibTeX file.",
 	"author": "OASCI",
-	"authorUrl": "https://gitlab.com/oasci",
+	"authorUrl": "https://github.com/oasci",
 	"isDesktopOnly": true
 }

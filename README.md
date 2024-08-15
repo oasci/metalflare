@@ -8,7 +8,7 @@ TODO:
 
 > No research should be done alone.
 
-We use [this repository's issues](https://gitlab.com/oasci/studies/metalflare/issues) as our todo list.
+We use [this repository's issues](https://github.com/oasci/metalflare/issues) as our todo list.
 Asynchronous conversations about any of the tasks should be included as issue comments.
 Synchronous meetings happening in-person or virtually should have meeting minutes stored in the [appropriate directory](study/management/03-meetings).
 
