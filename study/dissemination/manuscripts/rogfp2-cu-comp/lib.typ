@@ -168,6 +168,8 @@
     // Display the paper's contents.
     body
 
+    pagebreak()
+
     // Display bibliography.
     show heading: it => [
         #set par(justify: true, first-line-indent: 0em)
