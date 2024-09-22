@@ -3,9 +3,9 @@
 import os
 
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
-import numpy as np
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params

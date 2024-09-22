@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import json
 import os
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.utils import format_feature_name
 
@@ -12,6 +14,7 @@ results_paths = {
     "all": "./model_results.json",
     "individual": "./model_results_by_state.json",
 }
+
 
 def plot_combined_feature_importance(xgb_importance, en_importance, names, system):
     feature_names = np.array(names)
@@ -28,20 +31,21 @@ def plot_combined_feature_importance(xgb_importance, en_importance, names, syste
     width = 0.35
 
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.bar(x - width/2, xgb_importance, width, label='XGBoost', color="#264653")
-    ax.bar(x + width/2, en_importance, width, label='ElasticNet', color="#2a9d8f")
+    ax.bar(x - width / 2, xgb_importance, width, label="XGBoost", color="#264653")
+    ax.bar(x + width / 2, en_importance, width, label="ElasticNet", color="#2a9d8f")
 
-    ax.set_ylabel('Importance')
-    ax.set_xlabel('Feature')
+    ax.set_ylabel("Importance")
+    ax.set_xlabel("Feature")
     ax.set_xticks(x)
-    ax.set_xticklabels(feature_names, rotation='vertical')
-    ax.set_xticklabels(feature_names, rotation='vertical')
-    ax.set_xticklabels(feature_names, rotation=45, ha='right')
+    ax.set_xticklabels(feature_names, rotation="vertical")
+    ax.set_xticklabels(feature_names, rotation="vertical")
+    ax.set_xticklabels(feature_names, rotation=45, ha="right")
     ax.legend(frameon=False)
 
     plt.tight_layout()
-    plt.savefig(f"{system}_feature_importance.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{system}_feature_importance.png", dpi=300, bbox_inches="tight")
     plt.close()
+
 
 if __name__ == "__main__":
     base_dir = "../../../"
@@ -61,7 +65,9 @@ if __name__ == "__main__":
 
         for system, model_info in data.items():
             xgb_importance = list(model_info["XGBoost"]["feature_importance"].values())
-            en_importance = list(model_info["ElasticNet"]["feature_importance"].values())
+            en_importance = list(
+                model_info["ElasticNet"]["feature_importance"].values()
+            )
 
             feature_names = list(model_info["XGBoost"]["feature_importance"].keys())
             feature_names = [

@@ -36,39 +36,80 @@ if __name__ == "__main__":
 
     # Load the data
     paths_x = [
-        os.path.join(base_dir, f"analysis/005-rogfp-glh-md/data/struct-desc/{data_x_str}.npy"),
-        os.path.join(base_dir, f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_x_str}.npy"),
-        os.path.join(base_dir, f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_x_str}.npy"),
+        os.path.join(
+            base_dir, f"analysis/005-rogfp-glh-md/data/struct-desc/{data_x_str}.npy"
+        ),
+        os.path.join(
+            base_dir, f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_x_str}.npy"
+        ),
+        os.path.join(
+            base_dir, f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_x_str}.npy"
+        ),
     ]
     paths_y = [
-        os.path.join(base_dir, f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy"),
-        os.path.join(base_dir, f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_y_str}.npy"),
-        os.path.join(base_dir, f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_y_str}.npy"),
+        os.path.join(
+            base_dir, f"analysis/005-rogfp-glh-md/data/struct-desc/{data_y_str}.npy"
+        ),
+        os.path.join(
+            base_dir, f"analysis/007-rogfp-oxd-glh-md/data/struct-desc/{data_y_str}.npy"
+        ),
+        os.path.join(
+            base_dir, f"analysis/006-rogfp-cu-glh-md/data/struct-desc/{data_y_str}.npy"
+        ),
     ]
 
     data_x = [np.load(path) for path in paths_x]
     data_y = [np.load(path) for path in paths_y]
 
-    fig, axes = plt.subplots(3, 1, figsize=(3.5, 8), sharex=True, sharey=True)  # Share the x-axis
+    fig, axes = plt.subplots(
+        3, 1, figsize=(3.5, 8), sharex=True, sharey=True
+    )  # Share the x-axis
     labels = ["A", "B", "C"]
 
     titles = ["Reduced", "Oxidized", "Cu"]
     for i, (ax, x_data, y_data, label) in enumerate(zip(axes, data_x, data_y, labels)):
-        fig = create_pes(x_data, y_data, bins=n_bins, vmin=0, vmax=4, levels=15, T=300.0, ax=ax, colorbar=False)
+        fig = create_pes(
+            x_data,
+            y_data,
+            bins=n_bins,
+            vmin=0,
+            vmax=4,
+            levels=15,
+            T=300.0,
+            ax=ax,
+            colorbar=False,
+        )
         ax.set_xlim(*x_lims)
         ax.set_xticks(x_ticks)
         ax.set_ylim(*y_lims)
         ax.set_yticks(y_ticks)
-        ax.tick_params(axis='both', which='major', labelsize=8)
-        ax.text(0.98, 0.97, label, transform=ax.transAxes, fontsize=8, fontweight='bold', va='top', ha='right')
+        ax.tick_params(axis="both", which="major", labelsize=8)
+        ax.text(
+            0.98,
+            0.97,
+            label,
+            transform=ax.transAxes,
+            fontsize=8,
+            fontweight="bold",
+            va="top",
+            ha="right",
+        )
 
         # if i == 1:  # Only display the colorbar for the middle plot
         #     cbar = fig.colorbar(ax.collections[0], ax=ax, orientation='vertical')
         #     cbar.set_label("PMF [kcal/mol]")
 
     # Set the shared labels
-    fig.text(0.55, 0.01, data_x_label, ha='center', fontsize=8, fontweight='bold')
-    fig.text(0.02, 0.52, data_y_label, va='center', rotation='vertical', fontsize=8, fontweight='bold')
+    fig.text(0.55, 0.01, data_x_label, ha="center", fontsize=8, fontweight="bold")
+    fig.text(
+        0.02,
+        0.52,
+        data_y_label,
+        va="center",
+        rotation="vertical",
+        fontsize=8,
+        fontweight="bold",
+    )
 
     plt.tight_layout(rect=[0.05, 0.01, 1.0, 1.0])
     fig.savefig(f"{fig_label}.png", dpi=1000)  # Save the combined figure

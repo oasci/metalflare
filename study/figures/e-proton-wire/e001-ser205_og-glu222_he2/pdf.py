@@ -127,7 +127,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
         figsize=(3.5, 3.0),
-        pdf_na=pdf_rogfp_na
+        pdf_na=pdf_rogfp_na,
     )
 
     # Add hydrogen bond region

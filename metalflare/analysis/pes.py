@@ -84,7 +84,7 @@ def create_pes(
     levels: int = 30,
     T: float | None = None,
     ax: mpl.axis.Axis | None = None,
-    colorbar: bool = True
+    colorbar: bool = True,
 ) -> plt.Figure:
     """Create a potential energy surface (PES) plot using matplotlib.
 
@@ -147,7 +147,7 @@ def create_pes(
             ticks=list(range(vmin, int(np.floor(vmax)) + 1)),
         )
 
-    ax.set_aspect('auto')
+    ax.set_aspect("auto")
     return ax.figure
 
 

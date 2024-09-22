@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-import os
-import numpy as np
 import json
+import os
 from itertools import combinations
-from metalflare.utils import load_features, format_feature_name
+
+import numpy as np
+
+from metalflare.utils import format_feature_name, load_features
+
 
 def get_correlation(x, y):
     return np.corrcoef(x, y)[0, 1]
+
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -34,6 +38,7 @@ names_data = [
     "ser203_n_ca_c-ala204_n-dihedral",
 ]
 
+
 def process_trajectory(X):
     traj_results = {}
     for (i, name1), (j, name2) in combinations(enumerate(names_data), 2):
@@ -41,6 +46,7 @@ def process_trajectory(X):
         corr = get_correlation(X.iloc[:, i].to_numpy(), X.iloc[:, j].to_numpy())
         traj_results[label] = corr
     return traj_results
+
 
 def print_statistics(data):
     all_correlations = []
@@ -66,6 +72,7 @@ def print_statistics(data):
     print(f"  2 std dev above mean: {cutoff_2std:.4f}")
     print(f"  3 std dev above mean: {cutoff_3std:.4f}")
 
+
 if __name__ == "__main__":
     base_dir = "../../../"
     all_results = {}
@@ -81,7 +88,7 @@ if __name__ == "__main__":
         # Split the concatenated data into three trajectories
         traj_length = len(X_full) // 3
         X_trajectories = [
-            X_full.iloc[i*traj_length:(i+1)*traj_length] for i in range(3)
+            X_full.iloc[i * traj_length : (i + 1) * traj_length] for i in range(3)
         ]
 
         for traj_num, X in enumerate(X_trajectories, 1):
@@ -105,7 +112,9 @@ if __name__ == "__main__":
     for state, correlations in all_results.items():
         data[state] = {}
         # Sort correlations by absolute value in descending order
-        sorted_correlations = sorted(correlations.items(), key=lambda x: abs(x[1]), reverse=True)
+        sorted_correlations = sorted(
+            correlations.items(), key=lambda x: abs(x[1]), reverse=True
+        )
         for pair, value in sorted_correlations:
             data[state][pair] = value
 

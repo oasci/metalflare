@@ -63,6 +63,7 @@ def optimize_model(X, y, model, param_grid, cv=3):
 
     return grid_search.best_estimator_, grid_search.best_params_
 
+
 if __name__ == "__main__":
     base_dir = "../../../"
 

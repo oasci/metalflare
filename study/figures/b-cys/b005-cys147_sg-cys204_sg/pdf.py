@@ -58,7 +58,6 @@ if __name__ == "__main__":
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
     pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
-
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
     pdf_info_lines.extend(
@@ -110,7 +109,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
         figsize=(3.5, 3.0),
-        pdf_na=pdf_rogfp_na
+        pdf_na=pdf_rogfp_na,
     )
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()

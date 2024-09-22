@@ -5,8 +5,8 @@ import re
 import numpy as np
 import numpy.typing as npt
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
 from scipy.signal import argrelextrema, savgol_filter
+from sklearn.preprocessing import MinMaxScaler
 
 
 def get_obj_from_string(import_string: str) -> object:

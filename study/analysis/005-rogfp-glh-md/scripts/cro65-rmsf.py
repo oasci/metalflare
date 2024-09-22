@@ -3,8 +3,8 @@
 import os
 
 import MDAnalysis as mda
-from MDAnalysis.analysis import rms, align
 import numpy as np
+from MDAnalysis.analysis import align, rms
 
 SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
@@ -37,15 +37,11 @@ def main():
     os.makedirs(data_dir, exist_ok=True)
 
     u = mda.Universe(topology_path, trajectory_paths)
-    average = align.AverageStructure(
-        u,
-        u,
-        select=atoms_str,
-        ref_frame=0
-    ).run()
+    average = align.AverageStructure(u, u, select=atoms_str, ref_frame=0).run()
     ref = average.results.universe
     aligner = align.AlignTraj(
-        u, ref,
+        u,
+        ref,
         select=atoms_str,
     ).run()
 

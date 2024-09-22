@@ -69,7 +69,7 @@ def make_pdf_fig(
     fill_between=False,
     legend_frame=False,
     figsize=(3.5, 3.0),
-    pdf_na=None
+    pdf_na=None,
 ):
     plt.figure(figsize=figsize)
     if fill_between:
@@ -104,7 +104,7 @@ def make_pdf_fig(
             label="Na$^+$",
             alpha=0.6,
             linewidth=1.5,
-            zorder=3
+            zorder=3,
         )
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
@@ -125,7 +125,7 @@ def make_pmf_fig(
     y_bounds,
     pmf_rogfp_oxd=None,
     legend_frame=False,
-    figsize=(3.5, 3.0)
+    figsize=(3.5, 3.0),
 ):
     plt.figure(figsize=figsize)
     plt.plot(

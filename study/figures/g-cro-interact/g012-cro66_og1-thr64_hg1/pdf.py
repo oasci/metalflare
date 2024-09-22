@@ -3,9 +3,9 @@
 import os
 
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
-import numpy as np
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
@@ -125,7 +125,7 @@ if __name__ == "__main__":
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
         figsize=(3.5, 3.0),
-        pdf_na=pdf_rogfp_na
+        pdf_na=pdf_rogfp_na,
     )
 
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
