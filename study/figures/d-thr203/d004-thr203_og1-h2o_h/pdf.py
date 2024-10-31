@@ -30,10 +30,10 @@ if __name__ == "__main__":
 
     # Reduced
     rogfp_data_path_1 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy"
+        base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy"
     )
     rogfp_data_path_2 = os.path.join(
-        base_dir, "analysis/001-rogfp-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
+        base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
     )
     rogfp_data_1 = np.load(rogfp_data_path_1)
     rogfp_data_2 = np.load(rogfp_data_path_2)
@@ -42,11 +42,11 @@ if __name__ == "__main__":
     # Oxidized
     rogfp_oxd_data_path_1 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
     )
     rogfp_oxd_data_path_2 = os.path.join(
         base_dir,
-        "analysis/004-rogfp-oxd-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     rogfp_oxd_data_1 = np.load(rogfp_oxd_data_path_1)
     rogfp_oxd_data_2 = np.load(rogfp_oxd_data_path_2)
@@ -55,15 +55,27 @@ if __name__ == "__main__":
     # Copper
     rogfp_cu_data_path_1 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
     )
     rogfp_cu_data_path_2 = os.path.join(
         base_dir,
-        "analysis/003-rogfp-cu-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     rogfp_cu_data_1 = np.load(rogfp_cu_data_path_1)
     rogfp_cu_data_2 = np.load(rogfp_cu_data_path_2)
     rogfp_cu_data = np.minimum(rogfp_cu_data_1, rogfp_cu_data_2)
+
+    rogfp_na_dist_path_1 = os.path.join(
+        base_dir,
+        "analysis/008-rogfp-na-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
+    )
+    rogfp_na_dist_path_2 = os.path.join(
+        base_dir,
+        "analysis/008-rogfp-na-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
+    )
+    rogfp_na_data_1 = np.load(rogfp_na_dist_path_1)
+    rogfp_na_data_2 = np.load(rogfp_na_dist_path_2)
+    rogfp_na_data = np.minimum(rogfp_na_data_1, rogfp_na_data_2)
 
     # Compute all pdfs
     x_bounds = (1, 10)
@@ -74,6 +86,7 @@ if __name__ == "__main__":
     pdf_rogfp = compute_pdf(rogfp_data, x_values, bw_method=bw_method)
     pdf_rogfp_oxd = compute_pdf(rogfp_oxd_data, x_values, bw_method=bw_method)
     pdf_rogfp_cu = compute_pdf(rogfp_cu_data, x_values, bw_method=bw_method)
+    pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
@@ -90,6 +103,12 @@ if __name__ == "__main__":
     pdf_info_lines.extend(
         extrema_table(
             x_values, "Distance (Å)", pdf_rogfp_cu, "Density", sci_notation=True
+        )
+    )
+    pdf_info_lines.append("\nroGFP2 and Na+\n")
+    pdf_info_lines.extend(
+        extrema_table(
+            x_values, "Distance (Å)", pdf_rogfp_na, "Density", sci_notation=True
         )
     )
     pdf_info_lines = [line + "\n" for line in pdf_info_lines]
@@ -115,13 +134,14 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
+        pdf_na=pdf_rogfp_na
     )
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 2.32, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu, pmf_rogfp_na = compute_pmfs(
+        x_values, 5.35, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu, pdf_rogfp_na), T=300.0
     )
 
     # save pmf information
@@ -147,14 +167,20 @@ if __name__ == "__main__":
             x_values, "Distance (Å)", pmf_rogfp_cu, "PMF [kcal/mol]", sci_notation=False
         )
     )
+    pmf_info_lines.append("\nroGFP2 and Na+\n")
+    pmf_info_lines.extend(
+        extrema_table(
+            x_values, "Distance (Å)", pmf_rogfp_na, "PMF [kcal/mol]", sci_notation=False
+        )
+    )
     pmf_info_lines = [line + "\n" for line in pmf_info_lines]
     pmf_info_path = "./pmf-info.md"
     with open(pmf_info_path, "w", encoding="utf-8") as f:
         f.writelines(pmf_info_lines)
 
     y_label = "PMF [kcal/mol]"
-    plot_x_bounds = (1, 6)
-    plot_y_bounds = (-2.5, 3)
+    plot_x_bounds = (1, 7)
+    plot_y_bounds = (-2, 5)
     pmf_fig = make_pmf_fig(
         x_values,
         pmf_rogfp,
@@ -164,6 +190,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
+        pmf_rogfp_na=pmf_rogfp_na
     )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

@@ -3,7 +3,7 @@
 ## Probability density function
 
 <figure markdown>
-![](./d004-thr203_og1-h2o_h-pdf.svg)
+![](./d004-thr203_og1-h2o_h-pdf.svg){ width=500 }
 </figure>
 
 ### Quantitative
@@ -13,7 +13,7 @@
 ## Potential of mean force
 
 <figure markdown>
-![](./d004-thr203_og1-h2o_h-pmf.svg)
+![](./d004-thr203_og1-h2o_h-pmf.svg){ width=500 }
 </figure>
 
 ### Quantitative

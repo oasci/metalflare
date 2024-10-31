@@ -124,6 +124,7 @@ def make_pmf_fig(
     y_label,
     y_bounds,
     pmf_rogfp_oxd=None,
+    pmf_rogfp_na=None,
     legend_frame=False,
     figsize=(3.5, 3.0),
 ):
@@ -146,6 +147,14 @@ def make_pmf_fig(
         color="#f99752",
         label="Cu(I)",
         zorder=2,
+        linewidth=1.5,
+    )
+    plt.plot(
+        x_values,
+        pmf_rogfp_na,
+        color="#1b998b",
+        label="Na$^+$",
+        zorder=3,
         linewidth=1.5,
     )
     plt.axhline(y=0, linewidth=1.5, color="#C0C0C0", linestyle="dotted", zorder=-1)
