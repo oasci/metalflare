@@ -13,7 +13,7 @@ def get_2d_hist(
     bins: int | ArrayLike | tuple[int, int] | tuple[ArrayLike, ArrayLike] = 13,
     T: float | int | None = None,
 ) -> tuple[np.ma.MaskedArray, dict[str, tuple[ArrayLike, ArrayLike]]]:
-    """Compute a 2D histogram and calculate the potential of mean force.
+    r"""Compute a 2D histogram and calculate the potential of mean force.
 
     This function creates a 2D histogram from the input data and calculates
     the potential of mean force (PMF) or the negative logarithm of probability,
@@ -105,7 +105,7 @@ def create_pes(
         vmax: Maximum value for the colorbar. Defaults to 10.
         levels: Number of contour levels. Defaults to 30.
         T: Temperature in Kelvin. If provided, the plot represents PMF.
-           If None, it represents -ln(p). Defaults to None.
+            If None, it represents -ln(p). Defaults to None.
 
     Returns:
         A matplotlib Figure object containing the PES plot.
@@ -227,7 +227,7 @@ def create_pes_difference(
         vmax: Maximum value for the colorbar.
         levels: Number of contour levels.
         T: Temperature in Kelvin. If provided, the plot represents ΔPMF.
-           If None, it represents -Δln(p).
+            If None, it represents -Δln(p).
 
     Returns:
         A matplotlib Figure object containing the PES difference plot.

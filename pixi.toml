@@ -37,6 +37,9 @@ netcdf4 = ">=1.7.1"
 jupyterlab = ">=4.2.3"
 xgboost = ">=2.1.1"
 "ruamel.yaml" = ">=0.18.6,<0.19"
+ambertools = ">=23.6,<24"
+xtb = ">=6.7.1,<7"
+openbabel = ">=3.1.1,<4"
 
 [feature.dev.dependencies]
 black = ">=23.10.0"

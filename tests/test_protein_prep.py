@@ -1,13 +1,13 @@
 import MDAnalysis as mda
 import numpy as np
 
-from metalflare.pdb.modify.names import run_replace_resnames
-from metalflare.pdb.modify.numbering import run_unify_resids
-from metalflare.pdb.modify.orientation import minimize_box
-from metalflare.pdb.modify.positioning import center_structure
-from metalflare.pdb.select import run_select_atoms
-from metalflare.pdb.structure import get_box_volume, get_com
-from metalflare.pdb.utils import parse_resid, run_filter_pdb
+from metalflare.pdb_utils.modify.names import run_replace_resnames
+from metalflare.pdb_utils.modify.numbering import run_unify_resids
+from metalflare.pdb_utils.modify.orientation import minimize_box
+from metalflare.pdb_utils.modify.positioning import center_structure
+from metalflare.pdb_utils.select import run_select_atoms
+from metalflare.pdb_utils.structure import get_box_volume, get_com
+from metalflare.pdb_utils.utils import parse_resid, run_filter_pdb
 
 
 class TestFilterPDBLines:

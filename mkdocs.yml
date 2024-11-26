@@ -56,8 +56,6 @@ plugins:
   - search
   - autorefs
   - material-plausible
-  - macros
-  - table-reader
   - gen-files:
       scripts:
         - study/gen_ref_pages.py
@@ -100,6 +98,8 @@ plugins:
       archive: true
       archive_name: Articles
       archive_url_format: "articles/{date}"
+  - macros
+  - table-reader
 
 extra:
   generator: false

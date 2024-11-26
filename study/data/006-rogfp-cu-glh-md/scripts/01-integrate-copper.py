@@ -4,7 +4,7 @@ import os
 
 import MDAnalysis as mda
 
-from metalflare.pdb.utils import keep_lines
+from metalflare.pdb_utils.utils import keep_lines
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 

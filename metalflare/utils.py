@@ -10,12 +10,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def get_obj_from_string(import_string: str) -> object:
-    """Retrieves an object based on an import string and object name.
+    r"""Retrieves an object based on an import string and object name.
 
     Args:
         import_string: The import string, starting from the root module, containing
-        the desired object. This function would be
-        `"metalflare.utils.get_obj_from_string"`.
+        the desired object. This function would be `metalflare.utils.get_obj_from_string`.
 
     Returns:
         The object identified by the import string.
