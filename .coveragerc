@@ -1,0 +1,9 @@
+[run]
+branch = true
+source = tests
+
+[paths]
+source = metalflare
+
+[report]
+show_missing = true

@@ -1,0 +1,96 @@
+[project]
+authors = [
+    "OASCI <us@oasci.org>",
+]
+channels = ["conda-forge"]
+description = "Investigating metal-sensing green fluorescent protein."
+name = "metalflare"
+platforms = ["linux-64"]
+version = "0.0.0"
+license = "Apache-2.0"
+readme = "README.md"
+
+[pypi-dependencies]
+metalflare = { path = ".", editable = true }
+ray = ">=2.32.0"
+pdb2pqr = ">=3.6.2"
+
+[environments]
+dev = ["dev"]
+docs = ["docs"]
+
+[tasks]
+
+[dependencies]
+python = "=3.11"
+loguru = ">=0.7.2"
+mdanalysis = ">=2.7.0"
+jinja2 = ">=3.1.4"
+zarr = ">=2.18.2"
+seaborn = ">=0.13.2"
+pymoo = ">=0.6.1.1"
+pyarrow = ">=15.0.2"
+scikit-learn = ">=1.5.1"
+umap-learn = ">=0.5.6"
+ipykernel = ">=6.29.5"
+netcdf4 = ">=1.7.1"
+jupyterlab = ">=4.2.3"
+xgboost = ">=2.1.1"
+"ruamel.yaml" = ">=0.18.6,<0.19"
+
+[feature.dev.dependencies]
+black = ">=23.10.0"
+isort = ">=5.12.0"
+pylint = ">=3.0.1"
+mypy = ">=1.6.0"
+bump-my-version = ">=0.11.0"
+poetry-dynamic-versioning = ">=1.1.0"
+pytest = ">=7.4.2"
+pytest-cov = ">=4.1.0"
+coverage = ">=7.3.1"
+pytest-html = ">=4.0.1"
+colorama = ">=0.4.6"
+
+[feature.dev.tasks]
+mdlint = { cmd = ["markdownlint-cli2", '"**/*.{md,markdown}"', "--fix", "--config", ".markdownlint.yaml", "||", "true"] }
+isort = { cmd = ["isort", "--settings-path", ".isort.cfg", "./metalflare", "./tests", "||", "true"] }
+black = { cmd = ["black", "--config", ".black.toml", "./metalflare", "./tests", "||", "true"] }
+format = { depends-on = ["mdlint", "isort", "black"] }
+tests = { cmd = [
+    "PYTHONPATH=.",
+    "pytest",
+    "-c",
+    ".pytest.ini",
+    "--cov='metalflare'",
+    "--cov-report=xml",
+    "--junit-xml=report.xml",
+    "--failed-first",
+]}
+coverage = { cmd = ["coverage", "report"] }
+cleanup-build = { cmd = ["rm", "-rf", "./build"] }
+build = { cmd = ["python3", "-m", "build"], depends-on = ["cleanup-build"]}
+publish-test = { cmd = ["twine", "upload", "--repository", "testpypi", "dist/*"] }
+publish = { cmd = ["twine", "upload", "dist/*"] }
+
+[feature.dev.pypi-dependencies]
+build = ">=1.2.2.post1,<2"
+mypy-extensions = ">=1.0.0"
+
+[feature.docs.dependencies]
+mkdocs = ">=1.5.3"
+mkdocs-material = ">=9.4.7"
+pymdown-extensions = ">=10.3.1"
+mkdocs-table-reader-plugin = ">=2.0.3"
+mkdocstrings = ">=0.23.0"
+mkdocstrings-python = ">=1.7.3"
+mkdocs-glightbox = ">=0.3.6"
+mkdocs-macros-plugin = ">=1.0.5"
+
+[feature.docs.pypi-dependencies]
+material-plausible-plugin = ">=0.2.0,<0.3"
+mkdocs-gen-files = ">=0.5.0"
+mkdocs-awesome-pages-plugin = ">=2.9.3,<3"
+
+[feature.docs.tasks]
+docs = { cmd = ["rm", "-rf", "./public/", "&&", "mkdocs", "build", "-d", "public/"] }
+serve = { cmd = ["mkdocs", "serve"] }

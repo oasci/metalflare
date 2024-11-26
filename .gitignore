@@ -73,3 +73,10 @@ environment.yml
 report.xml
 
 study/api
+
+tests/tmp/*
+!tests/tmp/.gitkeep
+
+# pixi environments
+.pixi
+*.egg-info

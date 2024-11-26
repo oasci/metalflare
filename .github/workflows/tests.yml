@@ -1,4 +1,3 @@
-
 name: Tests
 
 on:
@@ -12,25 +11,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11"]
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Initialize conda environment
-        run: make conda-create
+      - name: Install pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
 
-      - name: Setup conda
-        run: make conda-setup
-
-      - name: Install conda dependencies
-        run: make from-conda-lock
-
-      - name: Install package dependencies
-        run: make install
+      - name: Setup environment
+        run: pixi install
 
       - name: Run tests
-        run: make test
+        run: pixi run tests
