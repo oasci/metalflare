@@ -143,8 +143,8 @@ if __name__ == "__main__":
     plt.close()
 
     # Compute potential of mean forces
-    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu = compute_pmfs(
-        x_values, 4.54, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu), T=300.0
+    pmf_rogfp, pmf_rogfp_oxd, pmf_rogfp_cu, pmf_rogfp_na = compute_pmfs(
+        x_values, 4.54, (pdf_rogfp, pdf_rogfp_oxd, pdf_rogfp_cu, pdf_rogfp_na), T=300.0
     )
 
     # save pmf information
@@ -187,6 +187,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
+        pmf_rogfp_na=pmf_rogfp_na,
     )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()
