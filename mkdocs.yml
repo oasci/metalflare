@@ -5,6 +5,7 @@ site_author: OASCI
 
 repo_name: oasci/metalflare
 repo_url: https://github.com/oasci/metalflare
+edit_uri: edit/main/study/
 
 # https://squidfunk.github.io/mkdocs-material/
 theme:
