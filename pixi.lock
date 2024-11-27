@@ -5322,7 +5322,7 @@ packages:
   name: metalflare
   version: 0.0.0
   path: .
-  sha256: 47a4ed41c024cbb8a03605597aa0e0f773450a2169c0e25c15608e3b4a8d245a
+  sha256: e5386204afdea85c9c869a7ec45f72c6ccc3303a8586c47dfc5e038df4f0edae
   requires_dist:
   - loguru>=0.7.2
   - mdanalysis>=2.6.1
