@@ -149,14 +149,15 @@ def make_pmf_fig(
         zorder=2,
         linewidth=1.5,
     )
-    plt.plot(
-        x_values,
-        pmf_rogfp_na,
-        color="#1b998b",
-        label="Na$^+$",
-        zorder=3,
-        linewidth=1.5,
-    )
+    if pmf_rogfp_na is not None:
+        plt.plot(
+            x_values,
+            pmf_rogfp_na,
+            color="#1b998b",
+            label="Na$^+$",
+            zorder=3,
+            linewidth=1.5,
+        )
     plt.axhline(y=0, linewidth=1.5, color="#C0C0C0", linestyle="dotted", zorder=-1)
     plt.xlabel(x_label)
     plt.xlim(*x_bounds)
