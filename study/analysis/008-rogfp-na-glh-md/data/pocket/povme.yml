@@ -1,0 +1,47 @@
+grid_spacing: 1.0
+
+load_points_path: null
+
+points_inclusion_sphere:
+  - [33.37, 34.58, 35.89, 7.49]
+  - [36.05, 37.71, 37.1, 7.17]
+  - [37.06, 39.67, 38.11, 7.41]
+  - [36.36, 36.18, 40.55, 7.34]
+  - [33.84, 37.16, 39.19, 7.58]
+
+points_inclusion_box:
+  - []
+
+points_exclusion_sphere:
+  - []
+
+points_exclusion_box:
+  - []
+
+save_points: true
+
+distance_cutoff: 1.09
+
+convex_hull_exclusion: false
+
+contiguous_pocket_seed_sphere:
+  - []
+
+contiguous_pocket_seed_box:
+  - []
+
+contiguous_points_criteria: 6
+
+num_processors: 32
+
+use_disk_not_memory: true
+
+save_individual_pocket_volumes: false
+
+save_pocket_volumes_trajectory: false
+
+output_equal_num_points_per_frame: false
+
+save_volumetric_density_map: false
+
+compress_output: false
