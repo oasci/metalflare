@@ -15,6 +15,10 @@ metalflare = { path = ".", editable = true }
 ray = ">=2.32.0"
 pdb2pqr = ">=3.6.2"
 
+[system-requirements]
+linux = "3.10.0"
+libc = { family="glibc", version="2.17" }
+
 [environments]
 dev = ["dev"]
 docs = ["docs"]
