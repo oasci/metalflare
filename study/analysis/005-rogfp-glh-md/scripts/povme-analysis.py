@@ -3,7 +3,7 @@
 import os
 import shutil
 
-from povme import POVME
+from povme.pocket.volume import PocketVolume
 from povme import enable_logging
 
 enable_logging(20)
@@ -19,8 +19,8 @@ def main():
     if os.path.exists(dir_output):
         shutil.rmtree(dir_output)
 
-    pocket_id = POVME(path_config)
-    pocket_id.run(path_pdb, dir_output)
+    povme = PocketVolume(path_config)
+    povme.run(path_pdb, output_prefix=dir_output, chunk_size=50)
 
 
 if __name__ == "__main__":
