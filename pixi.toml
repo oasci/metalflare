@@ -44,6 +44,7 @@ xgboost = ">=2.1.1"
 ambertools = ">=23.6,<24"
 xtb = ">=6.7.1,<7"
 openbabel = ">=3.1.1,<4"
+pandas = ">=2.2.3,<3"
 
 [feature.dev.dependencies]
 black = ">=23.10.0"
