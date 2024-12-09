@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     x_bounds = (10, 500)
     x_values = np.arange(*x_bounds, 0.1)
-    bw_method = 0.09
+    bw_method = 0.07
 
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
     scaling_factor = kde.integrate_box_1d(*x_bounds)
