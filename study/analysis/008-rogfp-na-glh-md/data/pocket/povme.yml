@@ -24,7 +24,7 @@ contiguous_points_criteria: 6
 
 use_ray: true
 
-n_cores: 144
+n_cores: 240
 
 save_individual_pocket_volumes: false
 

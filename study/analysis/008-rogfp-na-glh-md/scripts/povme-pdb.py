@@ -47,7 +47,7 @@ def main():
     u.trajectory.add_transformations(*workflow)
     
     
-    stride = 15
+    stride = 1
     with mda.Writer(path_pdb, atoms.n_atoms) as W:
         for ts in u.trajectory[None:None:stride]:
             W.write(u.select_atoms(atoms_str))
