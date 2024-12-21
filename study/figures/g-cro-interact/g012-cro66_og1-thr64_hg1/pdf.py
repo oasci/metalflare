@@ -66,8 +66,8 @@ if __name__ == "__main__":
     pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
     # KDE stats
-    x_min = 4
-    x_max = 8
+    x_min = 1
+    x_max = 4
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
     reduced_fraction = kde.integrate_box_1d(x_min, x_max)
     print(f"Reduced kde stat:  {reduced_fraction:.3f}")
