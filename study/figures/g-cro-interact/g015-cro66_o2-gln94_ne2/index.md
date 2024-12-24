@@ -1,4 +1,4 @@
-# G015: Cro66 O2 - Gln94 NH2
+# G015: Cro66 O2 - Gln94 NE2
 
 ## Probability density function
 
