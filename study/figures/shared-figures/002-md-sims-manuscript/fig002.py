@@ -56,6 +56,14 @@ quantities_to_plot = {
         "bw_method": 0.004,
         "ridge": False,
     },
+    "Thr203 HG1": {
+        "filename": "cro65_oh-thr201_hg1-dist",
+        "type": "distance",
+        "xlims": (1.0, 7.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
     "Tyr145 HH": {
         "filename": "cro65_oh-tyr143_hh-dist",
         "type": "distance",
@@ -84,14 +92,6 @@ quantities_to_plot = {
         "filename": "cro65_o3-gln92_ne2-dist",
         "type": "distance",
         "xlims": (2.0, 6.5),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-        "ridge": True,
-    },
-    "Thr203 HG1": {
-        "filename": "cro65_oh-thr201_hg1-dist",
-        "type": "distance",
-        "xlims": (1.0, 7.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -335,11 +335,11 @@ if __name__ == "__main__":
                     va="bottom"
                 )
 
-                if i_system == 0:
-                    add_subfigure_label(
-                        ax_ridge, chr(65 + subfigure_label_counter), loc=(0.45, 0.7)
-                    )
-                    subfigure_label_counter += 1
+            if i_system == 0:
+                add_subfigure_label(
+                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.9, 0.7)
+                )
+                subfigure_label_counter += 1
 
     gs.update(hspace=-0.735)
 

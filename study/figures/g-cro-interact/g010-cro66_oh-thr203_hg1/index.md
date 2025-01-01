@@ -19,7 +19,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 ### Quantitative
 
---8<-- "study/figures/d-thr203/g010-cro66_oh-thr203_hg1/pdf-info.md"
+--8<-- "study/figures/g-cro-interact/g010-cro66_oh-thr203_hg1/pdf-info.md"
 
 <figure markdown>
 ![](./g010-cro66_oh-thr203_hg1-hist.svg){ width=600 }
@@ -33,7 +33,7 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 ### Quantitative
 
---8<-- "study/figures/d-thr203/g010-cro66_oh-thr203_hg1/pmf-info.md"
+--8<-- "study/figures/g-cro-interact/g010-cro66_oh-thr203_hg1/pmf-info.md"
 
 ## Visualization
 
