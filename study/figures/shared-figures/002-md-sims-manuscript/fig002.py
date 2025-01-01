@@ -1,40 +1,22 @@
 #!/usr/bin/env python3
 
 import os
-
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as grid_spec
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
-
+import matplotlib.gridspec as gridspec
 from metalflare.analysis.figures import use_mpl_rc_params
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
+# If you want to use your custom style:
+# from metalflare.analysis.figures import use_mpl_rc_params
 
-paths_data_other = {
-    r"Cys147 C$_\alpha$ – Cys204 C$_\alpha$": "cys145_ca-cys202_ca-dist",
-    "Cro O$^-$ – Thr203 HG1": "cro65_oh-thr201_hg1-dist",
-}
+###############################################################################
+# 1) DEFINE YOUR PLOT CONFIGURATIONS
+###############################################################################
 
-paths_data_ridge = {
-    # "Glu222 HE2": "cro65_og1-glu220_he2-dist",
-    # "Thr203 HG1": "cro65_oh-thr201_hg1-dist",
-    "His148 HD1": "cro65_oh-his146_hd1-dist",
-    "Tyr145 HH": "cro65_oh-tyr143_hh-dist",
-    "Val64 O": "cro65_n1-val62_o-dist",
-    "Gln94 NE2": "cro65_o3-gln92_ne2-dist",
-}
-x_lims_data = {
-    "Glu222 HE2": (1.0, 8.0),
-    "Thr203 HG1": (1.0, 7.0),
-    "His148 HD1": (1.0, 6.0),
-    "Tyr145 HH": (1.0, 6.0),
-    "Val64 O": (2.0, 6.5),
-    "Gln94 NE2": (2.0, 6.5),
-    r"Cys147 C$_\alpha$ – Cys204 C$_\alpha$": (3.0, 7.0),
-    "Cro O$^-$ – Thr203 HG1": (1, 7.5),
-}
-
+# System paths and their color mapping
 paths_system = {
     "Reduced": "005-rogfp-glh-md",
     "Oxidized": "007-rogfp-oxd-glh-md",
@@ -49,116 +31,298 @@ colors_sys = {
     "Na+": "#1b998b",
 }
 
-def populate_data(paths_system, paths_data_ridge, x_bounds=(0.5, 15.0), bin_width=0.05, bw_method=0.04):
-    data = {}
-    
-    n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
-    x_values = np.linspace(*x_bounds, n_bins)
-    y_maxes = {}
+# ----------------------------------------------------------------
+# The main dictionary describing *all* quantities to plot:
+#  - "filename" is the basename of your .npy file (no .npy extension).
+#  - "type" can be "distance" or "dihedral".
+#  - "xlims" is your desired plot range.
+#  - Optional "bin_width" and "bw_method" for the KDE can be set individually.
+# ----------------------------------------------------------------
 
-    for label_data, path_dist in paths_data_ridge.items():
-        data[label_data] = {}
-        y_maxes[label_data] = 0.0
-        for label_sys, path_sys in paths_system.items():
-            file_path = os.path.join(
-                base_dir, f"analysis/{path_sys}/data/struct-desc/{path_dist}.npy"
-            )
-            dists = np.load(file_path)
-            kde = gaussian_kde(dists, bw_method=bw_method)
-            y_values = kde(x_values)
-            y_max = np.max(y_values)
-            if y_max > y_maxes[label_data]:
-                y_maxes[label_data] = y_max
+quantities_to_plot = {
+    r"Cys147 C$_\alpha$ – Cys204 C$_\alpha$": {
+        "filename": "cys145_ca-cys202_ca-dist",
+        "type": "distance",
+        "xlims": (3.0, 7.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": False,
+    },
+    "Cro66 $\psi$": {
+        "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
+        "type": "dihedral",
+        "xlims": (-120, 240),
+        "bin_width": 1.0,
+        "bw_method": 0.003,
+        "ridge": False,
+    },
+    "Thr203 HG1": {
+        "filename": "cro65_oh-thr201_hg1-dist",
+        "type": "distance",
+        "xlims": (1.0, 7.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "His148 HD1": {
+        "filename": "cro65_oh-his146_hd1-dist",
+        "type": "distance",
+        "xlims": (1.0, 6.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "Tyr145 HH": {
+        "filename": "cro65_oh-tyr143_hh-dist",
+        "type": "distance",
+        "xlims": (1.0, 6.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "Val64 O": {
+        "filename": "cro65_n1-val62_o-dist",
+        "type": "distance",
+        "xlims": (2.0, 6.5),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "Gln94 NE2": {
+        "filename": "cro65_o3-gln92_ne2-dist",
+        "type": "distance",
+        "xlims": (2.0, 6.5),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "Glu222 HE2": {
+        "filename": "cro65_og1-glu220_he2-dist",
+        "type": "distance",
+        "xlims": (1.0, 8.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+}
 
-            data[label_data][label_sys] = y_values
-    return x_values, data, y_maxes
+###############################################################################
+# 2) HELPER FUNCTIONS
+###############################################################################
+
+def load_raw_data(base_dir, path_sys, q_info):
+    """
+    Loads raw data from a .npy file. If 'type' is 'dihedral', it handles
+    conversion from radians to degrees (if needed) and duplication by ±360.
+    """
+    file_path = os.path.join(
+        base_dir,
+        f"analysis/{path_sys}/data/struct-desc/{q_info['filename']}.npy"
+    )
+    data = np.load(file_path)
+
+    if q_info["type"] == "dihedral":
+        # If your angles are already in degrees, remove np.degrees
+        data = np.degrees(data)
+        # Duplicate ±360 for better continuity
+        data = np.concatenate([data, data + 360, data - 360])
+
+    return data
+
+
+def compute_kde_for_quantity(all_data, q_info):
+    """
+    Given all raw data from multiple systems for one quantity,
+    compute x-values (linspace) and the PDFs via Gaussian KDE.
+    """
+    x_min, x_max = q_info["xlims"]
+    bin_width = q_info.get("bin_width", 0.05)
+    bw_method = q_info.get("bw_method", 0.04)
+
+    # Create a linear space for the range
+    n_bins = int((x_max - x_min) / bin_width)
+    x_values = np.linspace(x_min, x_max, n_bins)
+
+    results = {}
+    y_max = 0.0
+
+    for sys_label, data_array in all_data.items():
+        kde = gaussian_kde(data_array, bw_method=bw_method)
+        y_values = kde(x_values)
+        results[sys_label] = y_values
+        y_here = np.max(y_values)
+        if y_here > y_max:
+            y_max = y_here
+
+    return x_values, results, y_max
+
+
+###############################################################################
+# 3) MAIN SCRIPT
+###############################################################################
 
 if __name__ == "__main__":
-    # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
 
-    # Update plot params
-    rc_json_path = os.path.join(
-        base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
-    )
+    # Optionally apply a custom style:
+    rc_json_path = os.path.join(base_dir, "misc/003-figure-style/matplotlib-rc-params.json")
     font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
     use_mpl_rc_params(rc_json_path, font_dirs)
 
-    n_systems = len(paths_system.keys())
-    n_other = len(paths_data_other.keys())
-    n_dists_ridge = len(paths_data_ridge.keys())
-    x_values, data_ridge, y_maxes_ridge = populate_data(paths_system, paths_data_ridge)
-    x_values, data_other, y_maxes_other = populate_data(paths_system, paths_data_other)
+    # Separate items into ridge vs. other
+    ridge_keys = [k for k, v in quantities_to_plot.items() if v.get("ridge", False)]
+    other_keys = [k for k, v in quantities_to_plot.items() if not v.get("ridge", False)]
 
-    n_buffer = 4
-    n_rows = n_systems + 1 + n_buffer
+    n_ridge = len(ridge_keys)
+    n_other = len(other_keys)
+    n_systems = len(paths_system)
 
-    gs = grid_spec.GridSpec(nrows=n_rows, ncols=n_dists_ridge, bottom=0.0, top=0.99, left=0.09, right=0.98)
+    if n_ridge == 0:
+        raise ValueError("No 'ridge=True' items found. Please enable at least one.")
+
+    # -------------------------------------------------------------------------
+    # A. Load all data, compute KDE for each quantity
+    # -------------------------------------------------------------------------
+    data_all = {}
+    for q_label, q_info in quantities_to_plot.items():
+        # Collect raw data for each system
+        per_system_data = {}
+        for sys_lbl, sys_path in paths_system.items():
+            arr = load_raw_data(base_dir, sys_path, q_info)
+            per_system_data[sys_lbl] = arr
+
+        x_vals, pdfs, y_max = compute_kde_for_quantity(per_system_data, q_info)
+        data_all[q_label] = {
+            "x_vals": x_vals,
+            "pdfs": pdfs,
+            "y_max": y_max,
+        }
+
+    # -------------------------------------------------------------------------
+    # B. BUILD THE GRIDSPEC
+    #
+    # We want 2 "major" rows:
+    #    - Row 0: a single row for the "other" data (ridge=False).
+    #    - Rows 1..n_system: one sub-row per system for the "ridge=True" items.
+    #
+    # We'll have n_ridge columns in total (for the ridge items).
+    # The top row gets the same n_ridge columns, and we distribute "other" items among them.
+    # -------------------------------------------------------------------------
+
+    n_buffer = 3
+    n_rows = n_systems + n_buffer + 1  # 1 row for "other", plus 1 row per system
     fig = plt.figure(figsize=(6.0, 5.0))
+    # gs = gridspec.GridSpec(nrows=n_rows, ncols=n_ridge, hspace=0.5, wspace=0.3)
+    gs = gridspec.GridSpec(nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98)
 
+    # -------------------------------------------------------------------------
+    # C. Plot the "other" items (ridge=False) in row=0, distributing them across the n_ridge columns
+    # -------------------------------------------------------------------------
+    if n_other > 0:
+        # Simple approach: each "other" item gets chunk_size columns
+        chunk_size = n_ridge // n_other
+        leftover = n_ridge % n_other
 
-    x_lims = (1, 7)
-    axes = []
-    
-    # Other data
-    i_other = 0
-    for label_data, data_sim in data_other.items():
-        axes.append(fig.add_subplot(gs[0, i_other*2:i_other*2+2]))
-        for label_sys in labels_sys_order:
-            _data = data_other[label_data][label_sys]
-            axes[-1].plot(x_values, _data, color=colors_sys[label_sys], lw=1.5)
+        col_start = 0
+        for i, label_data in enumerate(other_keys):
+            col_span = chunk_size + (1 if i < leftover else 0)
+            col_end = col_start + col_span
+            # Make a subplot that spans [row=0, col_start:col_end]
+            ax_other = fig.add_subplot(gs[0, col_start:col_end])
 
-            axes[-1].set_xlim(*x_lims_data[label_data])
+            # Retrieve data
+            x_vals = data_all[label_data]["x_vals"]
+            pdfs_dict = data_all[label_data]["pdfs"]
+            y_max = data_all[label_data]["y_max"]
 
-            axes[-1].set_xlabel(label_data + " Distance [Å]")
-
-            if i_other == 0:
-                axes[-1].set_ylabel("Probability Density")
-            axes[-1].set_ylim(0, y_maxes_other[label_data] + 0.1)
-            axes[-1].set_yticks([])
-            axes[-1].set_yticklabels([])
-
-        i_other += 1
-
-    # Ridge data
-    i_dist = 0
-    for label_data, data_dist in data_ridge.items():
-        i_sys = n_buffer
-        for label_sys in labels_sys_order:
-            _data = data_ridge[label_data][label_sys]
-            axes.append(fig.add_subplot(gs[i_sys, i_dist]))
-            axes[-1].plot(x_values, _data, color="#FFFFFF", lw=1.0)
-            axes[-1].fill_between(x_values, _data, alpha=1, color=colors_sys[label_sys], lw=0.0)
-
-            axes[-1].set_xlim(*x_lims_data[label_data])
-            rect = axes[-1].patch
-            rect.set_alpha(0)
-            axes[-1].set_ylim(0, y_maxes_ridge[label_data])
-            axes[-1].set_yticks([])
-            axes[-1].set_yticklabels([])
-
-            spines = ["top", "right", "left", "bottom"]
-            for s in spines:
-                axes[-1].spines[s].set_visible(False)
-
-            if label_sys != labels_sys_order[-1]:
-                axes[-1].set_xticks([])
-                axes[-1].set_xticklabels([])
-            else:
-                axes[-1].set_xlabel(label_data)
-            
-            if i_dist == 0:
-                axes[-1].text(
-                    x_lims_data[label_data][0] - 0.2,
-                    0,
-                    label_sys,
-                    fontweight="bold",
-                    ha="right"
+            # Plot each system in a single subplot
+            for sys_lbl in labels_sys_order:
+                pdf_y = pdfs_dict[sys_lbl]
+                ax_other.plot(
+                    x_vals,
+                    pdf_y,
+                    color=colors_sys[sys_lbl],
+                    lw=1.5,
+                    label=sys_lbl
                 )
 
-            i_sys += 1
-        i_dist += 1
+            # Aesthetics
+            ax_other.set_xlim(*quantities_to_plot[label_data]["xlims"])
+            ax_other.set_ylim(0, y_max + 0.1 * y_max)
+
+            # If it's the first "other" item, put a y-axis label
+            if i == 0:
+                ax_other.set_ylabel("Probability Density")
+            ax_other.set_yticks([])
+
+            # Label x-axis depending on distance or dihedral
+            q_type = quantities_to_plot[label_data]["type"]
+            if q_type == "distance":
+                ax_other.set_xlabel(f"{label_data} [Å]")
+            else:
+                ax_other.set_xlabel(f"{label_data} [deg]")
+
+
+            # You might add a legend here, or on the first/last plot, etc.
+            # ax_other.legend()
+
+            col_start = col_end
+
+    # -------------------------------------------------------------------------
+    # D. Plot the "ridge=True" items in the rows below (one row per system)
+    #
+    # Row i_system+1, columns 0..n_ridge-1
+    # Each cell is a separate subplot for that (system, ridge_item).
+    # We'll do a "filled" style (like your older ridgeline approach).
+    # -------------------------------------------------------------------------
+    for i_system, sys_lbl in enumerate(labels_sys_order):
+        for j, label_data in enumerate(ridge_keys):
+            ax_ridge = fig.add_subplot(gs[i_system + n_buffer + 1, j])
+
+            rect = ax_ridge.patch
+            rect.set_alpha(0)
+
+            # Retrieve data
+            x_vals = data_all[label_data]["x_vals"]
+            pdfs_dict = data_all[label_data]["pdfs"]
+            y_max = data_all[label_data]["y_max"]
+
+            # This system's PDF
+            pdf_y = pdfs_dict[sys_lbl]
+
+            # Plot fill
+            # ax_ridge.plot(x_vals, pdf_y, color="#FFFFFF", lw=0.5)
+            ax_ridge.plot(x_vals, pdf_y, color="#373737", lw=0.5)
+            ax_ridge.fill_between(x_vals, pdf_y, alpha=1, color=colors_sys[sys_lbl], lw=0)
+
+            # Aesthetics
+            ax_ridge.set_xlim(*quantities_to_plot[label_data]["xlims"])
+            ax_ridge.set_ylim(0, y_max)
+            ax_ridge.set_yticks([])
+            ax_ridge.set_xticks([])
+
+            # Remove spines for a "clean" look
+            for spine in ["top", "right", "left", "bottom"]:
+                ax_ridge.spines[spine].set_visible(False)
+
+            # If this is the bottom system (the last in labels_sys_order),
+            # label the x-axis with the quantity name
+            if sys_lbl == labels_sys_order[-1]:
+                ax_ridge.set_xticks([])
+                ax_ridge.set_xlabel(label_data, fontsize=9)
+
+            # If this is the leftmost column (j==0), we can label the system
+            # (like your text() usage or a y-axis label)
+            if j == 0:
+                ax_ridge.text(
+                    quantities_to_plot[label_data]["xlims"][0] - 0.2,
+                    0.0,
+                    sys_lbl,
+                    fontweight="bold",
+                    ha="right",
+                    va="bottom"
+                )
 
     gs.update(hspace=-0.735)
 
-    fig.savefig("fig002.svg")
+    plt.savefig("fig002.svg", dpi=300)
