@@ -53,27 +53,19 @@ quantities_to_plot = {
         "type": "dihedral",
         "xlims": (-120, 240),
         "bin_width": 1.0,
-        "bw_method": 0.003,
+        "bw_method": 0.004,
         "ridge": False,
     },
-    "Thr203 HG1": {
-        "filename": "cro65_oh-thr201_hg1-dist",
-        "type": "distance",
-        "xlims": (1.0, 7.0),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-        "ridge": True,
-    },
-    "His148 HD1": {
-        "filename": "cro65_oh-his146_hd1-dist",
+    "Tyr145 HH": {
+        "filename": "cro65_oh-tyr143_hh-dist",
         "type": "distance",
         "xlims": (1.0, 6.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
     },
-    "Tyr145 HH": {
-        "filename": "cro65_oh-tyr143_hh-dist",
+    "His148 HD1": {
+        "filename": "cro65_oh-his146_hd1-dist",
         "type": "distance",
         "xlims": (1.0, 6.0),
         "bin_width": 0.05,
@@ -92,6 +84,14 @@ quantities_to_plot = {
         "filename": "cro65_o3-gln92_ne2-dist",
         "type": "distance",
         "xlims": (2.0, 6.5),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": True,
+    },
+    "Thr203 HG1": {
+        "filename": "cro65_oh-thr201_hg1-dist",
+        "type": "distance",
+        "xlims": (1.0, 7.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -156,6 +156,16 @@ def compute_kde_for_quantity(all_data, q_info):
 
     return x_values, results, y_max
 
+def add_subfigure_label(ax, label, loc=(0.075, 0.95)):
+    """Add subfigure label (e.g., A, B, C) to a given axis."""
+    ax.text(
+        *loc, label,
+        transform=ax.transAxes,
+        fontsize=12,
+        fontweight="bold",
+        va="top",
+        ha="right"
+    )
 
 ###############################################################################
 # 3) MAIN SCRIPT
@@ -212,8 +222,8 @@ if __name__ == "__main__":
     n_buffer = 3
     n_rows = n_systems + n_buffer + 1  # 1 row for "other", plus 1 row per system
     fig = plt.figure(figsize=(6.0, 5.0))
-    # gs = gridspec.GridSpec(nrows=n_rows, ncols=n_ridge, hspace=0.5, wspace=0.3)
     gs = gridspec.GridSpec(nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98)
+    subfigure_label_counter = 0
 
     # -------------------------------------------------------------------------
     # C. Plot the "other" items (ridge=False) in row=0, distributing them across the n_ridge columns
@@ -263,10 +273,13 @@ if __name__ == "__main__":
                 ax_other.set_xlabel(f"{label_data} [deg]")
 
 
-            # You might add a legend here, or on the first/last plot, etc.
-            # ax_other.legend()
+            if i == 0:
+                ax_other.legend(frameon=False)
 
             col_start = col_end
+
+            add_subfigure_label(ax_other, chr(65 + subfigure_label_counter))
+            subfigure_label_counter += 1
 
     # -------------------------------------------------------------------------
     # D. Plot the "ridge=True" items in the rows below (one row per system)
@@ -291,7 +304,6 @@ if __name__ == "__main__":
             pdf_y = pdfs_dict[sys_lbl]
 
             # Plot fill
-            # ax_ridge.plot(x_vals, pdf_y, color="#FFFFFF", lw=0.5)
             ax_ridge.plot(x_vals, pdf_y, color="#373737", lw=0.5)
             ax_ridge.fill_between(x_vals, pdf_y, alpha=1, color=colors_sys[sys_lbl], lw=0)
 
@@ -322,6 +334,12 @@ if __name__ == "__main__":
                     ha="right",
                     va="bottom"
                 )
+
+                if i_system == 0:
+                    add_subfigure_label(
+                        ax_ridge, chr(65 + subfigure_label_counter), loc=(0.45, 0.7)
+                    )
+                    subfigure_label_counter += 1
 
     gs.update(hspace=-0.735)
 
