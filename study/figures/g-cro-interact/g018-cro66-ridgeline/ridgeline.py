@@ -16,7 +16,7 @@ paths_data = {
     # "Thr203 HG1": "cro65_oh-thr201_hg1-dist",
     "His148 HD1": "cro65_oh-his146_hd1-dist",
     "Tyr145 HH": "cro65_oh-tyr143_hh-dist",
-    "Val64 O": "cro65_n1-val62_o-dist",
+    "Thr64 O": "cro65_n1-thr62_o-dist",
     "Gln94 NE2": "cro65_o3-gln92_ne2-dist",
 }
 x_lims_data = {
@@ -24,7 +24,7 @@ x_lims_data = {
     "Thr203 HG1": (1.0, 7.0),
     "His148 HD1": (1.0, 6.0),
     "Tyr145 HH": (1.0, 6.0),
-    "Val64 O": (2.5, 6.5),
+    "Thr64 O": (2.5, 6.5),
     "Gln94 NE2": (2.5, 6.5),
 }
 
@@ -44,7 +44,7 @@ colors_sys = {
 
 def populate_data(paths_system, paths_data, x_bounds=(0.5, 15.0), bin_width=0.05, bw_method=0.04):
     data = {}
-    
+
     n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
     x_values = np.linspace(*x_bounds, n_bins)
     y_maxes = {}
@@ -112,7 +112,7 @@ if __name__ == "__main__":
                 axes[-1].set_xticklabels([])
             else:
                 axes[-1].set_xlabel(label_data)
-            
+
             if i_dist == 0:
                 axes[-1].text(
                     x_lims_data[label_data][0] - 0.2,

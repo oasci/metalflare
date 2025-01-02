@@ -80,16 +80,16 @@ quantities_to_plot = {
         "bw_method": 0.04,
         "ridge": True,
     },
-    "Val64 O": {
-        "filename": "cro65_n1-val62_o-dist",
+    "Gln94 NE2": {
+        "filename": "cro65_o3-gln92_ne2-dist",
         "type": "distance",
         "xlims": (2.0, 6.5),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
     },
-    "Gln94 NE2": {
-        "filename": "cro65_o3-gln92_ne2-dist",
+    "Thr64 O": {
+        "filename": "cro65_n1-thr62_o-dist",
         "type": "distance",
         "xlims": (2.0, 6.5),
         "bin_width": 0.05,

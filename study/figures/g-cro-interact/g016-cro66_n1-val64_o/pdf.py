@@ -29,24 +29,24 @@ if __name__ == "__main__":
 
     rogfp_dist_path = os.path.join(
         base_dir,
-        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_n1-val62_o-dist.npy",
+        "analysis/005-rogfp-glh-md/data/struct-desc/cro65_n1-thr62_o-dist.npy",
     )
     rogfp_data = np.load(rogfp_dist_path)
     # Oxidized
     rogfp_oxd_data_path = os.path.join(
         base_dir,
-        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_n1-val62_o-dist.npy",
+        "analysis/007-rogfp-oxd-glh-md/data/struct-desc/cro65_n1-thr62_o-dist.npy",
     )
     rogfp_oxd_data = np.load(rogfp_oxd_data_path)
     rogfp_cu_dist_path = os.path.join(
         base_dir,
-        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_n1-val62_o-dist.npy",
+        "analysis/006-rogfp-cu-glh-md/data/struct-desc/cro65_n1-thr62_o-dist.npy",
     )
     rogfp_cu_data = np.load(rogfp_cu_dist_path)
 
     rogfp_na_dist_path = os.path.join(
         base_dir,
-        "analysis/008-rogfp-na-glh-md/data/struct-desc/cro65_n1-val62_o-dist.npy",
+        "analysis/008-rogfp-na-glh-md/data/struct-desc/cro65_n1-thr62_o-dist.npy",
     )
     rogfp_na_data = np.load(rogfp_na_dist_path)
 
@@ -103,9 +103,9 @@ if __name__ == "__main__":
         f.writelines(pdf_info_lines)
 
     # Make pdf plot
-    fig_title = "g016-cro66_n1-val64_o"
+    fig_title = "g016-cro66_n1-thr64_o"
     pdf_plt_kwargs = {"alpha": 1.0, "linewidth": 1.5}
-    x_label = "Cro66 N1 - Val64 O Distance [Å]"
+    x_label = "Cro66 N1 - Thr64 O Distance [Å]"
     plot_x_bounds = (2.5, 6.5)
     y_label = "Density"
     plot_y_bounds = (0, None)

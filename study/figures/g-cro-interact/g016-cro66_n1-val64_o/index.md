@@ -1,4 +1,4 @@
-# G016: Cro66 N1 - Val64 O
+# G016: Cro66 N1 - Thr64 O
 
 ## Probability density function
 

@@ -66,21 +66,22 @@ if __name__ == "__main__":
     pdf_rogfp_na = compute_pdf(rogfp_na_data, x_values, bw_method=bw_method)
 
     # KDE stats
+    x_kde_lim = 3.0
     kde = gaussian_kde(rogfp_data, bw_method=bw_method)
-    reduced_fraction = kde.integrate_box_1d(0.1, 2.5)
+    reduced_fraction = kde.integrate_box_1d(0.1, x_kde_lim)
     print(f"Reduced kde stat:  {reduced_fraction:.3f}")
 
     kde = gaussian_kde(rogfp_oxd_data, bw_method=bw_method)
-    oxidized_fraction = kde.integrate_box_1d(0.1, 2.5)
+    oxidized_fraction = kde.integrate_box_1d(0.1, x_kde_lim)
     print(f"Oxidized kde stat: {oxidized_fraction:.3f}")
 
     kde = gaussian_kde(rogfp_cu_data, bw_method=bw_method)
-    cu_fraction = kde.integrate_box_1d(0.1, 2.5)
+    cu_fraction = kde.integrate_box_1d(0.1, x_kde_lim)
     print(f"Cu(I) kde stat:    {cu_fraction:.3f}")
 
     kde = gaussian_kde(rogfp_na_data, bw_method=bw_method)
-    na_fraction = kde.integrate_box_1d(0.1, 2.5)
-    print(f"Cu(I) kde stat:    {na_fraction:.3f}")
+    na_fraction = kde.integrate_box_1d(0.1, x_kde_lim)
+    print(f"Na+ kde stat:    {na_fraction:.3f}")
 
     # save pdf information
     pdf_info_lines = ["Reduced roGFP2\n"]
