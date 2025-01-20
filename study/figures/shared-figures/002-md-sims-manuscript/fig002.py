@@ -59,7 +59,7 @@ quantities_to_plot = {
     "Thr203 HG1": {
         "filename": "cro65_oh-thr201_hg1-dist",
         "type": "distance",
-        "xlims": (1.0, 7.0),
+        "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -67,7 +67,7 @@ quantities_to_plot = {
     "Tyr145 HH": {
         "filename": "cro65_oh-tyr143_hh-dist",
         "type": "distance",
-        "xlims": (1.0, 6.0),
+        "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -75,7 +75,7 @@ quantities_to_plot = {
     "His148 HD1": {
         "filename": "cro65_oh-his146_hd1-dist",
         "type": "distance",
-        "xlims": (1.0, 6.0),
+        "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -83,7 +83,7 @@ quantities_to_plot = {
     "Gln94 NE2": {
         "filename": "cro65_o3-gln92_ne2-dist",
         "type": "distance",
-        "xlims": (2.0, 6.5),
+        "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
@@ -91,7 +91,7 @@ quantities_to_plot = {
     "Thr64 O": {
         "filename": "cro65_n1-thr62_o-dist",
         "type": "distance",
-        "xlims": (2.0, 6.5),
+        "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
