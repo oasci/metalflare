@@ -38,8 +38,8 @@ All other data, information, documentation, and associated content provided with
 Any future release of this project may be distributed under alternative, more permissive terms.
 For example, a future release might use the following licenses:
 
--   Code: MIT license as specified in `.LICENSE.md`.
--   Other Content: CC BY 4.0 license as specified in `.LICENSE_INFO.md`.
+-   Code: [MIT][mit] license as specified in `.LICENSE.md`.
+-   Other Content: [CC BY 4.0][cc-by-4.0] license as specified in `.LICENSE_INFO.md`.
 
 *Please note: This change applies only to new releases.*
 *Versions of the project distributed beforehand will remain governed by the GPLv3 and CC BY‑ND 4.0 licenses.*
