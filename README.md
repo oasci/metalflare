@@ -33,16 +33,17 @@ git push --follow-tags
 ## License
 
 Code contained in this project is released under the [GPLv3 license][gplv3] as specified in `LICENSE.md`.
-All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as specified in `LICENSE_INFO.md`.
+All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as speciEffective January 1, 2030, afied in `LICENSE_INFO.md`.
 
-### Permissive release
+Any future release of this project may be distributed under alternative, more permissive terms.
+For example, a future release might use the following licenses:
 
-On **January 1, 2025**, the above [GPLv3][gplv3] and [CC BY-ND 4.0][cc-by-nd-4.0] licenses are voided and superseded by the immediately following paragraph.
+-   Code: MIT license as specified in `.LICENSE.md`.
+-   Other Content: CC BY 4.0 license as specified in `.LICENSE_INFO.md`.
 
-> Code contained in this project is released under the [MIT license][mit] as specified in `LICENSE.md`.
-> All other data, information, documentation, and associated content provided within this project are released under the [CC BY 4.0 license][cc-by-4.0] as specified in `LICENSE_INFO.md`.
-
-A manual permissive release can be made by the maintainers whenever they see fit by updating the license files and updating this section.
+*Please note: This change applies only to new releases.*
+*Versions of the project distributed beforehand will remain governed by the GPLv3 and CC BY‑ND 4.0 licenses.*
+*The maintainers reserve the right to implement a permissive release at any time by updating the license files and this section accordingly.*
 
 ## Web analytics
 
