@@ -33,7 +33,7 @@ git push --follow-tags
 ## License
 
 Code contained in this project is released under the [GPLv3 license][gplv3] as specified in `LICENSE.md`.
-All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as speciEffective January 1, 2030, afied in `LICENSE_INFO.md`.
+All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as specified in `LICENSE_INFO.md`.
 
 Any future release of this project may be distributed under alternative, more permissive terms.
 For example, a future release might use the following licenses:
