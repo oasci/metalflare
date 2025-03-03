@@ -7,3 +7,7 @@
 :root {
     --md-tooltip-width: 600px;
 }
+
+.md-typeset h2 {
+    line-height: 1.13;
+}
