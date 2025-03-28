@@ -28,6 +28,7 @@ def compute_dihedralal_angle(coords):
     # For example, you can use the dihedral function from MDAnalysis
     return mda.lib.distances.calc_dihedrals(coords)
 
+
 def main():
     base_dir = "/ihome/jdurrant/amm503/ix/oasci/metalflare/study"
     trajectory_paths = generate_trajectory_paths(base_dir)
@@ -55,7 +56,6 @@ def main():
     np.save(atoms_npy_path, atoms_dihedral_array)
 
     print(atoms_dihedral_array)
-
 
 
 if __name__ == "__main__":

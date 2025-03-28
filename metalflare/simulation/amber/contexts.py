@@ -1,4 +1,5 @@
 """Simulation contexts for Amber"""
+
 from typing import Any
 
 from collections.abc import Iterable

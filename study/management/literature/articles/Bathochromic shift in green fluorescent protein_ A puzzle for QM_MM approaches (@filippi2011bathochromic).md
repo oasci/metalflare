@@ -14,7 +14,7 @@ date: 2011-11-21
 
 Takeaways:
 
-- 
+-
 
 ## Abstract
 

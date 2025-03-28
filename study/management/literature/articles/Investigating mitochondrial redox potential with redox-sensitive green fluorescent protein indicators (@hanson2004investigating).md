@@ -15,8 +15,8 @@ date: 2004-01-01
 
 Takeaways:
 
-- Presents a ratiometric redox-sensitive GFPs (roGFPs) with midpoint potentials in the range of -0.27 to -0.29 V.
-- Provides [reduced](https://www.rcsb.org/structure/1JC0) (no disulfide bond) and [oxidized](https://www.rcsb.org/structure/1JC1) (disulfide bond) roGFP2 structures.
+-   Presents a ratiometric redox-sensitive GFPs (roGFPs) with midpoint potentials in the range of -0.27 to -0.29 V.
+-   Provides [reduced](https://www.rcsb.org/structure/1JC0) (no disulfide bond) and [oxidized](https://www.rcsb.org/structure/1JC1) (disulfide bond) roGFP2 structures.
 
 ## Abstract
 
@@ -34,6 +34,5 @@ Takeaways:
 | N149C/S202C/S65T             | roGFP4 | 0.056    | -0.286 | 2.6      |
 | S147C/Q204C/N149C/S202C      | roGFP5 | 0.134    | -0.296 | 7.8      |
 | S147C/Q204C/N149C/S202C/S65T | roGFP6 | 0.039    | -0.280 | 5.4      |
-
 
 > Averaged over the three molecules in the asymmetric unit, the descriptive parameters are as follows: average Cα-Cα distance of 4.04 ± 0.09 Å, Cβ-Cβ distance of 4.19 ± 0.03 Å, S-S distance of 1.97 ± 0.06 Å, Cα-Cβ-S angle of 112 ± 1.4°, Cβ-S-S angle of 105.6 ± 1.7°, and a Cβ-S-S-Cβ torsion angle of 115.7 ± 0.6°.

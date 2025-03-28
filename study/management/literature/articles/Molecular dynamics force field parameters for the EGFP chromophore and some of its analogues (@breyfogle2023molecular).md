@@ -14,7 +14,7 @@ date: 2023-06-26
 
 Takeaways:
 
-- Parameterizes chromophores for GFP.
+-   Parameterizes chromophores for GFP.
 
 ## Abstract
 
@@ -32,19 +32,19 @@ The eGFP chromophore (PDB code: `CRO`) used the PDB reference of `2Y0G` with a c
 
 > A wide range of solvent dielectrics (from 1.1 to 30) have been used to model protein environments in various studies over the past three decades, (67−80) although most of these works have utilized ε = 10–20.
 > Because of this ambiguity, we tested the full optimization procedure described above using six different solvents, including
-> 
-> - vacuum (ε = 1),
-> - pentylamine (ε = 4.20),s
-> - 1-octanol (ε = 9.86),
-> - 1-pentanol (ε = 15.13),
-> - 2-propanol (ε = 19.26), and
-> - water (ε = 78.36),
+>
+> -   vacuum (ε = 1),
+> -   pentylamine (ε = 4.20),s
+> -   1-octanol (ε = 9.86),
+> -   1-pentanol (ε = 15.13),
+> -   2-propanol (ε = 19.26), and
+> -   water (ε = 78.36),
 >  
 > all implemented with the SMD solvent model. (55)
 > These solvents were chosen based on a number of factors:
-> 1. in the crystal structure, there are a variety of sidechains within 3 Å of, and pointing toward, the chromophore including hydrophobic valine, aromatic/polar histidine, and multiple polar and/or charged groups including two threonines, arginine, glutamine, glutamic acid, and three waters, such that short-chain alcohols or amines are a reasonable compromise for mimicking this environment;
-> 2. surface tensions in the range of 30–37 cal/mol·Å2, consistent with alcohols and amines of modest chain length; and
-> 3. dielectric constants that span the range of 4–20 plus the two extreme values of vacuum and water.
+> 1.  in the crystal structure, there are a variety of sidechains within 3 Å of, and pointing toward, the chromophore including hydrophobic valine, aromatic/polar histidine, and multiple polar and/or charged groups including two threonines, arginine, glutamine, glutamic acid, and three waters, such that short-chain alcohols or amines are a reasonable compromise for mimicking this environment;
+> 2.  surface tensions in the range of 30–37 cal/mol·Å2, consistent with alcohols and amines of modest chain length; and
+> 3.  dielectric constants that span the range of 4–20 plus the two extreme values of vacuum and water.
 
 > To maintain consistency and balance with the Cornell-based force fields, we sought to define the fewest possible number of new parameters. For those new parameters that would be needed, we chose to base them on either ff14/19SB or the generalized AMBER force field (gaff), (82) which is designed to be compatible with the Cornell family of force fields.
 
@@ -53,8 +53,6 @@ The eGFP chromophore (PDB code: `CRO`) used the PDB reference of `2Y0G` with a c
 > Atomic charges were determined using two-stage Restrained Electrostatic Potential (RESP) fits of electrostatic potentials (ESPs) that were computed on B3LYP/6-31G(d)/SMD(1-pentanol) optimized structures using HF/6-31G(d), as prescribed by Kollman and co-workers.
 
 > The RESP module within the AMBER suite (47) was used to perform the fitting. Within the RESP method, we imposed three requirements consistent with the original Cornell charge model:
-> - the total charge of all capping group atoms must be zero to allow them to be removed while maintaining an integer charge on the portion of the chromophore that will serve as the residue;
-> - atomic charges of rotationally equivalent atoms within the molecule must be equal, with the exception of those found on capping groups; and
-> - the atomic charges of the terminal/amide N, H, C, and O atoms in each chromophore must be consistent with the corresponding atoms in the standard ff19SB amino acids.
-
-
+> -   the total charge of all capping group atoms must be zero to allow them to be removed while maintaining an integer charge on the portion of the chromophore that will serve as the residue;
+> -   atomic charges of rotationally equivalent atoms within the molecule must be equal, with the exception of those found on capping groups; and
+> -   the atomic charges of the terminal/amide N, H, C, and O atoms in each chromophore must be consistent with the corresponding atoms in the standard ff19SB amino acids.

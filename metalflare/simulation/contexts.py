@@ -197,6 +197,7 @@ class SimulationContextManager:
 # pylint: disable-next=too-few-public-methods
 class ContextValidator:
     r"""Base class for validating simulation contexts."""
+
     # pylint: disable=unused-argument
 
     @classmethod

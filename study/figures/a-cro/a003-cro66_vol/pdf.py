@@ -139,7 +139,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
-        pdf_na=pdf_rogfp_na
+        pdf_na=pdf_rogfp_na,
     )
     plt.xticks(np.arange(100, 250 + 0.01, 50))
     pdf_fig.savefig(f"{fig_title}-pdf.svg")

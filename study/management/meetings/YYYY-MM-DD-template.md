@@ -6,8 +6,8 @@
 
 ## Participants
 
-- `<!-- Participant 1 -->`
-- `<!-- Participant 2 -->`
+-   `<!-- Participant 1 -->`
+-   `<!-- Participant 2 -->`
 
 ## Notes
 

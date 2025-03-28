@@ -1,4 +1,5 @@
 """Standardizes residue ID numbering"""
+
 import argparse
 import os
 import re

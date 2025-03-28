@@ -14,7 +14,7 @@ date: 2010-01-01
 
 Takeaways:
 
-- Useful to comparing ground versus excited state classical force field parameters.
+-   Useful to comparing ground versus excited state classical force field parameters.
 
 ## Abstract
 

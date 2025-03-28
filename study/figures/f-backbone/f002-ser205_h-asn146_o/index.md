@@ -30,7 +30,6 @@ The following table presents the probability of the hydrogen bonding (within 2.5
 
 --8<-- "study/figures/f-backbone/f002-ser205_h-asn146_o/pmf-info.md"
 
-
 ## Visualization
 
 <div id="reduced-view" class="mol-container"></div>

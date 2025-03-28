@@ -110,14 +110,14 @@ quantities_to_plot = {
 # 2) HELPER FUNCTIONS
 ###############################################################################
 
+
 def load_raw_data(base_dir, path_sys, q_info):
     """
     Loads raw data from a .npy file. If 'type' is 'dihedral', it handles
     conversion from radians to degrees (if needed) and duplication by ±360.
     """
     file_path = os.path.join(
-        base_dir,
-        f"analysis/{path_sys}/data/struct-desc/{q_info['filename']}.npy"
+        base_dir, f"analysis/{path_sys}/data/struct-desc/{q_info['filename']}.npy"
     )
     data = np.load(file_path)
 
@@ -156,16 +156,19 @@ def compute_kde_for_quantity(all_data, q_info):
 
     return x_values, results, y_max
 
+
 def add_subfigure_label(ax, label, loc=(0.075, 0.95)):
     """Add subfigure label (e.g., A, B, C) to a given axis."""
     ax.text(
-        *loc, label,
+        *loc,
+        label,
         transform=ax.transAxes,
         fontsize=12,
         fontweight="bold",
         va="top",
-        ha="right"
+        ha="right",
     )
+
 
 ###############################################################################
 # 3) MAIN SCRIPT
@@ -175,7 +178,9 @@ if __name__ == "__main__":
     base_dir = "../../../"
 
     # Optionally apply a custom style:
-    rc_json_path = os.path.join(base_dir, "misc/003-figure-style/matplotlib-rc-params.json")
+    rc_json_path = os.path.join(
+        base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
+    )
     font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
     use_mpl_rc_params(rc_json_path, font_dirs)
 
@@ -222,7 +227,9 @@ if __name__ == "__main__":
     n_buffer = 3
     n_rows = n_systems + n_buffer + 1  # 1 row for "other", plus 1 row per system
     fig = plt.figure(figsize=(6.0, 5.0))
-    gs = gridspec.GridSpec(nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98)
+    gs = gridspec.GridSpec(
+        nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98
+    )
     subfigure_label_counter = 0
 
     # -------------------------------------------------------------------------
@@ -249,11 +256,7 @@ if __name__ == "__main__":
             for sys_lbl in labels_sys_order:
                 pdf_y = pdfs_dict[sys_lbl]
                 ax_other.plot(
-                    x_vals,
-                    pdf_y,
-                    color=colors_sys[sys_lbl],
-                    lw=1.5,
-                    label=sys_lbl
+                    x_vals, pdf_y, color=colors_sys[sys_lbl], lw=1.5, label=sys_lbl
                 )
 
             # Aesthetics
@@ -271,7 +274,6 @@ if __name__ == "__main__":
                 ax_other.set_xlabel(f"{label_data} [Å]")
             else:
                 ax_other.set_xlabel(f"{label_data} [deg]")
-
 
             if i == 0:
                 ax_other.legend(frameon=False)
@@ -305,7 +307,9 @@ if __name__ == "__main__":
 
             # Plot fill
             ax_ridge.plot(x_vals, pdf_y, color="#373737", lw=0.5)
-            ax_ridge.fill_between(x_vals, pdf_y, alpha=1, color=colors_sys[sys_lbl], lw=0)
+            ax_ridge.fill_between(
+                x_vals, pdf_y, alpha=1, color=colors_sys[sys_lbl], lw=0
+            )
 
             # Aesthetics
             ax_ridge.set_xlim(*quantities_to_plot[label_data]["xlims"])
@@ -332,7 +336,7 @@ if __name__ == "__main__":
                     sys_lbl,
                     fontweight="bold",
                     ha="right",
-                    va="bottom"
+                    va="bottom",
                 )
 
             if i_system == 0:

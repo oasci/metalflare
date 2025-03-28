@@ -14,7 +14,7 @@ date: 1996-11-26
 
 Takeaways:
 
-- The chromophore cannot independently fluoresce in room temperature.
+-   The chromophore cannot independently fluoresce in room temperature.
 
 ## Abstract
 

@@ -10,6 +10,7 @@ enable_logging(20)
 
 SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
+
 def main():
     base_dir = "/ihome/jdurrant/amm503/ix/oasci/metalflare/study"
     path_pdb = os.path.join(base_dir, f"analysis/{SIM_LABEL}/data/traj/povme.pdb")

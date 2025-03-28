@@ -5,6 +5,7 @@ import os
 import numpy as np
 
 from metalflare.analysis.figures import use_mpl_rc_params
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ date: 1997-01-01
 
 Takeaways:
 
-- 
+-
 
 ## Abstract
 

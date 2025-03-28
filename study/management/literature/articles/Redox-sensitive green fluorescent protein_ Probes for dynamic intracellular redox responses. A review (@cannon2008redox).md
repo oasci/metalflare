@@ -14,7 +14,7 @@ date: 2008-01-01
 
 Takeaways:
 
-- 
+-
 
 ## Abstract
 
@@ -33,4 +33,3 @@ The probes, termed redox-sensitive green fluorescent proteins (roGFPs), were con
 Half of the roGFPs were developed from wtGFP (roGFP1, roGFP3, and roGFP5) and half from the S65T GFP background (roGFP2, roGFP4, and roGFP6).
 
 A crystal structure of roGFP2 shows that disulfide formation between the pair of engineered surface cysteine residues results in a shift of one β-strand relative to the other (20), which causes subtle internal structural rearrangements, including repositioning of side chains contacting the chromophore (i.e., His148 and Ser205), such that the neutral chromophore is favored over the anionic. Therefore, as a population of roGFP is oxidized, disulfide formation leads to an increase in the excitation peak at 400 nm at the expense of the 480 nm peak (20) (see Fig. 4.4).
-

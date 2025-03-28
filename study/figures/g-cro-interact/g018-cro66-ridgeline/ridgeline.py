@@ -8,6 +8,7 @@ import numpy as np
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 
@@ -42,7 +43,10 @@ colors_sys = {
     "Na+": "#1b998b",
 }
 
-def populate_data(paths_system, paths_data, x_bounds=(0.5, 15.0), bin_width=0.05, bw_method=0.04):
+
+def populate_data(
+    paths_system, paths_data, x_bounds=(0.5, 15.0), bin_width=0.05, bw_method=0.04
+):
     data = {}
 
     n_bins = int((max(x_bounds) - min(x_bounds)) / bin_width)
@@ -66,6 +70,7 @@ def populate_data(paths_system, paths_data, x_bounds=(0.5, 15.0), bin_width=0.05
             data[label_data][label_sys] = y_values
     return x_values, data, y_maxes
 
+
 if __name__ == "__main__":
     # Specify the paths to the trajectory and topology files
     base_dir = "../../../"
@@ -84,7 +89,6 @@ if __name__ == "__main__":
     gs = grid_spec.GridSpec(nrows=n_systems, ncols=n_dists, bottom=0.14, top=1.09)
     fig = plt.figure(figsize=(6.0, 3.0))
 
-
     x_lims = (1, 7)
     axes = []
     i_dist = 0
@@ -94,7 +98,9 @@ if __name__ == "__main__":
             _data = data[label_data][label_sys]
             axes.append(fig.add_subplot(gs[i_sys, i_dist]))
             axes[-1].plot(x_values, _data, color="#FFFFFF", lw=1.0)
-            axes[-1].fill_between(x_values, _data, alpha=1, color=colors_sys[label_sys], lw=0.0)
+            axes[-1].fill_between(
+                x_values, _data, alpha=1, color=colors_sys[label_sys], lw=0.0
+            )
 
             axes[-1].set_xlim(*x_lims_data[label_data])
             rect = axes[-1].patch
@@ -119,7 +125,7 @@ if __name__ == "__main__":
                     0,
                     label_sys,
                     fontweight="bold",
-                    ha="right"
+                    ha="right",
                 )
 
             i_sys += 1

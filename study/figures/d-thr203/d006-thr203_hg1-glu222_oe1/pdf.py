@@ -178,7 +178,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
-        pmf_rogfp_na=pmf_rogfp_na
+        pmf_rogfp_na=pmf_rogfp_na,
     )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()

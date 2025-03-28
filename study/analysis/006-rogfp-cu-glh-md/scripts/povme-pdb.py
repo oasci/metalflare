@@ -7,6 +7,7 @@ from MDAnalysis import transformations
 
 SIM_LABEL = os.path.dirname(os.path.abspath(__file__)).split("/")[-2]
 
+
 def generate_trajectory_paths(base_dir, run_range=(1, 4), prod_range=(8, 11)):
     trajectory_paths = []
     for run_i in range(*run_range):
@@ -41,12 +42,13 @@ def main():
     reference = ref_u.select_atoms(atoms_str)
 
     ag = u.atoms
-    workflow = (transformations.unwrap(ag),
-                    transformations.center_in_box(atoms, center='mass'),
-                    transformations.fit_rot_trans(atoms, reference))
+    workflow = (
+        transformations.unwrap(ag),
+        transformations.center_in_box(atoms, center="mass"),
+        transformations.fit_rot_trans(atoms, reference),
+    )
     u.trajectory.add_transformations(*workflow)
-    
-    
+
     stride = 1
     with mda.Writer(path_pdb, atoms.n_atoms) as W:
         for ts in u.trajectory[None:None:stride]:

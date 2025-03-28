@@ -177,4 +177,3 @@ Little consensus has been made on the ESPT mechanism in GFP.
 
 [^cormack1996facs]: Cormack, B. P., Valdivia, R. H., & Falkow, S. (1996). FACS-optimized mutants of the green fluorescent protein (GFP). Gene, 173(1), 33-38. DOI: [10.1016/0378-1119(95)00685-0](https://doi.org/10.1016/0378-1119(95)00685-0)
 [^prasher1992primary]: Prasher, D. C., Eckenrode, V. K., Ward, W. W., Prendergast, F. G., & Cormier, M. J. (1992). Primary structure of the Aequorea victoria green-fluorescent protein. Gene, 111(2), 229-233. DOI: [10.1016/0378-1119(92)90691-H](https://doi.org/10.1016/0378-1119(92)90691-H)
-[^worster2024quantum]: Bourne-Worster, S., & Worth, G. A. (2024). Quantum dynamics of excited state proton transfer in green fluorescent protein. *Journal of Chemical Physics*, 160(6). DOI: [10.1063/5.0188834](https://doi.org/10.1063/5.0188834)

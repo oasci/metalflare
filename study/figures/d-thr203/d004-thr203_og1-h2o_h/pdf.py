@@ -30,10 +30,12 @@ if __name__ == "__main__":
 
     # Reduced
     rogfp_data_path_1 = os.path.join(
-        base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy"
+        base_dir,
+        "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h1-dist.npy",
     )
     rogfp_data_path_2 = os.path.join(
-        base_dir, "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy"
+        base_dir,
+        "analysis/005-rogfp-glh-md/data/struct-desc/thr201_og1-h2o_h2-dist.npy",
     )
     rogfp_data_1 = np.load(rogfp_data_path_1)
     rogfp_data_2 = np.load(rogfp_data_path_2)
@@ -134,7 +136,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pdf_rogfp_oxd=pdf_rogfp_oxd,
-        pdf_na=pdf_rogfp_na
+        pdf_na=pdf_rogfp_na,
     )
     pdf_fig.savefig(f"{fig_title}-pdf.svg")
     plt.close()
@@ -190,7 +192,7 @@ if __name__ == "__main__":
         y_label=y_label,
         y_bounds=plot_y_bounds,
         pmf_rogfp_oxd=pmf_rogfp_oxd,
-        pmf_rogfp_na=pmf_rogfp_na
+        pmf_rogfp_na=pmf_rogfp_na,
     )
     pmf_fig.savefig(f"{fig_title}-pmf.svg")
     plt.close()
