@@ -40,7 +40,7 @@ colors_sys = {
 # ----------------------------------------------------------------
 
 quantities_to_plot = {
-    r"Cys147 C$_\alpha$ – Cys204 C$_\alpha$": {
+    r"Cys147 C$\bf{\alpha}$ – Cys204 C$\bf{\alpha}$": {
         "filename": "cys145_ca-cys202_ca-dist",
         "type": "distance",
         "xlims": (3.0, 7.0),
@@ -48,7 +48,7 @@ quantities_to_plot = {
         "bw_method": 0.04,
         "ridge": False,
     },
-    "Cro66 $\psi$": {
+    r"Cro66 $\bf{\psi}$": {
         "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
         "type": "dihedral",
         "xlims": (-120, 240),
