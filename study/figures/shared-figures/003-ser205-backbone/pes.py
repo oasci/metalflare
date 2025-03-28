@@ -11,9 +11,9 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 fig_label = "fig003"
 data_x_str = "cys202_c-ser203_n_ca_c-dihedral"
-data_x_label = "Ser205 $\phi$ [deg.]"
+data_x_label = "Ser205 $\phi$ [°]"
 data_y_str = "ser203_n_ca_c-ala204_n-dihedral"
-data_y_label = "Ser205 $\psi$ [deg.]"
+data_y_label = "Ser205 $\psi$ [°]"
 
 bin_width_angle = 2
 bin_width_dist = 0.1
