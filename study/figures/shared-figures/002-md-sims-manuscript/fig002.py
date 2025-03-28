@@ -273,7 +273,7 @@ if __name__ == "__main__":
             if q_type == "distance":
                 ax_other.set_xlabel(f"{label_data} [Å]")
             else:
-                ax_other.set_xlabel(f"{label_data} [deg]")
+                ax_other.set_xlabel(f"{label_data} [°]")
 
             if i == 0:
                 ax_other.legend(frameon=False)
