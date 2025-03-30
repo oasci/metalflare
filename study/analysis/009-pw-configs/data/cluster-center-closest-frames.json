@@ -1,0 +1,101 @@
+{
+  "A": {
+    "condition": "oxidized",
+    "frame": 131459,
+    "densities": {
+      "reduced": 0.16081,
+      "oxidized": 0.20586,
+      "cu": 0.08594
+    }
+  },
+  "B": {
+    "condition": "cu",
+    "frame": 93552,
+    "densities": {
+      "reduced": 0.0131,
+      "oxidized": 0.00159,
+      "cu": 0.22567
+    }
+  },
+  "C": {
+    "condition": "reduced",
+    "frame": 91890,
+    "densities": {
+      "reduced": 0.07646,
+      "oxidized": 0.00034,
+      "cu": 0.02298
+    }
+  },
+  "D": {
+    "condition": "reduced",
+    "frame": 131353,
+    "densities": {
+      "reduced": 0.04125,
+      "oxidized": 0.00103,
+      "cu": 0.00257
+    }
+  },
+  "E": {
+    "condition": "reduced",
+    "frame": 40289,
+    "densities": {
+      "reduced": 0.02879,
+      "oxidized": 0.00016,
+      "cu": 0.00019
+    }
+  },
+  "F": {
+    "condition": "reduced",
+    "frame": 37216,
+    "densities": {
+      "reduced": 0.04177,
+      "oxidized": 0.0,
+      "cu": 1e-05
+    }
+  },
+  "G": {
+    "condition": "cu",
+    "frame": 45300,
+    "densities": {
+      "reduced": 3e-05,
+      "oxidized": 0.00028,
+      "cu": 0.00386
+    }
+  },
+  "H": {
+    "condition": "cu",
+    "frame": 14949,
+    "densities": {
+      "reduced": 0.08071,
+      "oxidized": 0.00157,
+      "cu": 0.08639
+    }
+  },
+  "I": {
+    "condition": "oxidized",
+    "frame": 7072,
+    "densities": {
+      "reduced": 0.04421,
+      "oxidized": 0.44569,
+      "cu": 0.05364
+    }
+  },
+  "J": {
+    "condition": "cu",
+    "frame": 39793,
+    "densities": {
+      "reduced": 0.0,
+      "oxidized": 0.0,
+      "cu": 0.00383
+    }
+  },
+  "K": {
+    "condition": "cu",
+    "frame": 1785,
+    "densities": {
+      "reduced": 0.0,
+      "oxidized": 0.0,
+      "cu": 0.00401
+    }
+  }
+}
