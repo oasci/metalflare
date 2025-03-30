@@ -1,34 +1,33 @@
 #!/usr/bin/env python3
 import os
 
+import numpy as np
 import pandas as pd
-
 from deeptime.decomposition import VAMP
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-
-data_y_str = "cro65_oh-his146_hd1-dist"
-data_y_label = "Cro66 OH - His148 HD1 Distance [Å]"
-
-names_state = {
-    "reduced": "005-rogfp-glh-md",
-    "oxidized": "007-rogfp-oxd-glh-md",
-    "cu": "006-rogfp-cu-glh-md",
-}
-
 
 base_dir = "../../../"
 
 path_data = "../data/feats-proton-wire.parquet"
 
+states = {
+    0: "reduced",
+    1: "oxidized",
+    2: "cu",
+}
 
 df = pd.read_parquet(path_data)
 
 X = df.to_numpy()[:, 1:]
 
+vamp = VAMP(lagtime=1, dim=2)
 
-vamp = VAMP(dim=1)
+model = vamp.fit_from_timeseries(X).fetch_model()
 
-covars = vamp.covariance_estimator(lagtime=10).fit(X).fetch_model()
+projected = model.transform(X)
 
-model = vamp.fit(covars).fetch_model()
+for state, label in states.items():
+    idx_state = df.index[df["state"] == state].to_numpy()
+    data_state = projected[idx_state, :]
+    np.save(f"../data/{label}-vamp.npy", data_state)
