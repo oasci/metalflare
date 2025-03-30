@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import os
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import gaussian_kde
+
 import matplotlib.gridspec as gridspec
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import gaussian_kde
+
 from metalflare.analysis.figures import use_mpl_rc_params
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))

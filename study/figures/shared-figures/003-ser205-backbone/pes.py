@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from metalflare.analysis.figures import use_mpl_rc_params
 from metalflare.analysis.pes import create_pes

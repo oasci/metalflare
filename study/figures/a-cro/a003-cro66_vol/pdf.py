@@ -8,10 +8,7 @@ import pandas as pd
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
-from metalflare.analysis.pdfs import (
-    extrema_table,
-    make_pdf_fig,
-)
+from metalflare.analysis.pdfs import extrema_table, make_pdf_fig
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 

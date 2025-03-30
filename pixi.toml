@@ -62,8 +62,8 @@ colorama = ">=0.4.6"
 
 [feature.dev.tasks]
 mdlint = { cmd = ["markdownlint-cli2", '"**/*.{md,markdown}"', "--fix", "--config", ".markdownlint.yaml", "||", "true"] }
-isort = { cmd = ["isort", "--settings-path", ".isort.cfg", "./metalflare", "./tests", "||", "true"] }
-black = { cmd = ["black", "--config", ".black.toml", "./metalflare", "./tests", "||", "true"] }
+isort = { cmd = ["isort", "--settings-path", ".isort.cfg", "./metalflare", "./tests", "./study", "||", "true"] }
+black = { cmd = ["black", "--config", ".black.toml", "./metalflare", "./tests", "./study", "||", "true"] }
 format = { depends-on = ["mdlint", "isort", "black"] }
 tests = { cmd = [
     "PYTHONPATH=.",

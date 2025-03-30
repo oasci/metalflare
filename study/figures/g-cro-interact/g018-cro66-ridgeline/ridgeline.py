@@ -2,8 +2,8 @@
 
 import os
 
-import matplotlib.pyplot as plt
 import matplotlib.gridspec as grid_spec
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import gaussian_kde
 

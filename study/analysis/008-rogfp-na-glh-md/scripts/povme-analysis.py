@@ -3,8 +3,8 @@
 import os
 import shutil
 
-from povme.pocket.volume import PocketVolume
 from povme import enable_logging
+from povme.pocket.volume import PocketVolume
 
 enable_logging(20)
 
