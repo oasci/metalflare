@@ -43,8 +43,7 @@ def generate_trajectory_paths(
             path = os.path.join(
                 base_dir, f"{sim_base}/run-0{run_i}/outputs/{prod:02d}_prod_npt.nc"
             )
-            if "run-01/outputs/10_prod_npt" not in path:
-                trajectory_paths.append(path)
+            trajectory_paths.append(path)
     return trajectory_paths
 
 
