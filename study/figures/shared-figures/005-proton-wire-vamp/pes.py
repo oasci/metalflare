@@ -11,23 +11,24 @@ from metalflare.analysis.pes import create_pes
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-fig_label = "fig005-vamp"
+fig_label = "fig005"
 data_x_label = "VAMP 1"
 data_y_label = "VAMP 2"
 
-bin_width = 0.1
+bin_width_x = 0.005
+bin_width_y = 0.05
 bins = (
-    np.arange(-10, 10 + 0.01, bin_width),
-    np.arange(-10, 10 + 0.01, bin_width),
+    np.arange(-1.3, -0.7 + bin_width_x, bin_width_x),
+    np.arange(-2, 4 + bin_width_y, bin_width_y),
 )
-x_lims = (-1.5, 4.1)
-x_ticks = np.arange(-1, max(x_lims) + 0.001, 1)
-y_lims = (-1.5, 6.1)
-y_ticks = np.arange(-1, max(y_lims) + 0.001, 1)
+x_lims = (-1.15, -0.75)
+x_ticks = np.arange(-1.2, max(x_lims) + 0.001, 0.1)
+y_lims = (-1.6, 4.0)
+y_ticks = np.arange(-2, max(y_lims) + 0.001, 1.0)
 
 pes_vmin = 0
-pes_vmax = 5
-levels = 6
+pes_vmax = 4.0
+levels = 10
 T = 300.0
 
 label_x = 0.5
@@ -77,7 +78,7 @@ data_cu = np.load(path_cu)
 # Load cluster centers with labels (A, B, C, ...)
 cluster_json_path = os.path.join(
     base_dir,
-    "analysis/009-pw-configs/data/vamp-kmeans-global.json",
+    "analysis/009-pw-configs/data/vamp-clustering-global.json",
 )
 with open(cluster_json_path, "r") as f:
     cluster_centers = json.load(f)["cluster_centers"]
@@ -235,7 +236,6 @@ fig.colorbar(
     label="PMF [kcal/mol]",
     ticks=list(range(int(pes_vmin), int(np.floor(pes_vmax)) + 1)),
 )
-
 
 plt.tight_layout()
 fig.savefig(f"{fig_label}.svg")

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import json
-import pickle
 import os
+import pickle
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from deeptime.decomposition import VAMP
 from deeptime.covariance import Covariance
+from deeptime.decomposition import VAMP
 from sklearn.model_selection import TimeSeriesSplit
 
 from metalflare.analysis.figures import use_mpl_rc_params
@@ -34,7 +34,7 @@ output_file = "../data/vamp_e_cv_results.json"
 # Load data
 df = pd.read_parquet(path_data)
 # Each element in Xs is a numpy array for a unique state-run combination (features only).
-Xs = [group.to_numpy()[:, 2:] for _, group in df.groupby(['state', 'run'])]
+Xs = [group.to_numpy()[:, 2:] for _, group in df.groupby(["state", "run"])]
 
 results = {}
 
@@ -56,8 +56,12 @@ for lag in lags_to_test:
                 Xs_test.append(run[test_idx])
         # Only if we collected training and testing segments from at least one run…
         if Xs_train and Xs_test:
-            cov_train = Covariance(lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True).fit_fetch(Xs_train)
-            cov_test = Covariance(lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True).fit_fetch(Xs_test)
+            cov_train = Covariance(
+                lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True
+            ).fit_fetch(Xs_train)
+            cov_test = Covariance(
+                lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True
+            ).fit_fetch(Xs_test)
 
             # Fit one VAMP model on the combined training data
             vamp_train = (
@@ -101,7 +105,7 @@ lags = sorted([lag for lag in results if isinstance(lag, int)])
 mean_scores = [results[lag]["mean_score"] for lag in lags]
 
 fig, ax = plt.subplots(1, 1, figsize=(3.5, 3))
-ax.plot([lag * t_delta for lag in lags], mean_scores, marker='', linestyle='-')
+ax.plot([lag * t_delta for lag in lags], mean_scores, marker="", linestyle="-")
 ax.set_xlabel("Lag Time (ps)")
 ax.set_ylabel("Mean VAMP-E Score")
 ax.set_xlim(float(min(lags_to_test) * t_delta), float(max(lags_to_test) * t_delta))
@@ -115,11 +119,11 @@ print(f"Plot saved to: {plot_path}")
 
 
 # Fit the final model on all the data using the best lag
-cov_all = Covariance(lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True).fit_fetch(Xs)
+cov_all = Covariance(
+    lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True
+).fit_fetch(Xs)
 best_model = (
-    VAMP(lagtime=lag, dim=dim_latent)
-    .fit_from_covariances(cov_all)
-    .fetch_model()
+    VAMP(lagtime=lag, dim=dim_latent).fit_from_covariances(cov_all).fetch_model()
 )
 
 projected = best_model.transform(df.to_numpy()[:, 2:])

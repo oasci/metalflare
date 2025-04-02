@@ -1,3 +1,4 @@
+import json
 import os
 import string
 from collections import Counter
@@ -5,6 +6,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
+from deeptime.markov import TransitionCountEstimator
 
 from metalflare.analysis.figures import use_mpl_rc_params
 
@@ -21,13 +23,13 @@ use_mpl_rc_params(rc_json_path, font_dirs)  # type: ignore
 # === Input files === #
 label_paths = {
     "Reduced": os.path.join(
-        base_dir, "analysis/009-pw-configs/data/reduced-kmeans-labels.npy"
+        base_dir, "analysis/009-pw-configs/data/reduced-clustering-labels.npy"
     ),
     "Oxidized": os.path.join(
-        base_dir, "analysis/009-pw-configs/data/oxidized-kmeans-labels.npy"
+        base_dir, "analysis/009-pw-configs/data/oxidized-clustering-labels.npy"
     ),
     "Cu(I)": os.path.join(
-        base_dir, "analysis/009-pw-configs/data/cu-kmeans-labels.npy"
+        base_dir, "analysis/009-pw-configs/data/cu-clustering-labels.npy"
     ),
 }
 
@@ -35,24 +37,28 @@ output_dir = "./"
 os.makedirs(output_dir, exist_ok=True)
 
 # === Settings === #
-lagtime = 1
-min_transition_prob = 0.008
-min_occ_prob = 0.0003
+lagtime = 49
+min_transition_prob = 0.01
+min_occ_prob = 0.001
 
 min_edge_width = 0.7
 edge_width_scale = 5.0
 min_head_width = 8
 head_width_scale = 12
 
+# Each simulation states has three concatenated trajectories that are the same
+# length, but with different initial conditions.
+# We need to mark these trajectories boundaries to avoid any nonphysical
+# transitions.
+n_independent_runs = 3
 
-# === Helper: Count transitions === #
-def count_transitions(traj, n_states, lag=1):
-    counts = np.zeros((n_states, n_states), dtype=int)
-    for i in range(len(traj) - lag):
-        from_state = traj[i]
-        to_state = traj[i + lag]
-        counts[from_state, to_state] += 1
-    return counts
+# Load cluster centers with labels (A, B, C, ...)
+cluster_json_path = os.path.join(
+    base_dir,
+    "analysis/009-pw-configs/data/vamp-clustering-global.json",
+)
+with open(cluster_json_path, "r") as f:
+    cluster_centers = json.load(f)["cluster_centers"]
 
 
 # === Create subplots === #
@@ -60,16 +66,23 @@ fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
 colors = {"Reduced": "#1e2e79", "Oxidized": "#EC4067", "Cu(I)": "#f99752"}
 
+n_states = len(cluster_centers)
 for ax, (name, path) in zip(axes, label_paths.items()):
     traj = np.load(path)
-    n_states = 11
     state_letters = list(string.ascii_uppercase[:n_states])
+
+    # Split by run
+    n_steps_per_traj = int(traj.shape[0] / n_independent_runs)
+    run_idxs = np.repeat(np.arange(n_independent_runs), n_steps_per_traj)
+    traj_runs = np.split(traj, n_independent_runs)
 
     occ_counts = Counter(traj)
     occ = np.array([occ_counts.get(i, 0) for i in range(n_states)])
     occ = occ / occ.sum()
 
-    counts = count_transitions(traj, n_states, lag=lagtime)
+    counts = TransitionCountEstimator.count(
+        count_mode="sample", dtrajs=traj_runs, lagtime=lagtime
+    )
     row_sums = counts.sum(axis=1, keepdims=True)
     with np.errstate(divide="ignore", invalid="ignore"):
         trans_prob = np.nan_to_num(counts / row_sums)
@@ -124,7 +137,7 @@ for ax, (name, path) in zip(axes, label_paths.items()):
         target_radius = (node_sizes[v] / np.pi) ** 0.5
         min_target_margin = target_radius * 0.85
 
-        rad = 0.3 if G.has_edge(v, u) and u != v else 0.0
+        rad = 0.3 if G.has_edge(v, u) and u != v else -0.2
 
         nx.draw_networkx_edges(
             G,
@@ -143,7 +156,7 @@ for ax, (name, path) in zip(axes, label_paths.items()):
     ax.set_title(name, color="black")
     ax.axis("off")
     ax.set_xlim(-1.2, 1.2)
-    ax.set_ylim(-1.2, 1.2)
+    ax.set_ylim(-1.3, 1.2)
 
 plt.tight_layout()
 plt.subplots_adjust(left=0.00, right=0.99, top=0.99, bottom=0.05)
@@ -167,7 +180,7 @@ fig.text(
     fontweight="bold",
 )
 fig.text(
-    x=0.81 + x_delta, y=y_label, s="Cu(I)", ha="center", fontsize=12, fontweight="bold"
+    x=0.82 + x_delta, y=y_label, s="Cu(I)", ha="center", fontsize=12, fontweight="bold"
 )
 
 out_path = os.path.join(output_dir, "fig006.svg")

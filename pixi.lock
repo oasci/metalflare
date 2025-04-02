@@ -109,6 +109,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/h5py-3.12.1-nompi_py311h5ed33ec_103.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/harfbuzz-10.4.0-h76408a6_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/hdbscan-0.8.39-py311h9f3472d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf4-4.2.15-h2a13503_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf5-1.14.4-nompi_h2d575fe_105.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/hpack-4.1.0-pyhd8ed1ab_0.conda
@@ -542,6 +543,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/h5py-3.12.1-nompi_py311h5ed33ec_103.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/harfbuzz-10.4.0-h76408a6_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/hdbscan-0.8.39-py311h9f3472d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf4-4.2.15-h2a13503_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf5-1.14.4-nompi_h2d575fe_105.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/hpack-4.1.0-pyhd8ed1ab_0.conda
@@ -997,6 +999,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/h2-4.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/h5py-3.12.1-nompi_py311h5ed33ec_103.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/harfbuzz-10.4.0-h76408a6_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/hdbscan-0.8.39-py311h9f3472d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf4-4.2.15-h2a13503_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf5-1.14.4-nompi_h2d575fe_105.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/hjson-py-3.1.0-pyhd8ed1ab_1.conda
@@ -2931,6 +2934,25 @@ packages:
   purls: []
   size: 1694183
   timestamp: 1741016164622
+- conda: https://conda.anaconda.org/conda-forge/linux-64/hdbscan-0.8.39-py311h9f3472d_0.conda
+  sha256: cef8e83097dc7a8083f27da346889e6ef472ef434913cf2126c4894113a253d0
+  md5: cd56207dda28b09bd83ab1f0532e01cc
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - joblib >=1.0
+  - libgcc >=13
+  - numpy <3,>=1.20
+  - numpy >=1.19,<3
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - scikit-learn >=0.20
+  - scipy >=1.0
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/hdbscan?source=hash-mapping
+  size: 645477
+  timestamp: 1728740474580
 - conda: https://conda.anaconda.org/conda-forge/linux-64/hdf4-4.2.15-h2a13503_7.conda
   sha256: 0d09b6dc1ce5c4005ae1c6a19dc10767932ef9a5e9c755cfdbb5189ac8fb0684
   md5: bd77f8da987968ec3927990495dc22e4
