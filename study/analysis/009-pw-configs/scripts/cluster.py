@@ -76,12 +76,22 @@ with open(output_json, "w") as f:
     json.dump({"cluster_centers": cluster_centers}, f, indent=2)
 print(f"Saved cluster center info to {output_json}")
 
-# === SAVE LABELS FOR EACH DATASET === #
+# === BUILD CLUSTER REMAP: original idx -> sorted spatial idx === #
+remap = {
+    original_idx: sorted_idx for sorted_idx, original_idx in enumerate(sorted_indices)
+}
+
+# === SAVE REMAPPED LABELS === #
 for name, data in individual_data.items():
-    labels = kmeans.predict(data)
+    raw_labels = kmeans.predict(data)  # Raw KMeans labels (0 to n_clusters-1)
+
+    # Remap using spatial sort: e.g., cluster originally idx=3, now becomes 0 if it's the "A" cluster
+    remapped_labels = np.array([remap[label] for label in raw_labels], dtype=int)
+
+    # Save remapped numeric labels
     output_path = output_label_template.format(name.lower().replace(" ", ""))
-    np.save(output_path, labels)
-    print(f"Saved cluster labels for {name} to {output_path}")
+    np.save(output_path, remapped_labels)
+    print(f"Saved remapped cluster labels for {name} to {output_path}")
 
 # === PREDICT ALL LABELS === #
 labels_all = kmeans.predict(data_all)
