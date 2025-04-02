@@ -120,10 +120,10 @@ print(f"Plot saved to: {plot_path}")
 
 # Fit the final model on all the data using the best lag
 cov_all = Covariance(
-    lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True
+    lagtime=best_lag, compute_c00=True, compute_c0t=True, compute_ctt=True
 ).fit_fetch(Xs)
 best_model = (
-    VAMP(lagtime=lag, dim=dim_latent).fit_from_covariances(cov_all).fetch_model()
+    VAMP(lagtime=best_lag, dim=dim_latent).fit_from_covariances(cov_all).fetch_model()
 )
 
 projected = best_model.transform(df.to_numpy()[:, 2:])

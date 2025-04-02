@@ -38,7 +38,7 @@ os.makedirs(output_dir, exist_ok=True)
 
 # === Settings === #
 lagtime = 49
-min_transition_prob = 0.01
+min_transition_prob = 0.001
 min_occ_prob = 0.001
 
 min_edge_width = 0.7
@@ -155,13 +155,13 @@ for ax, (name, path) in zip(axes, label_paths.items()):
 
     ax.set_title(name, color="black")
     ax.axis("off")
-    ax.set_xlim(-1.2, 1.2)
+    ax.set_xlim(-1.3, 1.2)
     ax.set_ylim(-1.3, 1.2)
 
 plt.tight_layout()
 plt.subplots_adjust(left=0.00, right=0.99, top=0.99, bottom=0.05)
 
-y_label = 0.63
+y_label = 0.53
 x_delta = 0.02
 fig.text(
     x=0.14 + x_delta,
@@ -180,7 +180,7 @@ fig.text(
     fontweight="bold",
 )
 fig.text(
-    x=0.82 + x_delta, y=y_label, s="Cu(I)", ha="center", fontsize=12, fontweight="bold"
+    x=0.81 + x_delta, y=y_label, s="Cu(I)", ha="center", fontsize=12, fontweight="bold"
 )
 
 out_path = os.path.join(output_dir, "fig006.svg")
