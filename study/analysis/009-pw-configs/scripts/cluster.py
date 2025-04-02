@@ -14,18 +14,21 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 data_paths = {
     "Reduced": "../data/reduced-vamp.npy",
     "Oxidized": "../data/oxidized-vamp.npy",
-    "Cu(I)": "../data/cu-vamp.npy",
+    "Cu": "../data/cu-vamp.npy",
 }
 
 # Settings
 n_clusters = 11
 output_json = "../data/vamp-kmeans-global.json"
 output_fig = "../data/vamp-kmeans-global.png"
+output_label_template = "../data/{}-kmeans-labels.npy"
 
 # === LOAD AND CONCATENATE ALL DATA === #
 data_concat = []
-for path in data_paths.values():
+individual_data = {}
+for name, path in data_paths.items():
     data = np.load(path, mmap_mode="r")[:, :2]
+    individual_data[name] = data
     data_concat.append(data)
 
 data_all = np.vstack(data_concat)
@@ -72,6 +75,13 @@ label_map = {idx: letter_labels[i] for i, idx in enumerate(sorted_indices)}
 with open(output_json, "w") as f:
     json.dump({"cluster_centers": cluster_centers}, f, indent=2)
 print(f"Saved cluster center info to {output_json}")
+
+# === SAVE LABELS FOR EACH DATASET === #
+for name, data in individual_data.items():
+    labels = kmeans.predict(data)
+    output_path = output_label_template.format(name.lower().replace(" ", ""))
+    np.save(output_path, labels)
+    print(f"Saved cluster labels for {name} to {output_path}")
 
 # === PREDICT ALL LABELS === #
 labels_all = kmeans.predict(data_all)
