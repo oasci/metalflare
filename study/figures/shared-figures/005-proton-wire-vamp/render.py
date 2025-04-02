@@ -61,7 +61,7 @@ for i in range(0, 11):
     label_cluster = chr(i + 65)
     path_pdb = os.path.join(
         DIR_BASE,
-        f"analysis/009-pw-configs/data/cluster_pdbs/cluster_{label_cluster}.pdb"
+        f"analysis/009-pw-configs/data/cluster_pdbs/cluster_{label_cluster}.pdb",
     )
     label_object = f"cluster_{label_cluster}"
     cmd.load(path_pdb, label_object)
@@ -94,14 +94,12 @@ cmd.center("resi 203 and model cluster_A")
 
 cmd.hide(
     representation="cartoon",
-    selection="resi 130-135 or resi 164-176 or resi 56-62 or resi 137-148"
+    selection="resi 130-135 or resi 164-176 or resi 56-62 or resi 137-148",
 )
-cmd.hide(
-    selection="resn CU1"
-)
+cmd.hide(selection="resn CU1")
 
-cmd.set_view (
-"""
+cmd.set_view(
+    """
 (\
     -0.072506048,    0.982876003,    0.169377849,\
      0.608668327,   -0.090929076,    0.788197279,\
@@ -109,7 +107,8 @@ cmd.set_view (
      0.000014191,    0.000051068,  -36.410449982,\
     -5.155659199,   -0.965501785,   -2.455146551,\
     28.928140640,   43.900684357,  -20.000000000 )
-""")
+"""
+)
 
 # Color and render clusters
 dpi = 600
@@ -117,10 +116,14 @@ width = 4  # in
 height = 4  # in
 
 cmd.set_color("DEF-color", hex_to_rgb("#5C72D6"))
-cmd.color("DEF-color", "element C & (model cluster_D | model cluster_E | model cluster_F)")
+cmd.color(
+    "DEF-color", "element C & (model cluster_D | model cluster_E | model cluster_F)"
+)
 
 cmd.set_color("ABC-color", hex_to_rgb("#F492A9"))
-cmd.color("ABC-color", "element C & (model cluster_A | model cluster_B | model cluster_C)")
+cmd.color(
+    "ABC-color", "element C & (model cluster_A | model cluster_B | model cluster_C)"
+)
 
 cmd.set_color("JK-color", hex_to_rgb("#4BAA9D"))
 cmd.color("JK-color", "element C & (model cluster_J | model cluster_K)")
@@ -156,5 +159,3 @@ if render_figures:
     cmd.enable("cluster_G")
     cmd.ray(width=width * dpi, height=height * dpi)
     cmd.png("clusters-G.png", dpi=dpi)
-
-
