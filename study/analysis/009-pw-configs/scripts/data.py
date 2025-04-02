@@ -2,10 +2,17 @@
 import os
 
 import pandas as pd
+import numpy as np
 
 from metalflare.utils import load_features
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
+# Each simulation states has three concatenated trajectories that are the same
+# length, but with different initial conditions.
+# We need to mark these trajectories boundaries to avoid any nonphysical
+# transitions.
+n_independent_runs = 3
 
 names_state = {
     "reduced": "005-rogfp-glh-md",
@@ -52,6 +59,8 @@ for state_key, state_path in names_state.items():
 
     df = load_features(paths_data, normalize_distances=True, transform_dihedrals=True)
     df.insert(0, "state", idx)
+    n_steps_per_traj = int(df.shape[0] / n_independent_runs)
+    df.insert(1, "run", np.repeat(np.arange(n_independent_runs), n_steps_per_traj))
     dfs.append(df)
 
     idx += 1
