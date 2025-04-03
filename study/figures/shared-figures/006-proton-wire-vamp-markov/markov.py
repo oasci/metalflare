@@ -1,12 +1,11 @@
 import json
 import os
 import string
-from collections import Counter
 
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
-from deeptime.markov import TransitionCountEstimator
+from deeptime.markov.msm import MaximumLikelihoodMSM
 
 from metalflare.analysis.figures import use_mpl_rc_params
 
@@ -66,6 +65,29 @@ fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
 colors = {"Reduced": "#1e2e79", "Oxidized": "#EC4067", "Cu(I)": "#f99752"}
 
+
+def get_occ(state, occ, state_symbols):
+    if state in state_symbols:
+        i_occ = np.argwhere(state_symbols == state)[0][0]
+        val = occ[i_occ]
+    else:
+        val = 0.0
+    return val
+
+
+def get_trans_prob(state_i, state_j, trans_mat, state_symbols):
+    if state_i in state_symbols:
+        i = np.argwhere(state_symbols == state_i)[0][0]
+    else:
+        return 0.0
+    if state_j in state_symbols:
+        j = np.argwhere(state_symbols == state_j)[0][0]
+    else:
+        return 0.0
+
+    return trans_mat[i, j]
+
+
 n_states = len(cluster_centers)
 for ax, (name, path) in zip(axes, label_paths.items()):
     traj = np.load(path)
@@ -76,28 +98,27 @@ for ax, (name, path) in zip(axes, label_paths.items()):
     run_idxs = np.repeat(np.arange(n_independent_runs), n_steps_per_traj)
     traj_runs = np.split(traj, n_independent_runs)
 
-    occ_counts = Counter(traj)
-    occ = np.array([occ_counts.get(i, 0) for i in range(n_states)])
-    occ = occ / occ.sum()
-
-    counts = TransitionCountEstimator.count(
-        count_mode="sample", dtrajs=traj_runs, lagtime=lagtime
-    )
-    row_sums = counts.sum(axis=1, keepdims=True)
-    with np.errstate(divide="ignore", invalid="ignore"):
-        trans_prob = np.nan_to_num(counts / row_sums)
+    msm = MaximumLikelihoodMSM(reversible=True).fit_fetch(traj_runs, lagtime=lagtime)
+    trans_prob = msm.transition_matrix
+    occ = msm.stationary_distribution
 
     G = nx.DiGraph()
+    state_symbols = msm.state_symbols()
     for i in range(n_states):
-        G.add_node(i, size=occ[i], label=state_letters[i])
+        size = get_occ(i, occ, state_symbols)
+        G.add_node(i, size=size, label=state_letters[i])
 
     for i in range(n_states):
-        occ_i = occ[i]
+        occ_i = get_occ(i, occ, state_symbols)
+        if occ_i == 0.0:
+            continue
         for j in range(n_states):
-            occ_j = occ[j]
+            occ_j = get_occ(j, occ, state_symbols)
+            if occ_j == 0.0:
+                continue
             if i == j:
                 continue
-            p = trans_prob[i, j]
+            p = get_trans_prob(i, j, trans_prob, state_symbols)
             if (
                 (p > min_transition_prob)
                 and (occ_i > min_occ_prob)

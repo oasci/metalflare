@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from typing import Any
+
 import json
 import os
 import pickle
@@ -12,39 +14,38 @@ from sklearn.model_selection import TimeSeriesSplit
 
 from metalflare.analysis.figures import use_mpl_rc_params
 
-# Setup
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-path_data = "../data/feats-proton-wire.parquet"
 
 # Specify the paths to the trajectory and topology files
 base_dir = "../../../"
 
-# Update plot params
-rc_json_path = os.path.join(base_dir, "misc/003-figure-style/matplotlib-rc-params.json")
-font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
-use_mpl_rc_params(rc_json_path, font_dirs)  # type: ignore
+# Paths
+path_data = "../data/feats-proton-wire.parquet"
+output_file = "../data/vamp_e_cv_results.json"
 
-# Parameters
+# Parameters and settings
 lags_to_test = list(range(2, 151))
 n_splits = 5  # number of folds for TimeSeriesSplit
-dim_latent = 2
-t_delta = 10  # ps
-output_file = "../data/vamp_e_cv_results.json"
+dim_latent = 2  # Number of latent dimensions
+t_delta = 10  # ps per time step
 
 # Load data
 df = pd.read_parquet(path_data)
 # Each element in Xs is a numpy array for a unique state-run combination (features only).
+# Trims the state and run labels
 Xs = [group.to_numpy()[:, 2:] for _, group in df.groupby(["state", "run"])]
 
-results = {}
-
+# Fitting loop
+results: dict[int | str, Any] = {}
 # Evaluate each lag value via cross-validation
 for lag in lags_to_test:
-    fold_scores = []
+    scores_fold = []
+
     # For each fold index, collect train and test segments across all runs.
     for fold in range(n_splits):
         Xs_train = []
         Xs_test = []
+
         # Process each run individually
         for run in Xs:
             tscv = TimeSeriesSplit(n_splits=n_splits)
@@ -54,8 +55,10 @@ for lag in lags_to_test:
                 train_idx, test_idx = splits[fold]
                 Xs_train.append(run[train_idx])
                 Xs_test.append(run[test_idx])
-        # Only if we collected training and testing segments from at least one run…
+
+        # Only if we collected training and testing segments from at least one run
         if Xs_train and Xs_test:
+            # Compute variances for train and test VAMP
             cov_train = Covariance(
                 lagtime=lag, compute_c00=True, compute_c0t=True, compute_ctt=True
             ).fit_fetch(Xs_train)
@@ -78,26 +81,59 @@ for lag in lags_to_test:
 
             # Compute VAMP-E score for this fold
             score = vamp_train.score(r="VAMPE", test_model=vamp_test)
-            fold_scores.append(score)
+            scores_fold.append(score)
 
     # Aggregate scores for this lag across all folds
     results[lag] = {
-        "vamp_e_scores": fold_scores,
-        "mean_score": float(np.mean(fold_scores)) if fold_scores else None,
-        "std_score": float(np.std(fold_scores)) if fold_scores else None,
+        "vamp_e_scores": scores_fold,
+        "mean_score": float(np.mean(scores_fold)) if scores_fold else None,
+        "std_score": float(np.std(scores_fold)) if scores_fold else None,
     }
 
-# Select the optimal lag based on the highest mean VAMP-E score (ignoring any lag with no valid scores)
+# Select the optimal lag based on the highest mean VAMP-E score
+# (ignoring any lag with no valid scores)
 valid_lags = {lag: res for lag, res in results.items() if res["mean_score"] is not None}
-best_lag = max(valid_lags, key=lambda l: valid_lags[l]["mean_score"])
+best_lag = int(max(valid_lags, key=lambda l: valid_lags[l]["mean_score"]))
 results["best_lag"] = best_lag
+print(f"Optimal lag: {best_lag} ({(t_delta*best_lag)} ps)")
+
+# Fit the final model on all the data using the best lag
+cov_all = Covariance(
+    lagtime=best_lag, compute_c00=True, compute_c0t=True, compute_ctt=True
+).fit_fetch(Xs)
+best_model = (
+    VAMP(lagtime=best_lag, dim=dim_latent).fit_from_covariances(cov_all).fetch_model()
+)
+projected = best_model.transform(df.to_numpy()[:, 2:])
+
+# Save individual VAMP latent spaces based on state
+states = {
+    0: "reduced",
+    1: "oxidized",
+    2: "cu",
+}
+for state, label in states.items():
+    idx_state = df.index[df["state"] == state].to_numpy()
+    data_state = projected[idx_state, :]
+    np.save(f"../data/{label}-vamp.npy", data_state)
 
 # Save results
 with open(output_file, "w") as f:
     json.dump(results, f, indent=2)
-
 print(f"Cross-validated VAMP-E results saved to: {output_file}")
-print(f"Optimal lag (based on VAMP-E): {best_lag} ({(t_delta*best_lag)} ps)")
+
+# Save the best model parameters
+best_model_params = best_model.get_params()
+params_file = "../data/best_model_params.pkl"
+with open(params_file, "wb") as f:
+    pickle.dump(best_model_params, f)
+print(f"Best model parameters saved to: {params_file}")
+
+
+# Update plot params
+rc_json_path = os.path.join(base_dir, "misc/003-figure-style/matplotlib-rc-params.json")
+font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
+use_mpl_rc_params(rc_json_path, font_dirs)  # type: ignore
 
 # Plotting the mean VAMP-E scores vs. lag values
 # Extract lag values and their corresponding mean scores.
@@ -116,32 +152,3 @@ plot_path = "../data/vamp_e_cv_plot.png"
 plt.savefig(plot_path)
 plt.close()
 print(f"Plot saved to: {plot_path}")
-
-
-# Fit the final model on all the data using the best lag
-cov_all = Covariance(
-    lagtime=best_lag, compute_c00=True, compute_c0t=True, compute_ctt=True
-).fit_fetch(Xs)
-best_model = (
-    VAMP(lagtime=best_lag, dim=dim_latent).fit_from_covariances(cov_all).fetch_model()
-)
-
-projected = best_model.transform(df.to_numpy()[:, 2:])
-states = {
-    0: "reduced",
-    1: "oxidized",
-    2: "cu",
-}
-for state, label in states.items():
-    idx_state = df.index[df["state"] == state].to_numpy()
-    data_state = projected[idx_state, :]
-    np.save(f"../data/{label}-vamp.npy", data_state)
-
-# Get the best model parameters
-best_model_params = best_model.get_params()
-
-
-params_file = "../data/best_model_params.pkl"
-with open(params_file, "wb") as f:
-    pickle.dump(best_model_params, f)
-print(f"Best model parameters saved to: {params_file}")
