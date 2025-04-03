@@ -1,101 +1,56 @@
 {
   "A": {
-    "condition": "oxidized",
-    "frame": 131459,
+    "condition": "reduced",
+    "frame": 45290,
     "densities": {
-      "reduced": 0.16081,
-      "oxidized": 0.20586,
-      "cu": 0.08594
+      "reduced": 0.09551,
+      "oxidized": 0.0,
+      "cu": 0.0
     }
   },
   "B": {
-    "condition": "cu",
-    "frame": 93552,
+    "condition": "reduced",
+    "frame": 149896,
     "densities": {
-      "reduced": 0.0131,
-      "oxidized": 0.00159,
-      "cu": 0.22567
+      "reduced": 0.03323,
+      "oxidized": 0.00043,
+      "cu": 0.00321
     }
   },
   "C": {
     "condition": "reduced",
-    "frame": 91890,
+    "frame": 140818,
     "densities": {
-      "reduced": 0.07646,
-      "oxidized": 0.00034,
-      "cu": 0.02298
+      "reduced": 0.16291,
+      "oxidized": 0.00272,
+      "cu": 0.01668
     }
   },
   "D": {
-    "condition": "reduced",
-    "frame": 131353,
+    "condition": "cu",
+    "frame": 65585,
     "densities": {
-      "reduced": 0.04125,
-      "oxidized": 0.00103,
-      "cu": 0.00257
+      "reduced": 0.08767,
+      "oxidized": 0.00761,
+      "cu": 0.39
     }
   },
   "E": {
-    "condition": "reduced",
-    "frame": 40289,
+    "condition": "oxidized",
+    "frame": 46922,
     "densities": {
-      "reduced": 0.02879,
-      "oxidized": 0.00016,
-      "cu": 0.00019
+      "reduced": 0.28742,
+      "oxidized": 0.78661,
+      "cu": 0.19746
     }
   },
   "F": {
-    "condition": "reduced",
-    "frame": 37216,
-    "densities": {
-      "reduced": 0.04177,
-      "oxidized": 0.0,
-      "cu": 1e-05
-    }
-  },
-  "G": {
     "condition": "cu",
-    "frame": 45300,
+    "frame": 48359,
     "densities": {
-      "reduced": 3e-05,
-      "oxidized": 0.00028,
-      "cu": 0.00386
-    }
-  },
-  "H": {
-    "condition": "cu",
-    "frame": 14949,
-    "densities": {
-      "reduced": 0.08071,
-      "oxidized": 0.00157,
-      "cu": 0.08639
-    }
-  },
-  "I": {
-    "condition": "oxidized",
-    "frame": 7072,
-    "densities": {
-      "reduced": 0.04421,
-      "oxidized": 0.44569,
-      "cu": 0.05364
-    }
-  },
-  "J": {
-    "condition": "cu",
-    "frame": 39793,
-    "densities": {
-      "reduced": 0.0,
-      "oxidized": 0.0,
-      "cu": 0.00383
-    }
-  },
-  "K": {
-    "condition": "cu",
-    "frame": 1785,
-    "densities": {
-      "reduced": 0.0,
-      "oxidized": 0.0,
-      "cu": 0.00401
+      "reduced": 0.03601,
+      "oxidized": 0.00082,
+      "cu": 0.02399
     }
   }
 }

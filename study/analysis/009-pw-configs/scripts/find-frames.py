@@ -12,7 +12,7 @@ condition_labels = {"Reduced": "reduced", "Oxidized": "oxidized", "Cu(I)": "cu"}
 
 # Parameters
 base_dir = "../../../"
-cluster_json_path = "../data/vamp-kmeans-global.json"
+cluster_json_path = "../data/vamp-clustering-global.json"
 data_paths = {
     "Reduced": "../data/reduced-vamp.npy",
     "Oxidized": "../data/oxidized-vamp.npy",
