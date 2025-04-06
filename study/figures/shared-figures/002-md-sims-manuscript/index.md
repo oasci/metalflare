@@ -4,8 +4,8 @@
 ![](./fig002.svg){width=600}
 </figure>
 
-> Various probability distribution functions aggregated over all production MD simulations.
+> Various probability densities aggregated over all production MD simulations.
 > **(A)** Cα Distance between Cys147 and Cys204.
-> **(B)** Psi dihedral angle of Cro66 (i.e., between atoms N3-CA3-C3-N).
-> **(C-H)** Distance from a hydrogen atom from the specified residue to the closest acceptor atom on Cro66.
-> All x-axes are from 1.0 to 8.0 Å unless specified otherwise.
+> **(B)** Psi dihedral angle of Cro66.
+> **(C-E)** Hydrogen bond distance from Thr203, Tyr145, and His148 to the Cro66 phenolate oxygen, respectively.
+> **(F)** Structural depiction of the deprotonated (anionic) roGFP2 chromophore in its phenolate form, highlighting key surrounding residues involved in chromophore stabilization and fluorescence.

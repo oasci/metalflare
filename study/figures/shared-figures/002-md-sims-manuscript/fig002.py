@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import os
+from xml.etree import ElementTree as ET
 
 import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
 import numpy as np
+import svgutils.compose as compose
 from scipy.stats import gaussian_kde
 
 from metalflare.analysis.figures import use_mpl_rc_params
@@ -23,14 +25,12 @@ paths_system = {
     "Reduced": "005-rogfp-glh-md",
     "Oxidized": "007-rogfp-oxd-glh-md",
     "Cu(I)": "006-rogfp-cu-glh-md",
-    "Na+": "008-rogfp-na-glh-md",
 }
-labels_sys_order = ["Reduced", "Oxidized", "Na+", "Cu(I)"]
+labels_sys_order = ["Reduced", "Oxidized", "Cu(I)"]
 colors_sys = {
     "Reduced": "#1e2e79",
     "Oxidized": "#EC4067",
     "Cu(I)": "#f99752",
-    "Na+": "#1b998b",
 }
 
 # ----------------------------------------------------------------
@@ -76,30 +76,6 @@ quantities_to_plot = {
     },
     "His148 HD1": {
         "filename": "cro65_oh-his146_hd1-dist",
-        "type": "distance",
-        "xlims": (1.0, 8.0),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-        "ridge": True,
-    },
-    "Gln94 NE2": {
-        "filename": "cro65_o3-gln92_ne2-dist",
-        "type": "distance",
-        "xlims": (1.0, 8.0),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-        "ridge": True,
-    },
-    "Thr64 O": {
-        "filename": "cro65_n1-thr62_o-dist",
-        "type": "distance",
-        "xlims": (1.0, 8.0),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-        "ridge": True,
-    },
-    "Glu222 HE2": {
-        "filename": "cro65_og1-glu220_he2-dist",
         "type": "distance",
         "xlims": (1.0, 8.0),
         "bin_width": 0.05,
@@ -159,14 +135,14 @@ def compute_kde_for_quantity(all_data, q_info):
     return x_values, results, y_max
 
 
-def add_subfigure_label(ax, label, loc=(0.075, 0.95)):
+def add_subfigure_label(ax, label, loc=(0.075, 0.95), fontsize=12, fontweight="bold"):
     """Add subfigure label (e.g., A, B, C) to a given axis."""
     ax.text(
         *loc,
         label,
         transform=ax.transAxes,
-        fontsize=12,
-        fontweight="bold",
+        fontsize=fontsize,
+        fontweight=fontweight,
         va="top",
         ha="right",
     )
@@ -190,7 +166,7 @@ if __name__ == "__main__":
     ridge_keys = [k for k, v in quantities_to_plot.items() if v.get("ridge", False)]
     other_keys = [k for k, v in quantities_to_plot.items() if not v.get("ridge", False)]
 
-    n_ridge = len(ridge_keys)
+    n_ridge = len(ridge_keys) * 2
     n_other = len(other_keys)
     n_systems = len(paths_system)
 
@@ -326,8 +302,11 @@ if __name__ == "__main__":
             # If this is the bottom system (the last in labels_sys_order),
             # label the x-axis with the quantity name
             if sys_lbl == labels_sys_order[-1]:
-                ax_ridge.set_xticks([])
+                ax_ridge.set_xticks([2, 4, 6, 8])
                 ax_ridge.set_xlabel(label_data, fontsize=9)
+                if j == 0:
+                    ax_ridge.set_xticklabels([])
+                    ax_ridge.set_xlabel("Distance [Å]", labelpad=-1)
 
             # If this is the leftmost column (j==0), we can label the system
             # (like your text() usage or a y-axis label)
@@ -343,10 +322,45 @@ if __name__ == "__main__":
 
             if i_system == 0:
                 add_subfigure_label(
+                    ax_ridge,
+                    label_data,
+                    loc=(0.96, 0.55),
+                    fontsize=8,
+                    fontweight="bold",
+                )
+                add_subfigure_label(
                     ax_ridge, chr(65 + subfigure_label_counter), loc=(0.9, 0.7)
                 )
                 subfigure_label_counter += 1
+            if j == 2:
+                if i_system == 2:
+                    ax_ridge.set_ylabel("Probability Density")
+                    ax_ridge.yaxis.set_label_position("right")
+
+    fig.text(0.562, 0.4715, "F", fontsize=12, fontweight="bold")
 
     gs.update(hspace=-0.735)
 
-    plt.savefig("fig002.svg", dpi=300)
+    plt.savefig("fig002.svg")
+
+    compose.Unit.per_inch["in"] = 1
+
+    compose.Figure(
+        "6in",
+        "5in",
+        compose.SVG("fig002.svg", fix_mpl=True),
+        compose.SVG("gfp-relevant-residues.svg")
+        .scale(0.70)
+        .move(245, 170),  # adjust scale & position
+    ).save("fig002.svg")
+
+    tree = ET.parse("fig002.svg")
+    root = tree.getroot()
+
+    # Manually set viewBox and fix width/height if needed
+    dpi = 600
+    root.set("viewBox", f"0 0 {6*72} {5*72}")
+    root.set("width", "6in")
+    root.set("height", "5in")
+
+    tree.write("fig002.svg")
