@@ -135,7 +135,7 @@ def compute_kde_for_quantity(all_data, q_info):
     return x_values, results, y_max
 
 
-def add_subfigure_label(ax, label, loc=(0.075, 0.95), fontsize=12, fontweight="bold"):
+def add_subfigure_label(ax, label, loc=(0.05, 0.91), fontsize=12, fontweight="bold"):
     """Add subfigure label (e.g., A, B, C) to a given axis."""
     ax.text(
         *loc,
@@ -143,8 +143,8 @@ def add_subfigure_label(ax, label, loc=(0.075, 0.95), fontsize=12, fontweight="b
         transform=ax.transAxes,
         fontsize=fontsize,
         fontweight=fontweight,
-        va="top",
-        ha="right",
+        va="center",
+        ha="center",
     )
 
 
@@ -159,8 +159,9 @@ if __name__ == "__main__":
     rc_json_path = os.path.join(
         base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
     )
-    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto")]
+    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto"), os.path.join(base_dir, "misc/003-figure-style/arial")]
     use_mpl_rc_params(rc_json_path, font_dirs)
+    plt.rc("font", family="Arial")
 
     # Separate items into ridge vs. other
     ridge_keys = [k for k, v in quantities_to_plot.items() if v.get("ridge", False)]
@@ -324,12 +325,12 @@ if __name__ == "__main__":
                 add_subfigure_label(
                     ax_ridge,
                     label_data,
-                    loc=(0.96, 0.55),
+                    loc=(0.52, 0.5),
                     fontsize=8,
                     fontweight="bold",
                 )
                 add_subfigure_label(
-                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.6, 0.7)
+                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.52, 0.7)
                 )
                 subfigure_label_counter += 1
             if j == 2:
@@ -337,7 +338,7 @@ if __name__ == "__main__":
                     ax_ridge.set_ylabel("Probability Density")
                     ax_ridge.yaxis.set_label_position("right")
 
-    fig.text(0.562, 0.4715, "F", fontsize=12, fontweight="bold")
+    fig.text(0.562, 0.488, "F", fontsize=12, fontweight="bold")
 
     gs.update(hspace=-0.735)
 
