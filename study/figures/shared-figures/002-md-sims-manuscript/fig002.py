@@ -50,7 +50,7 @@ quantities_to_plot = {
         "bw_method": 0.04,
         "ridge": False,
     },
-    r"Cro66 $\bf{\psi}$": {
+    r"Cro66 $\bf{\Psi}$": {
         "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
         "type": "dihedral",
         "xlims": (-120, 240),
@@ -204,7 +204,7 @@ if __name__ == "__main__":
 
     n_buffer = 3
     n_rows = n_systems + n_buffer + 1  # 1 row for "other", plus 1 row per system
-    fig = plt.figure(figsize=(6.0, 5.0))
+    fig = plt.figure(figsize=(7.0, 5.0))
     gs = gridspec.GridSpec(
         nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98
     )
@@ -329,7 +329,7 @@ if __name__ == "__main__":
                     fontweight="bold",
                 )
                 add_subfigure_label(
-                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.9, 0.7)
+                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.6, 0.7)
                 )
                 subfigure_label_counter += 1
             if j == 2:
@@ -346,12 +346,12 @@ if __name__ == "__main__":
     compose.Unit.per_inch["in"] = 1
 
     compose.Figure(
-        "6in",
+        "7in",
         "5in",
         compose.SVG("fig002.svg", fix_mpl=True),
         compose.SVG("gfp-relevant-residues.svg")
         .scale(0.70)
-        .move(245, 170),  # adjust scale & position
+        .move(300, 160),  # adjust scale & position
     ).save("fig002.svg")
 
     tree = ET.parse("fig002.svg")
@@ -359,8 +359,8 @@ if __name__ == "__main__":
 
     # Manually set viewBox and fix width/height if needed
     dpi = 600
-    root.set("viewBox", f"0 0 {6*72} {5*72}")
-    root.set("width", "6in")
+    root.set("viewBox", f"0 0 {7*72} {5*72}")
+    root.set("width", "7in")
     root.set("height", "5in")
 
     tree.write("fig002.svg")
