@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="in"
-     inkscape:zoom="1.5635073"
-     inkscape:cx="95.298565"
-     inkscape:cy="255.51528"
-     inkscape:window-width="1874"
-     inkscape:window-height="1016"
-     inkscape:window-x="46"
-     inkscape:window-y="1107"
+     inkscape:zoom="2.1380884"
+     inkscape:cx="106.63731"
+     inkscape:cy="148.26328"
+     inkscape:window-width="1868"
+     inkscape:window-height="1136"
+     inkscape:window-x="52"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      showguides="true" />
@@ -1080,7 +1080,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#666666;stroke-width:1.57638">Cro66</tspan></text>
   <text
      xml:space="preserve"
-     style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#999999;fill-opacity:1;stroke-width:1.57638"
+     style="font-weight:bold;font-size:13.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#f99752;fill-opacity:1;stroke-width:1.57638"
      x="233.7139"
      y="47.482967"
      id="text10030-7-7"><tspan
@@ -1088,7 +1088,7 @@
        id="tspan5"
        x="233.7139"
        y="47.482967"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#999999">Ψ</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#f99752;fill-opacity:1">Ψ</tspan></text>
   <path
      style="fill:none;stroke:#000000;stroke-width:1.152;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 23.961976,159.36835 c -0.446337,-1.71502 -3.031419,-1.04223 -2.5851,0.67279 0.508858,1.95512 -2.196815,2.65929 -2.705652,0.70415 -0.446343,-1.71501 -2.943676,-1.06507 -2.497338,0.64995 0.508829,1.95513 -2.217469,2.66468 -2.726306,0.70954 -0.446339,-1.71502 -2.95961,-1.06093 -2.513264,0.65409 0.508834,1.95513 -2.2512332,2.67345 -2.7600592,0.71831 -0.44633,-1.71501 -2.8429961,-1.09127 -2.3966491,0.62374 0.508819,1.95514 -2.274272,2.6884 -2.768644,0.72054"
@@ -1383,7 +1383,7 @@
      style="stroke-width:1.16575;stroke-miterlimit:4;stroke-dasharray:none"
      transform="rotate(0.00667242)">O</text>
   <path
-     style="fill:none;stroke:#999999;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+     style="fill:none;stroke:#f99752;stroke-width:1.92;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
      d="m 228.60906,43.247283 c -3.13377,-6.249984 -16.4969,-7.671394 -19.47151,1.708947"
      id="path5"
      sodipodi:nodetypes="cc" />
