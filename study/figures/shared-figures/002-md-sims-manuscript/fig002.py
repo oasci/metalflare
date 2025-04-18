@@ -49,6 +49,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": False,
+        "label": "A",
     },
     r"Cro66 $\bf{\Psi}$": {
         "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
@@ -57,6 +58,7 @@ quantities_to_plot = {
         "bin_width": 1.0,
         "bw_method": 0.004,
         "ridge": False,
+        "label": "E",
     },
     "Thr203 HG1": {
         "filename": "cro65_oh-thr201_hg1-dist",
@@ -65,6 +67,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
+        "label": "B",
     },
     "Tyr145 HH": {
         "filename": "cro65_oh-tyr143_hh-dist",
@@ -73,6 +76,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
+        "label": "C",
     },
     "His148 HD1": {
         "filename": "cro65_oh-his146_hd1-dist",
@@ -81,6 +85,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
+        "label": "D",
     },
 }
 
@@ -259,7 +264,7 @@ if __name__ == "__main__":
 
             col_start = col_end
 
-            add_subfigure_label(ax_other, chr(65 + subfigure_label_counter))
+            add_subfigure_label(ax_other, quantities_to_plot[label_data]["label"])
             subfigure_label_counter += 1
 
     # -------------------------------------------------------------------------
@@ -329,7 +334,7 @@ if __name__ == "__main__":
                     fontweight="bold",
                 )
                 add_subfigure_label(
-                    ax_ridge, chr(65 + subfigure_label_counter), loc=(0.52, 0.7)
+                    ax_ridge, quantities_to_plot[label_data]["label"], loc=(0.52, 0.7)
                 )
                 subfigure_label_counter += 1
             if j == 2:
