@@ -189,6 +189,7 @@ if __name__ == "__main__":
 
         # Aesthetics
         ax.set_xlim(*quantities_to_plot[label_data]["xlims"])
+        ax.set_xticks([2.0, 4.0, 6.0])
         ax.set_ylim(0, y_max + 0.1 * y_max)
 
         # If it's the first "other" item, put a y-axis label
