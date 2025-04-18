@@ -304,7 +304,6 @@ if __name__ == "__main__":
             # label the x-axis with the quantity name
             if sys_lbl == labels_sys_order[-1]:
                 ax_ridge.set_xticks([2, 4, 6, 8])
-                ax_ridge.set_xlabel(label_data, fontsize=9)
                 if j == 0:
                     ax_ridge.set_xticklabels([])
                     ax_ridge.set_xlabel("Distance [Å]", labelpad=-1)

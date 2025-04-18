@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="in"
-     inkscape:zoom="2.1380884"
-     inkscape:cx="106.63731"
-     inkscape:cy="148.26328"
-     inkscape:window-width="1868"
-     inkscape:window-height="1136"
-     inkscape:window-x="52"
-     inkscape:window-y="27"
+     inkscape:zoom="24.189709"
+     inkscape:cx="32.079758"
+     inkscape:cy="214.20266"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      showguides="true" />
@@ -1171,28 +1171,6 @@
      id="line26-0"
      style="stroke-width:1.152;stroke-dasharray:none" />
   <line
-     x1="37.363777"
-     y1="200.56377"
-     x2="37.346195"
-     y2="193.08191"
-     stroke="#0000ff"
-     stroke-width="0.647915"
-     stroke-linejoin="round"
-     stroke-linecap="round"
-     id="line27"
-     style="stroke-width:1.152;stroke-dasharray:none" />
-  <line
-     x1="37.363777"
-     y1="200.56377"
-     x2="37.38187"
-     y2="208.04524"
-     stroke="#000000"
-     stroke-width="0.647915"
-     stroke-linejoin="round"
-     stroke-linecap="round"
-     id="line28"
-     style="stroke-width:1.152;stroke-dasharray:none" />
-  <line
      x1="13.884279"
      y1="209.49042"
      x2="7.412468"
@@ -1249,8 +1227,8 @@
      style="stroke-width:1.152;stroke-dasharray:none"
      transform="rotate(0.05949757)">N</text>
   <text
-     x="60.213032"
-     y="179.8409"
+     x="57.471504"
+     y="181.80708"
      fill="#0000ff"
      font-family="Arial"
      font-size="9.45958px"
@@ -1414,32 +1392,28 @@
        id="line2"
        style="stroke-width:0.93583;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
-  <g
-     id="g5"
-     transform="rotate(-15.521229,34.554527,189.22516)">
-    <line
-       x1="52.550602"
-       y1="186.75082"
-       x2="46.385841"
-       y2="188.52103"
-       stroke="#0000ff"
-       stroke-width="1.21726"
-       stroke-linejoin="round"
-       stroke-linecap="round"
-       id="line72-7-7"
-       style="stroke-width:1.152;stroke-miterlimit:4;stroke-dasharray:none" />
-    <line
-       x1="52.096684"
-       y1="186.89655"
-       x2="58.524887"
-       y2="185.05072"
-       stroke="#000000"
-       stroke-width="1.21726"
-       stroke-linejoin="round"
-       stroke-linecap="round"
-       id="line74-0-5"
-       style="stroke:#000000;stroke-width:1.152;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  </g>
+  <line
+     x1="51.232189"
+     y1="182.02539"
+     x2="45.765945"
+     y2="185.38071"
+     stroke="#0000ff"
+     stroke-width="1.21726"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="line72-7-7"
+     style="stroke-width:1.152;stroke-miterlimit:4;stroke-dasharray:none" />
+  <line
+     x1="49.101242"
+     y1="183.31706"
+     x2="53.610428"
+     y2="180.54926"
+     stroke="#000000"
+     stroke-width="1.21726"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="line74-0-5"
+     style="stroke:#000000;stroke-width:1.152;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      id="g40250-3-6"
      transform="rotate(86.331037,79.93927,184.27992)">
@@ -1518,4 +1492,26 @@
        id="line47466-0-1-1"
        style="stroke-width:1.1039;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
+  <line
+     x1="27.885626"
+     y1="212.39481"
+     x2="38.316868"
+     y2="209.00098"
+     stroke="#000000"
+     stroke-width="0.647915"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="line8"
+     style="stroke-width:1.152;stroke-dasharray:none" />
+  <line
+     x1="29.800953"
+     y1="211.78204"
+     x2="24.687098"
+     y2="213.44614"
+     stroke="#0000ff"
+     stroke-width="0.647915"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="line7"
+     style="stroke-width:1.152;stroke-dasharray:none" />
 </svg>
