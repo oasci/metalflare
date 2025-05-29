@@ -40,21 +40,14 @@ colors_sys = {
 # ----------------------------------------------------------------
 
 quantities_to_plot = {
-    "Gln94 NE2 - Cro66 O3": {
-        "filename": "cro65_o3-gln92_ne2-dist",
-        "type": "distance",
-        "xlims": (1.0, 8.0),
-        "bin_width": 0.05,
-        "bw_method": 0.04,
-    },
-    "Thr64 O - Cro66 N1": {
+    "Thr64 O – Cro66 N1": {
         "filename": "cro65_n1-thr62_o-dist",
         "type": "distance",
         "xlims": (1.0, 8.0),
         "bin_width": 0.05,
         "bw_method": 0.04,
     },
-    "Glu222 HE2 - Cro66 OG1": {
+    "Glu222 HE2 – Cro66 OG1": {
         "filename": "cro65_og1-glu220_he2-dist",
         "type": "distance",
         "xlims": (1.0, 8.0),
@@ -138,7 +131,10 @@ if __name__ == "__main__":
     rc_json_path = os.path.join(
         base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
     )
-    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto"), os.path.join(base_dir, "misc/003-figure-style/arial")]
+    font_dirs = [
+        os.path.join(base_dir, "misc/003-figure-style/roboto"),
+        os.path.join(base_dir, "misc/003-figure-style/arial"),
+    ]
     use_mpl_rc_params(rc_json_path, font_dirs)
     plt.rc("font", family="Arial")
 
@@ -164,11 +160,8 @@ if __name__ == "__main__":
             "y_max": y_max,
         }
 
-
     fig, axes = plt.subplots(nrows=1, ncols=len(label_keys), figsize=(4.5, 3.0))
     subfigure_label_counter = 0
-
-
 
     col_start = 0
     for i, label_data in enumerate(label_keys):
@@ -183,9 +176,7 @@ if __name__ == "__main__":
         # Plot each system in a single subplot
         for sys_lbl in labels_sys_order:
             pdf_y = pdfs_dict[sys_lbl]
-            ax.plot(
-                x_vals, pdf_y, color=colors_sys[sys_lbl], lw=1.5, label=sys_lbl
-            )
+            ax.plot(x_vals, pdf_y, color=colors_sys[sys_lbl], lw=1.5, label=sys_lbl)
 
         # Aesthetics
         ax.set_xlim(*quantities_to_plot[label_data]["xlims"])
@@ -200,7 +191,7 @@ if __name__ == "__main__":
         # Label x-axis depending on distance or dihedral
         ax.set_xlabel(f"{label_data} [Å]", fontsize=8)
 
-        if i == len(label_keys)-1:
+        if i == len(label_keys) - 1:
             ax.legend(frameon=False)
 
         col_start += 1
@@ -210,4 +201,3 @@ if __name__ == "__main__":
 
     fig.tight_layout()
     plt.savefig("fig007.svg")
-

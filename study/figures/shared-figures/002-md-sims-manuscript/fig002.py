@@ -13,13 +13,6 @@ from metalflare.analysis.figures import use_mpl_rc_params
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-# If you want to use your custom style:
-# from metalflare.analysis.figures import use_mpl_rc_params
-
-###############################################################################
-# 1) DEFINE YOUR PLOT CONFIGURATIONS
-###############################################################################
-
 # System paths and their color mapping
 paths_system = {
     "Reduced": "005-rogfp-glh-md",
@@ -33,13 +26,6 @@ colors_sys = {
     "Cu(I)": "#f99752",
 }
 
-# ----------------------------------------------------------------
-# The main dictionary describing *all* quantities to plot:
-#  - "filename" is the basename of your .npy file (no .npy extension).
-#  - "type" can be "distance" or "dihedral".
-#  - "xlims" is your desired plot range.
-#  - Optional "bin_width" and "bw_method" for the KDE can be set individually.
-# ----------------------------------------------------------------
 
 quantities_to_plot = {
     r"Cys147 C$\bf{\alpha}$ – Cys204 C$\bf{\alpha}$": {
@@ -51,6 +37,15 @@ quantities_to_plot = {
         "ridge": False,
         "label": "A",
     },
+    "Gln94 NE2 – Cro66 O3": {
+        "filename": "cro65_o3-gln92_ne2-dist",
+        "type": "distance",
+        "xlims": (2.0, 7.0),
+        "bin_width": 0.05,
+        "bw_method": 0.04,
+        "ridge": False,
+        "label": "B",
+    },
     r"Cro66 $\bf{\Psi}$": {
         "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
         "type": "dihedral",
@@ -58,7 +53,7 @@ quantities_to_plot = {
         "bin_width": 1.0,
         "bw_method": 0.004,
         "ridge": False,
-        "label": "E",
+        "label": "C",
     },
     "Thr203 HG1": {
         "filename": "cro65_oh-thr201_hg1-dist",
@@ -67,7 +62,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
-        "label": "B",
+        "label": "D",
     },
     "Tyr145 HH": {
         "filename": "cro65_oh-tyr143_hh-dist",
@@ -76,7 +71,7 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
-        "label": "C",
+        "label": "E",
     },
     "His148 HD1": {
         "filename": "cro65_oh-his146_hd1-dist",
@@ -85,13 +80,9 @@ quantities_to_plot = {
         "bin_width": 0.05,
         "bw_method": 0.04,
         "ridge": True,
-        "label": "D",
+        "label": "F",
     },
 }
-
-###############################################################################
-# 2) HELPER FUNCTIONS
-###############################################################################
 
 
 def load_raw_data(base_dir, path_sys, q_info):
@@ -153,10 +144,6 @@ def add_subfigure_label(ax, label, loc=(0.05, 0.91), fontsize=12, fontweight="bo
     )
 
 
-###############################################################################
-# 3) MAIN SCRIPT
-###############################################################################
-
 if __name__ == "__main__":
     base_dir = "../../../"
 
@@ -164,7 +151,10 @@ if __name__ == "__main__":
     rc_json_path = os.path.join(
         base_dir, "misc/003-figure-style/matplotlib-rc-params.json"
     )
-    font_dirs = [os.path.join(base_dir, "misc/003-figure-style/roboto"), os.path.join(base_dir, "misc/003-figure-style/arial")]
+    font_dirs = [
+        os.path.join(base_dir, "misc/003-figure-style/roboto"),
+        os.path.join(base_dir, "misc/003-figure-style/arial"),
+    ]
     use_mpl_rc_params(rc_json_path, font_dirs)
     plt.rc("font", family="Arial")
 
@@ -342,7 +332,7 @@ if __name__ == "__main__":
                     ax_ridge.set_ylabel("Probability Density")
                     ax_ridge.yaxis.set_label_position("right")
 
-    fig.text(0.562, 0.488, "F", fontsize=12, fontweight="bold")
+    fig.text(0.562, 0.488, "G", fontsize=12, fontweight="bold")
 
     gs.update(hspace=-0.735)
 
@@ -364,7 +354,7 @@ if __name__ == "__main__":
 
     # Manually set viewBox and fix width/height if needed
     dpi = 600
-    root.set("viewBox", f"0 0 {7*72} {5*72}")
+    root.set("viewBox", f"0 0 {7 * 72} {5 * 72}")
     root.set("width", "7in")
     root.set("height", "5in")
 
