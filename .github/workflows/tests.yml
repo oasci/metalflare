@@ -17,10 +17,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install pixi
-        uses: prefix-dev/setup-pixi@v0.8.1
+        uses: prefix-dev/setup-pixi@v0.8.8
+        with:
+          locked: false
+          frozen: false
+          cache: true
+          cache-write: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
 
       - name: Setup environment
-        run: pixi install
+        run: pixi install -e dev
 
       - name: Run tests
         run: pixi run tests

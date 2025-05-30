@@ -5116,8 +5116,8 @@ packages:
   timestamp: 1726573576112
 - pypi: .
   name: metalflare
-  version: 0.0.0
-  sha256: e5386204afdea85c9c869a7ec45f72c6ccc3303a8586c47dfc5e038df4f0edae
+  version: 2025.5.29
+  sha256: cb6a9cb75fb975a5a7c01a89b320df7baf481c620ebcad1648f8595ec20c134a
   requires_dist:
   - loguru>=0.7.2
   - mdanalysis>=2.6.1
