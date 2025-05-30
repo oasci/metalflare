@@ -28,7 +28,7 @@ colors_sys = {
 
 
 quantities_to_plot = {
-    r"Cys147 C$\bf{\alpha}$ – Cys204 C$\bf{\alpha}$": {
+    r"Cys147 C$\alpha$ – Cys204 C$\alpha$": {
         "filename": "cys145_ca-cys202_ca-dist",
         "type": "distance",
         "xlims": (3.0, 7.0),
@@ -36,6 +36,7 @@ quantities_to_plot = {
         "bw_method": 0.04,
         "ridge": False,
         "label": "A",
+        "y_max_factor": 0.1,
     },
     "Gln94 NE2 – Cro66 O3": {
         "filename": "cro65_o3-gln92_ne2-dist",
@@ -45,8 +46,9 @@ quantities_to_plot = {
         "bw_method": 0.04,
         "ridge": False,
         "label": "B",
+        "y_max_factor": 0.70,
     },
-    r"Cro66 $\bf{\Psi}$": {
+    r"Cro66 $\Psi$": {
         "filename": "cro65_n3_ca3_c3-val66_n-dihedral",
         "type": "dihedral",
         "xlims": (-120, 240),
@@ -54,6 +56,7 @@ quantities_to_plot = {
         "bw_method": 0.004,
         "ridge": False,
         "label": "C",
+        "y_max_factor": 0.3,
     },
     "Thr203 HG1": {
         "filename": "cro65_oh-thr201_hg1-dist",
@@ -131,7 +134,7 @@ def compute_kde_for_quantity(all_data, q_info):
     return x_values, results, y_max
 
 
-def add_subfigure_label(ax, label, loc=(0.05, 0.91), fontsize=12, fontweight="bold"):
+def add_subfigure_label(ax, label, loc=(0.07, 0.91), fontsize=12, fontweight="normal"):
     """Add subfigure label (e.g., A, B, C) to a given axis."""
     ax.text(
         *loc,
@@ -157,6 +160,7 @@ if __name__ == "__main__":
     ]
     use_mpl_rc_params(rc_json_path, font_dirs)
     plt.rc("font", family="Arial")
+    plt.rc("axes", labelweight="normal")
 
     # Separate items into ridge vs. other
     ridge_keys = [k for k, v in quantities_to_plot.items() if v.get("ridge", False)]
@@ -202,7 +206,7 @@ if __name__ == "__main__":
     n_rows = n_systems + n_buffer + 1  # 1 row for "other", plus 1 row per system
     fig = plt.figure(figsize=(7.0, 5.0))
     gs = gridspec.GridSpec(
-        nrows=n_rows, ncols=n_ridge, bottom=0.05, top=0.99, left=0.09, right=0.98
+        nrows=n_rows, ncols=n_ridge, bottom=0.075, top=0.99, left=0.09, right=0.98
     )
     subfigure_label_counter = 0
 
@@ -235,7 +239,9 @@ if __name__ == "__main__":
 
             # Aesthetics
             ax_other.set_xlim(*quantities_to_plot[label_data]["xlims"])
-            ax_other.set_ylim(0, y_max + 0.1 * y_max)
+            ax_other.set_ylim(
+                0, y_max + quantities_to_plot[label_data]["y_max_factor"] * y_max
+            )
 
             # If it's the first "other" item, put a y-axis label
             if i == 0:
@@ -245,9 +251,9 @@ if __name__ == "__main__":
             # Label x-axis depending on distance or dihedral
             q_type = quantities_to_plot[label_data]["type"]
             if q_type == "distance":
-                ax_other.set_xlabel(f"{label_data} [Å]")
+                ax_other.set_xlabel(f"{label_data} (Å)")
             else:
-                ax_other.set_xlabel(f"{label_data} [°]")
+                ax_other.set_xlabel(f"{label_data} (degrees)")
 
             if i == 0:
                 ax_other.legend(frameon=False)
@@ -299,9 +305,8 @@ if __name__ == "__main__":
             # label the x-axis with the quantity name
             if sys_lbl == labels_sys_order[-1]:
                 ax_ridge.set_xticks([2, 4, 6, 8])
-                if j == 0:
-                    ax_ridge.set_xticklabels([])
-                    ax_ridge.set_xlabel("Distance [Å]", labelpad=-1)
+                if j == 1:
+                    ax_ridge.set_xlabel("Distance from Cro66 (Å)", labelpad=-1)
 
             # If this is the leftmost column (j==0), we can label the system
             # (like your text() usage or a y-axis label)
@@ -310,7 +315,7 @@ if __name__ == "__main__":
                     quantities_to_plot[label_data]["xlims"][0] - 0.2,
                     0.0,
                     sys_lbl,
-                    fontweight="bold",
+                    fontweight="normal",
                     ha="right",
                     va="bottom",
                 )
@@ -321,18 +326,14 @@ if __name__ == "__main__":
                     label_data,
                     loc=(0.52, 0.5),
                     fontsize=8,
-                    fontweight="bold",
+                    fontweight="normal",
                 )
                 add_subfigure_label(
                     ax_ridge, quantities_to_plot[label_data]["label"], loc=(0.52, 0.7)
                 )
                 subfigure_label_counter += 1
-            if j == 2:
-                if i_system == 2:
-                    ax_ridge.set_ylabel("Probability Density")
-                    ax_ridge.yaxis.set_label_position("right")
 
-    fig.text(0.562, 0.488, "G", fontsize=12, fontweight="bold")
+    fig.text(0.610, 0.501, "G", fontsize=12, fontweight="normal")
 
     gs.update(hspace=-0.735)
 
@@ -345,8 +346,8 @@ if __name__ == "__main__":
         "5in",
         compose.SVG("fig002.svg", fix_mpl=True),
         compose.SVG("gfp-relevant-residues.svg")
-        .scale(0.70)
-        .move(300, 160),  # adjust scale & position
+        .scale(0.65)
+        .move(313, 177),  # adjust scale & position
     ).save("fig002.svg")
 
     tree = ET.parse("fig002.svg")
