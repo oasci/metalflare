@@ -1,57 +1,74 @@
-<h1 align="center">MetalFlare</h1>
+<h1 align="center">metalflare</h1>
 
-<h4 align="center">Investigating metal-sensing green fluorescent protein</h4>
+<h4 align="center">Computational investigation of a Cu(I)-sensing green fluorescent protein</h4>
 
-TODO:
+<p align="center">
+    <a href="https://github.com/oasci/metalflare/releases">
+        <img src="https://img.shields.io/github/v/release/oasci/metalflare" alt="GitHub release (latest by date)">
+    </a>
+    <a href="https://github.com/oasci/metalflare/" target="_blank">
+        <img src="https://img.shields.io/github/repo-size/oasci/metalflare" alt="GitHub repo size">
+    </a>
+</p>
 
-## Communication
 
-> No research should be done alone.
+Metalflare is a computational study investigating the molecular mechanisms underlying copper(I) sensing by roGFP2, a genetically encoded fluorescent protein.
+This work combines molecular dynamics simulations with experimental validation to understand how roGFP2 achieves sub-femtomolar Cu(I) binding affinity and generates robust ratiometric fluorescence changes.
 
-We use [this repository's issues](https://github.com/oasci/metalflare/issues) as our todo list.
-Asynchronous conversations about any of the tasks should be included as issue comments.
-Synchronous meetings happening in-person or virtually should have meeting minutes stored in the [appropriate directory](study/management/03-meetings).
+The project explores the structural basis for roGFP2's dual functionality as both a redox sensor and copper probe, revealing distinct spectroscopic signatures and molecular mechanisms for each sensing mode.
 
-## Deploying
+## Background
 
-We use [bump-my-version](https://github.com/callowayproject/bump-my-version) to release a new version.
-This will create a git tag that is used by [poetry-dynamic-version](https://github.com/mtkennerly/poetry-dynamic-versioning) to generate version strings.
+Copper is essential for cellular processes including mitochondrial respiration, antioxidant defense, and neurotransmission, yet excess copper can trigger toxic redox reactions and cell death.
+Cells maintain extremely low free copper concentrations, making intracellular copper detection challenging.
+While genetically encoded sensors have revolutionized calcium and zinc imaging, copper detection has proven uniquely difficult due to copper's low bioavailability, tight coordination, and redox lability.
+This study demonstrates that roGFP2, originally engineered as a redox sensor, can serve as a high-affinity Cu(I) probe with superior performance compared to existing copper sensors.
 
-However, we are using [Calendar Versioning](https://calver.org/) which means we need to manually specify new versions.
-For example, to bump the version to November 8, 2024, you would run the following command after activating the relevant conda environment.
+## Computational Methods
+
+This repository contains all scripts for preparing, running, and analyzing classical molecular dynamics simulations performed on three roGFP2 states.
+
+- **Structures**: Reduced (PDB: 1JC0), oxidized (PDB: 1JC1), and Cu(I)-bound roGFP2.
+- **Environment**: Explicit water with 150 mM NaCl.
+- **Conditions**: NPT ensemble at 300 K and 1 atm.
+- **Duration**: Three independent trajectories of 500 ns each (1.5 μs total per system).
+- **Analysis**: Structural dynamics, hydrogen bonding networks, and chromophore conformations.
+
+## Key Computational Findings
+
+Molecular dynamics simulations reveal that Cu(I) coordinates directly between Cys147 and Cys204, causing an expansion of the Cα-Cα distance by approximately 0.44 Å compared to the reduced state.
+This metal binding propagates allosteric changes to the chromophore environment, particularly disrupting the critical Gln94-chromophore hydrogen bond that normally stabilizes fluorescence.
+The resulting enhanced chromophore flexibility opens non-radiative decay pathways, explaining the selective B-band quenching observed experimentally.
+
+## Getting Started
+
+This project uses [Pixi](https://prefix.dev/docs/pixi/) for reproducible environment management.
+You'll need to install Pixi first:
 
 ```bash
-bump-my-version bump --new-version 2024.11.8
+curl -sSL https://prefix.dev/install.sh | bash
 ```
 
-After releasing a new version, you need to push and include all tags.
+Clone the repository and set up the computational environment:
 
 ```bash
-git push --follow-tags
+git clone https://github.com/oasci/metalflare.git
+cd metalflare
+pixi install
 ```
+
+This installs Python along with all required dependencies including MDAnalysis, scientific computing libraries, and specialized tools like AmberTools and PyMOL for molecular analysis.
 
 ## License
 
-Code contained in this project is released under the [GPLv3 license][gplv3] as specified in `LICENSE.md`.
-All other data, information, documentation, and associated content provided within this project are released under the [CC BY-ND 4.0 license][cc-by-nd-4.0] as specified in `LICENSE_INFO.md`.
-
-Any future release of this project may be distributed under alternative, more permissive terms.
-For example, a future release might use the following licenses:
-
--   Code: [MIT][mit] license as specified in `.LICENSE.md`.
--   Other Content: [CC BY 4.0][cc-by-4.0] license as specified in `.LICENSE_INFO.md`.
-
-*Please note: This change applies only to new releases.*
-*Versions of the project distributed beforehand will remain governed by the GPLv3 and CC BY‑ND 4.0 licenses.*
-*The maintainers reserve the right to implement a permissive release at any time by updating the license files and this section accordingly.*
+Code contained in this project is released under the [MIT][mit] as specified in [`LICENSE.md`](https://github.com/oasci/metalflare/blob/main/LICENSE.md).
+All other data, information, documentation, and associated content provided within this project are released under the [CC BY 4.0][cc-by-4.0] as specified in [`LICENSE_INFO.md`](https://github.com/oasci/metalflare/blob/main/LICENSE_INFO.md).
 
 ## Web analytics
 
 We track website traffic using [plausible][plausible] which is privacy friendly, uses no cookies, and is compliant with [GDPR][gdpr], [CCPA][ccpa] and [PECR][pecr].
 We also share [this website's analytics with you][plausible-link] for more transparency.
 
-[gplv3]: https://spdx.org/licenses/GPL-3.0-only.html
-[cc-by-nd-4.0]: https://creativecommons.org/licenses/by-nd/4.0/
 [mit]: https://spdx.org/licenses/MIT.html
 [cc-by-4.0]: https://creativecommons.org/licenses/by/4.0/
 [plausible]: https://plausible.io

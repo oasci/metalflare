@@ -90,42 +90,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-## mseGFP
-
-[Metal-sensing GFP (mseGFP)][8dta] is similar to roGFP2, but mutates `S147C` and `S202C` from [eGFP][2y0g].
-Since roGFP2 can no longer make the `147`-`204` disulfide bond, all mseGFP simulations will start from the [reduced form](#reduced-form) with `C204S` and `S202C` mutations.
-
-!!! note
-
-    Due to renumbering residues in our [protein preparation pipeline](../02-protein-prep.md), these residues are `145` and `200` in our simulations.
-<!--
-<div id="msegfp-view" class="mol-container"></div>
-<script>
-var uri = 'https://files.rcsb.org/view/8DTA.pdb';
-jQuery.ajax( uri, {
-    success: function(data) {
-        // https://3dmol.org/doc/GLViewer.html
-        let viewer = $3Dmol.createViewer(
-            document.querySelector('#msegfp-view'),
-            { backgroundAlpha: '0.0' }
-        );
-        viewer.addModel( data, 'pdb' );
-        viewer.setStyle({chain: 'A'}, {cartoon: {color: 'spectrum'}});
-        viewer.setStyle({chain: 'A', resn: 'CRO'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer.setStyle({chain: 'A', resi: '147'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer.setStyle({chain: 'A', resi: '202'}, {stick: {}, cartoon: {color: "spectrum"}});
-        viewer.setView([ -60.64682338153259, -20.114962159611807, 0.5702077286702113, 80.5194132281471, -0.15077826938374425, 0.19679882644092048, -0.8102144809849335, -0.5311201654949984 ]);
-        viewer.render();
-    },
-    error: function(hdr, status, err) {
-        console.error( "Failed to load " + uri + ": " + err );
-    },
-});
-</script> -->
-
-<!-- LINKS -->
-
 [egfp paper]: https://doi.org/10.1038/373663b0
+<h1 align="center">MetalFlare</h1>
+
+<h4 align="center">Computational investigation of a Cu(I)-sensing green fluorescent protein</h4>
+
+<p align="center">
+    <a href="https://github.com/oasci/metalflare/releases">
+        <img src="https://img.shields.io/github/v/release/oasci/metalflare" alt="GitHub release (latest by date)">
+    </a>
+    <a href="https://github.com/oasci/metalflare/" target="_blank">
+        <img src="https://img.shields.io/github/repo-size/oasci/metalflare" alt="GitHub repo size">
+    </a>
+</p>
+
+
+TODO:
+
+
+## License
+
+Code contained in this project is released under the [MIT][mit] as specified in [`LICENSE.md`](https://github.com/oasci/metalflare/blob/main/LICENSE.md).
+All other data, information, documentation, and associated content provided within this project are released under the [CC BY 4.0][cc-by-4.0] as specified in [`LICENSE_INFO.md`](https://github.com/oasci/metalflare/blob/main/LICENSE_INFO.md).
+
+## Web analytics
+
+We track website traffic using [plausible][plausible] which is privacy friendly, uses no cookies, and is compliant with [GDPR][gdpr], [CCPA][ccpa] and [PECR][pecr].
+We also share [this website's analytics with you][plausible-link] for more transparency.
+
+[mit]: https://spdx.org/licenses/MIT.html
+[cc-by-4.0]: https://creativecommons.org/licenses/by/4.0/
+[plausible]: https://plausible.io
+[plausible-link]: https://plausible.io/metalflare.oasci.org
+[gdpr]: https://gdpr-info.eu/
+[ccpa]: https://oag.ca.gov/privacy/ccpa
+[pecr]: https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/what-are-pecr/
 [1jc0]: https://www.rcsb.org/structure/1jc0
 [1jc1]: https://www.rcsb.org/structure/1jc1
 [rogfp paper]: https://doi.org/10.1074/jbc.M312846200

@@ -1,29 +1,20 @@
 # 02 - Protein preparation from RCSB
 
-Protein Data Bank (PDB) files are not immediately usable for MD simulations.
-Thus, we have to perform several steps to clean and prepare our PDB files.
+Crystallographic structures from the Protein Data Bank require extensive preprocessing before use in molecular dynamics simulations. Raw PDB files contain artifacts, missing atoms, and structural inconsistencies that must be addressed systematically. Our pipeline consists of five distinct stages, each handling specific aspects of structure preparation and simulation setup.
 
-## Logging
+The complete workflow proceeds through: (1) protein structure cleaning and optimization, (2) force field parameterization and solvation, (3) energy minimization preparation, (4) equilibration protocol setup, and (5) production simulation configuration. Each stage builds upon the previous one, ensuring reproducibility and maintaining careful control over simulation conditions.
 
-First, we specify some environmental variables for metalflare.
-This is mostly to enable logging.
+### Initial Structure Acquisition and Processing
 
-```bash
-export METALFLARE_LOG=True
-export METALFLARE_STDOUT=True
-export METALFLARE_LOG_LEVEL=10
-```
-
-## Download PDB
-
-First, we download the protein from [RCSB](https://www.rcsb.org/).
-For an example, we will be using [1JC0](https://www.rcsb.org/structure/1JC0).
+The preparation begins with downloading the target structure (1JC0) from the RCSB Protein Data Bank. This particular structure represents the reduced form of roGFP2, which serves as our reference state for Cu(I) binding investigations. The crystallographic structure contains multiple chains, solvent molecules, and crystallization artifacts that require systematic removal or modification.
 
 ```bash
-wget https://files.rcsb.org/download/$PDB_ID.pdb -O $SAVE_DIR/0-$PDB_ID.pdb
+export PDB_ID="1JC0"
+wget https://files.rcsb.org/download/$PDB_ID.pdb -O structures/protein/0-$PDB_ID.pdb
 ```
 
-We receive the following structure.
+The initial download yields the complete crystallographic asymmetric unit, including multiple protein chains and extensive crystallographic waters.
+
 
 <div id="original-pdb" class="mol-container"></div>
 <script>
@@ -48,10 +39,19 @@ jQuery.ajax( uri, {
 });
 </script>
 
-## Select protein
+
+For our simulation purposes, we focus exclusively on chain A, which contains the complete roGFP2 structure with the characteristic chromophore and cysteine residues critical for Cu(I) coordination.
+
+### Chain Selection and Water Retention
+
+Chain selection removes extraneous protein chains while preserving crystallographic waters that may play important structural roles. The `metalflare-select-atoms` utility employs MDAnalysis selection syntax to isolate chain A while maintaining all solvent molecules:
+
+```bash
+metalflare-select-atoms 0-1JC0.pdb 1-1JC0-chain-A.pdb --select_str "chainID A"
+```
 
 We will only be working with one protein and need to select chain `A`.
-We use the [`metalflare-select-atoms`][pdb.select.cli_select_atoms] script which just drives [`pdb.select.run_select_atoms()`][pdb.select.run_select_atoms].
+We use the `metalflare-select-atoms` script which just drives `pdb.select.run_select_atoms()`.
 
 ```bash
 metalflare-select-atoms $SAVE_DIR/0-$PDB_ID.pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb --select_str "chainID A"
@@ -84,126 +84,106 @@ jQuery.ajax( uri, {
 });
 </script>
 
-## Minify PDB lines
+This selective approach is crucial because crystallographic waters often occupy functionally important positions, particularly those coordinating with the chromophore or stabilizing key structural elements. Removing these waters indiscriminately can create artificial cavities or destabilize important hydrogen bonding networks during subsequent simulation.
 
-Keep only `ATOM` and `HETATM` lines.
+### Structure Filtering and Coordinate Optimization
 
-```bash
-metalflare-filter-pdb $SAVE_DIR/1-$PDB_ID-chain-A.pdb  --output $SAVE_DIR/2-$PDB_ID-filtered.pdb
-```
-
-## Centering
-
-```text
-ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
-HETATM  474  N1  CRO A  65     173.570   8.493  40.293  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  65     174.025   7.483  41.259  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  65     175.255   6.742  40.591  1.00 31.02      A    C
-```
+The filtering step removes non-essential PDB records, retaining only `ATOM` and `HETATM` entries necessary for molecular dynamics. This cleanup eliminates crystallographic metadata, experimental annotations, and other records that can interfere with downstream force field assignment:
 
 ```bash
-metalflare-center $SAVE_DIR/2-$PDB_ID-filtered.pdb --output $SAVE_DIR/3-$PDB_ID-centered.pdb
+metalflare-filter-pdb 1-1JC0-chain-A.pdb --output 2-1JC0-filtered.pdb
 ```
 
-```text
-ATOM    471  CG  LEU A  64      -1.838  -0.100  -6.847  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64      -0.988  -0.349  -8.074  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64      -3.307  -0.493  -7.106  1.00 33.01      A    C
-HETATM  474  N1  CRO A  65      -0.357  -1.387  -2.705  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  65       0.098  -2.397  -1.739  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  65       1.328  -3.138  -2.407  1.00 31.02      A    C
-```
-
-## Rotate structure
-
-Will attempt to rotate the structure in order to minimize the number of water molecules we will add later.
+Following filtration, the structure undergoes geometric centering to position the protein at the coordinate system origin. This centering simplifies subsequent box construction and ensures consistent placement across different simulation systems:
 
 ```bash
-metalflare-minimize-box $SAVE_DIR/3-$PDB_ID-centered.pdb --output $SAVE_DIR/4-$PDB_ID-rotated.pdb
+metalflare-center 2-1JC0-filtered.pdb --output 3-1JC0-centered.pdb
 ```
 
-For our 1JC0 example, the box volume decreased from 88 063 to 71 986 Å<sup>3</sup> after this script, which decreases the number of water molecules by at least 500.
+### Rotational Optimization for Solvation Efficiency
 
-## Unify residue IDs
-
-```text
-ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
-HETATM  474  N1  CRO A  66     173.570   8.493  40.293  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  66     174.025   7.483  41.259  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  66     175.255   6.742  40.591  1.00 31.02      A    C
-```
+The rotational optimization step represents a critical but often overlooked aspect of simulation preparation. The `metalflare-minimize-box` utility systematically tests different protein orientations to identify the configuration that minimizes the required solvation volume:
 
 ```bash
-metalflare-unify-resids $SAVE_DIR/4-$PDB_ID-rotated.pdb --output $SAVE_DIR/5-$PDB_ID-residues.pdb
+metalflare-minimize-box 3-1JC0-centered.pdb --output 4-1JC0-rotated.pdb
 ```
 
-```text
-ATOM    471  CG  LEU A  64     172.089   9.780  36.151  1.00 35.35      A    C
-ATOM    472  CD1 LEU A  64     172.939   9.531  34.924  1.00 28.06      A    C
-ATOM    473  CD2 LEU A  64     170.620   9.387  35.892  1.00 33.01      A    C
-HETATM  474  N1  CRO A  65     173.570   8.493  40.293  1.00 24.05      A    N
-HETATM  475  CA1 CRO A  65     174.025   7.483  41.259  1.00 25.10      A    C
-HETATM  476  CB1 CRO A  65     175.255   6.742  40.591  1.00 31.02      A    C
-```
+This reduction significantly decreases computational requirements while maintaining proper solvation around all protein surfaces. The algorithm evaluates multiple rotational configurations and selects the orientation that achieves the most compact solvation shell without creating buried surfaces or artificial contacts.
 
-## Residue states
+### Residue Numbering and Chemical State Assignment
 
-### Methionine
-
-Methionine (`MET`) residues are often artificially changed to selenomethionine (`MSE`) to ensure proper crystallization by multi-wavelength anomalous dispersion.
-We almost always want to model with the wild-type `MET`, so we replace any `MSE` with `MET` residues and `Se` atoms to `S`.
+Crystallographic structures often contain inconsistent residue numbering or non-standard residue designations that must be standardized for force field compatibility. The unification process ensures sequential residue numbering and consistent chain identifiers:
 
 ```bash
-metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb MSE MET --output $SAVE_DIR/5-$PDB_ID-residues.pdb
+metalflare-unify-resids 4-1JC0-rotated.pdb --output 5-1JC0-residues.pdb
 ```
 
-### Cysteine
+### Chemical Modifications and Protonation State Management
 
-<!-- Amber uses `CYX` instead of `CYS` to indicate that cysteine residues are involved in disulfide bonds.
-Often this has to be manually inspected and changed.
-If you want to convert all `CYX` to `CYS` residues to ensure no disulfide bonds are present, you can use the following script. -->
+#### Selenomethionine Conversion
+
+Crystallographic structures frequently contain selenomethionine (MSE) residues introduced during crystallization for phasing purposes. These artificial modifications must be reverted to native methionine residues for accurate simulation:
 
 ```bash
-metalflare-rename-resname $SAVE_DIR/5-$PDB_ID-residues.pdb CYS CYM --include 145 202 --output $SAVE_DIR/5-$PDB_ID-residues.pdb
+metalflare-rename-resname 5-1JC0-residues.pdb MSE MET --output 5-1JC0-residues.pdb
 ```
 
-## Protonation and steric clashes
+#### Cysteine State Assignment
 
-[PDB2PQR][pdb2pqr] predicts protonation states of histidine (`HIS`), aspartic acid (`ASP`), glutamic acid (`GLU`), lysine (`LYS`).
+The roGFP2 structure contains two critical cysteine residues (Cys147 and Cys204) that coordinate Cu(I) binding. These residues must be properly configured in their reduced, thiol-bearing state to enable metal coordination. The deprotonated cysteine state (CYM) is assigned to these specific residues:
 
 ```bash
-pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER $SAVE_DIR/5-$PDB_ID-residues.pdb $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname 5-1JC0-residues.pdb CYS CYM --include 147 204 --output 5-1JC0-residues.pdb
 ```
 
-Sometimes [PDB2PQR][pdb2pqr] cannot process some atoms, so we need to add them back.
+This assignment is crucial because standard cysteine residues (CYS) model the protonated thiol form, which cannot coordinate metals effectively. The deprotonated cysteine state (CYM) provides the anionic sulfur atoms necessary for Cu(I) coordination chemistry.
+
+#### Glutamic Acid Protonation
+
+Specific glutamic acid residues may require protonation state adjustment based on local electrostatic environments and pH considerations. Residue 220 is converted to the protonated form (GLH) to maintain proper charge balance and local structural stability:
 
 ```bash
-metalflare-merge-pdbs $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb $SAVE_DIR/5-$PDB_ID-residues.pdb --output $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb
+metalflare-rename-resname 5-1JC0-residues.pdb GLU GLH --include 220 --output 5-1JC0-residues.pdb
 ```
 
-!!! warning
+### Automated Protonation State Prediction
 
-    [PDB2PQR][pdb2pqr] cannot process non-standard residues (e.g., the GFP chromophore) and thus cannot add hydrogens to them.
-    These are often added later using a program like tleap.
-
-## Unify water residues
+The PDB2PQR program provides automated protonation state assignment for ionizable residues based on local electrostatic environments and pH conditions. This tool addresses the fundamental challenge that crystallographic structures lack hydrogen atoms, which are essential for accurate force field modeling:
 
 ```bash
-metalflare-rename-resname $SAVE_DIR/6-$PDB_ID-pdb2pqr.pdb HOH WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
-metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
-metalflare-rename-resname $SAVE_DIR/7-$PDB_ID-resnames.pdb TIP3 WAT --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
-metalflare-unify-waters $SAVE_DIR/7-$PDB_ID-resnames.pdb --output $SAVE_DIR/7-$PDB_ID-resnames.pdb
+pdb2pqr --log-level INFO --ff=AMBER --keep-chain --ffout=AMBER 5-1JC0-residues.pdb 6-1JC0-pdb2pqr.pdb
 ```
 
-## pdb4amber
+PDB2PQR employs sophisticated algorithms to predict optimal protonation states for histidine, aspartic acid, glutamic acid, and lysine residues. The program considers local electrostatic interactions, hydrogen bonding opportunities, and bulk pH conditions to determine the most probable protonation pattern. However, PDB2PQR cannot process non-standard residues like the GFP chromophore, requiring manual intervention for these special cases.
+
+The merge operation combines PDB2PQR output with the original structure to recover any atoms that PDB2PQR could not process:
 
 ```bash
-pdb4amber -i $SAVE_DIR/7-$PDB_ID-resnames.pdb > $SAVE_DIR/8-$PDB_ID-pdb4amber.pdb 2> pdb4amber.err
+metalflare-merge-pdbs 6-1JC0-pdb2pqr.pdb 5-1JC0-residues.pdb --output 6-1JC0-pdb2pqr.pdb
 ```
+
+### Water Molecule Standardization
+
+Crystallographic structures may contain water molecules with various naming conventions (HOH, TIP, TIP3). Standardization to WAT ensures consistent recognition by Amber force field tools:
+
+```bash
+metalflare-rename-resname 6-1JC0-pdb2pqr.pdb HOH WAT --output 7-1JC0-resnames.pdb
+metalflare-rename-resname 7-1JC0-resnames.pdb TIP WAT --output 7-1JC0-resnames.pdb
+metalflare-rename-resname 7-1JC0-resnames.pdb TIP3 WAT --output 7-1JC0-resnames.pdb
+metalflare-unify-waters 7-1JC0-resnames.pdb --output 7-1JC0-resnames.pdb
+```
+
+The unification process also ensures that water molecules have consistent atom naming and connectivity, preventing force field assignment errors during subsequent parameterization steps.
+
+### Final Amber Compatibility Processing
+
+The pdb4amber utility performs final compatibility checks and modifications to ensure full compatibility with Amber force field tools:
+
+```bash
+pdb4amber -i 7-1JC0-resnames.pdb > 8-1JC0-pdb4amber.pdb 2> pdb4amber.err
+```
+
+This tool addresses Amber-specific requirements such as terminal residue modifications, special residue recognition, and atom naming conventions that differ from standard PDB formatting. The processed structure becomes the final input for force field parameterization and system construction.
 
 <!-- LINKS -->
 
