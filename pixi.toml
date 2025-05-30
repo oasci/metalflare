@@ -6,7 +6,7 @@ channels = ["conda-forge", "schrodinger"]
 description = "Investigating metal-sensing green fluorescent protein."
 name = "metalflare"
 platforms = ["linux-64"]
-version = "0.0.0"
+version = "2025.5.29"
 license = "Apache-2.0"
 readme = "README.md"
 

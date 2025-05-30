@@ -1,6 +1,6 @@
 [project]
 name = "metalflare"
-version = "0.0.0"
+version = "2025.5.29"
 description = "Investigating metal-sensing green fluorescent protein"
 authors = [
     {name = "OASCI", email = "us@oasci.org"}
